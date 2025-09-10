@@ -1,0 +1,22 @@
+{
+  "housing_types": {
+    "room": {
+      "name": "Комната с соседями",
+      "base_cost": 2,
+      "description": "Дешево, но минус нервы на событиях",
+      "effects": ["nerves_penalty_events"]
+    },
+    "apartment": {
+      "name": "Квартира в аренду", 
+      "base_cost": 4,
+      "description": "Дороже, но без штрафов к нервам",
+      "effects": []
+    },
+    "mortgage": {
+      "name": "Ипотека",
+      "base_cost": 8,
+      "description": "Очень дорого, но может быть условием победы",
+      "effects": ["victory_condition"]
+    }
+  }
+}

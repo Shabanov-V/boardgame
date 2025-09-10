@@ -1,0 +1,581 @@
+{
+  "housing_cards": [
+    {
+      "id": "housing_01",
+      "name": "Прорвало трубу",
+      "category": "housing",
+      "type": "negative",
+      "description": "Авария с водопроводом в квартире",
+      "effects": {
+        "nerves": -2,
+        "money": -3
+      },
+      "flavor_text": "Fontanero стоит дорого"
+    },
+    {
+      "id": "housing_02",
+      "name": "Соседи шумят",
+      "category": "housing",
+      "type": "negative",
+      "description": "Вечеринка у соседей до утра",
+      "effects": {
+        "nerves": -1,
+        "money": 0
+      },
+      "conditions": {
+        "housing_type": "room"
+      },
+      "flavor_text": "Reggaeton hasta las 6 de la mañana"
+    },
+    {
+      "id": "housing_03",
+      "name": "Повышение аренды",
+      "category": "housing",
+      "type": "dice_challenge",
+      "description": "Хозяин поднял арендную плату",
+      "challenge": {
+        "skill_type": "language",
+        "description": "Нужно договориться с хозяином о цене",
+        "outcomes": {
+          "success": {
+            "condition": ">4",
+            "description": "Убедили хозяина оставить старую цену",
+            "effects": {
+              "nerves": 1,
+              "money": 0
+            }
+          },
+          "partial": {
+            "condition": "2-4", 
+            "description": "Договорились на небольшое повышение",
+            "effects": {
+              "nerves": -1,
+              "money": -1
+            }
+          },
+          "failure": {
+            "condition": "1",
+            "description": "Хозяин поднял цену еще больше из вредности",
+            "effects": {
+              "nerves": -2,
+              "money": -3
+            }
+          }
+        }
+      },
+      "flavor_text": "Negociación nivel Dios"
+    },
+    {
+      "id": "housing_04",
+      "name": "Кондиционер сломался",
+      "category": "housing",
+      "type": "negative",
+      "description": "В разгар лета отказал кондиционер",
+      "effects": {
+        "nerves": -2,
+        "money": -2
+      },
+      "flavor_text": "40 градусов и нет aire acondicionado"
+    },
+    {
+      "id": "housing_05",
+      "name": "Отличный сосед",
+      "category": "housing",
+      "type": "positive",
+      "description": "Новый сосед оказался прекрасным человеком",
+      "effects": {
+        "nerves": 1,
+        "money": 0
+      },
+      "flavor_text": "Помог с переводом документов"
+    },
+    {
+      "id": "housing_06",
+      "name": "Тараканы",
+      "category": "housing",
+      "type": "negative",
+      "description": "Нашествие тараканов в квартире",
+      "effects": {
+        "nerves": -2,
+        "money": -1
+      },
+      "flavor_text": "Fumigación urgente"
+    },
+    {
+      "id": "housing_07",
+      "name": "WiFi отключили",
+      "category": "housing",
+      "type": "negative",
+      "description": "Проблемы с интернетом в доме",
+      "effects": {
+        "nerves": -1,
+        "money": 0
+      },
+      "flavor_text": "Без интернета как без рук"
+    },
+    {
+      "id": "housing_08",
+      "name": "Скидка на аренду",
+      "category": "housing",
+      "type": "positive",
+      "description": "Хозяин дал скидку за хорошее поведение",
+      "effects": {
+        "nerves": 1,
+        "money": 2
+      },
+      "flavor_text": "Inquilino perfecto bonus"
+    },
+    {
+      "id": "housing_09",
+      "name": "Затопили соседи",
+      "category": "housing", 
+      "type": "dice_challenge",
+      "description": "Соседи сверху устроили потоп",
+      "challenge": {
+        "skill_type": "language",
+        "description": "Нужно объясниться с соседом на испанском",
+        "outcomes": {
+          "success": {
+            "condition": ">4",
+            "description": "Сосед все оплатил сам, еще и компенсировал",
+            "effects": {
+              "choice": [
+                {"nerves": 1, "money": 0},
+                {"nerves": 0, "money": 1}
+              ]
+            }
+          },
+          "partial": {
+            "condition": "2-4",
+            "description": "Сосед компенсировал большую часть расходов",
+            "effects": {
+              "choice": [
+                {"nerves": -1, "money": 0},
+                {"nerves": 0, "money": -1}
+              ]
+            }
+          },
+          "failure": {
+            "condition": "1",
+            "description": "Сосед не компенсировал ничего, еще и поругались",
+            "effects": {
+              "nerves": -2,
+              "money": -3
+            }
+          }
+        }
+      },
+      "flavor_text": "¿Cómo se dice 'потоп' на español?"
+    },
+    {
+      "id": "housing_10",
+      "name": "Лифт сломался",
+      "category": "housing",
+      "type": "negative",
+      "description": "Лифт в доме не работает уже неделю",
+      "effects": {
+        "nerves": -1,
+        "money": 0
+      },
+      "flavor_text": "5 этаж пешком каждый день"
+    },
+    {
+      "id": "housing_11",
+      "name": "Нашли идеальную квартиру",
+      "category": "housing",
+      "type": "positive",
+      "description": "Случайно наткнулись на отличное предложение",
+      "effects": {
+        "nerves": 0,
+        "money": 0
+      },
+      "conditions": {
+        "housing_search": true
+      },
+      "special_effect": "upgrade_housing",
+      "flavor_text": "Piso perfecto en Idealista"
+    },
+    {
+      "id": "housing_12",
+      "name": "Газ отключили",
+      "category": "housing",
+      "type": "negative",
+      "description": "Проблемы с газоснабжением в районе",
+      "effects": {
+        "nerves": -1,
+        "money": -1
+      },
+      "flavor_text": "Bocadillos вместо горячей еды"
+    },
+    {
+      "id": "housing_13",
+      "name": "Хороший ремонт",
+      "category": "housing",
+      "type": "positive",
+      "description": "Хозяин сделал косметический ремонт",
+      "effects": {
+        "nerves": 1,
+        "money": 0
+      },
+      "flavor_text": "Como nuevo el piso"
+    },
+    {
+      "id": "housing_14",
+      "name": "Шумная стройка",
+      "category": "housing",
+      "type": "negative", 
+      "description": "Рядом с домом началась стройка",
+      "effects": {
+        "nerves": -2,
+        "money": 0
+      },
+      "flavor_text": "Obras desde las 8 утра"
+    },
+    {
+      "id": "housing_15",
+      "name": "Отопление не работает",
+      "category": "housing",
+      "type": "negative",
+      "description": "Зимой отказала система отопления",
+      "effects": {
+        "nerves": -2,
+        "money": -2
+      },
+      "flavor_text": "Calefacción rota en enero"
+    },
+    {
+      "id": "housing_16",
+      "name": "Сосед-музыкант",
+      "category": "housing",
+      "type": "dice_challenge",
+      "description": "Сосед каждый день практикует фламенко-гитару",
+      "conditions": {
+        "housing_type": "room"
+      },
+      "challenge": {
+        "skill_type": "language",
+        "description": "Попросить соседа играть тише",
+        "outcomes": {
+          "success": {
+            "condition": ">4",
+            "description": "Сосед извинился и предложил бесплатные уроки",
+            "effects": {
+              "nerves": 1,
+              "money": 1
+            }
+          },
+          "partial": {
+            "condition": "2-4",
+            "description": "Договорились об определенных часах для практики",
+            "effects": {
+              "nerves": 0,
+              "money": 0
+            }
+          },
+          "failure": {
+            "condition": "1",
+            "description": "Сосед обиделся и теперь играет еще громче",
+            "effects": {
+              "nerves": -2,
+              "money": 0
+            }
+          }
+        }
+      },
+      "flavor_text": "¿Más suave, por favor?"
+    },
+    {
+      "id": "housing_17",
+      "name": "Испанская мамá в гостях",
+      "category": "housing",
+      "type": "negative",
+      "description": "Свекровь приехала на месяц без предупреждения",
+      "effects": {
+        "nerves": -2,
+        "money": -2
+      },
+      "conditions": {
+        "character_id": "spanish_spouse"
+      },
+      "flavor_text": "¿Cuándo comes? ¿Por qué tan flaco?"
+    },
+    {
+      "id": "housing_18",
+      "name": "Кот в подвале",
+      "category": "housing",
+      "type": "positive",
+      "description": "Подвальный кот решил проблему с мышами",
+      "effects": {
+        "nerves": 1,
+        "money": 0
+      },
+      "flavor_text": "Gato trabajador mejor чем exterminador"
+    },
+    {
+      "id": "housing_19",
+      "name": "Праздник в честь святого",
+      "category": "housing",
+      "type": "negative",
+      "description": "Местный святой требует фейерверков всю неделю",
+      "effects": {
+        "nerves": -2,
+        "money": 0
+      },
+      "flavor_text": "San Whatever vs ваш сон"
+    },
+    {
+      "id": "housing_20",
+      "name": "Балкон с видом",
+      "category": "housing",
+      "type": "positive",
+      "description": "Обнаружили, что с балкона открывается шикарный вид",
+      "effects": {
+        "nerves": 2,
+        "money": 0
+      },
+      "flavor_text": "Instagram stories на месяц вперёд"
+    },
+    {
+      "id": "housing_21",
+      "name": "Посылка для соседа",
+      "category": "housing",
+      "type": "dice_challenge",
+      "description": "Почтальон перепутал адреса, теперь вы склад",
+      "challenge": {
+        "skill_type": "language",
+        "description": "Объяснить почтальону, что это не ваш адрес",
+        "outcomes": {
+          "success": {
+            "condition": ">4",
+            "description": "Почтальон извинился и принес конфеты в благодарность",
+            "effects": {
+              "nerves": 1,
+              "money": 0
+            }
+          },
+          "partial": {
+            "condition": "2-4",
+            "description": "Почтальон понял и забрал посылки",
+            "effects": {
+              "nerves": 0,
+              "money": 0
+            }
+          },
+          "failure": {
+            "condition": "1",
+            "description": "Почтальон не понял и продолжает носить посылки к вам",
+            "effects": {
+              "nerves": -2,
+              "money": 0
+            }
+          }
+        }
+      },
+      "flavor_text": "No soy el destinatario, por favor"
+    },
+    {
+      "id": "housing_22",
+      "name": "Хозяин - чемпион по паэлье",
+      "category": "housing",
+      "type": "positive",
+      "description": "Landlord угостил домашней паэльей",
+      "effects": {
+        "nerves": 1,
+        "money": 0
+      },
+      "flavor_text": "Mejor que restaurante"
+    },
+    {
+      "id": "housing_23",
+      "name": "Голуби оккупировали балкон",
+      "category": "housing",
+      "type": "negative",
+      "description": "Стая голубей решила, что ваш балкон - их дом",
+      "effects": {
+        "nerves": -1,
+        "money": -1
+      },
+      "flavor_text": "Palomas sin permiso de residencia"
+    },
+    {
+      "id": "housing_24",
+      "name": "Найдена старая гитара",
+      "category": "housing",
+      "type": "positive",
+      "description": "В шкафу обнаружилась забытая классическая гитара",
+      "effects": {
+        "nerves": 1,
+        "money": 1
+      },
+      "flavor_text": "Можно продать или учиться фламенко"
+    },
+    {
+      "id": "housing_25",
+      "name": "Сосед-изобретатель",
+      "category": "housing",
+      "type": "dice_challenge",
+      "description": "Сосед изобретает что-то с дрелью в 7 утра",
+      "challenge": {
+        "skill_type": "language",
+        "description": "Объяснить соседу, что есть закон о тишине",
+        "outcomes": {
+          "success": {
+            "condition": ">4",
+            "description": "Сосед извинился и пригласил на кофе",
+            "effects": {
+              "nerves": 1,
+              "money": 0
+            }
+          },
+          "partial": {
+            "condition": "2-4",
+            "description": "Договорились работать после 9 утра",
+            "effects": {
+              "nerves": -1,
+              "money": 0
+            }
+          },
+          "failure": {
+            "condition": "1",
+            "description": "Сосед обиделся и теперь работает еще раньше",
+            "effects": {
+              "nerves": -3,
+              "money": 0
+            }
+          }
+        }
+      },
+      "flavor_text": "Horario de descanso, por favor"
+    },
+    {
+      "id": "housing_26",
+      "name": "Проблемы с договором",
+      "category": "housing",
+      "type": "dice_challenge",
+      "description": "Хозяин пытается изменить условия аренды",
+      "challenge": {
+        "skill_type": "documents",
+        "description": "Разобраться в испанском договоре аренды",
+        "outcomes": {
+          "success": {
+            "condition": ">4",
+            "description": "Нашли нарушение закона, хозяин отступил",
+            "effects": {
+              "nerves": 2,
+              "money": 1
+            }
+          },
+          "partial": {
+            "condition": "2-4",
+            "description": "Поняли основные пункты, договорились мирно",
+            "effects": {
+              "nerves": 0,
+              "money": 0
+            }
+          },
+          "failure": {
+            "condition": "1",
+            "description": "Подписали не то, что думали",
+            "effects": {
+              "nerves": -2,
+              "money": -2
+            }
+          }
+        }
+      },
+      "flavor_text": "Contrato на испанском = головная боль"
+    },
+    {
+      "id": "housing_27",
+      "name": "Коммунальная авария",
+      "category": "housing",
+      "type": "dice_challenge",
+      "description": "В районе отключили электричество на неопределенный срок",
+      "challenge": {
+        "skill_type": "documents",
+        "description": "Выяснить у коммунальной службы, что происходит",
+        "outcomes": {
+          "success": {
+            "condition": ">4",
+            "description": "Узнали причину и получили компенсацию",
+            "effects": {
+              "nerves": 0,
+              "money": 2
+            }
+          },
+          "partial": {
+            "condition": "2-4",
+            "description": "Выяснили, когда включат свет",
+            "effects": {
+              "nerves": 0,
+              "money": 0
+            }
+          },
+          "failure": {
+            "condition": "1",
+            "description": "Ничего не поняли, остались в темноте",
+            "effects": {
+              "nerves": -2,
+              "money": -1
+            }
+          }
+        }
+      },
+      "flavor_text": "Bureaucracia энергетическая"
+    },
+    {
+      "id": "housing_28",
+      "name": "Роскошная квартира",
+      "category": "housing",
+      "type": "positive",
+      "description": "Нашли невероятную квартиру, но она дорогая",
+      "conditions": {
+        "money_range": ">15"
+      },
+      "effects": {
+        "nerves": 2,
+        "money": -5
+      },
+      "special_effect": "upgrade_housing",
+      "flavor_text": "Когда есть деньги, жизнь прекрасна"
+    },
+    {
+      "id": "housing_29", 
+      "name": "Выселение за долги",
+      "category": "housing",
+      "type": "negative",
+      "description": "Накопились долги по аренде",
+      "conditions": {
+        "money_range": "<5"
+      },
+      "effects": {
+        "nerves": -3,
+        "money": 0
+      },
+      "special_effect": "downgrade_housing",
+      "flavor_text": "Sin dinero, sin casa"
+    },
+    {
+      "id": "housing_30",
+      "name": "Помощь от соседей",
+      "category": "housing", 
+      "type": "positive",
+      "description": "Соседи помогли разобраться с документами",
+      "conditions": {
+        "documents_level": "<3"
+      },
+      "effects": {
+        "nerves": 1,
+        "money": 0
+      },
+      "special_effect": "draw_action_card",
+      "flavor_text": "Solidaridad vecinal"
+    }
+  ],
+  "card_stats": {
+    "positive": 9,
+    "negative": 21,
+    "dice_challenges": 7,
+    "total": 30
+  }
+}

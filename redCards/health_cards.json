@@ -1,0 +1,378 @@
+{
+  "health_cards": [
+    {
+      "id": "health_01",
+      "name": "Профилактический осмотр",
+      "category": "health",
+      "type": "positive",
+      "description": "Врач сказал, что вы в отличной форме",
+      "effects": {
+        "nerves": 1,
+        "money": 0
+      },
+      "flavor_text": "¡Está usted muy bien!"
+    },
+    {
+      "id": "health_02", 
+      "name": "Стоматолог",
+      "category": "health",
+      "type": "neutral",
+      "description": "Плановый визит к зубному",
+      "effects": {
+        "nerves": 0,
+        "money": -2
+      },
+      "flavor_text": "Limpieza dental - 50€"
+    },
+    {
+      "id": "health_03",
+      "name": "Грипп прошёл",
+      "category": "health", 
+      "type": "positive",
+      "description": "Болезнь отступила, чувствуете себя лучше",
+      "effects": {
+        "nerves": 2,
+        "money": 0
+      },
+      "flavor_text": "Витамин D и солнце творят чудеса"
+    },
+    {
+      "id": "health_04",
+      "name": "Аллергия на пыльцу",
+      "category": "health",
+      "type": "negative", 
+      "description": "Весенняя аллергия атакует",
+      "effects": {
+        "nerves": -1,
+        "money": -1
+      },
+      "flavor_text": "Антигистаминные в аптеке"
+    },
+    {
+      "id": "health_05",
+      "name": "Массаж в SPA",
+      "category": "health",
+      "type": "positive",
+      "description": "Расслабляющий массаж восстановил силы",
+      "effects": {
+        "nerves": 2,
+        "money": -3
+      },
+      "flavor_text": "Relajación total"
+    },
+    {
+      "id": "health_06",
+      "name": "Простуда",
+      "category": "health",
+      "type": "dice_challenge",
+      "description": "Подхватили простуду, нужно лечиться",
+      "challenge": {
+        "skill_type": "documents",
+        "description": "Попытка попасть к врачу в centro de salud",
+        "outcomes": {
+          "success": {
+            "condition": ">4",
+            "description": "Врач быстро принял и выписал бесплатное лечение",
+            "effects": {
+              "nerves": 1,
+              "money": 0
+            }
+          },
+          "partial": {
+            "condition": "2-4",
+            "description": "Попали к врачу, но пришлось покупать лекарства",
+            "effects": {
+              "nerves": 0,
+              "money": -1
+            }
+          },
+          "failure": {
+            "condition": "1",
+            "description": "Без документов отправили в частную клинику",
+            "effects": {
+              "nerves": -2,
+              "money": -4
+            }
+          }
+        }
+      },
+      "flavor_text": "Sin tarjeta sanitaria = problema"
+    },
+    {
+      "id": "health_07",
+      "name": "Йога в парке",
+      "category": "health",
+      "type": "positive",
+      "description": "Бесплатная йога на свежем воздухе",
+      "effects": {
+        "nerves": 1,
+        "money": 0
+      },
+      "flavor_text": "Namaste en el Retiro"
+    },
+    {
+      "id": "health_08",
+      "name": "Травма на работе",
+      "category": "health",
+      "type": "negative",
+      "description": "Небольшая травма, нужна перевязка",
+      "effects": {
+        "nerves": -2,
+        "money": -1
+      },
+      "flavor_text": "Accidente laboral menor"
+    },
+    {
+      "id": "health_09",
+      "name": "Витамины D",
+      "category": "health", 
+      "type": "positive",
+      "description": "Врач выписал витамины, помогает настроению",
+      "effects": {
+        "nerves": 1,
+        "money": -1
+      },
+      "flavor_text": "Falta de sol en invierno"
+    },
+    {
+      "id": "health_10",
+      "name": "Пищевое отравление",
+      "category": "health",
+      "type": "negative",
+      "description": "Что-то не то съели, плохо себя чувствуете",
+      "effects": {
+        "nerves": -2,
+        "money": -1
+      },
+      "flavor_text": "Tortilla española подозрительная была"
+    },
+    {
+      "id": "health_11",
+      "name": "Тренажёрный зал",
+      "category": "health",
+      "type": "positive",
+      "description": "Месячный абонемент окупается хорошим самочувствием",
+      "effects": {
+        "nerves": 2,
+        "money": -2
+      },
+      "flavor_text": "Gimnasio cerca de casa"
+    },
+    {
+      "id": "health_12",
+      "name": "Бесплатная прививка",
+      "category": "health",
+      "type": "positive",
+      "description": "Вакцинация в центре здоровья прошла гладко",
+      "effects": {
+        "nerves": 1,
+        "money": 0
+      },
+      "flavor_text": "Centro de salud eficiente"
+    },
+    {
+      "id": "health_13",
+      "name": "Зубная боль",
+      "category": "health",
+      "type": "negative",
+      "description": "Срочный визит к стоматологу",
+      "effects": {
+        "nerves": -2,
+        "money": -4
+      },
+      "flavor_text": "Emergencia dental"
+    },
+    {
+      "id": "health_14",
+      "name": "Медитация",
+      "category": "health",
+      "type": "positive", 
+      "description": "Освоили технику медитации, стресс ушёл",
+      "effects": {
+        "nerves": 2,
+        "money": 0
+      },
+      "flavor_text": "App de meditación работает"
+    },
+    {
+      "id": "health_15",
+      "name": "Солнечный день",
+      "category": "health",
+      "type": "positive",
+      "description": "Хорошая погода поднимает настроение",
+      "effects": {
+        "nerves": 1,
+        "money": 0
+      },
+      "flavor_text": "Sol español лечит душу"
+    },
+    {
+      "id": "health_16",
+      "name": "Диета на jamón",
+      "category": "health",
+      "type": "positive",
+      "description": "Местная средиземноморская диета творит чудеса",
+      "effects": {
+        "nerves": 1,
+        "money": -1
+      },
+      "flavor_text": "Aceite de oliva лечит всё"
+    },
+    {
+      "id": "health_17",
+      "name": "Похмелье после сангрии",
+      "category": "health",
+      "type": "dice_challenge",
+      "description": "Вчера переборщили с испанским вином",
+      "challenge": {
+        "skill_type": "documents",
+        "description": "Нужно добраться до аптеки и объяснить симптомы",
+        "outcomes": {
+          "success": {
+            "condition": ">4",
+            "description": "Фармацевт дал отличное лекарство и совет",
+            "effects": {
+              "nerves": 1,
+              "money": -1
+            }
+          },
+          "partial": {
+            "condition": "2-4",
+            "description": "Купили что-то, что помогло",
+            "effects": {
+              "nerves": 0,
+              "money": -2
+            }
+          },
+          "failure": {
+            "condition": "1",
+            "description": "Без документов в аптеку не пустили",
+            "effects": {
+              "nerves": -2,
+              "money": 0
+            }
+          }
+        }
+      },
+      "flavor_text": "Tarjeta sanitaria спасает жизни"
+    },
+    {
+      "id": "health_18",
+      "name": "Танцы фламенко",
+      "category": "health", 
+      "type": "positive",
+      "description": "Уроки фламенко заряжают энергией",
+      "effects": {
+        "nerves": 2,
+        "money": -2
+      },
+      "flavor_text": "¡Olé! Страсть в движении"
+    },
+    {
+      "id": "health_19",
+      "name": "Тепловой удар",
+      "category": "health",
+      "type": "negative",
+      "description": "Недооценили испанское солнце",
+      "effects": {
+        "nerves": -2,
+        "money": -1
+      },
+      "flavor_text": "Сиеста существует не просто так"
+    },
+    {
+      "id": "health_20",
+      "name": "Терапия чуррос",
+      "category": "health",
+      "type": "positive",
+      "description": "Чуррос с шоколадом лечат депрессию",
+      "effects": {
+        "nerves": 1,
+        "money": -1
+      },
+      "flavor_text": "Dulce medicina española"
+    },
+    {
+      "id": "health_21",
+      "name": "Экстренная медицина",
+      "category": "health",
+      "type": "dice_challenge",
+      "description": "Случайная травма, нужна срочная помощь",
+      "challenge": {
+        "skill_type": "documents",
+        "description": "Попасть на прием в центр здоровья",
+        "outcomes": {
+          "success": {
+            "condition": ">4",
+            "description": "Врач принял быстро, лечение бесплатное",
+            "effects": {
+              "nerves": 1,
+              "money": 0
+            }
+          },
+          "partial": {
+            "condition": "2-4",
+            "description": "Попали к врачу, но купили лекарства сами",
+            "effects": {
+              "nerves": 0,
+              "money": -2
+            }
+          },
+          "failure": {
+            "condition": "1",
+            "description": "Отправили в частную клинику",
+            "effects": {
+              "nerves": -1,
+              "money": -5
+            }
+          }
+        }
+      },
+      "flavor_text": "Urgencias sin papeles = caro"
+    },
+    {
+      "id": "health_22",
+      "name": "Психолог на испанском",
+      "category": "health",
+      "type": "dice_challenge",
+      "description": "Стресс от эмиграции требует профессиональной помощи",
+      "challenge": {
+        "skill_type": "language",
+        "description": "Объяснить психологу свои проблемы на испанском",
+        "outcomes": {
+          "success": {
+            "condition": ">4",
+            "description": "Психолог все понял и дал отличные советы",
+            "effects": {
+              "nerves": 3,
+              "money": -2
+            }
+          },
+          "partial": {
+            "condition": "2-4",
+            "description": "Частично поняли друг друга",
+            "effects": {
+              "nerves": 1,
+              "money": -2
+            }
+          },
+          "failure": {
+            "condition": "1",
+            "description": "Языковой барьер мешает терапии",
+            "effects": {
+              "nerves": -1,
+              "money": -2
+            }
+          }
+        }
+      },
+      "flavor_text": "Terapia en español = challenge"
+    }
+  ],
+  "card_stats": {
+    "positive": 12,
+    "negative": 7,
+    "neutral": 1,
+    "total": 20
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "language_levels": {
+    "1": {
+      "name": "Hola, cerveza, gracias",
+      "dice_type": "worst_of_two",
+      "upgrade_cost": 2
+    },
+    "2": {
+      "name": "B1-B2",
+      "dice_type": "single",
+      "upgrade_cost": 4
+    },
+    "3": {
+      "name": "C1-C2", 
+      "dice_type": "best_of_two",
+      "upgrade_cost": null
+    }
+  }
+}

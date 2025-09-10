@@ -1,0 +1,554 @@
+{
+  "green_cards": [
+    {
+      "id": "documents_01",
+      "name": "Очередь без очереди",
+      "category": "documents",
+      "type": "positive",
+      "description": "Знакомый в офисе пропустил вас вне очереди",
+      "exchange_instruction": "Попробуй обменять эту карту на следующий уровень документов за бросок 3+, либо играй как действие на карте. При провале обмена: теряешь одну карту документа как негодную + эта карта в сброс.",
+      "effects": {
+        "nerves": 1,
+        "money": 0,
+        "documents_cards": 1
+      },
+      "flavor_text": "Enchufismo español in action"
+    },
+    {
+      "id": "documents_02",
+      "name": "Online cita disponible",
+      "category": "documents",
+      "type": "positive",
+      "description": "Неожиданно освободилось место для онлайн-записи",
+      "exchange_instruction": "Попробуй обменять эту карту на следующий уровень документов за бросок 3+, либо играй как действие на карте. При провале обмена: теряешь одну карту документа как негодную + эта карта в сброс.",
+      "effects": {
+        "nerves": 0,
+        "money": 0,
+        "documents_cards": 1
+      },
+      "flavor_text": "Milagro tecnológico español"
+    },
+    {
+      "id": "documents_03",
+      "name": "Быстрое рассмотрение",
+      "category": "documents",
+      "type": "instant_upgrade",
+      "description": "Ваши документы обработали за один день",
+      "exchange_instruction": "Попробуй обменять эту карту на следующий уровень документов за бросок 3+, либо играй как действие на карте. При провале обмена: теряешь одну карту документа как негодную + эта карта в сброс.",
+      "conditions": {
+        "documents_cards": ">=required_amount"
+      },
+      "effects": {
+        "instant_document_upgrade": true,
+        "nerves": 2
+      },
+      "flavor_text": "Efficiency? In Spain? ¡Imposible!"
+    },
+    {
+      "id": "documents_04",
+      "name": "Funcionario simpático",
+      "category": "documents",
+      "type": "positive",
+      "description": "Приветливый чиновник объяснил все подробно",
+      "exchange_instruction": "Попробуй обменять эту карту на следующий уровень документов за бросок 3+, либо играй как действие на карте. При провале обмена: теряешь одну карту документа как негодную + эта карта в сброс.",
+      "effects": {
+        "nerves": 1,
+        "money": 0,
+        "documents_cards": 2
+      },
+      "flavor_text": "Funcionario nice = rare species"
+    },
+    {
+      "id": "documents_05",
+      "name": "Digitalización completa",
+      "category": "documents",
+      "type": "positive",
+      "description": "Все документы теперь в цифровом виде",
+      "exchange_instruction": "Попробуй обменять эту карту на следующий уровень документов за бросок 3+, либо играй как действие на карте. При провале обмена: теряешь одну карту документа как негодную + эта карта в сброс.",
+      "conditions": {
+        "documents_level": ">=3"
+      },
+      "effects": {
+        "nerves": 1,
+        "documents_cards": 1,
+        "digital_bonus": true
+      },
+      "flavor_text": "Bienvenidos al siglo XXI"
+    },
+    {
+      "id": "documents_06",
+      "name": "Fotocopia gratis",
+      "category": "documents",
+      "type": "positive",
+      "description": "Копировальный центр не взял денег",
+      "exchange_instruction": "Попробуй обменять эту карту на следующий уровень документов за бросок 3+, либо играй как действие на карте. При провале обмена: теряешь одну карту документа как негодную + эта карта в сброс.",
+      "effects": {
+        "nerves": 0,
+        "money": 1,
+        "documents_cards": 1
+      },
+      "flavor_text": "Pequeños milagros españoles"
+    },
+    {
+      "id": "documents_07",
+      "name": "Sistema informático funciona",
+      "category": "documents",
+      "type": "positive",
+      "description": "Компьютеры в государственном офисе работают",
+      "exchange_instruction": "Попробуй обменять эту карту на следующий уровень документов за бросок 3+, либо играй как действие на карте. При провале обмена: теряешь одну карту документа как негодную + эта карта в сброс.",
+      "effects": {
+        "nerves": 1,
+        "money": 0,
+        "documents_cards": 1
+      },
+      "flavor_text": "IT español breakthrough"
+    },
+    {
+      "id": "documents_08",
+      "name": "Traducción jurada barata",
+      "category": "documents",
+      "type": "positive",
+      "description": "Нашли дешевого присяжного переводчика",
+      "exchange_instruction": "Попробуй обменять эту карту на следующий уровень документов за бросок 3+, либо играй как действие на карте. При провале обмена: теряешь одну карту документа как негодную + эта карта в сброс.",
+      "effects": {
+        "nerves": 0,
+        "money": 2,
+        "documents_cards": 1
+      },
+      "flavor_text": "Traductor económico = unicornio"
+    },
+    {
+      "id": "documents_09",
+      "name": "Apostilla express",
+      "category": "documents",
+      "type": "dice_challenge",
+      "description": "Срочная апостиль для иностранных документов",
+      "challenge": {
+        "skill_type": "documents",
+        "description": "Разобраться в требованиях для апостили",
+        "outcomes": {
+          "success": {
+            "condition": ">4",
+            "description": "Документы приняли с первого раза",
+            "effects": {
+              "nerves": 1,
+              "documents_cards": 2
+            }
+          },
+          "partial": {
+            "condition": "2-4",
+            "description": "Пришлось переделывать, но получилось",
+            "effects": {
+              "nerves": 0,
+              "documents_cards": 1
+            }
+          },
+          "failure": {
+            "condition": "1",
+            "description": "Неправильно оформили, потеряли время",
+            "effects": {
+              "nerves": -1,
+              "money": -1
+            }
+          }
+        }
+      },
+      "flavor_text": "Apostilla = paper nightmare"
+    },
+    {
+      "id": "documents_10",
+      "name": "NIE renovación automática",
+      "category": "documents",
+      "type": "instant_upgrade",
+      "description": "NIE продлили автоматически на 5 лет",
+      "exchange_instruction": "Попробуй обменять эту карту на следующий уровень документов за бросок 3+, либо играй как действие на карте. При провале обмена: теряешь одну карту документа как негодную + эта карта в сброс.",
+      "conditions": {
+        "documents_level": ">=2"
+      },
+      "effects": {
+        "nerves": 2,
+        "document_security": true
+      },
+      "flavor_text": "Auto-renewal = Spanish miracle"
+    },
+    {
+      "id": "work_01",
+      "name": "Proyecto adicional",
+      "category": "work",
+      "type": "dice_challenge",
+      "description": "Предложили дополнительный проект за премию",
+      "challenge": {
+        "skill_type": "language",
+        "description": "Выполнить задачи и презентовать результат",
+        "outcomes": {
+          "success": {
+            "condition": ">4",
+            "description": "Проект выполнен идеально, босс доволен",
+            "effects": {
+              "nerves": 1,
+              "money": 4
+            }
+          },
+          "partial": {
+            "condition": "2-4",
+            "description": "Проект сделан хорошо, получили премию",
+            "effects": {
+              "nerves": 0,
+              "money": 2
+            }
+          },
+          "failure": {
+            "condition": "1",
+            "description": "Проект провалили, стресс и репутация",
+            "effects": {
+              "nerves": -2,
+              "money": 0
+            }
+          }
+        }
+      },
+      "flavor_text": "Extra trabajo = extra dinero (maybe)"
+    },
+    {
+      "id": "work_02",
+      "name": "Curso de formación",
+      "category": "work",
+      "type": "positive",
+      "description": "Компания оплачивает курсы повышения квалификации",
+      "effects": {
+        "nerves": 1,
+        "money": 0,
+        "skill_improvement": true
+      },
+      "flavor_text": "Empresa invierte en empleados"
+    },
+    {
+      "id": "work_03",
+      "name": "Compañero útil",
+      "category": "work",
+      "type": "positive",
+      "description": "Коллега помог разобраться с испанской системой",
+      "effects": {
+        "nerves": 1,
+        "money": 0,
+        "draw_action_card": 1
+      },
+      "flavor_text": "Solidaridad laboral española"
+    },
+    {
+      "id": "work_04",
+      "name": "Ascenso inesperado",
+      "category": "work",
+      "type": "positive",
+      "description": "Неожиданное повышение по службе",
+      "conditions": {
+        "language_level": ">=2"
+      },
+      "effects": {
+        "nerves": 2,
+        "money": 3,
+        "salary_bonus_permanent": 1
+      },
+      "flavor_text": "Career advancement español"
+    },
+    {
+      "id": "work_05",
+      "name": "Jornada reducida",
+      "category": "work",
+      "type": "positive",
+      "description": "Договорились о сокращенном рабочем дне",
+      "effects": {
+        "nerves": 2,
+        "money": -1,
+        "work_life_balance": true
+      },
+      "flavor_text": "Work-life balance español"
+    },
+    {
+      "id": "work_06",
+      "name": "Networking español",
+      "category": "work",
+      "type": "dice_challenge",
+      "description": "Корпоративное мероприятие для знакомств",
+      "challenge": {
+        "skill_type": "language",
+        "description": "Произвести впечатление на коллег и партнеров",
+        "outcomes": {
+          "success": {
+            "condition": ">4",
+            "description": "Завели полезные знакомства",
+            "effects": {
+              "nerves": 2,
+              "social_connections": true,
+              "draw_action_card": 1
+            }
+          },
+          "partial": {
+            "condition": "2-4",
+            "description": "Неплохо пообщались с коллегами",
+            "effects": {
+              "nerves": 1,
+              "money": 0
+            }
+          },
+          "failure": {
+            "condition": "1",
+            "description": "Языковой барьер помешал общению",
+            "effects": {
+              "nerves": -1,
+              "money": 0
+            }
+          }
+        }
+      },
+      "flavor_text": "Networking = contacts = opportunities"
+    },
+    {
+      "id": "work_07",
+      "name": "Consultoría freelance",
+      "category": "work",
+      "type": "dice_challenge",
+      "description": "Подработка консультациями в свободное время",
+      "conditions": {
+        "character_id": ["it_specialist", "freelance_artist"]
+      },
+      "challenge": {
+        "skill_type": "documents",
+        "description": "Правильно оформить как автономо",
+        "outcomes": {
+          "success": {
+            "condition": ">4",
+            "description": "Все оформили легально, получили доход",
+            "effects": {
+              "nerves": 0,
+              "money": 3
+            }
+          },
+          "partial": {
+            "condition": "2-4",
+            "description": "Оформили с небольшими ошибками",
+            "effects": {
+              "nerves": -1,
+              "money": 2
+            }
+          },
+          "failure": {
+            "condition": "1",
+            "description": "Проблемы с налоговой из-за ошибок",
+            "effects": {
+              "nerves": -2,
+              "money": -1
+            }
+          }
+        }
+      },
+      "flavor_text": "Autónomo life = complicado"
+    },
+    {
+      "id": "work_08",
+      "name": "Vacaciones pagadas",
+      "category": "work",
+      "type": "positive",
+      "description": "Отпуск с полной оплатой одобрен",
+      "effects": {
+        "nerves": 3,
+        "money": 1
+      },
+      "flavor_text": "Vacaciones españolas = sagradas"
+    },
+    {
+      "id": "work_09",
+      "name": "Teletrabajo aprobado",
+      "category": "work",
+      "type": "positive",
+      "description": "Разрешили работать из дома",
+      "conditions": {
+        "character_id": ["it_specialist"]
+      },
+      "effects": {
+        "nerves": 2,
+        "money": 1,
+        "remote_work": true
+      },
+      "flavor_text": "Home office = futuro español"
+    },
+    {
+      "id": "work_10",
+      "name": "Sindicato ayuda",
+      "category": "work",
+      "type": "positive",
+      "description": "Профсоюз помог решить проблему с работодателем",
+      "effects": {
+        "nerves": 1,
+        "money": 2,
+        "legal_support": true
+      },
+      "flavor_text": "Sindicatos españoles = power"
+    },
+    {
+      "id": "mixed_01",
+      "name": "Pausa del café extended",
+      "category": "cultural",
+      "type": "positive",
+      "description": "Испанская культура кофе-брейков приятно удивляет",
+      "effects": {
+        "nerves": 1,
+        "money": -1,
+        "social_integration": true
+      },
+      "flavor_text": "Café español = networking time"
+    },
+    {
+      "id": "mixed_02",
+      "name": "Gestor recomendado",
+      "category": "documents",
+      "type": "positive",
+      "description": "Коллега порекомендовал хорошего гестора",
+      "exchange_instruction": "Попробуй обменять эту карту на следующий уровень документов за бросок 3+, либо играй как действие на карте. При провале обмена: теряешь одну карту документа как негодную + эта карта в сброс.",
+      "effects": {
+        "nerves": 1,
+        "money": 0,
+        "draw_action_card": 1
+      },
+      "special_note": "Следующая услуга гестора стоит на 1 деньги меньше",
+      "flavor_text": "Buenos contactos = todo en España"
+    },
+    {
+      "id": "mixed_03",
+      "name": "Viernes de verano",
+      "category": "work",
+      "type": "positive",
+      "description": "Летняя пятница - рабочий день до 15:00",
+      "effects": {
+        "nerves": 2,
+        "money": 0
+      },
+      "flavor_text": "Summer Friday español style"
+    },
+    {
+      "id": "mixed_04",
+      "name": "Oficina con aire",
+      "category": "work",
+      "type": "positive",
+      "description": "В офисе работает кондиционер",
+      "effects": {
+        "nerves": 1,
+        "money": 0,
+        "comfort_bonus": true
+      },
+      "flavor_text": "Climate control = productivity"
+    },
+    {
+      "id": "mixed_05",
+      "name": "Compañero traductor",
+      "category": "work",
+      "type": "positive",
+      "description": "Коллега помогает с переводом документов",
+      "effects": {
+        "nerves": 0,
+        "money": 1,
+        "documents_cards": 1
+      },
+      "flavor_text": "Ayuda mutua laboral"
+    },
+    {
+      "id": "mixed_06",
+      "name": "Almuerzo de empresa",
+      "category": "work",
+      "type": "positive",
+      "description": "Корпоративный обед в хорошем ресторане",
+      "effects": {
+        "nerves": 1,
+        "money": 0,
+        "team_bonding": true
+      },
+      "flavor_text": "Comida de empresa = tradición"
+    },
+    {
+      "id": "mixed_07",
+      "name": "Puente long weekend",
+      "category": "cultural",
+      "type": "positive",
+      "description": "Длинные выходные благодаря испанским мостам",
+      "effects": {
+        "nerves": 2,
+        "money": -1
+      },
+      "flavor_text": "Puentes españoles = mini vacaciones"
+    },
+    {
+      "id": "mixed_08",
+      "name": "Horario español adaptation",
+      "category": "cultural",
+      "type": "dice_challenge",
+      "description": "Привыкание к испанскому расписанию",
+      "challenge": {
+        "skill_type": "documents",
+        "description": "Адаптировать свой режим к местному",
+        "outcomes": {
+          "success": {
+            "condition": ">4",
+            "description": "Полностью адаптировались к расписанию",
+            "effects": {
+              "nerves": 2,
+              "cultural_adaptation": true
+            }
+          },
+          "partial": {
+            "condition": "2-4",
+            "description": "Частично привыкли к режиму",
+            "effects": {
+              "nerves": 1,
+              "money": 0
+            }
+          },
+          "failure": {
+            "condition": "1",
+            "description": "Расписание по-прежнему стрессует",
+            "effects": {
+              "nerves": -1,
+              "money": 0
+            }
+          }
+        }
+      },
+      "flavor_text": "Horario español ≠ horario normal"
+    },
+    {
+      "id": "mixed_09",
+      "name": "Mercadillo documentation",
+      "category": "documents",
+      "type": "positive",
+      "description": "На рынке нашли все нужные копии документов",
+      "exchange_instruction": "Попробуй обменять эту карту на следующий уровень документов за бросок 3+, либо играй как действие на карте. При провале обмена: теряешь одну карту документа как негодную + эта карта в сброс.",
+      "effects": {
+        "nerves": 0,
+        "money": 0,
+        "documents_cards": 2
+      },
+      "flavor_text": "Mercadillo = everything available"
+    },
+    {
+      "id": "mixed_10",
+      "name": "Spanish bureaucracy humor",
+      "category": "cultural",
+      "type": "positive",
+      "description": "Начали понимать юмор испанской бюрократии",
+      "conditions": {
+        "documents_level": ">=4"
+      },
+      "effects": {
+        "nerves": 1,
+        "stress_immunity_bureaucracy": true
+      },
+      "flavor_text": "Si no puedes cambiarla, ríete de ella"
+    }
+  ],
+  "card_stats": {
+    "documents_positive": 10,
+    "work_positive": 7,
+    "work_challenges": 3, 
+    "mixed_cultural": 10,
+    "total": 30
+  }
+}

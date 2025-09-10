@@ -1,0 +1,155 @@
+{
+  "card_interactions": {
+    "defensive_pairs": [
+      {
+        "problem_card": {"type": "red", "id": "housing_01", "name": "Прорвало трубу"},
+        "solution_cards": [
+          {"type": "action", "id": "action_07", "name": "Abogado de confianza", "protection": "cancel_money_penalty"},
+          {"type": "action", "id": "action_24", "name": "Botella de buen vino", "protection": "neighbor_relations"}
+        ]
+      },
+      {
+        "problem_card": {"type": "red", "id": "housing_03", "name": "Повышение аренды"},
+        "solution_cards": [
+          {"type": "action", "id": "action_05", "name": "Amigo español", "protection": "language_bonus"},
+          {"type": "action", "id": "action_09", "name": "Google Translate premium", "protection": "language_dice_advantage"}
+        ]
+      },
+      {
+        "problem_card": {"type": "white", "id": "event_05", "name": "Жара 50 градусов"},
+        "solution_cards": [
+          {"type": "action", "id": "action_14", "name": "Aire acondicionado", "protection": "block_heat_penalty"}
+        ]
+      },
+      {
+        "problem_card": {"type": "red", "id": "health_06", "name": "Простуда"},
+        "solution_cards": [
+          {"type": "action", "id": "action_16", "name": "Medicinas de farmacia", "protection": "block_health_penalty"},
+          {"type": "action", "id": "action_20", "name": "Seguro médico privado", "protection": "medical_immunity"}
+        ]
+      },
+      {
+        "problem_card": {"type": "white", "id": "event_06", "name": "Забастовка транспорта"},
+        "solution_cards": [
+          {"type": "action", "id": "action_18", "name": "Tarjeta de transporte mensual", "protection": "transport_immunity"},
+          {"type": "action", "id": "action_21", "name": "Coche de segunda mano", "protection": "transport_independence"}
+        ]
+      },
+      {
+        "problem_card": {"type": "white", "id": "event_08", "name": "Проверка документов"},
+        "solution_cards": [
+          {"type": "action", "id": "action_04", "name": "Gestoría profesional", "protection": "block_document_penalty"},
+          {"type": "action", "id": "action_12", "name": "Conocido en ayuntamiento", "protection": "documents_fast_track"}
+        ]
+      },
+      {
+        "problem_card": {"type": "white", "id": "event_01", "name": "Agosto"},
+        "solution_cards": [
+          {"type": "action", "id": "action_06", "name": "Siesta sagrada", "protection": "immunity_next_housing"},
+          {"type": "action", "id": "action_28", "name": "Escapada de fin de semana", "protection": "cultural_knowledge"}
+        ]
+      }
+    ],
+    "synergy_chains": [
+      {
+        "theme": "language_mastery",
+        "cards": [
+          {"type": "action", "id": "action_15", "name": "Diccionario español avanzado"},
+          {"type": "action", "id": "action_25", "name": "Curso intensivo de español"},
+          {"type": "action", "id": "action_19", "name": "Intercambio de idiomas"},
+          {"type": "action", "id": "action_23", "name": "VPN para Netflix España"}
+        ],
+        "benefit": "Систематическое изучение языка для решения всех языковых челленджей"
+      },
+      {
+        "theme": "bureaucracy_mastery",
+        "cards": [
+          {"type": "action", "id": "action_04", "name": "Gestoría profesional"},
+          {"type": "action", "id": "action_12", "name": "Conocido en ayuntamiento"},
+          {"type": "action", "id": "action_29", "name": "Aplicación de cita previa"}
+        ],
+        "benefit": "Полный контроль над документооборотом и бюрократией"
+      },
+      {
+        "theme": "social_integration",
+        "cards": [
+          {"type": "action", "id": "action_05", "name": "Amigo español"},
+          {"type": "action", "id": "action_22", "name": "Clases de flamenco"},
+          {"type": "action", "id": "action_08", "name": "Tapas con colegas"},
+          {"type": "action", "id": "action_30", "name": "Fiesta de cumpleaños española"}
+        ],
+        "benefit": "Интеграция в испанское общество и культуру"
+      },
+      {
+        "theme": "comfort_lifestyle",
+        "cards": [
+          {"type": "action", "id": "action_14", "name": "Aire acondicionado"},
+          {"type": "action", "id": "action_21", "name": "Coche de segunda mano"},
+          {"type": "action", "id": "action_20", "name": "Seguro médico privado"},
+          {"type": "action", "id": "action_26", "name": "Conexión WiFi potente"}
+        ],
+        "benefit": "Создание комфортной жизни в Испании"
+      }
+    ],
+    "character_specific_interactions": [
+      {
+        "character_id": "spanish_spouse",
+        "bonus_events": [
+          {"type": "white", "id": "event_10", "name": "Navidad española", "bonus": "family_bonus"},
+          {"type": "red", "id": "housing_17", "name": "Испанская мамá в гостях"}
+        ],
+        "recommended_actions": [
+          {"type": "action", "id": "action_17", "name": "Cita con psicólogo", "reason": "family_stress"},
+          {"type": "action", "id": "action_13", "name": "Jamón ibérico de calidad", "reason": "social_acceptance"}
+        ]
+      },
+      {
+        "character_id": "it_specialist",
+        "problem_events": [
+          {"type": "white", "id": "event_02", "name": "Inspección de Hacienda"}
+        ],
+        "recommended_actions": [
+          {"type": "action", "id": "action_07", "name": "Abogado de confianza", "reason": "tax_protection"},
+          {"type": "action", "id": "action_26", "name": "Conexión WiFi potente", "reason": "work_efficiency"}
+        ]
+      },
+      {
+        "character_id": "student",
+        "problem_events": [
+          {"type": "white", "id": "event_04", "name": "Экономический кризис"},
+          {"type": "red", "id": "health_exam_stress"}
+        ],
+        "recommended_actions": [
+          {"type": "action", "id": "action_03", "name": "Llamada a mamá", "reason": "emotional_support"},
+          {"type": "action", "id": "action_11", "name": "Tarjeta telefónica internacional", "reason": "cheap_communication"}
+        ]
+      }
+    ],
+    "counter_strategies": {
+      "agosto_survival": {
+        "description": "Как пережить август в Испании",
+        "strategy_cards": [
+          {"type": "action", "id": "action_06", "name": "Siesta sagrada"},
+          {"type": "action", "id": "action_28", "name": "Escapada de fin de semana"},
+          {"type": "action", "id": "action_14", "name": "Aire acondicionado"}
+        ]
+      },
+      "bureaucracy_speedrun": {
+        "description": "Быстрое прохождение документов",
+        "strategy_cards": [
+          {"type": "action", "id": "action_04", "name": "Gestoría profesional"},
+          {"type": "action", "id": "action_12", "name": "Conocido en ayuntamiento"},
+          {"type": "action", "id": "action_29", "name": "Aplicación de cita previa"}
+        ]
+      },
+      "language_immersion": {
+        "description": "Полное погружение в языковую среду",
+        "strategy_cards": [
+          {"type": "action", "id": "action_19", "name": "Intercambio de idiomas"},
+          {"type": "action", "id": "action_23", "name": "VPN para Netflix España"},
+          {"type": "action", "id": "action_22", "name": "Clases de flamenco"}
+        ]
+      }
+    }
+  }
+}

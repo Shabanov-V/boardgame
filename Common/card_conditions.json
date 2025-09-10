@@ -1,0 +1,107 @@
+{
+  "card_conditions": {
+    "housing_type": {
+      "description": "Проверка типа жилья игрока",
+      "possible_values": ["room", "apartment", "mortgage"],
+      "examples": [
+        {
+          "condition": {"housing_type": "room"},
+          "explanation": "Карта действует только если игрок живет в комнате"
+        }
+      ]
+    },
+    "character_id": {
+      "description": "Проверка конкретного персонажа",
+      "possible_values": ["it_specialist", "student", "courier", "spanish_spouse", "freelance_artist"],
+      "examples": [
+        {
+          "condition": {"character_id": "spanish_spouse"},
+          "explanation": "Карта действует только для жены/мужа испанца"
+        }
+      ]
+    },
+    "housing_search": {
+      "description": "Проверка статуса поиска жилья",
+      "possible_values": [true, false],
+      "examples": [
+        {
+          "condition": {"housing_search": true},
+          "explanation": "Карта действует только если игрок ищет жилье"
+        }
+      ]
+    },
+    "language_level": {
+      "description": "Проверка уровня языка",
+      "possible_values": [1, 2, 3],
+      "examples": [
+        {
+          "condition": {"language_level": 1},
+          "explanation": "Карта действует только при низком уровне языка"
+        },
+        {
+          "condition": {"language_level": ">2"},
+          "explanation": "Карта действует только при высоком уровне языка"
+        }
+      ]
+    },
+    "documents_level": {
+      "description": "Проверка количества полученных документов",
+      "possible_values": [1, 2, 3, 4, 5, ">=3", "<5"],
+      "examples": [
+        {
+          "condition": {"documents_level": ">=3"},
+          "explanation": "Карта действует только если получено 3+ документа"
+        }
+      ]
+    },
+    "health_insurance": {
+      "description": "Проверка наличия медицинской страховки",
+      "possible_values": ["none", "basic", "private"],
+      "examples": [
+        {
+          "condition": {"health_insurance": "none"},
+          "explanation": "Карта действует только без медицинской страховки"
+        }
+      ]
+    },
+    "money_range": {
+      "description": "Проверка количества денег у игрока",
+      "possible_values": ["<5", "5-15", ">15"],
+      "examples": [
+        {
+          "condition": {"money_range": "<5"},
+          "explanation": "Карта действует только при нехватке денег"
+        }
+      ]
+    },
+    "nerves_range": {
+      "description": "Проверка количества нервов у игрока",
+      "possible_values": ["<2", "2-4", ">4"],
+      "examples": [
+        {
+          "condition": {"nerves_range": "<2"},
+          "explanation": "Карта действует только при критически низких нервах"
+        }
+      ]
+    }
+  },
+  "special_effects": {
+    "upgrade_housing": "Игрок может улучшить тип жилья на один уровень",
+    "downgrade_housing": "Игрок вынужден ухудшить тип жилья на один уровень",
+    "free_language_upgrade": "Бесплатное повышение уровня языка",
+    "document_loss": "Потеря одного документа (по выбору или случайно)",
+    "skip_next_turn": "Пропуск следующего хода",
+    "extra_turn": "Дополнительный ход",
+    "reroll_dice": "Переброс кубика в этом ходу",
+    "draw_action_card": "Взять дополнительную карту действия",
+    "discard_action_card": "Сбросить карту действия"
+  },
+  "condition_operators": {
+    "=": "Равно",
+    ">": "Больше чем",
+    "<": "Меньше чем", 
+    ">=": "Больше или равно",
+    "<=": "Меньше или равно",
+    "!=": "Не равно"
+  }
+}

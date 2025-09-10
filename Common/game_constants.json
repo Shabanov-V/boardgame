@@ -1,0 +1,11 @@
+{
+  "game_constants": {
+    "starting_nerves_default": 5,
+    "max_action_cards": 5,
+    "starting_action_cards": 3,
+    "elimination_threshold": -1,
+    "dice_sides": 6,
+    "language_b_cost": 2,
+    "language_c_cost": 4
+  }
+}

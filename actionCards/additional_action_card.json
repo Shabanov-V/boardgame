@@ -1,0 +1,20 @@
+{
+  "additional_action_cards": [
+    {
+      "id": "action_31",
+      "name": "Gestor con descuento",
+      "category": "services",
+      "type": "utility",
+      "description": "Специальная скидка у знакомого гестора",
+      "cost": {
+        "money": 2
+      },
+      "effects": {
+        "next_document_discount": 1,
+        "gestor_relationship": true
+      },
+      "when_to_play": "anytime",
+      "flavor_text": "Conocidos en gestoría = ahorro"
+    }
+  ]
+}

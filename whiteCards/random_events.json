@@ -1,0 +1,569 @@
+{
+  "random_events": [
+    {
+      "id": "event_01",
+      "name": "Agosto",
+      "category": "seasonal",
+      "type": "global_negative",
+      "description": "Все уехали в отпуск, Испания не работает до сентября",
+      "duration": "permanent_until_removed",
+      "global_effects": {
+        "work_bonuses_disabled": true,
+        "health_penalties_doubled": true,
+        "housing_penalties_doubled": true,
+        "document_processing_disabled": true
+      },
+      "flavor_text": "¡Vacaciones! España cerrada por agosto"
+    },
+    {
+      "id": "event_02", 
+      "name": "Inspección de Hacienda",
+      "category": "bureaucracy",
+      "type": "targeted_negative",
+      "description": "Налоговая проверка всех автономос",
+      "conditions": {
+        "character_id": ["freelance_artist", "it_specialist"]
+      },
+      "effects": {
+        "nerves": -2,
+        "money": -3
+      },
+      "flavor_text": "Hacienda siempre gana"
+    },
+    {
+      "id": "event_03",
+      "name": "Национальный праздник",
+      "category": "cultural",
+      "type": "global_positive",
+      "description": "Фиеста в честь местного святого покровителя",
+      "effects": {
+        "nerves": 1,
+        "money": -1
+      },
+      "global_effects": {
+        "next_red_card_skip": true
+      },
+      "flavor_text": "San Fermín y la alegría española"
+    },
+    {
+      "id": "event_04",
+      "name": "Экономический кризис",
+      "category": "economic",
+      "type": "global_negative",
+      "description": "Экономика Испании переживает сложные времена",
+      "duration": "3_rounds",
+      "global_effects": {
+        "salary_reduced": 1,
+        "housing_costs_increased": 1
+      },
+      "flavor_text": "Crisis española, как всегда"
+    },
+    {
+      "id": "event_05",
+      "name": "Жара 50 градусов",
+      "category": "weather",
+      "type": "global_negative",
+      "description": "Аномальная жара парализует страну",
+      "effects": {
+        "nerves": -1,
+        "money": -1
+      },
+      "conditions": {
+        "housing_type": "room"
+      },
+      "additional_effect": "air_conditioning_required",
+      "flavor_text": "Hace más calor que en el infierno"
+    },
+    {
+      "id": "event_06",
+      "name": "Забастовка транспорта",
+      "category": "social",
+      "type": "global_negative", 
+      "description": "Все виды транспорта бастуют одновременно",
+      "effects": {
+        "nerves": -1,
+        "money": 0
+      },
+      "global_effects": {
+        "movement_restricted": true
+      },
+      "flavor_text": "Huelga general del transporte"
+    },
+    {
+      "id": "event_07",
+      "name": "Евровидение в Испании",
+      "category": "cultural",
+      "type": "global_positive",
+      "description": "Вся страна смотрит Евровидение и празднует",
+      "effects": {
+        "nerves": 2,
+        "money": -1
+      },
+      "flavor_text": "¡Eurovision! Fiesta nacional"
+    },
+    {
+      "id": "event_08",
+      "name": "Проверка документов",
+      "category": "bureaucracy",
+      "type": "dice_challenge",
+      "description": "Полиция устроила массовую проверку документов",
+      "challenge": {
+        "skill_type": "documents",
+        "description": "Предъявить все необходимые документы",
+        "outcomes": {
+          "success": {
+            "condition": ">4",
+            "description": "Документы в порядке, полицейский дружелюбен",
+            "effects": {
+              "nerves": 1,
+              "money": 0
+            }
+          },
+          "partial": {
+            "condition": "2-4",
+            "description": "Документы есть, но пришлось понервничать",
+            "effects": {
+              "nerves": 0,
+              "money": 0
+            }
+          },
+          "failure": {
+            "condition": "1",
+            "description": "Проблемы с документами, штраф",
+            "effects": {
+              "nerves": -2,
+              "money": -3
+            }
+          }
+        }
+      },
+      "flavor_text": "Control de identificación"
+    },
+    {
+      "id": "event_09",
+      "name": "Фламенко-фестиваль",
+      "category": "cultural",
+      "type": "dice_challenge",
+      "description": "Местный фестиваль фламенко, везде танцы и музыка",
+      "challenge": {
+        "skill_type": "language", 
+        "description": "Попробовать станцевать с местными",
+        "outcomes": {
+          "success": {
+            "condition": ">4",
+            "description": "Танцуете как настоящий испанец!",
+            "effects": {
+              "nerves": 3,
+              "money": 1
+            }
+          },
+          "partial": {
+            "condition": "2-4",
+            "description": "Получилось неплохо, публике понравилось",
+            "effects": {
+              "nerves": 1,
+              "money": 0
+            }
+          },
+          "failure": {
+            "condition": "1",
+            "description": "Опозорились перед всеми",
+            "effects": {
+              "nerves": -1,
+              "money": 0
+            }
+          }
+        }
+      },
+      "flavor_text": "¡Olé! Baila conmigo"
+    },
+    {
+      "id": "event_10",
+      "name": "Navidad española",
+      "category": "seasonal",
+      "type": "global_positive",
+      "description": "Рождественские праздники в испанском стиле",
+      "effects": {
+        "nerves": 2,
+        "money": -2
+      },
+      "global_effects": {
+        "family_bonus": true
+      },
+      "conditions": {
+        "character_id": "spanish_spouse"
+      },
+      "additional_effect": "extra_nerves",
+      "flavor_text": "Familia española es todo"
+    },
+    {
+      "id": "event_11",
+      "name": "Mercadona закрыта навсегда",
+      "category": "daily_life",
+      "type": "global_negative",
+      "description": "Ваш любимый супермаркет внезапно закрылся",
+      "effects": {
+        "nerves": -2,
+        "money": -1
+      },
+      "flavor_text": "¿Dónde comprar now?"
+    },
+    {
+      "id": "event_12",
+      "name": "Siesta time",
+      "category": "cultural",
+      "type": "global_positive",
+      "description": "Идеальное время для сиесты",
+      "effects": {
+        "nerves": 1,
+        "money": 0
+      },
+      "global_effects": {
+        "next_turn_energy_bonus": true
+      },
+      "flavor_text": "La siesta sagrada española"
+    },
+    {
+      "id": "event_13",
+      "name": "Correos perdил посылку",
+      "category": "bureaucracy",
+      "type": "negative",
+      "description": "Испанская почта в своем репертуаре",
+      "effects": {
+        "nerves": -1,
+        "money": -1
+      },
+      "flavor_text": "Correos español strikes again"
+    },
+    {
+      "id": "event_14",
+      "name": "Все говорят cada andaluz",
+      "category": "language",
+      "type": "dice_challenge",
+      "description": "Попали в Андалусию, никого не понимаете",
+      "challenge": {
+        "skill_type": "language",
+        "description": "Понять местный диалект",
+        "outcomes": {
+          "success": {
+            "condition": ">4",
+            "description": "Легко понимаете андалузский",
+            "effects": {
+              "nerves": 1,
+              "money": 0
+            }
+          },
+          "partial": {
+            "condition": "2-4",
+            "description": "Понимаете половину слов",
+            "effects": {
+              "nerves": 0,
+              "money": 0
+            }
+          },
+          "failure": {
+            "condition": "1",
+            "description": "Полная языковая катастрофа",
+            "effects": {
+              "nerves": -2,
+              "money": 0
+            }
+          }
+        }
+      },
+      "flavor_text": "Andaluz = otro idioma"
+    },
+    {
+      "id": "event_15",
+      "name": "La Liga финал",
+      "category": "sports",
+      "type": "global_positive",
+      "description": "Финал чемпионата Испании, вся страна прикована к экранам",
+      "effects": {
+        "nerves": 1,
+        "money": -1
+      },
+      "global_effects": {
+        "work_productivity_down": true
+      },
+      "flavor_text": "¡Hala Madrid! или ¡Visca Barça!"
+    },
+    {
+      "id": "event_16",
+      "name": "Invierno в Мадриде",
+      "category": "weather",
+      "type": "negative",
+      "description": "Зима в Мадриде холоднее, чем ожидали",
+      "conditions": {
+        "housing_type": ["room", "apartment"]
+      },
+      "effects": {
+        "nerves": -1,
+        "money": -2
+      },
+      "flavor_text": "Calefacción muy cara"
+    },
+    {
+      "id": "event_17",
+      "name": "Encontrar 20 euros",
+      "category": "luck",
+      "type": "positive",
+      "description": "Нашли деньги на улице",
+      "effects": {
+        "nerves": 1,
+        "money": 2
+      },
+      "flavor_text": "Suerte española"
+    },
+    {
+      "id": "event_18",
+      "name": "Procesión religiosa",
+      "category": "cultural",
+      "type": "mixed",
+      "description": "Религиозная процессия блокирует весь город",
+      "effects": {
+        "nerves": -1,
+        "money": 0
+      },
+      "cultural_bonus": {
+        "character_id": "spanish_spouse",
+        "bonus_nerves": 2
+      },
+      "flavor_text": "Semana Santa española"
+    },
+    {
+      "id": "event_19",
+      "name": "Tinder match",
+      "category": "social",
+      "type": "dice_challenge",
+      "description": "Свидание с местным жителем через приложение",
+      "challenge": {
+        "skill_type": "language",
+        "description": "Произвести впечатление на свидании",
+        "outcomes": {
+          "success": {
+            "condition": ">4",
+            "description": "Отличное свидание, планируете встречу",
+            "effects": {
+              "nerves": 2,
+              "money": -2
+            }
+          },
+          "partial": {
+            "condition": "2-4",
+            "description": "Нормальное свидание, может быть продолжение",
+            "effects": {
+              "nerves": 1,
+              "money": -1
+            }
+          },
+          "failure": {
+            "condition": "1",
+            "description": "Полный провал, языковой барьер",
+            "effects": {
+              "nerves": -1,
+              "money": -1
+            }
+          }
+        }
+      },
+      "flavor_text": "Amor español"
+    },
+    {
+      "id": "event_20",
+      "name": "Cita previa система сломалась",
+      "category": "bureaucracy",
+      "type": "global_negative",
+      "description": "Онлайн-система записи не работает",
+      "duration": "2_rounds",
+      "global_effects": {
+        "document_appointments_blocked": true
+      },
+      "effects": {
+        "nerves": -1,
+        "money": 0
+      },
+      "flavor_text": "Sistema español = siempre broken"
+    },
+    {
+      "id": "event_21",
+      "name": "Feria de abril",
+      "category": "cultural",
+      "type": "global_positive",
+      "description": "Знаменитая апрельская ярмарка в Севилье",
+      "effects": {
+        "nerves": 2,
+        "money": -3
+      },
+      "special_effect": "draw_action_card",
+      "flavor_text": "¡Feria! Casetas y sevillanas"
+    },
+    {
+      "id": "event_22",
+      "name": "Gestión помогла",
+      "category": "bureaucracy",
+      "type": "positive",
+      "description": "Агентство по оформлению документов сработало быстро",
+      "conditions": {
+        "money_range": ">10"
+      },
+      "effects": {
+        "nerves": 2,
+        "money": -3
+      },
+      "special_effect": "free_document_card",
+      "flavor_text": "Dinero solved problems"
+    },
+    {
+      "id": "event_23",
+      "name": "Tortilla española debate",
+      "category": "social",
+      "type": "dice_challenge",
+      "description": "Спор о том, нужен ли лук в тортилье",
+      "challenge": {
+        "skill_type": "language",
+        "description": "Отстоять свою позицию в споре",
+        "outcomes": {
+          "success": {
+            "condition": ">4",
+            "description": "Убедили всех в своей правоте",
+            "effects": {
+              "nerves": 2,
+              "money": 0
+            }
+          },
+          "partial": {
+            "condition": "2-4",
+            "description": "Ничья в споре",
+            "effects": {
+              "nerves": 0,
+              "money": 0
+            }
+          },
+          "failure": {
+            "condition": "1",
+            "description": "Проиграли спор, потеряли respect",
+            "effects": {
+              "nerves": -1,
+              "money": 0
+            }
+          }
+        }
+      },
+      "flavor_text": "Con cebolla or sin cebolla?"
+    },
+    {
+      "id": "event_24",
+      "name": "Primavera en España",
+      "category": "seasonal",
+      "type": "global_positive",
+      "description": "Прекрасная испанская весна поднимает настроение всем",
+      "effects": {
+        "nerves": 1,
+        "money": 0
+      },
+      "global_effects": {
+        "health_bonus_round": true
+      },
+      "flavor_text": "Primavera española = felicidad"
+    },
+    {
+      "id": "event_25",
+      "name": "Tapas tour",
+      "category": "cultural",
+      "type": "positive",
+      "description": "Грандиозный тур по тапас-барам",
+      "effects": {
+        "nerves": 2,
+        "money": -3
+      },
+      "conditions": {
+        "language_level": ">=2"
+      },
+      "flavor_text": "Tapas y cerveza = vida española"
+    },
+    {
+      "id": "event_26",
+      "name": "Okupas в соседнем доме",
+      "category": "housing_related",
+      "type": "negative",
+      "description": "Сквоттеры заняли соседний дом, район стал беспокойным",
+      "effects": {
+        "nerves": -2,
+        "money": 0
+      },
+      "duration": "permanent_until_removed",
+      "flavor_text": "Okupación problemática"
+    },
+    {
+      "id": "event_27",
+      "name": "Cambio de hora",
+      "category": "temporal",
+      "type": "global_mixed",
+      "description": "Переход на летнее/зимнее время сбивает биоритмы",
+      "effects": {
+        "nerves": -1,
+        "money": 0
+      },
+      "global_effects": {
+        "schedule_disrupted": true
+      },
+      "flavor_text": "European time change confusion"
+    },
+    {
+      "id": "event_28",
+      "name": "Churros gratis",
+      "category": "luck",
+      "type": "positive",
+      "description": "Акция в кафе: бесплатные чуррос для всех",
+      "effects": {
+        "nerves": 1,
+        "money": 1
+      },
+      "flavor_text": "Churros salvation"
+    },
+    {
+      "id": "event_29",
+      "name": "Viernes de huelga",
+      "category": "social",
+      "type": "global_negative",
+      "description": "Всеобщая пятничная забастовка",
+      "global_effects": {
+        "all_services_closed": true,
+        "transport_blocked": true
+      },
+      "effects": {
+        "nerves": -1,
+        "money": 0
+      },
+      "flavor_text": "Huelga general viernes"
+    },
+    {
+      "id": "event_30",
+      "name": "Español level up",
+      "category": "education",
+      "type": "positive",
+      "description": "Наконец-то начали понимать испанские сериалы без субтитров",
+      "conditions": {
+        "language_level": ">=2"
+      },
+      "effects": {
+        "nerves": 2,
+        "money": 0
+      },
+      "special_effect": "free_language_upgrade",
+      "flavor_text": "¡Por fin entiendo todo!"
+    }
+  ],
+  "card_stats": {
+    "global_positive": 8,
+    "global_negative": 7,
+    "positive": 5,
+    "negative": 4,
+    "dice_challenges": 6,
+    "seasonal": 4,
+    "cultural": 8,
+    "bureaucracy": 5,
+    "total": 30
+  }
+}

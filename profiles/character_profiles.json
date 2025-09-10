@@ -1,0 +1,85 @@
+{
+  "character_profiles": [
+    {
+      "id": "it_specialist",
+      "name": "IT-шник",
+      "description": "Программист или IT-специалист с хорошей зарплатой, но налоги бьют чаще",
+      "starting_money": 16,
+      "starting_nerves": 5,
+      "starting_language": 2,
+      "starting_housing": "room",
+      "salary": 6,
+      "salary_type": "fixed",
+      "housing_cost": 2,
+      "special_effects": [
+        "tax_events_frequent"
+      ]
+    },
+    {
+      "id": "student", 
+      "name": "Студент",
+      "description": "Учащийся с минимальными средствами, но доступом к стипендии",
+      "starting_money": 4,
+      "starting_nerves": 5,
+      "starting_language": 2,
+      "starting_housing": "room",
+      "salary": 2,
+      "salary_type": "fixed",
+      "housing_cost": 1,
+      "special_effects": [
+        "scholarship_access",
+        "exam_nerves_penalty"
+      ]
+    },
+    {
+      "id": "courier",
+      "name": "Курьер", 
+      "description": "Водитель доставки с повышенной стрессоустойчивостью",
+      "starting_money": 8,
+      "starting_nerves": 7,
+      "starting_language": 1,
+      "starting_housing": "room",
+      "salary": 3,
+      "salary_type": "fixed", 
+      "housing_cost": 2,
+      "special_effects": [
+        "movement_bonus",
+        "stress_resistant"
+      ]
+    },
+    {
+      "id": "spanish_spouse",
+      "name": "Жена/муж испанца",
+      "description": "Семейная виза с преимуществами в документах и жилье",
+      "starting_money": 6,
+      "starting_nerves": 5,
+      "starting_language": 1,
+      "starting_housing": "apartment",
+      "salary": 1,
+      "salary_type": "fixed",
+      "housing_cost": 0,
+      "special_effects": [
+        "free_housing",
+        "documents_bonus",
+        "family_stress"
+      ]
+    },
+    {
+      "id": "freelance_artist",
+      "name": "Художник-фрилансер",
+      "description": "Творческая личность с нестабильным доходом",
+      "starting_money": 3,
+      "starting_nerves": 5,
+      "starting_language": 1,
+      "starting_housing": "room",
+      "salary": 0,
+      "salary_type": "dice",
+      "housing_cost": 1,
+      "special_effects": [
+        "creative_events",
+        "flexible_schedule",
+        "unstable_income"
+      ]
+    }
+  ]
+}

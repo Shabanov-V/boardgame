@@ -1,0 +1,527 @@
+{
+  "action_cards": [
+    {
+      "id": "action_01",
+      "name": "2 бокала Tinto de verano",
+      "category": "drinks",
+      "type": "instant",
+      "description": "Освежающий летний напиток поднимает настроение",
+      "cost": {
+        "money": 1
+      },
+      "effects": {
+        "nerves": 2
+      },
+      "when_to_play": "anytime",
+      "flavor_text": "Vino tinto + limón = felicidad"
+    },
+    {
+      "id": "action_02",
+      "name": "Paella familiar",
+      "category": "food",
+      "type": "instant",
+      "description": "Домашняя паэлья объединяет и лечит душу",
+      "cost": {
+        "money": 3
+      },
+      "effects": {
+        "nerves": 3,
+        "draw_card": 1
+      },
+      "when_to_play": "anytime",
+      "flavor_text": "La paella cura todas las penas"
+    },
+    {
+      "id": "action_03",
+      "name": "Llamada a mamá",
+      "category": "social",
+      "type": "instant",
+      "description": "Звонок домой восстанавливает силы",
+      "cost": {
+        "money": 0
+      },
+      "effects": {
+        "nerves": 1,
+        "money": 2
+      },
+      "when_to_play": "anytime",
+      "flavor_text": "Mama siempre ayuda"
+    },
+    {
+      "id": "action_04",
+      "name": "Gestoría profesional",
+      "category": "services",
+      "type": "defensive",
+      "description": "Профессиональная помощь с документами",
+      "cost": {
+        "money": 5
+      },
+      "effects": {
+        "block_document_penalty": true,
+        "add_document_card": 1
+      },
+      "when_to_play": "when_drawing_documents_card",
+      "flavor_text": "Dinero soluciona burocracia"
+    },
+    {
+      "id": "action_05",
+      "name": "Amigo español",
+      "category": "social",
+      "type": "utility",
+      "description": "Местный друг помогает разобраться в ситуации",
+      "cost": {
+        "nerves": 0
+      },
+      "effects": {
+        "reroll_language_dice": true,
+        "language_bonus": 1
+      },
+      "when_to_play": "during_language_challenge",
+      "flavor_text": "Amistad española vale oro"
+    },
+    {
+      "id": "action_06",
+      "name": "Siesta sagrada",
+      "category": "lifestyle",
+      "type": "instant",
+      "description": "Классическая испанская сиеста восстанавливает силы",
+      "cost": {
+        "skip_turn": true
+      },
+      "effects": {
+        "nerves": 2,
+        "immunity_next_housing": true
+      },
+      "when_to_play": "start_of_turn",
+      "flavor_text": "La siesta es vida"
+    },
+    {
+      "id": "action_07",
+      "name": "Abogado de confianza",
+      "category": "services",
+      "type": "defensive",
+      "description": "Надежный адвокат спасает от штрафов",
+      "cost": {
+        "money": 4
+      },
+      "effects": {
+        "cancel_money_penalty": true,
+        "legal_protection": true
+      },
+      "when_to_play": "when_receiving_penalty",
+      "flavor_text": "Justicia española (con dinero)"
+    },
+    {
+      "id": "action_08",
+      "name": "Tapas con colegas",
+      "category": "social",
+      "type": "instant",
+      "description": "Посиделки с коллегами за тапас улучшают отношения",
+      "cost": {
+        "money": 2
+      },
+      "effects": {
+        "nerves": 1,
+        "work_bonus_next": true
+      },
+      "when_to_play": "anytime",
+      "flavor_text": "Tapas networking español"
+    },
+    {
+      "id": "action_09",
+      "name": "Google Translate premium",
+      "category": "technology",
+      "type": "utility",
+      "description": "Продвинутый переводчик помогает в сложных ситуациях",
+      "cost": {
+        "money": 1
+      },
+      "effects": {
+        "language_dice_advantage": true
+      },
+      "when_to_play": "during_language_challenge",
+      "flavor_text": "Tecnología vs español"
+    },
+    {
+      "id": "action_10",
+      "name": "Churros con chocolate",
+      "category": "food",
+      "type": "instant",
+      "description": "Сладкая терапия против депрессии",
+      "cost": {
+        "money": 1
+      },
+      "effects": {
+        "nerves": 1,
+        "block_health_penalty": true
+      },
+      "when_to_play": "anytime_or_defensive",
+      "flavor_text": "Azúcar cura tristeza"
+    },
+    {
+      "id": "action_11",
+      "name": "Tarjeta telefónica internacional",
+      "category": "communication",
+      "type": "instant",
+      "description": "Дешевые звонки на родину",
+      "cost": {
+        "money": 1
+      },
+      "effects": {
+        "nerves": 1,
+        "money": 1
+      },
+      "when_to_play": "anytime",
+      "flavor_text": "Conexión con casa"
+    },
+    {
+      "id": "action_12",
+      "name": "Conocido en ayuntamiento",
+      "category": "connections",
+      "type": "utility",
+      "description": "Знакомый в мэрии ускоряет бюрократию",
+      "cost": {
+        "nerves": 0
+      },
+      "effects": {
+        "skip_document_queue": true,
+        "documents_fast_track": true
+      },
+      "when_to_play": "when_getting_documents",
+      "flavor_text": "Enchufismo español works"
+    },
+    {
+      "id": "action_13",
+      "name": "Jamón ibérico de calidad",
+      "category": "food",
+      "type": "instant",
+      "description": "Элитный хамон поднимает статус и настроение",
+      "cost": {
+        "money": 4
+      },
+      "effects": {
+        "nerves": 2,
+        "social_bonus": true
+      },
+      "when_to_play": "anytime",
+      "flavor_text": "Jamón = cultura española"
+    },
+    {
+      "id": "action_14",
+      "name": "Aire acondicionado",
+      "category": "comfort",
+      "type": "defensive",
+      "description": "Кондиционер спасает от испанской жары",
+      "cost": {
+        "money": 3
+      },
+      "effects": {
+        "block_heat_penalty": true,
+        "comfort_bonus": true
+      },
+      "when_to_play": "when_heat_event",
+      "conditions": {
+        "housing_type": "!=mortgage"
+      },
+      "flavor_text": "Salvación en verano"
+    },
+    {
+      "id": "action_15",
+      "name": "Diccionario español avanzado",
+      "category": "education",
+      "type": "utility",
+      "description": "Серьезное изучение языка приносит плоды",
+      "cost": {
+        "money": 2,
+        "nerves": 1
+      },
+      "effects": {
+        "language_upgrade_discount": true,
+        "permanent_language_bonus": true
+      },
+      "when_to_play": "anytime",
+      "flavor_text": "Educación española formal"
+    },
+    {
+      "id": "action_16",
+      "name": "Medicinas de farmacia",
+      "category": "health",
+      "type": "defensive",
+      "description": "Запас лекарств из аптеки",
+      "cost": {
+        "money": 2
+      },
+      "effects": {
+        "block_health_penalty": true,
+        "health_insurance_bonus": true
+      },
+      "when_to_play": "when_health_problem",
+      "flavor_text": "Farmacia española eficaz"
+    },
+    {
+      "id": "action_17",
+      "name": "Cita con psicólogo",
+      "category": "health",
+      "type": "instant",
+      "description": "Профессиональная помощь при стрессе",
+      "cost": {
+        "money": 3
+      },
+      "effects": {
+        "nerves": 3,
+        "stress_immunity": true
+      },
+      "when_to_play": "anytime",
+      "flavor_text": "Salud mental importante"
+    },
+    {
+      "id": "action_18",
+      "name": "Tarjeta de transporte mensual",
+      "category": "transport",
+      "type": "utility",
+      "description": "Проездной билет экономит деньги и время",
+      "cost": {
+        "money": 3
+      },
+      "effects": {
+        "transport_immunity": true,
+        "movement_bonus": true
+      },
+      "when_to_play": "start_of_turn",
+      "duration": "3_turns",
+      "flavor_text": "Movilidad urbana española"
+    },
+    {
+      "id": "action_19",
+      "name": "Intercambio de idiomas",
+      "category": "social",
+      "type": "utility",
+      "description": "Языковой обмен с местными жителями",
+      "cost": {
+        "nerves": 0
+      },
+      "effects": {
+        "language_practice": true,
+        "social_connections": true
+      },
+      "when_to_play": "anytime",
+      "flavor_text": "Intercambio cultural auténtico"
+    },
+    {
+      "id": "action_20",
+      "name": "Seguro médico privado",
+      "category": "insurance",
+      "type": "permanent",
+      "description": "Частная медицинская страховка",
+      "cost": {
+        "money": 5
+      },
+      "effects": {
+        "health_upgrade": "private",
+        "medical_immunity": true
+      },
+      "when_to_play": "anytime",
+      "duration": "permanent",
+      "flavor_text": "Sanidad privada = tranquilidad"
+    },
+    {
+      "id": "action_21",
+      "name": "Coche de segunda mano",
+      "category": "transport",
+      "type": "permanent",
+      "description": "Подержанная машина дает свободу передвижения",
+      "cost": {
+        "money": 8
+      },
+      "effects": {
+        "transport_independence": true,
+        "travel_bonus": true
+      },
+      "when_to_play": "anytime",
+      "conditions": {
+        "documents_level": ">=6"
+      },
+      "flavor_text": "Libertad de movimiento"
+    },
+    {
+      "id": "action_22",
+      "name": "Clases de flamenco",
+      "category": "culture",
+      "type": "instant",
+      "description": "Уроки фламенко погружают в культуру",
+      "cost": {
+        "money": 2
+      },
+      "effects": {
+        "nerves": 2,
+        "cultural_integration": true
+      },
+      "when_to_play": "anytime",
+      "flavor_text": "Integración cultural auténtica"
+    },
+    {
+      "id": "action_23",
+      "name": "VPN для Netflix España",
+      "category": "technology",
+      "type": "instant",
+      "description": "Доступ к испанскому контенту для изучения языка",
+      "cost": {
+        "money": 1
+      },
+      "effects": {
+        "language_immersion": true,
+        "entertainment_bonus": true
+      },
+      "when_to_play": "anytime",
+      "flavor_text": "Netflix educational español"
+    },
+    {
+      "id": "action_24",
+      "name": "Botella de buen vino",
+      "category": "gifts",
+      "type": "social",
+      "description": "Хорошее вино для подарка соседям",
+      "cost": {
+        "money": 2
+      },
+      "effects": {
+        "neighbor_relations": true,
+        "housing_bonus": true
+      },
+      "when_to_play": "when_housing_problem",
+      "flavor_text": "Vino español diplomatic"
+    },
+    {
+      "id": "action_25",
+      "name": "Curso intensivo de español",
+      "category": "education",
+      "type": "instant",
+      "description": "Интенсивный курс испанского языка",
+      "cost": {
+        "money": 4,
+        "skip_turn": true
+      },
+      "effects": {
+        "language_level_up": true,
+        "confidence_bonus": true
+      },
+      "when_to_play": "start_of_turn",
+      "flavor_text": "Inversión en futuro"
+    },
+    {
+      "id": "action_26",
+      "name": "Conexión WiFi potente",
+      "category": "technology",
+      "type": "utility",
+      "description": "Быстрый интернет для удаленной работы",
+      "cost": {
+        "money": 2
+      },
+      "effects": {
+        "work_from_home": true,
+        "income_bonus": true
+      },
+      "when_to_play": "anytime",
+      "duration": "3_turns",
+      "flavor_text": "Trabajo digital español"
+    },
+    {
+      "id": "action_27",
+      "name": "Ropa de marca española",
+      "category": "lifestyle",
+      "type": "instant",
+      "description": "Одежда испанских брендов повышает уверенность",
+      "cost": {
+        "money": 3
+      },
+      "effects": {
+        "confidence_boost": true,
+        "social_acceptance": true
+      },
+      "when_to_play": "anytime",
+      "flavor_text": "Estilo español auténtico"
+    },
+    {
+      "id": "action_28",
+      "name": "Escapada de fin de semana",
+      "category": "travel",
+      "type": "instant",
+      "description": "Поездка по Испании восстанавливает силы",
+      "cost": {
+        "money": 4
+      },
+      "effects": {
+        "nerves": 3,
+        "cultural_knowledge": true
+      },
+      "when_to_play": "anytime",
+      "flavor_text": "España es diversa y bella"
+    },
+    {
+      "id": "action_29",
+      "name": "Aplicación de cita previa",
+      "category": "technology",
+      "type": "utility",
+      "description": "Мобильное приложение для записи к врачам",
+      "cost": {
+        "money": 1
+      },
+      "effects": {
+        "appointment_priority": true,
+        "bureaucracy_speed": true
+      },
+      "when_to_play": "when_documents_needed",
+      "flavor_text": "Tecnología vs burocracia"
+    },
+    {
+      "id": "action_30",
+      "name": "Fiesta de cumpleaños española",
+      "category": "social",
+      "type": "instant",
+      "description": "Организация дня рождения в испанском стиле",
+      "cost": {
+        "money": 3
+      },
+      "effects": {
+        "nerves": 2,
+        "social_network": true,
+        "draw_card": 1
+      },
+      "when_to_play": "anytime",
+      "flavor_text": "Celebración española inolvidable"
+    }
+  ],
+  "card_categories": {
+    "food": "Еда и напитки испанской кухни",
+    "drinks": "Алкогольные и безалкогольные напитки",
+    "social": "Социальные связи и общение",
+    "services": "Профессиональные услуги",
+    "technology": "Современные технологии",
+    "lifestyle": "Образ жизни и комфорт",
+    "health": "Здоровье и медицина",
+    "education": "Образование и саморазвитие",
+    "transport": "Транспорт и передвижение",
+    "culture": "Культурная интеграция",
+    "communication": "Связь и общение",
+    "connections": "Полезные связи",
+    "comfort": "Комфорт и удобства",
+    "insurance": "Страхование",
+    "gifts": "Подарки и дипломатия",
+    "travel": "Путешествия по Испании"
+  },
+  "play_timing": {
+    "anytime": "Можно играть в любой момент",
+    "start_of_turn": "Только в начале хода",
+    "defensive": "В ответ на негативное событие",
+    "during_challenge": "Во время испытания",
+    "when_drawing_card": "При вытягивании определенной карты"
+  },
+  "card_stats": {
+    "instant": 18,
+    "defensive": 6,
+    "utility": 8,
+    "permanent": 3,
+    "social": 6,
+    "total": 30
+  }
+}

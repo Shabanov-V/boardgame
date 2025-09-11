@@ -81,12 +81,18 @@ class AI:
     def _card_helps_goal(self, card):
         """Checks if a card's effects align with the player's win condition."""
         effects = card.get('effects', {})
+        special_effect = card.get('special_effect')
+        
         for req, value in self.goal_requirements.items():
             if req == 'money' and effects.get('money', 0) > 0:
                 return True
             if req == 'document_level' and effects.get('instant_document_upgrade', 0) > 0:
                 return True
             if req == 'document_level' and effects.get('documents_cards', 0) > 0:
+                return True
+            if req == 'language_level' and effects.get('language_level_up'):
+                return True
+            if req == 'housing_type' and special_effect == 'upgrade_housing':
                 return True
         return False
 
@@ -113,13 +119,18 @@ class AI:
 
         # If the goal is document-related, prioritize exchanging cards to level up.
         if is_doc_goal and card.get('category') == 'documents':
-            required_docs_for_upgrade = self.player.document_level + 2  # Placeholder logic
+            required_docs_for_upgrade = 2  # Now always 2 cards needed
             if self.player.document_cards >= required_docs_for_upgrade:
                 print(f"AI ({self.player.name}): Goal requires documents. Have enough cards, attempting exchange.")
                 return 'exchange'
             else:
                 print(f"AI ({self.player.name}): Goal requires documents, but not enough cards to exchange. Playing for event to get more.")
                 return 'event'
+
+        # Check if the card helps with any goal requirement via events/special effects
+        if self._card_helps_goal(card):
+            print(f"AI ({self.player.name}): Card '{card['name']}' helps with goal. Playing as event.")
+            return 'event'
 
         # If the goal is financial, check if the event gives money.
         if 'money' in self.goal_requirements:
@@ -161,6 +172,7 @@ class Player:
         self.action_cards = []
         self.max_action_cards = game_constants['game_constants']['max_action_cards']
         self.document_cards = 0  # Number of collected document cards
+        self.housing_search = False  # Whether player is actively searching for housing
 
         self.win_condition = win_condition
         self.is_eliminated = False
@@ -311,11 +323,19 @@ class Game:
         """
         # 1. Handle document exchange decision
         if decision == 'exchange':
-            required_docs = player.document_level + 2 # Same logic as in AI
+            # Simplified requirements: always need just 2 cards for any level
+            required_docs = 2
             if player.document_cards >= required_docs:
-                player.document_cards -= required_docs
-                player.document_level += 1
-                print(f"System: {player.name} exchanged {required_docs} doc cards for Level {player.document_level}.")
+                # Roll dice for exchange success (3+ = success)
+                roll = random.randint(1, 6)
+                if roll >= 3:
+                    player.document_cards -= required_docs
+                    player.document_level += 1
+                    print(f"System: {player.name} exchanged {required_docs} doc cards for Level {player.document_level} (rolled {roll}).")
+                else:
+                    # Failed exchange - lose 1 card and discard the drawn card
+                    player.document_cards = max(0, player.document_cards - 1)
+                    print(f"System: {player.name} failed exchange (rolled {roll}), lost 1 doc card.")
             else:
                 # This case should ideally not be reached if AI is smart
                 print(f"System: {player.name} failed to exchange, not enough doc cards.")
@@ -349,11 +369,37 @@ class Game:
                         player.add_action_card(drawn_card)
             elif key == 'instant_document_upgrade':
                 player.document_level += 1
+            elif key == 'language_level_up':
+                if player.language_level < 3:
+                    player.language_level += 1
+                    print(f"System: {player.name} improved language to level {player.language_level}!")
 
         # Also handle special_effect outside the main effects block
         if 'special_effect' in card:
             if card['special_effect'] == 'upgrade_housing':
-                pass
+                old_housing = player.housing
+                if player.housing == 'room':
+                    player.housing = 'apartment'
+                    player.housing_level = 2
+                    player.housing_cost = 3  # Update cost
+                    print(f"System: {player.name} upgraded housing from {old_housing} to {player.housing}!")
+                elif player.housing == 'apartment':
+                    player.housing = 'mortgage'
+                    player.housing_level = 3
+                    player.housing_cost = 5  # Update cost
+                    print(f"System: {player.name} upgraded housing from {old_housing} to {player.housing}!")
+            elif card['special_effect'] == 'downgrade_housing':
+                old_housing = player.housing
+                if player.housing == 'mortgage':
+                    player.housing = 'apartment'
+                    player.housing_level = 2
+                    player.housing_cost = 3
+                    print(f"System: {player.name} downgraded housing from {old_housing} to {player.housing}.")
+                elif player.housing == 'apartment':
+                    player.housing = 'room'
+                    player.housing_level = 1
+                    player.housing_cost = 1
+                    print(f"System: {player.name} downgraded housing from {old_housing} to {player.housing}.")
             elif card['special_effect'] == 'draw_action_card':
                 drawn_card = self.decks['action'].draw()
                 if drawn_card:
@@ -378,6 +424,16 @@ class Game:
                         return False
                 except:
                     return False  # a bit unsafe, but for this context is ok
+            elif key == 'housing_search':
+                if value != player.housing_search:
+                    return False
+            elif key == 'money_range':
+                # Support for money range checks like ">15" or "<5"
+                try:
+                    if not eval(f"{player.money} {value}"):
+                        return False
+                except:
+                    return False
         return True
 
     def handle_dice_challenge(self, player, challenge):

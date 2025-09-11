@@ -16,7 +16,7 @@
       "starting_nerves": 5,
       "starting_language": 2,
       "starting_housing": "room",
-      "salary": 6,
+      "salary": 10,
       "housing_cost": 2
     },
     {
@@ -26,7 +26,7 @@
       "starting_nerves": 5,
       "starting_language": 2,
       "starting_housing": "room",
-      "salary": 2,
+      "salary": 4,
       "housing_cost": 1
     },
     {
@@ -36,7 +36,7 @@
       "starting_nerves": 7,
       "starting_language": 1,
       "starting_housing": "room",
-      "salary": 3,
+      "salary": 6,
       "housing_cost": 2
     },
     {
@@ -46,7 +46,7 @@
       "starting_nerves": 5,
       "starting_language": 1,
       "starting_housing": "apartment",
-      "salary": 1,
+      "salary": 3,
       "housing_cost": 0
     },
     {
@@ -71,38 +71,38 @@
   },
   "win_conditions": {
     "buy_housing": {
-      "description": "Купить жильё: ипотека + 20 денег",
+      "description": "Купить жильё: ипотека + 15 денег",
       "requires": {
         "housing_type": "mortgage",
-        "money": 20
+        "money": 15
       }
     },
     "get_citizenship": {
       "description": "Получить гражданство: дойти до Nacionalidad Española",
       "requires": {
-        "document_level": 3
+        "document_level": 2
       }
     },
     "vacation": {
-      "description": "Накопить 50 денег и уехать в отпуск",
+      "description": "Накопить 30 денег и уехать в отпуск",
       "requires": {
-        "money": 50
+        "money": 30
       }
     },
     "open_business": {
-      "description": "Открыть бизнес: Digital Certificate + 30 денег + язык 2",
+      "description": "Открыть бизнес: Digital Certificate + 15 денег + язык 2",
       "requires": {
-        "document_level": 5,
-        "money": 30,
+        "document_level": 2,
+        "money": 15,
         "language_level": 2
       }
     },
     "family_reunion": {
-      "description": "Воссоединение семьи: Residencia + квартира + 15 денег",
+      "description": "Воссоединение семьи: Residencia + квартира + 8 денег",
       "requires": {
-        "document_level": 7,
+        "document_level": 2,
         "housing_type": "apartment",
-        "money": 15
+        "money": 8
       }
     }
   },

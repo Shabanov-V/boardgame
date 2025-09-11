@@ -54,7 +54,7 @@
       "effects": {
         "nerves": 1,
         "money": 0,
-        "documents_cards": 2
+        "documents_cards": 3
       },
       "flavor_text": "Funcionario nice = rare species"
     },
@@ -542,13 +542,93 @@
         "stress_immunity_bureaucracy": true
       },
       "flavor_text": "Si no puedes cambiarla, ríete de ella"
+    },
+    {
+      "id": "documents_11",
+      "name": "Документы экспресс",
+      "category": "documents", 
+      "type": "positive",
+      "description": "Все документы в одном центре",
+      "exchange_instruction": "Попробуй обменять эту карту на следующий уровень документов за бросок 3+, либо играй как действие на карте. При провале обмена: теряешь одну карту документа как негодную + эта карта в сброс.",
+      "effects": {
+        "nerves": 2,
+        "money": 0,
+        "documents_cards": 4
+      },
+      "flavor_text": "One-stop bureaucracy shop"
+    },
+    {
+      "id": "language_01",
+      "name": "Курсы испанского для иммигрантов",
+      "category": "language",
+      "type": "positive",
+      "description": "Бесплатные курсы для иностранцев",
+      "effects": {
+        "nerves": 1,
+        "language_level_up": true
+      },
+      "flavor_text": "Integración social gratuita"
+    },
+    {
+      "id": "housing_upgrade_01",
+      "name": "Друг риелтор",
+      "category": "housing",
+      "type": "positive", 
+      "description": "Знакомый агент по недвижимости помог найти отличную квартиру",
+      "effects": {
+        "nerves": 1,
+        "money": -5
+      },
+      "special_effect": "upgrade_housing",
+      "flavor_text": "Contacts = better housing"
+    },
+    {
+      "id": "language_02",
+      "name": "Испанский с Netflix",
+      "category": "language",
+      "type": "positive",
+      "description": "Изучение через сериалы оказалось эффективным",
+      "effects": {
+        "nerves": 1,
+        "language_level_up": true
+      },
+      "flavor_text": "Casa de Papel = mejor profesor"
+    },
+    {
+      "id": "housing_upgrade_02", 
+      "name": "Идеальная квартира на Idealista",
+      "category": "housing",
+      "type": "positive",
+      "description": "Наконец нашли хорошее предложение онлайн",
+      "effects": {
+        "nerves": 2,
+        "money": -8
+      },
+      "special_effect": "upgrade_housing",
+      "flavor_text": "Internet apartment hunting success"
+    },
+    {
+      "id": "documents_12",
+      "name": "Все документы готовы",
+      "category": "documents",
+      "type": "positive", 
+      "description": "Невероятно, но все документы оформили быстро",
+      "exchange_instruction": "Попробуй обменять эту карту на следующий уровень документов за бросок 3+, либо играй как действие на карте. При провале обмена: теряешь одну карту документа как негодную + эта карта в сброс.",
+      "effects": {
+        "nerves": 3,
+        "money": 0,
+        "documents_cards": 5
+      },
+      "flavor_text": "Burocracia española miracle"
     }
   ],
   "card_stats": {
-    "documents_positive": 10,
+    "documents_positive": 12,
     "work_positive": 7,
     "work_challenges": 3, 
     "mixed_cultural": 10,
-    "total": 30
+    "language_positive": 2,
+    "housing_upgrade": 2,
+    "total": 36
   }
 }

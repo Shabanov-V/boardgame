@@ -884,18 +884,51 @@
         "money": 1
       },
       "flavor_text": "¡Renovación automática = tranquilidad!"
+    },
+    {
+      "id": "pensioner_boost_01",
+      "name": "Льготы для пенсионеров",
+      "category": "social",
+      "type": "positive",
+      "description": "Специальная программа помощи пенсионерам",
+      "target_groups": ["pensioner", "waiter", "courier"],
+      "effects": {
+        "money": 3,
+        "nerves": 2,
+        "documents_cards": 2
+      },
+      "individual_modifiers": {
+        "pensioner": {"money": 8, "nerves": 4, "documents_cards": 4}
+      },
+      "flavor_text": "¡Programa especial para jubilados!"
+    },
+    {
+      "id": "pensioner_boost_02", 
+      "name": "Скидка для пенсионеров",
+      "category": "social",
+      "type": "positive",
+      "description": "Льготы при оформлении документов для пенсионеров",
+      "target_groups": ["pensioner", "waiter", "student"],
+      "effects": {
+        "money": 2,
+        "nerves": 1
+      },
+      "individual_modifiers": {
+        "pensioner": {"money": 6, "nerves": 3, "document_level": 1}
+      },
+      "flavor_text": "¡Descuentos especiales para la tercera edad!"
     }
   ],
   "card_stats": {
     "global_positive": 8,
     "global_negative": 8,
-    "positive": 28,
+    "positive": 30,
     "negative": 5,
     "dice_challenges": 6,
     "seasonal": 4,
     "cultural": 8,
-    "social": 1,
+    "social": 3,
     "bureaucracy": 25,
-    "total": 55
+    "total": 57
   }
 }

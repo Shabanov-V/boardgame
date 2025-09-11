@@ -141,12 +141,12 @@
       }
     },
     "open_business": {
-      "description": "Открыть бизнес: Digital Certificate + язык 2 + 35 денег + нервы 10",
+      "description": "Открыть бизнес: Digital Certificate + язык 2 + 40 денег + нервы 12",
       "requires": {
         "document_level": 6,
         "language_level": 2,
-        "money": 50,
-        "nerves": 10
+        "money": 60,
+        "nerves": 12
       }
     },
     "family_reunion": {

@@ -86,7 +86,7 @@
     "vacation": {
       "description": "Накопить 50 денег и уехать в отпуск",
       "requires": {
-        "money": 100
+        "money": 50
       }
     },
     "open_business": {

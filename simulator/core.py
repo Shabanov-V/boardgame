@@ -145,6 +145,13 @@ class Player:
         self.nerves = profile['starting_nerves']
         self.language_level = profile['starting_language']
         self.housing = profile['starting_housing']
+        # Track housing level as an integer alongside the type string for progress visibility
+        housing_level_map = {
+            'room': 1,
+            'apartment': 2,
+            'mortgage': 3,
+        }
+        self.housing_level = housing_level_map.get(self.housing, 0)
         self.salary = profile.get('salary', 0)
         self.salary_type = profile.get('salary_type', 'fixed')
         self.housing_cost = profile.get('housing_cost', 0)
@@ -162,6 +169,7 @@ class Player:
 
     def __repr__(self):
         return (f"Player(Name: {self.name}, Money: {self.money}, Nerves: {self.nerves}, "
+                f"Lang Lvl: {self.language_level}, Housing: {self.housing} (Lvl {self.housing_level}), "
                 f"Docs Lvl: {self.document_level}, Doc Cards: {self.document_cards}, "
                 f"Goal: {self.win_condition['key']})")
 

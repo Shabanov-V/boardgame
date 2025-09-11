@@ -9,6 +9,13 @@ from .runner import run_game_simulation
 
 def main():
     """Main entry point for the simulator."""
+    # Establish default output directory inside the simulator package
+    package_dir = Path(__file__).resolve().parent
+    output_dir = package_dir / 'output'
+    output_dir.mkdir(parents=True, exist_ok=True)
+    default_output_file = output_dir / 'simulation_results.json'
+    log_file_path = output_dir / 'simulation.log'
+
     parser = argparse.ArgumentParser(description="Viva Bureaucracia! Game Simulator")
     parser.add_argument(
         '--runs',
@@ -19,41 +26,59 @@ def main():
     parser.add_argument(
         '--output',
         type=str,
-        default='simulation_results.json',
+        default=str(default_output_file),
         help='Path to the output JSON file for statistics.'
     )
     parser.add_argument(
-        '--no-verbose',
+        '--verbose',
         action='store_true',
-        help="Run in silent mode, suppressing turn-by-turn output."
+        help="Print progress and turn-by-turn output to console (also logs to file)."
     )
     args = parser.parse_args()
 
-    # Redirect print to a file if in non-verbose mode to speed up simulation
-    if args.no_verbose:
-        import sys
-        sys.stdout = open('simulation_log.txt', 'w')
+    # Setup logging: tee to file by default, or file-only when verbose is not set
+    import sys
+
+    class _Tee:
+        def __init__(self, *streams):
+            self._streams = streams
+        def write(self, data):
+            for s in self._streams:
+                s.write(data)
+            return len(data)
+        def flush(self):
+            for s in self._streams:
+                s.flush()
+
+    # Ensure parent directory for output file exists if user overrides path
+    Path(args.output).expanduser().resolve().parent.mkdir(parents=True, exist_ok=True)
+
+    log_fp = open(log_file_path, 'w', encoding='utf-8')
+    original_stdout = sys.stdout
+    if args.verbose:
+        sys.stdout = _Tee(original_stdout, log_fp)
+    else:
+        sys.stdout = log_fp
 
     print(f"Viva Bureaucracia! Simulator starting...")
     print(f"Running {args.runs} game simulations.")
 
-    package_dir = Path(__file__).resolve().parent
     config_path = package_dir / 'config.json'
     config = load_json_file(str(config_path))
     game_data = load_game_data()
     stats = Statistics()
 
     for i in range(args.runs):
-        if not args.no_verbose and (i + 1) % (args.runs // 10 or 1) == 0:
+        if args.verbose and (i + 1) % (args.runs // 10 or 1) == 0:
             pass
 
         game_instance = run_game_simulation(config, game_data)
         stats.record_game(game_instance)
 
-    # Restore stdout if it was redirected
-    if args.no_verbose:
-        sys.stdout.close()
-        sys.stdout = sys.__stdout__
+    # Restore stdout and close log file
+    sys.stdout.flush()
+    sys.stdout = original_stdout
+    log_fp.close()
 
     print("\nSimulation finished.")
 

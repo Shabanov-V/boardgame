@@ -1,0 +1,112 @@
+{
+  "game_parameters": {
+    "number_of_players": 4,
+    "board_size": 40,
+    "cell_frequencies": {
+      "red": 10,
+      "green": 20,
+      "white": 10
+    }
+  },
+  "character_profiles": [
+    {
+      "id": "it_specialist",
+      "name": "IT-шник",
+      "starting_money": 16,
+      "starting_nerves": 5,
+      "starting_language": 2,
+      "starting_housing": "room",
+      "salary": 6,
+      "housing_cost": 2
+    },
+    {
+      "id": "student",
+      "name": "Студент",
+      "starting_money": 4,
+      "starting_nerves": 5,
+      "starting_language": 2,
+      "starting_housing": "room",
+      "salary": 2,
+      "housing_cost": 1
+    },
+    {
+      "id": "courier",
+      "name": "Курьер",
+      "starting_money": 8,
+      "starting_nerves": 7,
+      "starting_language": 1,
+      "starting_housing": "room",
+      "salary": 3,
+      "housing_cost": 2
+    },
+    {
+      "id": "spanish_spouse",
+      "name": "Жена/муж испанца",
+      "starting_money": 6,
+      "starting_nerves": 5,
+      "starting_language": 1,
+      "starting_housing": "apartment",
+      "salary": 1,
+      "housing_cost": 0
+    },
+    {
+      "id": "freelance_artist",
+      "name": "Художник-фрилансер",
+      "starting_money": 3,
+      "starting_nerves": 5,
+      "starting_language": 1,
+      "starting_housing": "room",
+      "salary_type": "dice",
+      "housing_cost": 1
+    }
+  ],
+  "costs": {
+    "language_b_cost": 2,
+    "language_c_cost": 4,
+    "housing_rent": {
+      "room": 1,
+      "apartment": 3,
+      "mortgage": 5
+    }
+  },
+  "win_conditions": {
+    "buy_housing": {
+      "description": "Купить жильё: ипотека + 20 денег",
+      "requires": {
+        "housing_type": "mortgage",
+        "money": 20
+      }
+    },
+    "get_citizenship": {
+      "description": "Получить гражданство: дойти до Nacionalidad Española",
+      "requires": {
+        "document_level": 8
+      }
+    },
+    "vacation": {
+      "description": "Накопить 50 денег и уехать в отпуск",
+      "requires": {
+        "money": 50
+      }
+    },
+    "open_business": {
+      "description": "Открыть бизнес: Digital Certificate + 30 денег + язык 2",
+      "requires": {
+        "document_level": 5,
+        "money": 30,
+        "language_level": 2
+      }
+    },
+    "family_reunion": {
+      "description": "Воссоединение семьи: Residencia + квартира + 15 денег",
+      "requires": {
+        "document_level": 7,
+        "housing_type": "apartment",
+        "money": 15
+      }
+    }
+  },
+  "simulation_parameters": {
+    "ai_nerve_threshold": 3
+  }
+}

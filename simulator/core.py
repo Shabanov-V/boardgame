@@ -349,7 +349,7 @@ class AI:
         self.player = player
         self.config = config
         self.nerve_threshold = config['simulation_parameters'].get('ai_nerve_threshold', 3)
-        self.goal_requirements = self.player.win_condition.get('requires', {})
+        self.goal_requirements = self.player.win_condition.get('requires', {}) if self.player.win_condition else {}
         self.lie_probability = 0.3  # 30% chance to lie in trades
         self.trust_levels = {}  # Track trust towards other players
 
@@ -363,11 +363,18 @@ class AI:
                     print(f"AI ({self.player.name}): Nerves are low ({self.player.nerves}), playing '{card['name']}' to restore them.")
                     return card
 
-        # Priority 2: Play cards that directly advance the win condition
-        for card in self.player.action_cards:
-            if self._can_play_now(card, turn_context) and self._card_helps_goal(card):
-                print(f"AI ({self.player.name}): Playing '{card['name']}' to advance win condition '{self.player.win_condition['key']}'.")
-                return card
+        # Priority 2: Play cards that directly advance the win condition (if goal is chosen)
+        if self.player.win_condition:
+            for card in self.player.action_cards:
+                if self._can_play_now(card, turn_context) and self._card_helps_goal(card):
+                    print(f"AI ({self.player.name}): Playing '{card['name']}' to advance win condition '{self.player.win_condition['key']}'.")
+                    return card
+        else:
+            # Без цели фокусируемся на документах для быстрого достижения уровня выбора цели
+            for card in self.player.action_cards:
+                if self._can_play_now(card, turn_context) and card.get('effects', {}).get('documents_cards', 0) > 0:
+                    print(f"AI ({self.player.name}): Нет цели - накапливаю документы, играю '{card['name']}'.")
+                    return card
 
         return None
 
@@ -411,15 +418,52 @@ class AI:
         return 'draw_green'
 
 
+    def _calculate_potential_levels(self):
+        """Рассчитывает, сколько уровней документов можно получить с текущими картами."""
+        cards_available = self.player.document_cards
+        current_level = self.player.document_level
+        levels_possible = 0
+        
+        while cards_available > 0:
+            # Линейная прогрессия: уровень N требует N карт (максимум 6)
+            required_docs = min(current_level + 1, 6)
+            if cards_available >= required_docs:
+                cards_available -= required_docs
+                current_level += 1
+                levels_possible += 1
+            else:
+                break
+        
+        return levels_possible
+
     def decide_green_card_use(self, card):
         """Decides whether to exchange a document card or play its event effect based on the goal."""
+        # Если цели нет - всегда стремимся к документам для быстрого достижения уровня выбора
+        if not self.player.win_condition:
+            if card.get('category') == 'documents':
+                # Проверяем, можем ли получить хотя бы один уровень (линейная прогрессия)
+                required_docs_for_upgrade = min(self.player.document_level + 1, 6)
+                if self.player.document_cards >= required_docs_for_upgrade:
+                    # Подсчитываем, сколько уровней можем получить
+                    potential_levels = self._calculate_potential_levels()
+                    print(f"AI ({self.player.name}): Нет цели - обмениваю документы на {potential_levels} уровней.")
+                    return 'exchange'
+                else:
+                    print(f"AI ({self.player.name}): Нет цели - играю событие для получения документов.")
+                    return 'event'
+            else:
+                print(f"AI ({self.player.name}): Нет цели - играю событие '{card['name']}'.")
+                return 'event'
+        
+        # Если цель есть - стандартная логика
         is_doc_goal = 'document_level' in self.goal_requirements
 
         # If the goal is document-related, prioritize exchanging cards to level up.
         if is_doc_goal and card.get('category') == 'documents':
-            required_docs_for_upgrade = 2 + self.player.document_level  # Progressive requirements
+            required_docs_for_upgrade = min(self.player.document_level + 1, 6)
             if self.player.document_cards >= required_docs_for_upgrade:
-                print(f"AI ({self.player.name}): Goal requires documents. Have enough cards, attempting exchange.")
+                potential_levels = self._calculate_potential_levels()
+                print(f"AI ({self.player.name}): Goal requires documents. Exchanging for {potential_levels} levels.")
                 return 'exchange'
             else:
                 print(f"AI ({self.player.name}): Goal requires documents, but not enough cards to exchange. Playing for event to get more.")
@@ -463,14 +507,31 @@ class AI:
         if self.player.nerves <= self.nerve_threshold:
             needs["nerves"] = min(3, 8 - self.player.nerves)
             
-        # Check goal-specific needs
-        goal_key = self.player.win_condition['key']
-        requires = self.player.win_condition.get('requires', {})
+        # Check goal-specific needs (only if goal is chosen)
+        if self.player.win_condition:
+            goal_key = self.player.win_condition['key']
+            requires = self.player.win_condition.get('requires', {})
+        else:
+            # Без цели - фокус на документах
+            if self.player.document_cards == 1:  # Близко к обмену
+                needs["documents_cards"] = 1
+            return needs
         
         if 'money' in requires:
             needed_money = requires['money'] - self.player.money
             if needed_money > 0 and needed_money <= 5:  # Only if close to goal
                 needs["money"] = min(needed_money, 3)
+                
+        # Strategic trading: use excess money to buy needed resources
+        if self.player.money > 50:  # Rich players should trade money for progress
+            if 'nerves' in requires:
+                needed_nerves = requires['nerves'] - self.player.nerves
+                if needed_nerves > 0:
+                    needs["nerves"] = min(needed_nerves, 3)
+                    
+            # Always need documents to progress
+            if self.player.document_cards < 3:
+                needs["document_cards"] = 2
                 
         if 'document_cards' in requires:
             # Not directly in requirements, but if close to exchange
@@ -488,9 +549,19 @@ class AI:
             items["document_cards"] = min(2, self.player.document_cards - 1)
             
         # Extra money (if not needed for goal)
-        goal_money = self.player.win_condition.get('requires', {}).get('money', 0)
-        extra_money = self.player.money - goal_money - 3  # Keep some buffer
-        if extra_money > 0:
+        if self.player.win_condition:
+            goal_money = self.player.win_condition.get('requires', {}).get('money', 0)
+            extra_money = self.player.money - goal_money - 3  # Keep some buffer
+        else:
+            # Без цели оставляем только базовую сумму для выживания
+            extra_money = self.player.money - 10  # Минимум для выживания
+            
+        # Rich players should be more generous with money
+        if self.player.money > 100:
+            extra_money = self.player.money - goal_money if self.player.win_condition else self.player.money - 20
+            if extra_money > 0:
+                items["money"] = min(8, extra_money)  # Can offer more money
+        elif extra_money > 0:
             items["money"] = min(3, extra_money)
             
         return items
@@ -582,9 +653,13 @@ class AI:
             if item_type == "document_cards" and self.player.document_cards < 2:
                 value_to_us += amount * 2  # High value if we need docs
             elif item_type == "money":
-                goal_money = self.player.win_condition.get('requires', {}).get('money', 0)
-                if self.player.money < goal_money:
-                    value_to_us += amount
+                if self.player.win_condition:
+                    goal_money = self.player.win_condition.get('requires', {}).get('money', 0)
+                    if self.player.money < goal_money:
+                        value_to_us += amount
+                else:
+                    # Без цели деньги всегда ценны для выживания
+                    value_to_us += amount * 0.5
                     
         # Accept if valuable and we trust the player (or desperate)
         desperation = (5 - self.player.nerves) / 5.0
@@ -662,6 +737,8 @@ class AI:
     
     def _is_player_close_to_win(self, player):
         """Check if a player is close to winning."""
+        if not player.win_condition:
+            return False  # Нет цели - не может быть близко к победе
         goal = player.win_condition
         requires = goal.get('requires', {})
         
@@ -698,6 +775,9 @@ class AI:
     
     def _am_i_doing_well(self):
         """Check if I'm doing well myself."""
+        if not self.player.win_condition:
+            # Без цели - считаем что дела идут хорошо, если много документов/денег/нервов
+            return (self.player.money > 20 and self.player.nerves > 10 and self.player.document_level >= 1)
         goal = self.player.win_condition
         requires = goal.get('requires', {})
         
@@ -813,6 +893,7 @@ class Player:
     """Represents a player in the game."""
     def __init__(self, profile, win_condition, config, game_constants):
         self.id = profile['id']
+        self.profile = profile['id']  # For group targeting
         self.name = profile['name']
         self.money = profile['starting_money']
         self.nerves = profile['starting_nerves']
@@ -834,19 +915,21 @@ class Player:
         self.document_level = 0
         self.action_cards = []
         self.max_action_cards = game_constants['game_constants']['max_action_cards']
-        self.document_cards = 0  # Number of collected document cards
+        self.document_cards = 1  # Number of collected document cards (balanced start)
         self.housing_search = False  # Whether player is actively searching for housing
 
         self.win_condition = win_condition
+        self.goal_chosen = False  # Флаг выбранной цели
         self.is_eliminated = False
         self.eliminated_on_turn = None
         self.ai = AI(self, config)
 
     def __repr__(self):
+        goal_text = self.win_condition['key'] if self.win_condition else "Не выбрана"
         return (f"Player(Name: {self.name}, Money: {self.money}, Nerves: {self.nerves}, "
                 f"Lang Lvl: {self.language_level}, Housing: {self.housing} (Lvl {self.housing_level}), "
                 f"Docs Lvl: {self.document_level}, Doc Cards: {self.document_cards}, "
-                f"Goal: {self.win_condition['key']})")
+                f"Goal: {goal_text})")
 
     def add_action_card(self, card):
         if len(self.action_cards) < self.max_action_cards:
@@ -881,12 +964,12 @@ class Game:
         self.players = []
         num_players = self.config['game_parameters']['number_of_players']
         profiles = random.sample(self.config['character_profiles'], num_players)
-        win_conditions = list(self.config['win_conditions'].items())
+        # win_conditions = list(self.config['win_conditions'].items())  # Убираем раннее назначение
 
         for i in range(num_players):
             profile = profiles[i]
-            win_key, win_data = random.choice(win_conditions)
-            player_win_condition = {"key": win_key, **win_data}
+            # Игроки начинают БЕЗ цели - выберут на 5-м уровне документов
+            player_win_condition = None  
             player = Player(profile, player_win_condition, self.config, self.game_data['game_constants'])
 
             # Give starting action cards
@@ -908,8 +991,10 @@ class Game:
         while not self.game_over:
             self.turn += 1
 
-            # A rough estimate for a 'lap'
-            if self.turn > 1 and self.turn % (self.board.size // num_players if num_players > 0 else self.board.size) == 0:
+            # Lap completion for balanced progression (every 4-5 turns for slower game)
+            lap_frequency = max(4, min(6, self.board.size // (num_players * 2))) if num_players > 0 else 5
+            if self.turn > 1 and self.turn % lap_frequency == 0:
+                print(f"System: Turn {self.turn} - Lap completed! (frequency: every {lap_frequency} turns)")
                 self.handle_lap_completion()
 
             active_players = [p for p in self.players if not p.is_eliminated]
@@ -925,14 +1010,8 @@ class Game:
                     break
 
             # Dynamic turn limit based on number of players
-            # Optimized for 45-80 minute games (assuming 2 min per turn)
-            # Base: 22-40 turns for different player counts
-            if len(self.players) <= 4:
-                max_turns = 35  # ~70 minutes
-            elif len(self.players) <= 6:
-                max_turns = 40  # ~80 minutes
-            else:
-                max_turns = 45  # ~90 minutes for 8 players
+            # 15 turns per player for balanced gameplay
+            max_turns = len(self.players) * 15
             
             if self.turn >= max_turns:
                 self.game_over = True
@@ -957,6 +1036,11 @@ class Game:
                     player.money += player.salary
                     
                 player.money -= player.housing_cost
+                
+                # Auto-gain documents each lap for consistent progression
+                player.document_cards += 1
+                print(f"System: {player.name} automatically gains 1 document card (total: {player.document_cards})")
+                
 
     def take_turn(self, player):
         """Manages the sequence of actions for a single player's turn."""
@@ -999,12 +1083,29 @@ class Game:
             if card:
                 self.apply_card_effect(player, card, 'event') # Red/White cards are always events
 
-        # 5. Check for win/loss conditions
+        # 5. Check if player reached level 5 documents and needs to choose goal
+        self.check_goal_selection(player)
+        
+        # 6. Check for win/loss conditions
         self.check_win_condition(player)
         if not self.game_over:
             self.check_elimination(player)
 
         print(f"State after turn:  {player}")
+    
+    def check_goal_selection(self, player):
+        """Check if player needs to select a goal when reaching document level 5."""
+        if not player.goal_chosen and player.document_level >= 5:  # Выбор цели после достижения 5-го уровня документов
+            # Выбираем случайную цель
+            win_conditions = list(self.config['win_conditions'].items())
+            win_key, win_data = random.choice(win_conditions)
+            player.win_condition = {"key": win_key, **win_data}
+            player.goal_chosen = True
+            
+            # Обновляем AI с новой целью
+            player.ai.goal_requirements = player.win_condition.get('requires', {})
+            
+            print(f"🎯 {player.name} достиг 5-го уровня документов и выбрал цель: {win_key}!")
     
     def handle_trade_phase(self, current_player):
         """Handle the trading phase for the current player."""
@@ -1077,21 +1178,25 @@ class Game:
                 print(f"System: {player.name}'s document exchange was blocked!")
                 return
             
-            # Progressive requirements: more cards needed for higher levels
-            required_docs = 2 + player.document_level  # Level 0→1: 2 cards, Level 1→2: 3 cards, etc.
-            if player.document_cards >= required_docs:
-                # Roll dice for exchange success (3+ = success)
-                roll = random.randint(1, 6)
-                if roll >= 3:
+            # Многоуровневый обмен: обменивает все возможные карты на уровни
+            levels_gained = 0
+            total_cards_used = 0
+            
+            while player.document_cards > 0:
+                # Линейная прогрессия: уровень N требует N карт (максимум 6)
+                required_docs = min(player.document_level + 1, 6)
+                
+                if player.document_cards >= required_docs:
                     player.document_cards -= required_docs
                     player.document_level += 1
-                    print(f"System: {player.name} exchanged {required_docs} doc cards for Level {player.document_level} (rolled {roll}).")
+                    levels_gained += 1
+                    total_cards_used += required_docs
                 else:
-                    # Failed exchange - lose 1 card and discard the drawn card
-                    player.document_cards = max(0, player.document_cards - 1)
-                    print(f"System: {player.name} failed exchange (rolled {roll}), lost 1 doc card.")
+                    break  # Недостаточно карт для следующего уровня
+            
+            if levels_gained > 0:
+                print(f"System: {player.name} exchanged {total_cards_used} doc cards for {levels_gained} levels! New level: {player.document_level}")
             else:
-                # This case should ideally not be reached if AI is smart
                 print(f"System: {player.name} failed to exchange, not enough doc cards.")
             return # Exchange action is complete
 
@@ -1104,8 +1209,31 @@ class Game:
             self.handle_dice_challenge(player, card['challenge'])
             return
 
-        # 4. Apply direct effects for event
-        effects = chosen_effect or card.get('effects', {})
+        # 4. Handle special effects (like global document level penalties)
+        if 'special_effects' in card:
+            self.handle_special_effects(card['special_effects'])
+            # Special effects may affect multiple players globally, so continue with regular effects too
+        
+        # 5. Handle group-targeted events
+        if 'target_groups' in card:
+            if player.profile not in card['target_groups']:
+                print(f"System: {card['name']} doesn't affect {player.name} ({player.profile})")
+                return
+            
+            # Apply individual modifiers if exists
+            if 'individual_modifiers' in card and player.profile in card['individual_modifiers']:
+                modifiers = card['individual_modifiers'][player.profile]
+                effects = chosen_effect or card.get('effects', {}).copy()
+                # Override with individual modifiers
+                for key, value in modifiers.items():
+                    effects[key] = value
+                print(f"System: Applied individual modifier for {player.profile}: {modifiers}")
+            else:
+                effects = chosen_effect or card.get('effects', {})
+        else:
+            # 6. Apply direct effects for event
+            effects = chosen_effect or card.get('effects', {})
+            
         if not effects:
             return
 
@@ -1284,9 +1412,35 @@ class Game:
         if 'effects' in chosen_outcome:
             self.apply_card_effect(player, card={'name': f"Challenge: {challenge['description']}"}, decision='event', chosen_effect=chosen_outcome['effects'])
 
+    def handle_special_effects(self, special_effects):
+        """Handle special card effects that can affect multiple players globally."""
+        for effect_name, effect_data in special_effects.items():
+            if effect_name == "document_level_penalty":
+                condition = effect_data.get("condition", "")
+                effect = effect_data.get("effect", "")
+                
+                affected_players = []
+                for player in self.players:
+                    # Check condition: document_level <= 5
+                    if "document_level <= 5" in condition and player.document_level <= 5:
+                        # Apply effect: document_level -= 1
+                        if "document_level -= 1" in effect:
+                            old_level = player.document_level
+                            player.document_level = max(0, player.document_level - 1)
+                            affected_players.append(f"{player.name} ({old_level}→{player.document_level})")
+                
+                if affected_players:
+                    print(f"System: Immigration law update! Document levels reduced: {', '.join(affected_players)}")
+                else:
+                    print(f"System: Immigration law update had no effect (no players with document level ≤5)")
+
     def check_win_condition(self, player):
         """Checks if a player has met their victory condition."""
         if self.game_over:
+            return
+        
+        # Нельзя выиграть без выбранной цели
+        if not player.win_condition:
             return
 
         goal = player.win_condition['requires']

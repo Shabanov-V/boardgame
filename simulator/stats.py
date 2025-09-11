@@ -21,19 +21,20 @@ class Statistics:
         self.game_durations.append(game.turn)  # Store individual duration
 
         winner = game.winner
-        if winner:
+        if winner and winner.win_condition:
             self.wins_by_character[winner.id] = self.wins_by_character.get(winner.id, 0) + 1
             self.wins_by_goal[winner.win_condition['key']] = self.wins_by_goal.get(winner.win_condition['key'], 0) + 1
         elif getattr(game, 'end_reason', None) == 'time_limit':
             self.no_winner_due_to_time_limit += 1
 
         for player in game.players:
-            # Record goal assignment for this player's character
-            char_id = player.id
-            goal_key = player.win_condition['key']
-            if char_id not in self.goal_assignments:
-                self.goal_assignments[char_id] = {}
-            self.goal_assignments[char_id][goal_key] = self.goal_assignments[char_id].get(goal_key, 0) + 1
+            # Record goal assignment for this player's character (only if goal was chosen)
+            if player.win_condition:
+                char_id = player.id
+                goal_key = player.win_condition['key']
+                if char_id not in self.goal_assignments:
+                    self.goal_assignments[char_id] = {}
+                self.goal_assignments[char_id][goal_key] = self.goal_assignments[char_id].get(goal_key, 0) + 1
 
             self.final_states.append({
                 'character': player.id,

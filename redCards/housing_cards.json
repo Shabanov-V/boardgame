@@ -85,7 +85,8 @@
       "description": "Новый сосед оказался прекрасным человеком",
       "effects": {
         "nerves": 1,
-        "money": 0
+        "money": 0,
+        "documents_cards": 1
       },
       "flavor_text": "Помог с переводом документов"
     },
@@ -954,15 +955,74 @@
       },
       "flavor_text": "¡Burocracia pensional = paperwork nightmare!",
       "cross_system_interaction": "character + age + bureaucracy"
+    },
+    {
+      "id": "boost_entrepreneur_01",
+      "name": "Инвестиционные возможности",
+      "category": "balance_boost",
+      "type": "positive",
+      "description": "Предприниматели находят новые источники финансирования",
+      "conditions": {
+        "character_id": ["entrepreneur", "it_specialist", "freelance_artist"]
+      },
+      "effects": {
+        "money": 12,
+        "nerves": 3,
+        "documents_cards": 2,
+        "housing_upgrade": true
+      },
+      "individual_modifiers": {
+        "entrepreneur": {
+          "additional_effects": {
+            "money": 18,
+            "nerves": 4,
+            "documents_cards": 3,
+            "language_level_up": true,
+            "description": "Предприниматели получают максимальную инвестиционную поддержку"
+          }
+        },
+        "it_specialist": {
+          "additional_effects": {
+            "money": 8,
+            "nerves": 2,
+            "description": "IT-шники участвуют в стартап-проектах"
+          }
+        },
+        "freelance_artist": {
+          "additional_effects": {
+            "money": 5,
+            "nerves": 1,
+            "description": "Художники получают креативные заказы"
+          }
+        }
+      },
+      "flavor_text": "¡Inversión inteligente = growth opportunity!",
+      "cross_system_interaction": "character + business + investment"
+    },
+    {
+      "id": "documents_bonus_01",
+      "name": "Соседская помощь с документами",
+      "category": "positive",
+      "type": "positive", 
+      "description": "Соседи помогают разобраться с бюрократией",
+      "conditions": {},
+      "effects": {
+        "documents_cards": 2,
+        "nerves": 1,
+        "money": -1
+      },
+      "flavor_text": "¡Vecinos helpful = community support!",
+      "cross_system_interaction": "community + bureaucracy + mutual_aid"
     }
   ],
   "card_stats": {
-    "positive": 15,
+    "positive": 16,
     "negative": 35,
     "dice_challenges": 7,
     "cross_system": 16,
     "realistic_problems": 6,
     "balance_nerf": 8,
-    "total": 44
+    "balance_boost": 1,
+    "total": 46
   }
 }

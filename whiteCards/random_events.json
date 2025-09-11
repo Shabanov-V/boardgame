@@ -553,17 +553,349 @@
       },
       "special_effect": "free_language_upgrade",
       "flavor_text": "¡Por fin entiendo todo!"
+    },
+    {
+      "id": "documents_windfall_01",
+      "name": "Бюрократическая удача",
+      "category": "positive",
+      "type": "positive",
+      "description": "Неожиданно все документы оформляются быстро и без проблем",
+      "conditions": {},
+      "effects": {
+        "documents_cards": 6,
+        "nerves": 3,
+        "money": 2
+      },
+      "flavor_text": "¡Milagro bureaucrático = rare blessing!",
+      "cross_system_interaction": "luck + bureaucracy + efficiency"
+    },
+    {
+      "id": "cita_01",
+      "name": "Внезапная сита",
+      "category": "bureaucracy",
+      "type": "positive",
+      "description": "Освободилось место на прием к функционарию",
+      "effects": {
+        "documents_cards": 4,
+        "nerves": 1
+      },
+      "flavor_text": "¡Milagro burocrático!"
+    },
+    {
+      "id": "cita_02", 
+      "name": "Экстренная сита",
+      "category": "bureaucracy",
+      "type": "positive",
+      "description": "Кто-то отменил запись, освободилось место",
+      "effects": {
+        "documents_cards": 4,
+        "nerves": 1
+      },
+      "flavor_text": "¡Cancelación = oportunidad!"
+    },
+    {
+      "id": "cita_03",
+      "name": "Сита по звонку",
+      "category": "bureaucracy", 
+      "type": "positive",
+      "description": "Удалось дозвониться и записаться на прием",
+      "effects": {
+        "documents_cards": 4,
+        "nerves": 1
+      },
+      "flavor_text": "¡Teléfono milagroso!"
+    },
+    {
+      "id": "cita_04",
+      "name": "Онлайн сита",
+      "category": "bureaucracy",
+      "type": "positive", 
+      "description": "Сайт заработал и удалось записаться онлайн",
+      "effects": {
+        "documents_cards": 4,
+        "nerves": 1
+      },
+      "flavor_text": "¡Web funciona = shock!"
+    },
+    {
+      "id": "cita_05",
+      "name": "Сита через знакомого",
+      "category": "bureaucracy",
+      "type": "positive",
+      "description": "Знакомый помог с записью к функционарию",
+      "effects": {
+        "documents_cards": 4,
+        "nerves": 1
+      },
+      "flavor_text": "¡Enchufismo útil!"
+    },
+    {
+      "id": "cita_06",
+      "name": "Утренняя сита",
+      "category": "bureaucracy",
+      "type": "positive",
+      "description": "Рано утром освободилось место на прием",
+      "effects": {
+        "documents_cards": 4,
+        "nerves": 1
+      },
+      "flavor_text": "¡Madrugadores win!"
+    },
+    {
+      "id": "cita_07",
+      "name": "Сита в последнюю минуту",
+      "category": "bureaucracy",
+      "type": "positive",
+      "description": "В последний момент нашлось свободное время",
+      "effects": {
+        "documents_cards": 4,
+        "nerves": 1
+      },
+      "flavor_text": "¡Timing perfecto!"
+    },
+    {
+      "id": "cita_08",
+      "name": "Двойная сита",
+      "category": "bureaucracy",
+      "type": "positive",
+      "description": "Удалось записаться сразу к двум функционарам",
+      "effects": {
+        "documents_cards": 6,
+        "nerves": 2
+      },
+      "flavor_text": "¡Doble milagro!"
+    },
+    {
+      "id": "cita_09",
+      "name": "Экспресс сита",
+      "category": "bureaucracy", 
+      "type": "positive",
+      "description": "Быстрый прием, все документы за один раз",
+      "effects": {
+        "documents_cards": 6,
+        "nerves": 2
+      },
+      "flavor_text": "¡Velocidad española!"
+    },
+    {
+      "id": "cita_10",
+      "name": "Золотая сита",
+      "category": "bureaucracy",
+      "type": "positive",
+      "description": "Попался очень компетентный функционар",
+      "effects": {
+        "documents_cards": 8,
+        "nerves": 3
+      },
+      "flavor_text": "¡Funcionario legendario!"
+    },
+    {
+      "id": "doc_level_01",
+      "name": "Быстрое оформление документа",
+      "category": "bureaucracy",
+      "type": "positive",
+      "description": "Документ оформился мгновенно - сразу +1 уровень",
+      "effects": {
+        "document_level": 1,
+        "nerves": 2
+      },
+      "flavor_text": "¡Milagro burocrático instantáneo!"
+    },
+    {
+      "id": "doc_level_02",
+      "name": "Экспресс-обработка документов",
+      "category": "bureaucracy",
+      "type": "positive",
+      "description": "Все документы обработаны в ускоренном режиме",
+      "effects": {
+        "document_level": 1,
+        "nerves": 1,
+        "money": 1
+      },
+      "flavor_text": "¡Velocidad administrativa!"
+    },
+    {
+      "id": "doc_level_03",
+      "name": "Цифровое одобрение",
+      "category": "bureaucracy",
+      "type": "positive",
+      "description": "Документ одобрен через онлайн-систему автоматически",
+      "effects": {
+        "document_level": 1,
+        "nerves": 3
+      },
+      "flavor_text": "¡Tecnología al servicio!"
+    },
+    {
+      "id": "doc_level_04",
+      "name": "Помощь адвоката",
+      "category": "bureaucracy",
+      "type": "positive",
+      "description": "Адвокат помог правильно оформить все документы",
+      "effects": {
+        "document_level": 1,
+        "money": -3,
+        "nerves": 4
+      },
+      "flavor_text": "¡Profesional expertise!"
+    },
+    {
+      "id": "doc_level_05",
+      "name": "Льготное оформление",
+      "category": "bureaucracy",
+      "type": "positive",
+      "description": "Попали под льготную программу для иммигрантов",
+      "effects": {
+        "document_level": 1,
+        "nerves": 2,
+        "money": 2
+      },
+      "flavor_text": "¡Programa de integración!"
+    },
+    {
+      "id": "it_boost_01",
+      "name": "Цифровой бум",
+      "category": "technology",
+      "type": "positive",
+      "description": "Спрос на IT-услуги резко вырос",
+      "target_groups": ["it_specialist", "entrepreneur"],
+      "effects": {
+        "money": 15,
+        "nerves": 2,
+        "documents_cards": 1
+      },
+      "individual_modifiers": {
+        "it_specialist": {"money": 25, "nerves": 3},
+        "entrepreneur": {"money": 20, "nerves": 2}
+      },
+      "flavor_text": "¡Tech revolution benefits!"
+    },
+    {
+      "id": "startup_wave_01",
+      "name": "Стартап-волна",
+      "category": "business",
+      "type": "positive", 
+      "description": "Новые возможности для предпринимателей и IT",
+      "target_groups": ["entrepreneur", "it_specialist", "freelance_artist"],
+      "effects": {
+        "money": 12,
+        "nerves": 1,
+        "documents_cards": 1
+      },
+      "individual_modifiers": {
+        "entrepreneur": {"money": 25, "nerves": 3},
+        "it_specialist": {"money": 20, "nerves": 2}
+      },
+      "flavor_text": "¡Startup ecosystem boom!"
+    },
+    {
+      "id": "student_nerf_01",
+      "name": "Экзаменационная сессия",
+      "category": "education",
+      "type": "negative",
+      "description": "Стрессовый период для студентов и учащихся",
+      "target_groups": ["student", "waiter", "courier"],
+      "effects": {
+        "nerves": -2,
+        "money": -3
+      },
+      "individual_modifiers": {
+        "student": {"nerves": -4, "money": -5}
+      },
+      "flavor_text": "¡Exámenes = stress máximo!"
+    },
+    {
+      "id": "immigration_law_update_01",
+      "name": "Обновление иммиграционного законодательства",
+      "category": "bureaucracy",
+      "type": "global_negative",
+      "description": "Новые требования к документам - все игроки с уровнем документов ≤5 теряют 1 уровень",
+      "conditions": {},
+      "effects": {},
+      "special_effects": {
+        "document_level_penalty": {
+          "condition": "document_level <= 5",
+          "effect": "document_level -= 1"
+        }
+      },
+      "flavor_text": "¡Nueva ley de extranjería! Документы нужно переоформлять",
+      "cross_system_interaction": "law_change + bureaucracy + document_reset"
+    },
+    {
+      "id": "doc_level_06",
+      "name": "Цифровая подача документов",
+      "category": "bureaucracy",
+      "type": "positive",
+      "description": "Онлайн-система упростила процедуру - сразу +1 уровень",
+      "effects": {
+        "document_level": 1,
+        "nerves": 1,
+        "money": 2
+      },
+      "flavor_text": "¡Sistema digital = eficiencia máxima!"
+    },
+    {
+      "id": "doc_level_07",
+      "name": "Помощь волонтёра",
+      "category": "social",
+      "type": "positive",
+      "description": "Волонтёр помог правильно заполнить документы - сразу +1 уровень",
+      "effects": {
+        "document_level": 1,
+        "nerves": 2
+      },
+      "flavor_text": "¡Solidaridad española en acción!"
+    },
+    {
+      "id": "doc_level_08",
+      "name": "Успешная апелляция",
+      "category": "bureaucracy",
+      "type": "positive",
+      "description": "Апелляция одобрена - документ получен мгновенно +1 уровень",
+      "effects": {
+        "document_level": 1,
+        "money": -1,
+        "nerves": 3
+      },
+      "flavor_text": "¡La justicia española funciona!"
+    },
+    {
+      "id": "doc_level_09",
+      "name": "Экспресс-обслуживание",
+      "category": "bureaucracy",
+      "type": "positive",
+      "description": "Заплатил за срочность - документ готов сразу +1 уровень",
+      "effects": {
+        "document_level": 1,
+        "money": -3,
+        "nerves": 1
+      },
+      "flavor_text": "¡Dinero = velocidad burocrática!"
+    },
+    {
+      "id": "doc_level_10",
+      "name": "Автоматическое продление",
+      "category": "bureaucracy",
+      "type": "positive",
+      "description": "Документ продлён автоматически - сразу +1 уровень",
+      "effects": {
+        "document_level": 1,
+        "nerves": 2,
+        "money": 1
+      },
+      "flavor_text": "¡Renovación automática = tranquilidad!"
     }
   ],
   "card_stats": {
     "global_positive": 8,
-    "global_negative": 7,
-    "positive": 5,
-    "negative": 4,
+    "global_negative": 8,
+    "positive": 28,
+    "negative": 5,
     "dice_challenges": 6,
     "seasonal": 4,
     "cultural": 8,
-    "bureaucracy": 5,
-    "total": 30
+    "social": 1,
+    "bureaucracy": 25,
+    "total": 55
   }
 }

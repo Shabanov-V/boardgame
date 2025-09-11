@@ -113,7 +113,7 @@
         },
         "pensioner": {
           "language_bonus": 1,
-          "documents_cards": 2,
+          "documents_cards": 6,
           "description": "Пенсионеры находят общий язык с местными"
         }
       },
@@ -173,7 +173,7 @@
         },
         "freelance_artist": {
           "nerves": 2,
-          "documents_cards": 1,
+          "documents_cards": 6,
           "description": "Художники находят вдохновение и связи"
         },
         "courier": {
@@ -184,13 +184,13 @@
         "spanish_spouse": {
           "nerves": 4,
           "money": 5,
-          "documents_cards": 2,
+          "documents_cards": 6,
           "description": "Супруг использует семейные связи для нетворкинга"
         },
         "pensioner": {
           "nerves": 3,
           "money": 3,
-          "documents_cards": 1,
+          "documents_cards": 6,
           "description": "Пенсионер находит единомышленников"
         }
       },
@@ -259,11 +259,11 @@
       },
       "additional_effects": {
         "pensioner": {
-          "documents_cards": 2,
+          "documents_cards": 6,
           "description": "Пенсионеры имеют больше времени для связей"
         },
         "spanish_spouse": {
-          "documents_cards": 1,
+          "documents_cards": 6,
           "nerves": 1,
           "description": "Семейные связи помогают в мэрии"
         },
@@ -321,7 +321,7 @@
         },
         "pensioner": {
           "nerves": 2,
-          "documents_cards": 1,
+          "documents_cards": 6,
           "description": "Пенсионеры могут дольше стоять в очередях"
         },
         "entrepreneur": {
@@ -612,7 +612,7 @@
       },
       "effects": {
         "language_dice_advantage": true,
-        "documents_cards": 1
+        "documents_cards": 2
       },
       "when_to_play": "during_language_challenge",
       "flavor_text": "¡Sí sí sí = universal response!",
@@ -664,7 +664,7 @@
         "nerves": 1
       },
       "effects": {
-        "documents_cards": 2,
+        "documents_cards": 4,
         "money": 1,
         "nerves": 1
       },
@@ -701,7 +701,7 @@
         "nerves": 1
       },
       "effects": {
-        "documents_cards": 3,
+        "documents_cards": 4,
         "legal_protection": true
       },
       "when_to_play": "anytime",
@@ -806,7 +806,7 @@
         },
         "spanish_spouse": {
           "additional_effects": {
-            "documents_cards": 1,
+            "documents_cards": 6,
             "description": "Супруг использует семейные связи для информации"
           }
         }
@@ -875,7 +875,7 @@
         },
         "pensioner": {
           "additional_effects": {
-            "documents_cards": 2,
+            "documents_cards": 6,
             "description": "Пенсионер использует мудрость старшего поколения"
           }
         },
@@ -931,7 +931,7 @@
         "waiter": {
           "additional_effects": {
             "money": 8,
-            "documents_cards": 2,
+            "documents_cards": 6,
             "housing_upgrade": true,
             "description": "Официант получает профессиональные сертификаты и жилищную поддержку"
           }
@@ -977,7 +977,7 @@
       },
       "effects": {
         "money": 12,
-        "documents_cards": 3,
+        "documents_cards": 4,
         "nerves": 1
       },
       "when_to_play": "anytime",
@@ -1012,7 +1012,7 @@
       },
       "effects": {
         "money": 6,
-        "documents_cards": 1
+        "documents_cards": 2
       },
       "individual_modifiers": {
         "spanish_spouse": {
@@ -1031,7 +1031,7 @@
         },
         "entrepreneur": {
           "additional_effects": {
-            "documents_cards": 2,
+            "documents_cards": 6,
             "language_level_up": true,
             "description": "Предприниматель получает бизнес-документы и переводчика"
           }
@@ -1089,7 +1089,7 @@
         "character_id": ["waiter", "courier", "freelance_artist"]
       },
       "effects": {
-        "documents_cards": 2,
+        "documents_cards": 4,
         "language_level_up": true
       },
       "when_to_play": "anytime",
@@ -1108,7 +1108,7 @@
       "effects": {
         "money": 10,
         "nerves": 4,
-        "documents_cards": 1
+        "documents_cards": 2
       },
       "when_to_play": "anytime",
       "flavor_text": "¡Descuentos tercera edad = wisdom pays!",
@@ -1124,7 +1124,7 @@
         "character_id": ["pensioner", "spanish_spouse", "it_specialist"]
       },
       "effects": {
-        "documents_cards": 3,
+        "documents_cards": 4,
         "nerves": 1
       },
       "when_to_play": "anytime",
@@ -1142,7 +1142,7 @@
       },
       "effects": {
         "money": 6,
-        "documents_cards": 1,
+        "documents_cards": 4,
         "nerves": 1
       },
       "when_to_play": "anytime",
@@ -1161,7 +1161,7 @@
       "effects": {
         "money": 5,
         "nerves": 3,
-        "documents_cards": 1
+        "documents_cards": 2
       },
       "when_to_play": "anytime",
       "flavor_text": "¡Unidos somos más fuertes!",
@@ -1184,7 +1184,7 @@
       "individual_modifiers": {
         "student": {
           "additional_effects": {
-            "documents_cards": 3,
+            "documents_cards": 6,
             "housing_search": true,
             "description": "Студент активно участвует в молодежных программах"
           }
@@ -1199,7 +1199,7 @@
         "freelance_artist": {
           "additional_effects": {
             "money": 4,
-            "documents_cards": 1,
+            "documents_cards": 6,
             "description": "Художник получает поддержку для творческих проектов"
           }
         }
@@ -1253,7 +1253,7 @@
         "character_id": ["pensioner", "entrepreneur", "it_specialist"]
       },
       "effects": {
-        "documents_cards": 3,
+        "documents_cards": 4,
         "nerves": 2
       },
       "when_to_play": "anytime",
@@ -1343,7 +1343,7 @@
       },
       "effects": {
         "money": 10,
-        "documents_cards": 3,
+        "documents_cards": 4,
         "language_level_up": true,
         "nerves": 2
       },
@@ -1363,7 +1363,7 @@
       "effects": {
         "money": 5,
         "nerves": 2,
-        "documents_cards": 1,
+        "documents_cards": 4,
         "language_level_up": true
       },
       "when_to_play": "anytime",
@@ -1382,7 +1382,7 @@
       "effects": {
         "money": 10,
         "nerves": 2,
-        "documents_cards": 1
+        "documents_cards": 2
       },
       "when_to_play": "anytime",
       "flavor_text": "¡Digital art = global market!",
@@ -1398,7 +1398,7 @@
         "character_id": ["courier", "waiter", "student"]
       },
       "effects": {
-        "documents_cards": 3,
+        "documents_cards": 4,
         "money": 5,
         "nerves": 1
       },
@@ -1417,7 +1417,7 @@
       },
       "effects": {
         "money": 8,
-        "documents_cards": 3,
+        "documents_cards": 4,
         "nerves": 2,
         "language_level_up": true
       },
@@ -1437,7 +1437,7 @@
       "effects": {
         "money": 6,
         "nerves": 4,
-        "documents_cards": 2,
+        "documents_cards": 4,
         "language_level_up": true
       },
       "when_to_play": "anytime",
@@ -1474,7 +1474,7 @@
       "effects": {
         "money": 20,
         "nerves": 5,
-        "documents_cards": 3,
+        "documents_cards": 4,
         "language_level_up": true
       },
       "when_to_play": "anytime",
@@ -1494,7 +1494,7 @@
       "effects": {
         "money": 15,
         "nerves": 5,
-        "documents_cards": 2,
+        "documents_cards": 4,
         "language_level_up": true
       },
       "individual_modifiers": {
@@ -1502,7 +1502,7 @@
           "additional_effects": {
             "money": 20,
             "nerves": 5,
-            "documents_cards": 2,
+            "documents_cards": 6,
             "housing_upgrade": true,
             "description": "Художник получает максимальную выгоду от творческого прорыва"
           }
@@ -1511,7 +1511,7 @@
           "additional_effects": {
             "money": 8,
             "nerves": 3,
-            "documents_cards": 1,
+            "documents_cards": 6,
             "description": "Студент развивает творческие навыки"
           }
         },
@@ -1560,7 +1560,7 @@
       "effects": {
         "money": 15,
         "nerves": 7,
-        "documents_cards": 6,
+        "documents_cards": 4,
         "language_level_up": true
       },
       "when_to_play": "anytime",
@@ -1622,7 +1622,7 @@
       },
       "effects": {
         "money": 12,
-        "documents_cards": 3,
+        "documents_cards": 4,
         "nerves": 5
       },
       "conditions": {
@@ -1641,7 +1641,7 @@
       "description": "Внезапная удача спасает от полного краха",
       "when_to_play": "anytime",
       "cost": {
-        "documents_cards": 1
+        "documents_cards": 2
       },
       "effects": {
         "money": 20,
@@ -1698,6 +1698,52 @@
       },
       "flavor_text": "¡Chismes spreads faster than WiFi!",
       "cross_system_interaction": "betrayal + reputation + social_damage"
+    },
+    {
+      "id": "boost_it_specialist_01",
+      "name": "Технологический прорыв",
+      "category": "balance_boost",
+      "type": "utility",
+      "description": "IT-специалисты получают преимущества от цифровой революции",
+      "conditions": {
+        "character_id": ["it_specialist", "entrepreneur", "student"]
+      },
+      "effects": {
+        "money": 15,
+        "nerves": 4,
+        "documents_cards": 4,
+        "language_level_up": true
+      },
+      "individual_modifiers": {
+        "it_specialist": {
+          "additional_effects": {
+            "money": 15,
+            "nerves": 5,
+            "documents_cards": 6,
+            "housing_upgrade": true,
+            "description": "IT-шники получают максимальную выгоду от технологий"
+          }
+        },
+        "entrepreneur": {
+          "additional_effects": {
+            "money": 10,
+            "nerves": 3,
+            "documents_cards": 6,
+            "description": "Предприниматели внедряют новые технологии"
+          }
+        },
+        "student": {
+          "additional_effects": {
+            "money": 5,
+            "documents_cards": 6,
+            "description": "Студенты осваивают новые навыки"
+          }
+        }
+      },
+      "when_to_play": "anytime",
+      "one_time_use": true,
+      "flavor_text": "¡Código limpio = vida digital!",
+      "cross_system_interaction": "character + technology + digital_transformation"
     }
   ],
   "card_categories": {
@@ -1721,7 +1767,8 @@
     "defense": "Защита и контрмеры",
     "counter_sabotage": "Отражение саботажа",
     "preemptive": "Превентивные действия",
-    "balance": "Карты баланса персонажей"
+    "balance": "Карты баланса персонажей",
+    "balance_boost": "Усиления слабых персонажей"
   },
   "play_timing": {
     "anytime": "Можно играть в любой момент",

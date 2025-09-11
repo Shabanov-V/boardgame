@@ -10,7 +10,7 @@
       "effects": {
         "nerves": 2,
         "money": 0,
-        "documents_cards": 1
+        "documents_cards": 2
       },
       "flavor_text": "Enchufismo español in action"
     },
@@ -24,7 +24,7 @@
       "effects": {
         "nerves": 0,
         "money": 0,
-        "documents_cards": 1
+        "documents_cards": 2
       },
       "flavor_text": "Milagro tecnológico español"
     },
@@ -40,7 +40,8 @@
       },
       "effects": {
         "instant_document_upgrade": true,
-        "nerves": 2
+        "nerves": 2,
+        "documents_cards": 1
       },
       "flavor_text": "Efficiency? In Spain? ¡Imposible!"
     },
@@ -70,7 +71,7 @@
       },
       "effects": {
         "nerves": 1,
-        "documents_cards": 1,
+        "documents_cards": 4,
         "digital_bonus": true
       },
       "flavor_text": "Bienvenidos al siglo XXI"
@@ -85,7 +86,7 @@
       "effects": {
         "nerves": 0,
         "money": 1,
-        "documents_cards": 1
+        "documents_cards": 2
       },
       "flavor_text": "Pequeños milagros españoles"
     },
@@ -99,7 +100,7 @@
       "effects": {
         "nerves": 1,
         "money": 0,
-        "documents_cards": 1
+        "documents_cards": 2
       },
       "flavor_text": "IT español breakthrough"
     },
@@ -113,7 +114,7 @@
       "effects": {
         "nerves": 0,
         "money": 2,
-        "documents_cards": 1
+        "documents_cards": 2
       },
       "flavor_text": "Traductor económico = unicornio"
     },
@@ -140,7 +141,7 @@
             "description": "Пришлось переделывать, но получилось",
             "effects": {
               "nerves": 0,
-              "documents_cards": 1
+              "documents_cards": 2
             }
           },
           "failure": {
@@ -218,7 +219,8 @@
       "effects": {
         "nerves": 1,
         "money": 0,
-        "skill_improvement": true
+        "skill_improvement": true,
+        "documents_cards": 1
       },
       "flavor_text": "Empresa invierte en empleados"
     },
@@ -447,7 +449,7 @@
       "effects": {
         "nerves": 0,
         "money": 1,
-        "documents_cards": 1
+        "documents_cards": 2
       },
       "flavor_text": "Ayuda mutua laboral"
     },
@@ -553,7 +555,7 @@
       "effects": {
         "nerves": 2,
         "money": 0,
-        "documents_cards": 3
+        "documents_cards": 2
       },
       "flavor_text": "One-stop bureaucracy shop"
     },
@@ -617,7 +619,7 @@
       "effects": {
         "nerves": 3,
         "money": 0,
-        "documents_cards": 3
+        "documents_cards": 2
       },
       "flavor_text": "Burocracia española miracle"
     },
@@ -630,7 +632,7 @@
       "effects": {
         "nerves": 2,
         "money": 4,
-        "documents_cards": 1
+        "documents_cards": 2
       },
       "flavor_text": "¡Nepotismo imaginario funciona!",
       "cross_system_interaction": "work + money + documents"
@@ -658,7 +660,7 @@
       "exchange_instruction": "Попробуй обменять эту карту на следующий уровень документов за бросок 3+, либо играй как действие на карте. При провале обмена: теряешь одну карту документа как негодную + эта карта в сброс.",
       "effects": {
         "nerves": 2,
-        "documents_cards": 3,
+        "documents_cards": 4,
         "language_level_up": true
       },
       "flavor_text": "¡Amor burocrático = efficiency!",
@@ -673,7 +675,7 @@
       "exchange_instruction": "Попробуй обменять эту карту на следующий уровень документов за бросок 3+, либо играй как действие на карте. При провале обмена: теряешь одну карту документа как негодную + эта карта в сброс.",
       "effects": {
         "nerves": 2,
-        "documents_cards": 3,
+        "documents_cards": 4,
         "money": 1
       },
       "flavor_text": "¡Bug = feature en burocracia!",
@@ -688,7 +690,7 @@
       "effects": {
         "nerves": 2,
         "language_level_up": true,
-        "documents_cards": 2,
+        "documents_cards": 4,
         "money": 1
       },
       "flavor_text": "¡Abuela española > Google!",
@@ -724,7 +726,7 @@
             "description": "Система сдалась, получили все слоты",
             "effects": {
               "nerves": 2,
-              "documents_cards": 3,
+              "documents_cards": 4,
               "money": 0
             }
           },
@@ -733,7 +735,7 @@
             "description": "Получили один slot, но система подозрительна",
             "effects": {
               "nerves": 0,
-              "documents_cards": 2,
+              "documents_cards": 4,
               "money": -1
             }
           },
@@ -845,7 +847,7 @@
       "effects": {
         "money": 4,
         "nerves": 2,
-        "documents_cards": 1
+        "documents_cards": 2
       },
       "flavor_text": "¡Carnet de estudiante = discount power!",
       "cross_system_interaction": "character + education + economy"
@@ -860,7 +862,7 @@
         "character_id": "student"
       },
       "effects": {
-        "documents_cards": 3,
+        "documents_cards": 4,
         "nerves": 3
       },
       "flavor_text": "¡Professor mentor = academic advantage!",
@@ -877,7 +879,7 @@
       },
       "effects": {
         "money": 5,
-        "documents_cards": 2,
+        "documents_cards": 4,
         "nerves": 2
       },
       "flavor_text": "¡Connections españolas = networking power!",
@@ -895,7 +897,7 @@
       "effects": {
         "money": 15,
         "nerves": 4,
-        "documents_cards": 2,
+        "documents_cards": 4,
         "language_level_up": true
       },
       "flavor_text": "¡Temporada alta = dinero flowing!",
@@ -913,7 +915,7 @@
       "effects": {
         "money": 12,
         "nerves": 4,
-        "documents_cards": 2,
+        "documents_cards": 4,
         "language_level_up": true
       },
       "individual_modifiers": {
@@ -921,7 +923,7 @@
           "additional_effects": {
             "money": 13,
             "nerves": 4,
-            "documents_cards": 2,
+            "documents_cards": 4,
             "housing_upgrade": true,
             "description": "Художник получает максимальную поддержку как творческий работник"
           }
@@ -930,7 +932,7 @@
           "additional_effects": {
             "money": 6,
             "nerves": 2,
-            "documents_cards": 1,
+            "documents_cards": 4,
             "description": "Официант участвует в культурных программах"
           }
         },
@@ -938,7 +940,7 @@
           "additional_effects": {
             "money": 8,
             "nerves": 3,
-            "documents_cards": 1,
+            "documents_cards": 4,
             "description": "Студент получает образовательную поддержку"
           }
         }
@@ -977,7 +979,7 @@
         },
         "student": {
           "additional_effects": {
-            "documents_cards": 2,
+            "documents_cards": 4,
             "nerves": 2,
             "description": "Студенты получают помощь с документами через университет"
           }
@@ -998,14 +1000,14 @@
       "effects": {
         "money": 8,
         "nerves": 3,
-        "documents_cards": 2,
+        "documents_cards": 4,
         "language_level_up": true
       },
       "individual_modifiers": {
         "student": {
           "additional_effects": {
             "money": 6,
-            "documents_cards": 2,
+            "documents_cards": 4,
             "description": "Студенты получают образовательные гранты"
           }
         },
@@ -1018,7 +1020,7 @@
         },
         "spanish_spouse": {
           "additional_effects": {
-            "documents_cards": 1,
+            "documents_cards": 4,
             "nerves": 2,
             "description": "Супруги получают семейную поддержку"
           }
@@ -1039,7 +1041,7 @@
       "effects": {
         "money": 6,
         "nerves": 2,
-        "documents_cards": 1
+        "documents_cards": 2
       },
       "individual_modifiers": {
         "student": {
@@ -1059,7 +1061,7 @@
         "entrepreneur": {
           "additional_effects": {
             "money": 3,
-            "documents_cards": 1,
+            "documents_cards": 4,
             "description": "Предприниматели получают бизнес-поддержку"
           }
         }
@@ -1079,7 +1081,7 @@
       "effects": {
         "money": 8,
         "nerves": 3,
-        "documents_cards": 2,
+        "documents_cards": 4,
         "language_level_up": true
       },
       "individual_modifiers": {
@@ -1087,7 +1089,7 @@
           "additional_effects": {
             "money": 8,
             "nerves": 4,
-            "documents_cards": 3,
+            "documents_cards": 4,
             "housing_upgrade": true,
             "description": "Курьеры получают максимальные льготы за мобильность"
           }
@@ -1102,17 +1104,86 @@
         "student": {
           "additional_effects": {
             "money": 5,
-            "documents_cards": 1,
+            "documents_cards": 4,
             "description": "Студенты получают молодежную поддержку"
           }
         }
       },
       "flavor_text": "¡Delivery expertise = urban advantage!",
       "cross_system_interaction": "character + mobility + city_knowledge"
+    },
+    {
+      "id": "nerf_student_01",
+      "name": "Студенческие долги и экзамены",
+      "category": "balance_nerf",
+      "type": "negative",
+      "description": "Стресс от экзаменов и финансовые проблемы студентов",
+      "conditions": {
+        "character_id": ["student", "waiter", "courier"]
+      },
+      "effects": {
+        "money": -5,
+        "nerves": -3,
+        "documents_cards": -1
+      },
+      "individual_modifiers": {
+        "student": {
+          "additional_effects": {
+            "money": -3,
+            "nerves": -2,
+            "description": "Студенты особенно страдают от экзаменационного стресса"
+          }
+        },
+        "waiter": {
+          "additional_effects": {
+            "money": -2,
+            "description": "Официанты теряют часть заработка"
+          }
+        },
+        "courier": {
+          "additional_effects": {
+            "nerves": -1,
+            "description": "Курьеры испытывают дополнительное давление"
+          }
+        }
+      },
+      "flavor_text": "¡Exámenes finales = student nightmare!",
+      "cross_system_interaction": "character + education + stress"
+    },
+    {
+      "id": "documents_boost_01",
+      "name": "Цифровизация документооборота",
+      "category": "documents_positive",
+      "type": "positive",
+      "description": "Современные технологии ускоряют получение документов",
+      "conditions": {},
+      "effects": {
+        "documents_cards": 6,
+        "money": 5,
+        "nerves": 2
+      },
+      "flavor_text": "¡Digitalización = efficiency boost!",
+      "cross_system_interaction": "technology + bureaucracy + modernization"
+    },
+    {
+      "id": "documents_boost_02", 
+      "name": "Юридическая консультация",
+      "category": "documents_positive",
+      "type": "positive",
+      "description": "Квалифицированная помощь в оформлении документов",
+      "conditions": {},
+      "effects": {
+        "documents_cards": 6,
+        "money": -3,
+        "nerves": 3,
+        "language_level_up": true
+      },
+      "flavor_text": "¡Asesoría legal = papeles correctos!",
+      "cross_system_interaction": "legal_help + language + bureaucracy"
     }
   ],
   "card_stats": {
-    "documents_positive": 14,
+    "documents_positive": 16,
     "documents_negative": 3,
     "work_positive": 9,
     "work_negative": 2,
@@ -1124,6 +1195,7 @@
     "cross_system": 16,
     "negative_realistic": 8,
     "balance_boost": 9,
-    "total": 56
+    "balance_nerf": 1,
+    "total": 59
   }
 }

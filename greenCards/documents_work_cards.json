@@ -620,15 +620,260 @@
         "documents_cards": 5
       },
       "flavor_text": "Burocracia española miracle"
+    },
+    {
+      "id": "work_11",
+      "name": "Jefe спутал тебя с кем-то важным",
+      "category": "work",
+      "type": "positive",
+      "description": "Босс решил, что ты родственник министра, и дал премию",
+      "effects": {
+        "nerves": 2,
+        "money": 4,
+        "documents_cards": 1
+      },
+      "flavor_text": "¡Nepotismo imaginario funciona!",
+      "cross_system_interaction": "work + money + documents"
+    },
+    {
+      "id": "work_12",
+      "name": "Коллега оказался multilingual genius",
+      "category": "work", 
+      "type": "positive",
+      "description": "Коллега помог с переводами и научил испанскому слэнгу офиса",
+      "effects": {
+        "nerves": 1,
+        "language_level_up": true,
+        "money": 1
+      },
+      "flavor_text": "¡Office Spanish = new level unlocked!",
+      "cross_system_interaction": "work + language"
+    },
+    {
+      "id": "documents_13",
+      "name": "Funcionario влюбился",
+      "category": "documents",
+      "type": "positive",
+      "description": "Чиновник влюбился в коллегу и обработал все документы за день в честь любви",
+      "exchange_instruction": "Попробуй обменять эту карту на следующий уровень документов за бросок 3+, либо играй как действие на карте. При провале обмена: теряешь одну карту документа как негодную + эта карта в сброс.",
+      "effects": {
+        "nerves": 3,
+        "documents_cards": 4,
+        "language_level_up": true
+      },
+      "flavor_text": "¡Amor burocrático = efficiency!",
+      "cross_system_interaction": "documents + language + nerves"
+    },
+    {
+      "id": "documents_14",
+      "name": "AI переводчик сломался правильно",
+      "category": "documents",
+      "type": "positive", 
+      "description": "Google Translate сломался и перевел всё как 'Sí', но чиновник решил что так и надо",
+      "exchange_instruction": "Попробуй обменять эту карту на следующий уровень документов за бросок 3+, либо играй как действие на карте. При провале обмена: теряешь одну карту документа как негодную + эта карта в сброс.",
+      "effects": {
+        "nerves": 2,
+        "documents_cards": 3,
+        "money": 1
+      },
+      "flavor_text": "¡Bug = feature en burocracia!",
+      "cross_system_interaction": "documents + technology + money"
+    },
+    {
+      "id": "cultural_01",
+      "name": "Señora del barrio adoption",
+      "category": "cultural",
+      "type": "positive",
+      "description": "Местная бабуля удочерила вас и научила выживать в испанской системе",
+      "effects": {
+        "nerves": 2,
+        "language_level_up": true,
+        "documents_cards": 2,
+        "money": 1
+      },
+      "flavor_text": "¡Abuela española > Google!",
+      "cross_system_interaction": "culture + language + documents + money"
+    },
+    {
+      "id": "cultural_02", 
+      "name": "Фламенко терапия",
+      "category": "cultural",
+      "type": "positive",
+      "description": "Уроки фламенко оказались лучше психотерапии и помогли с документами",
+      "effects": {
+        "nerves": 3,
+        "language_level_up": true,
+        "money": -2
+      },
+      "special_effect": "upgrade_housing",
+      "flavor_text": "¡Bailar = curar trauma burocrático!",
+      "cross_system_interaction": "culture + language + housing + health"
+    },
+    {
+      "id": "tech_01",
+      "name": "Хакнул систему cita previa",
+      "category": "technology",
+      "type": "dice_challenge",
+      "description": "Попытка взломать систему записи на прием",
+      "challenge": {
+        "skill_type": "documents",
+        "description": "Обойти капчу и получить appointment",
+        "outcomes": {
+          "success": {
+            "condition": ">4",
+            "description": "Система сдалась, получили все слоты",
+            "effects": {
+              "nerves": 2,
+              "documents_cards": 5,
+              "money": 0
+            }
+          },
+          "partial": {
+            "condition": "2-4", 
+            "description": "Получили один slot, но система подозрительна",
+            "effects": {
+              "nerves": 0,
+              "documents_cards": 2,
+              "money": -1
+            }
+          },
+          "failure": {
+            "condition": "1",
+            "description": "Вас забанили на месяц",
+            "effects": {
+              "nerves": -2,
+              "documents_cards": 0,
+              "money": -2
+            }
+          }
+        }
+      },
+      "flavor_text": "¡Matrix español = mission impossible!",
+      "cross_system_interaction": "technology + documents + money"
+    },
+    {
+      "id": "documents_15",
+      "name": "NIE expired в самый важный момент",
+      "category": "documents",
+      "type": "negative",
+      "description": "NIE закончился прямо когда нужно было подавать документы на резиденцию",
+      "conditions": {
+        "documents_level": ">=1"
+      },
+      "effects": {
+        "nerves": -4,
+        "money": -3,
+        "document_level": -1
+      },
+      "flavor_text": "¡NIE caducado = back to square one!",
+      "cross_system_interaction": "documents + timing + bureaucracy"
+    },
+    {
+      "id": "documents_16", 
+      "name": "Переводчик оказался липовым",
+      "category": "documents",
+      "type": "negative",
+      "description": "Дорогой присяжный переводчик оказался поддельным - документы не приняли",
+      "effects": {
+        "nerves": -3,
+        "money": -5,
+        "documents_cards": -2
+      },
+      "flavor_text": "¡Traductor falso = money down the drain!",
+      "cross_system_interaction": "documents + money + scam"
+    },
+    {
+      "id": "documents_17",
+      "name": "Закон изменился вчера",
+      "category": "documents", 
+      "type": "negative",
+      "description": "Пока собирали документы, изменился закон - нужны другие справки",
+      "effects": {
+        "nerves": -3,
+        "money": -2,
+        "documents_cards": -1
+      },
+      "flavor_text": "¡Ley cambió = start over again!",
+      "cross_system_interaction": "documents + law + timing"
+    },
+    {
+      "id": "work_13",
+      "name": "IT-шник обнаружил что не гений",
+      "category": "work",
+      "type": "negative",
+      "description": "Оказалось что испанская налоговая система сложнее чем кажется",
+      "conditions": {
+        "character_id": "it_specialist"
+      },
+      "effects": {
+        "nerves": -3,
+        "money": -4,
+        "language_level": -1
+      },
+      "flavor_text": "¡Hacienda española > Silicon Valley!",
+      "cross_system_interaction": "character + work + reality_check"
+    },
+    {
+      "id": "work_14",
+      "name": "Autónomo налоги = финансовый ад",
+      "category": "work",
+      "type": "negative",
+      "description": "Неправильно подали налоги как автономо - штрафы и разбирательства",
+      "conditions": {
+        "character_id": ["freelance_artist", "it_specialist"]  
+      },
+      "effects": {
+        "nerves": -4,
+        "money": -6,
+        "documents_cards": -1
+      },
+      "flavor_text": "¡Autónomo taxes = pure nightmare!",
+      "cross_system_interaction": "work + taxes + documents"
+    },
+    {
+      "id": "cultural_03",
+      "name": "Дискриминация на работе",
+      "category": "cultural",
+      "type": "negative",
+      "description": "Босс открыто сказал что не любит extranjeros - проблемы на работе",
+      "effects": {
+        "nerves": -4,
+        "money": -2,
+        "language_level": -1
+      },
+      "flavor_text": "¡Xenofobia laboral = trauma!",
+      "cross_system_interaction": "work + discrimination + mental_health"
+    },
+    {
+      "id": "cultural_04",
+      "name": "Языковой барьер в критический момент", 
+      "category": "cultural",
+      "type": "negative",
+      "description": "В важной ситуации не смогли объяснить проблему на испанском",
+      "conditions": {
+        "language_level": "<=1"
+      },
+      "effects": {
+        "nerves": -3,
+        "money": -3,
+        "documents_cards": -1
+      },
+      "flavor_text": "¡No hablo español = big problems!",
+      "cross_system_interaction": "language + documents + critical_situations"
     }
   ],
   "card_stats": {
-    "documents_positive": 12,
-    "work_positive": 7,
+    "documents_positive": 14,
+    "documents_negative": 3,
+    "work_positive": 9,
+    "work_negative": 2,
     "work_challenges": 3, 
-    "mixed_cultural": 10,
+    "mixed_cultural": 14,
     "language_positive": 2,
-    "housing_upgrade": 2,
-    "total": 36
+    "housing_upgrade": 3,
+    "technology_challenges": 1,
+    "cross_system": 16,
+    "negative_realistic": 8,
+    "total": 52
   }
 }

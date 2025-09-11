@@ -373,6 +373,22 @@ class Game:
                 if player.language_level < 3:
                     player.language_level += 1
                     print(f"System: {player.name} improved language to level {player.language_level}!")
+            elif key == 'document_level':
+                # Can be positive or negative
+                old_level = player.document_level
+                player.document_level = max(0, player.document_level + value)
+                if value < 0:
+                    print(f"System: {player.name} lost document level! {old_level} → {player.document_level}")
+                else:
+                    print(f"System: {player.name} gained document level! {old_level} → {player.document_level}")
+            elif key == 'language_level':
+                # Can be positive or negative  
+                old_level = player.language_level
+                player.language_level = max(1, min(3, player.language_level + value))
+                if value < 0:
+                    print(f"System: {player.name} lost language level! {old_level} → {player.language_level}")
+                else:
+                    print(f"System: {player.name} gained language level! {old_level} → {player.language_level}")
 
         # Also handle special_effect outside the main effects block
         if 'special_effect' in card:

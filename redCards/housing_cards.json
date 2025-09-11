@@ -570,12 +570,190 @@
       },
       "special_effect": "draw_action_card",
       "flavor_text": "Solidaridad vecinal"
+    },
+    {
+      "id": "housing_31",
+      "name": "Соседский детектив",
+      "category": "housing",
+      "type": "positive",
+      "description": "Сосед помог найти потерянные документы и поделился секретом бюрократии",
+      "effects": {
+        "nerves": 1,
+        "documents_cards": 2,
+        "money": 1
+      },
+      "flavor_text": "¡Vecino = FBI español!",
+      "cross_system_interaction": "housing + documents + money"
+    },
+    {
+      "id": "housing_32", 
+      "name": "Квартира с бонусом",
+      "category": "housing",
+      "type": "positive",
+      "description": "В новой квартире нашли забытую банковскую карту с деньгами",
+      "effects": {
+        "nerves": 2,
+        "money": 3
+      },
+      "special_effect": "upgrade_housing",
+      "flavor_text": "¡Jackpot inmobiliario!",
+      "cross_system_interaction": "housing + money"
+    },
+    {
+      "id": "housing_33",
+      "name": "Языковой соседский клуб",
+      "category": "housing", 
+      "type": "positive",
+      "description": "Соседи организовали языковой клуб в подъезде",
+      "effects": {
+        "nerves": 1,
+        "language_level_up": true,
+        "money": 0
+      },
+      "flavor_text": "¡Intercambio de idiomas gratis!",
+      "cross_system_interaction": "housing + language"
+    },
+    {
+      "id": "housing_34",
+      "name": "Админ-хакер подъезда", 
+      "category": "housing",
+      "type": "positive",
+      "description": "Сосед-программист помог заполнить все онлайн-формы за минуту",
+      "effects": {
+        "nerves": 1,
+        "documents_cards": 3,
+        "money": -1
+      },
+      "flavor_text": "Código español = ez pz",
+      "cross_system_interaction": "housing + documents"
+    },
+    {
+      "id": "housing_35",
+      "name": "Домашний офис неожиданно",
+      "category": "housing",
+      "type": "positive", 
+      "description": "Хозяин разрешил работать из дома за меньшую арендную плату",
+      "effects": {
+        "nerves": 2,
+        "money": 2
+      },
+      "conditions": {
+        "character_id": ["it_specialist", "freelance_artist"]
+      },
+      "flavor_text": "¡Teletrabajo antes del COVID!",
+      "cross_system_interaction": "housing + work"
+    },
+    {
+      "id": "housing_36",
+      "name": "Медицинская экстренка от соседа",
+      "category": "housing",
+      "type": "positive",
+      "description": "Сосед-врач помог избежать похода в больницу и объяснил систему здравоохранения",
+      "effects": {
+        "nerves": 3,
+        "money": 2
+      },
+      "flavor_text": "Doctor en casa > hospital público",
+      "cross_system_interaction": "housing + health + money"
+    },
+    {
+      "id": "housing_37",
+      "name": "Контракт оказался on negro",
+      "category": "housing",
+      "type": "negative",
+      "description": "Обнаружили, что договор аренды неофициальный - проблемы с регистрацией",
+      "effects": {
+        "nerves": -3,
+        "money": -2,
+        "documents_cards": -1
+      },
+      "flavor_text": "¡Sorpresa! Contract fake = problemas reales",
+      "cross_system_interaction": "housing + documents + legal"
+    },
+    {
+      "id": "housing_38",
+      "name": "Фиктивная прописка раскрыта",
+      "category": "housing",
+      "type": "negative",
+      "description": "Полиция узнала что адрес для паdrón фиктивный - аннулируют документы",
+      "conditions": {
+        "documents_level": ">=1"
+      },
+      "effects": {
+        "nerves": -4,
+        "money": -3,
+        "document_level": -1
+      },
+      "flavor_text": "¡Padrón falso = game over!",
+      "cross_system_interaction": "housing + documents + legal"
+    },
+    {
+      "id": "housing_39",
+      "name": "Выселение за 15 дней",
+      "category": "housing",
+      "type": "negative",
+      "description": "Хозяин внезапно продал квартиру - выселение с минимальным уведомлением",
+      "effects": {
+        "nerves": -3,
+        "money": -5,
+        "housing_search": true
+      },
+      "special_effect": "downgrade_housing",
+      "flavor_text": "¡Propietario vendió = homeless speedrun!",
+      "cross_system_interaction": "housing + money + stress"
+    },
+    {
+      "id": "housing_40",
+      "name": "IT-шник не понимает реальную жизнь",
+      "category": "housing",
+      "type": "negative",
+      "description": "Попытался решить проблемы с арендой через код - не сработало",
+      "conditions": {
+        "character_id": "it_specialist"
+      },
+      "effects": {
+        "nerves": -2,
+        "money": -3,
+        "language_level": -1
+      },
+      "flavor_text": "¡Stack Overflow no tiene answers for España!",
+      "cross_system_interaction": "character + housing + reality_check"
+    },
+    {
+      "id": "housing_41",
+      "name": "Соседи - xenófobos",
+      "category": "housing",
+      "type": "negative",
+      "description": "Соседи устроили травлю и жалуются на вас в управляющую компанию",
+      "effects": {
+        "nerves": -3,
+        "money": -2,
+        "documents_cards": -1
+      },
+      "flavor_text": "¡Vecinos racistas = nightmare español!",
+      "cross_system_interaction": "housing + social + discrimination"
+    },
+    {
+      "id": "housing_42",
+      "name": "Мошенники с Avito España",
+      "category": "housing",
+      "type": "negative",
+      "description": "Отдали депозит мошенникам - квартиры не существует",
+      "effects": {
+        "nerves": -4,
+        "money": -6,
+        "housing_search": true
+      },
+      "flavor_text": "¡Estafa inmobiliaria = classic!",
+      "cross_system_interaction": "housing + money + scam"
     }
   ],
   "card_stats": {
-    "positive": 9,
-    "negative": 21,
+    "positive": 15,
+    "negative": 27,
     "dice_challenges": 7,
-    "total": 30
+    "cross_system": 12,
+    "realistic_problems": 6,
+    "total": 42
   }
 }

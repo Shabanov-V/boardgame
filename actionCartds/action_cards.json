@@ -489,6 +489,113 @@
       },
       "when_to_play": "anytime",
       "flavor_text": "Celebración española inolvidable"
+    },
+    {
+      "id": "action_31",
+      "name": "Fake it till you make it",
+      "category": "social",
+      "type": "utility",
+      "description": "Притворяешься, что понимаешь испанский, и это работает",
+      "cost": {
+        "nerves": 1
+      },
+      "effects": {
+        "language_dice_advantage": true,
+        "documents_cards": 1
+      },
+      "when_to_play": "during_language_challenge",
+      "flavor_text": "¡Sí sí sí = universal response!",
+      "cross_system_interaction": "language + documents"
+    },
+    {
+      "id": "action_32", 
+      "name": "Corruption level: Турист",
+      "category": "connections",
+      "type": "utility",
+      "description": "Дал сдачи на чай чиновнику и документы пошли быстрее",
+      "cost": {
+        "money": 2
+      },
+      "effects": {
+        "skip_document_queue": true,
+        "instant_document_upgrade": true
+      },
+      "when_to_play": "when_getting_documents",
+      "flavor_text": "¡Pequeña propina = big results!",
+      "cross_system_interaction": "money + documents"
+    },
+    {
+      "id": "action_33",
+      "name": "Соседка-мамуля стратегический актив",
+      "category": "social",
+      "type": "permanent", 
+      "description": "Подружились с соседкой-пенсионеркой. Теперь она ваш гид по системе",
+      "cost": {
+        "money": 1
+      },
+      "effects": {
+        "language_bonus": 1,
+        "housing_bonus": true,
+        "document_help": true
+      },
+      "when_to_play": "anytime",
+      "duration": "permanent",
+      "flavor_text": "¡Señora del barrio = final boss ally!",
+      "cross_system_interaction": "housing + language + documents"
+    },
+    {
+      "id": "action_34",
+      "name": "Google Maps врёт, but интуиция не врёт",
+      "category": "technology",
+      "type": "instant",
+      "description": "Заблудились, но случайно нашли нужный офис и секретный вход",
+      "cost": {
+        "nerves": 1
+      },
+      "effects": {
+        "documents_cards": 2,
+        "money": 1,
+        "nerves": 1
+      },
+      "when_to_play": "anytime",
+      "flavor_text": "¡Lost = found en España!",
+      "cross_system_interaction": "technology + documents + money"
+    },
+    {
+      "id": "action_35",
+      "name": "Режим выживания активирован",
+      "category": "lifestyle",
+      "type": "defensive",
+      "description": "Когда все плохо, включаешь максимальную экономию и стратегическое мышление",
+      "cost": {
+        "skip_turn": true
+      },
+      "effects": {
+        "money": 3,
+        "nerves": 2,
+        "language_level_up": true
+      },
+      "when_to_play": "when_receiving_penalty",
+      "flavor_text": "¡Crisis mode = growth mode!",
+      "cross_system_interaction": "money + nerves + language"
+    },
+    {
+      "id": "action_36",
+      "name": "Llamada a la embajada в панике",
+      "category": "communication",
+      "type": "instant",
+      "description": "Звонок в посольство в панике оказался полезным - дали контакты",
+      "cost": {
+        "money": 1,
+        "nerves": 1
+      },
+      "effects": {
+        "documents_cards": 3,
+        "legal_protection": true
+      },
+      "when_to_play": "anytime",
+      "flavor_text": "¡Embajada = emergency hotline!",
+      "cross_system_interaction": "communication + documents + legal"
     }
   ],
   "card_categories": {
@@ -517,11 +624,12 @@
     "when_drawing_card": "При вытягивании определенной карты"
   },
   "card_stats": {
-    "instant": 18,
-    "defensive": 6,
-    "utility": 8,
-    "permanent": 3,
-    "social": 6,
-    "total": 30
+    "instant": 20,
+    "defensive": 8,
+    "utility": 10,
+    "permanent": 4,
+    "social": 8,
+    "cross_system": 6,
+    "total": 36
   }
 }

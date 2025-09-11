@@ -7,6 +7,7 @@ class Statistics:
         self.wins_by_goal = {}
         self.eliminations_by_character = {}
         self.elimination_turns_by_character = {}
+        self.goal_assignments = {}
         self.final_states = []
         self.no_winner_due_to_time_limit = 0
 
@@ -23,6 +24,13 @@ class Statistics:
             self.no_winner_due_to_time_limit += 1
 
         for player in game.players:
+            # Record goal assignment for this player's character
+            char_id = player.id
+            goal_key = player.win_condition['key']
+            if char_id not in self.goal_assignments:
+                self.goal_assignments[char_id] = {}
+            self.goal_assignments[char_id][goal_key] = self.goal_assignments[char_id].get(goal_key, 0) + 1
+
             self.final_states.append({
                 'character': player.id,
                 'money': player.money,
@@ -55,6 +63,7 @@ class Statistics:
             "average_game_duration_turns": round(self.total_turns / self.games_played, 2) if self.games_played > 0 else 0,
             "win_rate_by_character": self.wins_by_character,
             "win_rate_by_goal": self.wins_by_goal,
+            "goal_assignments_by_character": self.goal_assignments,
             "elimination_rate_by_character": elimination_stats,
             "no_winner_due_to_time_limit": self.no_winner_due_to_time_limit,
         }

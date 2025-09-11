@@ -53,42 +53,87 @@ class AI:
         self.player = player
         self.config = config
         self.nerve_threshold = config['simulation_parameters'].get('ai_nerve_threshold', 3)
+        self.goal_requirements = self.player.win_condition.get('requires', {})
+
 
     def decide_play_action_card(self, turn_context):
-        """Decides which action card to play from hand, if any."""
+        """Decides which action card to play from hand, if any, based on goal and current status."""
+        # Priority 1: Manage low nerves
         if self.player.nerves < self.nerve_threshold:
             for card in self.player.action_cards:
-                # Simple logic: if a card gives nerves and can be played now, play it.
-                if card.get('effects', {}).get('nerves', 0) > 0 and card.get('when_to_play') in ['anytime', 'start_of_turn']:
-                    print(f"AI ({self.player.name}): Nerves are low ({self.player.nerves}), deciding to play '{card['name']}'.")
+                if card.get('effects', {}).get('nerves', 0) > 0 and self._can_play_now(card, turn_context):
+                    print(f"AI ({self.player.name}): Nerves are low ({self.player.nerves}), playing '{card['name']}' to restore them.")
                     return card
+
+        # Priority 2: Play cards that directly advance the win condition
+        for card in self.player.action_cards:
+            if self._can_play_now(card, turn_context) and self._card_helps_goal(card):
+                print(f"AI ({self.player.name}): Playing '{card['name']}' to advance win condition '{self.player.win_condition['key']}'.")
+                return card
+
         return None
 
+    def _can_play_now(self, card, turn_context):
+        """Checks if a card can be played in the current context."""
+        when_to_play = card.get('when_to_play', 'anytime')
+        return when_to_play == 'anytime' or when_to_play == turn_context
+
+    def _card_helps_goal(self, card):
+        """Checks if a card's effects align with the player's win condition."""
+        effects = card.get('effects', {})
+        for req, value in self.goal_requirements.items():
+            if req == 'money' and effects.get('money', 0) > 0:
+                return True
+            if req == 'document_level' and effects.get('instant_document_upgrade', 0) > 0:
+                return True
+            if req == 'document_level' and effects.get('documents_cards', 0) > 0:
+                return True
+        return False
+
     def decide_on_green_space(self):
-        """
-        Decides whether to draw a green card or an action card.
-        Based on game rule: "Можно взять карту или вместо этого — карту действия"
-        (You can take a card or instead - an action card)
-        """
-        if len(self.player.action_cards) < self.player.max_action_cards:
-            print(f"AI ({self.player.name}): Decided to draw a green card to advance game state.")
-            return 'draw_green'
-        else:
+        """Decides whether to draw a green card or an action card."""
+        # If hand is full, must draw green
+        if len(self.player.action_cards) >= self.player.max_action_cards:
             print(f"AI ({self.player.name}): Action card hand is full, must draw green card.")
-            return 'draw_green'  # No choice if hand is full, must interact with the space.
+            return 'draw_green'
+
+        # If goal is money-based, prefer action cards which might give money or other advantages
+        if 'money' in self.goal_requirements and self.goal_requirements['money'] > self.player.money:
+            print(f"AI ({self.player.name}): Goal is financial, preferring to draw an action card.")
+            return 'draw_action'
+
+        # Default to drawing a green card to advance game state
+        print(f"AI ({self.player.name}): Decided to draw a green card to advance game state.")
+        return 'draw_green'
+
 
     def decide_green_card_use(self, card):
-        """Decides whether to exchange a document card or play its event effect."""
-        is_doc_goal = 'document_level' in self.player.win_condition['requires']
-        # A simple placeholder logic for required docs. This can be configured.
-        required_docs_for_upgrade = self.player.document_level + 2
+        """Decides whether to exchange a document card or play its event effect based on the goal."""
+        is_doc_goal = 'document_level' in self.goal_requirements
 
-        if card.get('category') == 'documents' and is_doc_goal and self.player.document_cards >= required_docs_for_upgrade:
-            print(f"AI ({self.player.name}): Has enough doc cards, attempting exchange.")
-            return 'exchange'
-        else:
-            print(f"AI ({self.player.name}): Playing card for its event effect.")
-            return 'event'
+        # If the goal is document-related, prioritize exchanging cards to level up.
+        if is_doc_goal and card.get('category') == 'documents':
+            required_docs_for_upgrade = self.player.document_level + 2  # Placeholder logic
+            if self.player.document_cards >= required_docs_for_upgrade:
+                print(f"AI ({self.player.name}): Goal requires documents. Have enough cards, attempting exchange.")
+                return 'exchange'
+            else:
+                print(f"AI ({self.player.name}): Goal requires documents, but not enough cards to exchange. Playing for event to get more.")
+                return 'event'
+
+        # If the goal is financial, check if the event gives money.
+        if 'money' in self.goal_requirements:
+            event_effects = card.get('effects', {})
+            if event_effects.get('money', 0) > 0:
+                print(f"AI ({self.player.name}): Goal is financial. Playing card for its event to get money.")
+                return 'event'
+
+        # Default behavior: if not a document goal and no clear financial benefit, prefer exchange if possible, else event.
+        if card.get('category') == 'documents':
+             print(f"AI ({self.player.name}): No specific goal alignment. Defaulting to event for card '{card['name']}'.")
+             return 'event'
+
+        return 'event'
 
 
 class Player:
@@ -116,7 +161,9 @@ class Player:
         self.ai = AI(self, config)
 
     def __repr__(self):
-        return f"Player(Name: {self.name}, Money: {self.money}, Nerves: {self.nerves}, Docs: {self.document_level})"
+        return (f"Player(Name: {self.name}, Money: {self.money}, Nerves: {self.nerves}, "
+                f"Docs Lvl: {self.document_level}, Doc Cards: {self.document_cards}, "
+                f"Goal: {self.win_condition['key']})")
 
     def add_action_card(self, card):
         if len(self.action_cards) < self.max_action_cards:
@@ -206,10 +253,13 @@ class Game:
 
     def take_turn(self, player):
         """Manages the sequence of actions for a single player's turn."""
+        print(f"\n--- Turn {self.turn}, Player: {player.name} ---")
+        print(f"State before turn: {player}")
+
         # 1. AI decides to play a pre-turn action card
         card_to_play = player.ai.decide_play_action_card('start_of_turn')
         if card_to_play:
-            self.apply_card_effect(player, card_to_play)
+            self.apply_card_effect(player, card_to_play, 'event') # Action cards are always events
             player.action_cards.remove(card_to_play)
             self.decks['action'].discard(card_to_play)
 
@@ -225,11 +275,10 @@ class Game:
             if decision == 'draw_green':
                 card = self.decks['green'].draw()
                 if card:
+                    use_decision = 'event' # Default for non-exchange cards
                     if card.get('exchange_instruction'):
                         use_decision = player.ai.decide_green_card_use(card)
-                        self.apply_card_effect(player, card)
-                    else:
-                        self.apply_card_effect(player, card)
+                    self.apply_card_effect(player, card, use_decision)
             elif decision == 'draw_action':
                 action_card = self.decks['action'].draw()
                 if action_card:
@@ -238,28 +287,42 @@ class Game:
         elif cell_type in ['red', 'white']:
             card = self.decks[cell_type].draw()
             if card:
-                self.apply_card_effect(player, card)
+                self.apply_card_effect(player, card, 'event') # Red/White cards are always events
 
         # 4. Check for win/loss conditions
         self.check_win_condition(player)
         if not self.game_over:
             self.check_elimination(player)
 
-    def apply_card_effect(self, player, card, chosen_effect=None):
+        print(f"State after turn:  {player}")
+
+    def apply_card_effect(self, player, card, decision, chosen_effect=None):
         """
         The main engine for applying card effects.
-        It checks conditions, handles challenges, and applies effects.
+        It checks conditions, handles challenges, and applies effects based on a decision.
         """
-        # 1. Check conditions
+        # 1. Handle document exchange decision
+        if decision == 'exchange':
+            required_docs = player.document_level + 2 # Same logic as in AI
+            if player.document_cards >= required_docs:
+                player.document_cards -= required_docs
+                player.document_level += 1
+                print(f"System: {player.name} exchanged {required_docs} doc cards for Level {player.document_level}.")
+            else:
+                # This case should ideally not be reached if AI is smart
+                print(f"System: {player.name} failed to exchange, not enough doc cards.")
+            return # Exchange action is complete
+
+        # 2. Check conditions for event/challenge
         if 'conditions' in card and not self.check_conditions(player, card['conditions']):
             return
 
-        # 2. Handle dice challenges
+        # 3. Handle dice challenges for event
         if 'challenge' in card:
             self.handle_dice_challenge(player, card['challenge'])
             return
 
-        # 3. Apply direct effects
+        # 4. Apply direct effects for event
         effects = chosen_effect or card.get('effects', {})
         if not effects:
             return
@@ -333,7 +396,7 @@ class Game:
         chosen_outcome = challenge['outcomes'][outcome_key]
 
         if 'effects' in chosen_outcome:
-            self.apply_card_effect(player, card={'name': f"Challenge: {challenge['description']}"}, chosen_effect=chosen_outcome['effects'])
+            self.apply_card_effect(player, card={'name': f"Challenge: {challenge['description']}"}, decision='event', chosen_effect=chosen_outcome['effects'])
 
     def check_win_condition(self, player):
         """Checks if a player has met their victory condition."""

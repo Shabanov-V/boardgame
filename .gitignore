@@ -77,3 +77,5 @@ Thumbs.db
 # Project-specific
 test_results.json
 simulator/__pycache__/
+simulation_results.json
+simulation_log.txt

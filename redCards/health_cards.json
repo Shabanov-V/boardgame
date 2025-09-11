@@ -91,7 +91,7 @@
             "description": "Без документов отправили в частную клинику",
             "effects": {
               "nerves": -2,
-              "money": -4
+              "money": -3
             }
           }
         }
@@ -178,7 +178,7 @@
       "description": "Срочный визит к стоматологу",
       "effects": {
         "nerves": -2,
-        "money": -4
+        "money": -3
       },
       "flavor_text": "Emergencia dental"
     },
@@ -323,7 +323,7 @@
             "description": "Отправили в частную клинику",
             "effects": {
               "nerves": -1,
-              "money": -5
+              "money": -4
             }
           }
         }

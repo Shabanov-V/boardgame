@@ -1,6 +1,6 @@
 {
   "game_parameters": {
-    "number_of_players": 4,
+    "number_of_players": 8,
     "board_size": 40,
     "cell_frequencies": {
       "red": 10,
@@ -12,52 +12,92 @@
     {
       "id": "it_specialist",
       "name": "IT-шник",
-      "starting_money": 16,
-      "starting_nerves": 5,
+      "starting_money": 20,
+      "starting_nerves": 4,
       "starting_language": 2,
       "starting_housing": "room",
-      "salary": 10,
-      "housing_cost": 2
+      "salary": 12,
+      "housing_cost": 3,
+      "description": "Высокий доход, но уязвим к стрессу и дорогой образ жизни"
     },
     {
       "id": "student",
       "name": "Студент",
       "starting_money": 4,
-      "starting_nerves": 5,
+      "starting_nerves": 7,
       "starting_language": 2,
       "starting_housing": "room",
-      "salary": 4,
-      "housing_cost": 1
+      "salary": 5,
+      "housing_cost": 1,
+      "description": "Мало денег, хороший язык, низкий доход"
     },
     {
       "id": "courier",
       "name": "Курьер",
       "starting_money": 8,
-      "starting_nerves": 7,
+      "starting_nerves": 8,
       "starting_language": 1,
       "starting_housing": "room",
       "salary": 6,
-      "housing_cost": 2
+      "housing_cost": 2,
+      "description": "Физически крепкий, средний доход, плохой язык"
     },
     {
       "id": "spanish_spouse",
       "name": "Жена/муж испанца",
-      "starting_money": 6,
-      "starting_nerves": 5,
-      "starting_language": 1,
+      "starting_money": 8,
+      "starting_nerves": 6,
+      "starting_language": 3,
       "starting_housing": "apartment",
-      "salary": 3,
-      "housing_cost": 0
+      "salary": 6,
+      "housing_cost": 0,
+      "description": "Лучшее жилье, отличный язык, но ограниченные ресурсы"
     },
     {
       "id": "freelance_artist",
       "name": "Художник-фрилансер",
       "starting_money": 3,
-      "starting_nerves": 5,
+      "starting_nerves": 8,
       "starting_language": 1,
       "starting_housing": "room",
       "salary_type": "dice",
-      "housing_cost": 1
+      "salary_base": 4,
+      "housing_cost": 1,
+      "description": "Непредсказуемый доход, творческий, но нестабильный"
+    },
+    {
+      "id": "waiter",
+      "name": "Официант",
+      "starting_money": 8,
+      "starting_nerves": 7,
+      "starting_language": 2,
+      "starting_housing": "room",
+      "salary": 6,
+      "housing_cost": 2,
+      "description": "Работа в сфере услуг, постоянный контакт с людьми, чаевые"
+    },
+    {
+      "id": "pensioner",
+      "name": "Пенсионер",
+      "starting_money": 20,
+      "starting_nerves": 6,
+      "starting_language": 1,
+      "starting_housing": "apartment",
+      "salary": 4,
+      "housing_cost": 1,
+      "description": "Много времени, мало денег, стресс от бюрократии"
+    },
+    {
+      "id": "entrepreneur",
+      "name": "Предприниматель",
+      "starting_money": 15,
+      "starting_nerves": 4,
+      "starting_language": 2,
+      "starting_housing": "apartment",
+      "salary_type": "dice",
+      "salary_base": 5,
+      "housing_cost": 5,
+      "description": "Высокие риски, высокие доходы, постоянный стресс"
     }
   ],
   "costs": {
@@ -71,42 +111,50 @@
   },
   "win_conditions": {
     "buy_housing": {
-      "description": "Купить жильё: ипотека + 15 денег",
+      "description": "Купить жильё: ипотека + 18 денег + нервы 8",
       "requires": {
-        "housing_type": "mortgage",
-        "money": 15
+        "housing_type": "mortgage", 
+        "money": 18,
+        "nerves": 8
       }
     },
     "get_citizenship": {
-      "description": "Получить гражданство: дойти до Nacionalidad Española",
+      "description": "Получить гражданство: Nacionalidad Española + 4 денег",
       "requires": {
-        "document_level": 2
+        "document_level": 2,
+        "money": 4
       }
     },
     "vacation": {
-      "description": "Накопить 30 денег и уехать в отпуск",
+      "description": "Накопить 60 денег и уехать в отпуск с отличными нервами",
       "requires": {
-        "money": 30
+        "money": 60,
+        "nerves": 15
       }
     },
     "open_business": {
-      "description": "Открыть бизнес: Digital Certificate + 15 денег + язык 2",
+      "description": "Открыть бизнес: Digital Certificate + 8 денег + язык 1",
       "requires": {
         "document_level": 2,
-        "money": 15,
-        "language_level": 2
+        "money": 8,
+        "language_level": 1
       }
     },
     "family_reunion": {
-      "description": "Воссоединение семьи: Residencia + квартира + 8 денег",
+      "description": "Воссоединение семьи: Residencia + квартира + 2 денег",
       "requires": {
         "document_level": 2,
         "housing_type": "apartment",
-        "money": 8
+        "money": 2
       }
     }
   },
   "simulation_parameters": {
-    "ai_nerve_threshold": 3
+    "ai_nerve_threshold": 3,
+    "trade_frequency": 0.4,
+    "trade_deception_rate": 0.5,
+    "trust_decay_factor": 0.3,
+    "min_trades_per_game": 5,
+    "max_trades_per_game": 8
   }
 }

@@ -8,7 +8,7 @@
       "description": "Знакомый в офисе пропустил вас вне очереди",
       "exchange_instruction": "Попробуй обменять эту карту на следующий уровень документов за бросок 3+, либо играй как действие на карте. При провале обмена: теряешь одну карту документа как негодную + эта карта в сброс.",
       "effects": {
-        "nerves": 1,
+        "nerves": 2,
         "money": 0,
         "documents_cards": 1
       },
@@ -54,7 +54,7 @@
       "effects": {
         "nerves": 1,
         "money": 0,
-        "documents_cards": 3
+        "documents_cards": 2
       },
       "flavor_text": "Funcionario nice = rare species"
     },
@@ -310,7 +310,7 @@
       "type": "dice_challenge",
       "description": "Подработка консультациями в свободное время",
       "conditions": {
-        "character_id": ["it_specialist", "freelance_artist"]
+        "character_id": ["it_specialist", "freelance_artist", "entrepreneur"]
       },
       "challenge": {
         "skill_type": "documents",
@@ -553,7 +553,7 @@
       "effects": {
         "nerves": 2,
         "money": 0,
-        "documents_cards": 4
+        "documents_cards": 3
       },
       "flavor_text": "One-stop bureaucracy shop"
     },
@@ -617,7 +617,7 @@
       "effects": {
         "nerves": 3,
         "money": 0,
-        "documents_cards": 5
+        "documents_cards": 3
       },
       "flavor_text": "Burocracia española miracle"
     },
@@ -657,8 +657,8 @@
       "description": "Чиновник влюбился в коллегу и обработал все документы за день в честь любви",
       "exchange_instruction": "Попробуй обменять эту карту на следующий уровень документов за бросок 3+, либо играй как действие на карте. При провале обмена: теряешь одну карту документа как негодную + эта карта в сброс.",
       "effects": {
-        "nerves": 3,
-        "documents_cards": 4,
+        "nerves": 2,
+        "documents_cards": 3,
         "language_level_up": true
       },
       "flavor_text": "¡Amor burocrático = efficiency!",
@@ -724,7 +724,7 @@
             "description": "Система сдалась, получили все слоты",
             "effects": {
               "nerves": 2,
-              "documents_cards": 5,
+              "documents_cards": 3,
               "money": 0
             }
           },
@@ -769,34 +769,6 @@
       "cross_system_interaction": "documents + timing + bureaucracy"
     },
     {
-      "id": "documents_16", 
-      "name": "Переводчик оказался липовым",
-      "category": "documents",
-      "type": "negative",
-      "description": "Дорогой присяжный переводчик оказался поддельным - документы не приняли",
-      "effects": {
-        "nerves": -3,
-        "money": -5,
-        "documents_cards": -2
-      },
-      "flavor_text": "¡Traductor falso = money down the drain!",
-      "cross_system_interaction": "documents + money + scam"
-    },
-    {
-      "id": "documents_17",
-      "name": "Закон изменился вчера",
-      "category": "documents", 
-      "type": "negative",
-      "description": "Пока собирали документы, изменился закон - нужны другие справки",
-      "effects": {
-        "nerves": -3,
-        "money": -2,
-        "documents_cards": -1
-      },
-      "flavor_text": "¡Ley cambió = start over again!",
-      "cross_system_interaction": "documents + law + timing"
-    },
-    {
       "id": "work_13",
       "name": "IT-шник обнаружил что не гений",
       "category": "work",
@@ -820,7 +792,7 @@
       "type": "negative",
       "description": "Неправильно подали налоги как автономо - штрафы и разбирательства",
       "conditions": {
-        "character_id": ["freelance_artist", "it_specialist"]  
+        "character_id": ["freelance_artist", "it_specialist", "entrepreneur"]  
       },
       "effects": {
         "nerves": -4,
@@ -860,6 +832,283 @@
       },
       "flavor_text": "¡No hablo español = big problems!",
       "cross_system_interaction": "language + documents + critical_situations"
+    },
+    {
+      "id": "balance_boost_student_01",
+      "name": "Студенческие скидки везде",
+      "category": "balance_boost",
+      "type": "positive",
+      "description": "Студенческий билет дает скидки и льготы по всей Испании",
+      "conditions": {
+        "character_id": "student"
+      },
+      "effects": {
+        "money": 4,
+        "nerves": 2,
+        "documents_cards": 1
+      },
+      "flavor_text": "¡Carnet de estudiante = discount power!",
+      "cross_system_interaction": "character + education + economy"
+    },
+    {
+      "id": "balance_boost_student_02",
+      "name": "Mentoring от профессора",
+      "category": "balance_boost",
+      "type": "positive",
+      "description": "Профессор помогает с документами и карьерой",
+      "conditions": {
+        "character_id": "student"
+      },
+      "effects": {
+        "documents_cards": 3,
+        "nerves": 3
+      },
+      "flavor_text": "¡Professor mentor = academic advantage!",
+      "cross_system_interaction": "character + education + mentoring"
+    },
+    {
+      "id": "balance_boost_spouse_01",
+      "name": "Связи через супруга",
+      "category": "balance_boost",
+      "type": "positive",
+      "description": "Испанские связи супруга открывают новые возможности",
+      "conditions": {
+        "character_id": "spanish_spouse"
+      },
+      "effects": {
+        "money": 5,
+        "documents_cards": 2,
+        "nerves": 2
+      },
+      "flavor_text": "¡Connections españolas = networking power!",
+      "cross_system_interaction": "character + family + networking"
+    },
+    {
+      "id": "balance_waiter_boost_01",
+      "name": "Туристический сезон",
+      "category": "balance_boost",
+      "type": "positive",
+      "description": "Пик туристического сезона приносит официантам много работы и чаевых",
+      "conditions": {
+        "character_id": "waiter"
+      },
+      "effects": {
+        "money": 15,
+        "nerves": 4,
+        "documents_cards": 2,
+        "language_level_up": true
+      },
+      "flavor_text": "¡Temporada alta = dinero flowing!",
+      "cross_system_interaction": "character + tourism + seasonal_work"
+    },
+    {
+      "id": "balance_artist_boost_01", 
+      "name": "Грант для творческих профессий",
+      "category": "balance_boost",
+      "type": "positive",
+      "description": "Городская программа поддержки творческих и культурных работников",
+      "conditions": {
+        "character_id": ["freelance_artist", "waiter", "student"]
+      },
+      "effects": {
+        "money": 12,
+        "nerves": 4,
+        "documents_cards": 2,
+        "language_level_up": true
+      },
+      "individual_modifiers": {
+        "freelance_artist": {
+          "additional_effects": {
+            "money": 13,
+            "nerves": 4,
+            "documents_cards": 2,
+            "housing_upgrade": true,
+            "description": "Художник получает максимальную поддержку как творческий работник"
+          }
+        },
+        "waiter": {
+          "additional_effects": {
+            "money": 6,
+            "nerves": 2,
+            "documents_cards": 1,
+            "description": "Официант участвует в культурных программах"
+          }
+        },
+        "student": {
+          "additional_effects": {
+            "money": 8,
+            "nerves": 3,
+            "documents_cards": 1,
+            "description": "Студент получает образовательную поддержку"
+          }
+        }
+      },
+      "flavor_text": "¡Arte subvencionado = creative freedom!",
+      "cross_system_interaction": "character + art + government_support"
+    },
+    {
+      "id": "balance_multi_weak_01",
+      "name": "Программа интеграции",
+      "category": "balance_boost",
+      "type": "positive", 
+      "description": "Специальная программа помощи для работников сферы услуг",
+      "conditions": {
+        "character_id": ["waiter", "freelance_artist", "student"]
+      },
+      "effects": {
+        "money": 10,
+        "nerves": 3,
+        "documents_cards": 2
+      },
+      "individual_modifiers": {
+        "waiter": {
+          "additional_effects": {
+            "money": 5,
+            "language_level_up": true,
+            "description": "Официанты получают языковые курсы для работы с туристами"
+          }
+        },
+        "freelance_artist": {
+          "additional_effects": {
+            "money": 8,
+            "housing_upgrade": true,
+            "description": "Художники получают субсидии на жилье-мастерскую"
+          }
+        },
+        "student": {
+          "additional_effects": {
+            "documents_cards": 2,
+            "nerves": 2,
+            "description": "Студенты получают помощь с документами через университет"
+          }
+        }
+      },
+      "flavor_text": "¡Integración = equal opportunities!",
+      "cross_system_interaction": "character + integration + social_support"
+    },
+    {
+      "id": "boost_weak_characters_01",
+      "name": "Программа поддержки мигрантов",
+      "category": "balance_boost",
+      "type": "positive",
+      "description": "Специальная программа помощи для адаптации в новой стране",
+      "conditions": {
+        "character_id": ["student", "courier", "spanish_spouse"]
+      },
+      "effects": {
+        "money": 8,
+        "nerves": 3,
+        "documents_cards": 2,
+        "language_level_up": true
+      },
+      "individual_modifiers": {
+        "student": {
+          "additional_effects": {
+            "money": 6,
+            "documents_cards": 2,
+            "description": "Студенты получают образовательные гранты"
+          }
+        },
+        "courier": {
+          "additional_effects": {
+            "money": 4,
+            "nerves": 2,
+            "description": "Курьеры получают поддержку для трудоустройства"
+          }
+        },
+        "spanish_spouse": {
+          "additional_effects": {
+            "documents_cards": 1,
+            "nerves": 2,
+            "description": "Супруги получают семейную поддержку"
+          }
+        }
+      },
+      "flavor_text": "¡Programa de integración = new opportunities!",
+      "cross_system_interaction": "character + integration + government_support"
+    },
+    {
+      "id": "boost_weak_characters_02",
+      "name": "Льготы для молодых специалистов",
+      "category": "balance_boost", 
+      "type": "positive",
+      "description": "Государственная программа поддержки молодых работников",
+      "conditions": {
+        "character_id": ["student", "it_specialist", "entrepreneur"]
+      },
+      "effects": {
+        "money": 6,
+        "nerves": 2,
+        "documents_cards": 1
+      },
+      "individual_modifiers": {
+        "student": {
+          "additional_effects": {
+            "money": 8,
+            "nerves": 3,
+            "housing_upgrade": true,
+            "description": "Студенты получают максимальные льготы"
+          }
+        },
+        "it_specialist": {
+          "additional_effects": {
+            "money": 2,
+            "description": "IT-шники получают небольшую поддержку"
+          }
+        },
+        "entrepreneur": {
+          "additional_effects": {
+            "money": 3,
+            "documents_cards": 1,
+            "description": "Предприниматели получают бизнес-поддержку"
+          }
+        }
+      },
+      "flavor_text": "¡Apoyo juvenil = future investment!",
+      "cross_system_interaction": "character + youth + professional_development"
+    },
+    {
+      "id": "boost_courier_special_01",
+      "name": "Курьерские привилегии",
+      "category": "balance_boost",
+      "type": "positive",
+      "description": "Курьеры получают специальные льготы за знание города и активность",
+      "conditions": {
+        "character_id": ["courier", "waiter", "student"]
+      },
+      "effects": {
+        "money": 8,
+        "nerves": 3,
+        "documents_cards": 2,
+        "language_level_up": true
+      },
+      "individual_modifiers": {
+        "courier": {
+          "additional_effects": {
+            "money": 8,
+            "nerves": 4,
+            "documents_cards": 3,
+            "housing_upgrade": true,
+            "description": "Курьеры получают максимальные льготы за мобильность"
+          }
+        },
+        "waiter": {
+          "additional_effects": {
+            "money": 3,
+            "nerves": 2,
+            "description": "Официанты получают поддержку в сфере услуг"
+          }
+        },
+        "student": {
+          "additional_effects": {
+            "money": 5,
+            "documents_cards": 1,
+            "description": "Студенты получают молодежную поддержку"
+          }
+        }
+      },
+      "flavor_text": "¡Delivery expertise = urban advantage!",
+      "cross_system_interaction": "character + mobility + city_knowledge"
     }
   ],
   "card_stats": {
@@ -874,6 +1123,7 @@
     "technology_challenges": 1,
     "cross_system": 16,
     "negative_realistic": 8,
-    "total": 52
+    "balance_boost": 9,
+    "total": 56
   }
 }

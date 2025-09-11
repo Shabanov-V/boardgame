@@ -439,7 +439,7 @@
             "condition": "1",
             "description": "Сосед обиделся и теперь работает еще раньше",
             "effects": {
-              "nerves": -3,
+              "nerves": -2,
               "money": 0
             }
           }
@@ -549,7 +549,7 @@
         "money_range": "<5"
       },
       "effects": {
-        "nerves": -3,
+        "nerves": -2,
         "money": 0
       },
       "special_effect": "downgrade_housing",
@@ -638,7 +638,7 @@
         "money": 2
       },
       "conditions": {
-        "character_id": ["it_specialist", "freelance_artist"]
+        "character_id": ["it_specialist", "freelance_artist", "entrepreneur"]
       },
       "flavor_text": "¡Teletrabajo antes del COVID!",
       "cross_system_interaction": "housing + work"
@@ -680,8 +680,8 @@
         "documents_level": ">=1"
       },
       "effects": {
-        "nerves": -4,
-        "money": -3,
+        "nerves": -3,
+        "money": -2,
         "document_level": -1
       },
       "flavor_text": "¡Padrón falso = game over!",
@@ -740,20 +740,229 @@
       "type": "negative",
       "description": "Отдали депозит мошенникам - квартиры не существует",
       "effects": {
-        "nerves": -4,
-        "money": -6,
+        "nerves": -3,
+        "money": -4,
         "housing_search": true
       },
       "flavor_text": "¡Estafa inmobiliaria = classic!",
       "cross_system_interaction": "housing + money + scam"
+    },
+    {
+      "id": "balance_nerf_it_01",
+      "name": "Выгорание IT-шника",
+      "category": "balance_nerf",
+      "type": "negative",
+      "description": "Постоянная работа за компьютером довела до нервного срыва",
+      "conditions": {
+        "character_id": "it_specialist"
+      },
+      "effects": {
+        "nerves": -4,
+        "money": -5
+      },
+      "flavor_text": "¡Burnout syndrome = programmer hell!",
+      "cross_system_interaction": "character + work + mental_health"
+    },
+    {
+      "id": "balance_nerf_it_02",
+      "name": "Налоги как автономо",
+      "category": "balance_nerf",
+      "type": "negative",
+      "description": "IT-шник забыл про декларацию - штрафы и доплаты",
+      "conditions": {
+        "character_id": "it_specialist"
+      },
+      "effects": {
+        "nerves": -3,
+        "money": -8
+      },
+      "flavor_text": "¡Autónomo taxes = IT nightmare!",
+      "cross_system_interaction": "character + taxes + bureaucracy"
+    },
+    {
+      "id": "balance_nerf_courier_01",
+      "name": "Травма на работе",
+      "category": "balance_nerf",
+      "type": "negative",
+      "description": "Курьер получил травму при доставке - больничные и расходы",
+      "conditions": {
+        "character_id": "courier"
+      },
+      "effects": {
+        "nerves": -3,
+        "money": -4,
+        "documents_cards": -1
+      },
+      "flavor_text": "¡Accidente laboral = delivery danger!",
+      "cross_system_interaction": "character + work + health"
+    },
+    {
+      "id": "balance_nerf_courier_02",
+      "name": "Штраф за нарушение ПДД",
+      "category": "balance_nerf",
+      "type": "negative",
+      "description": "Курьера поймали на нарушении - штрафы и проблемы",
+      "conditions": {
+        "character_id": "courier"
+      },
+      "effects": {
+        "nerves": -2,
+        "money": -6
+      },
+      "flavor_text": "¡Multa de tráfico = speed kills wallet!",
+      "cross_system_interaction": "character + traffic + legal"
+    },
+    {
+      "id": "nerf_high_earners_01",
+      "name": "Налоговая проверка доходов",
+      "category": "balance_nerf",
+      "type": "negative",
+      "description": "Высокие доходы привлекают внимание налоговой",
+      "conditions": {
+        "character_id": ["it_specialist", "entrepreneur", "spanish_spouse"]
+      },
+      "effects": {
+        "money": -10,
+        "nerves": -4,
+        "documents_cards": -2
+      },
+      "individual_modifiers": {
+        "it_specialist": {
+          "additional_effects": {
+            "money": -8,
+            "description": "IT-шник особенно страдает от сложной отчетности"
+          }
+        },
+        "entrepreneur": {
+          "additional_effects": {
+            "money": -12,
+            "nerves": -2,
+            "description": "Предприниматель теряет больше времени и денег"
+          }
+        }
+      },
+      "flavor_text": "¡Hacienda siempre vigilando!",
+      "cross_system_interaction": "character + finance + bureaucracy"
+    },
+    {
+      "id": "nerf_high_earners_02", 
+      "name": "Дорогой образ жизни",
+      "category": "balance_nerf",
+      "type": "negative",
+      "description": "Высокие доходы ведут к высоким расходам",
+      "conditions": {
+        "character_id": ["it_specialist", "entrepreneur", "pensioner"]
+      },
+      "effects": {
+        "money": -8,
+        "nerves": -3
+      },
+      "individual_modifiers": {
+        "it_specialist": {
+          "additional_effects": {
+            "nerves": -3,
+            "description": "IT-шник страдает от выгорания"
+          }
+        },
+        "entrepreneur": {
+          "additional_effects": {
+            "money": -6,
+            "description": "Предприниматель тратит больше на статус"
+          }
+        },
+        "pensioner": {
+          "additional_effects": {
+            "nerves": -2,
+            "description": "Пенсионер переживает о тратах"
+          }
+        }
+      },
+      "flavor_text": "¡Más dinero = más gastos!",
+      "cross_system_interaction": "character + lifestyle + economics"
+    },
+    {
+      "id": "nerf_service_workers_01",
+      "name": "Кризис в сфере услуг",
+      "category": "balance_nerf",
+      "type": "negative",
+      "description": "Экономические трудности особенно бьют по сфере обслуживания",
+      "conditions": {
+        "character_id": ["waiter", "courier", "freelance_artist"]
+      },
+      "effects": {
+        "money": -6,
+        "nerves": -3
+      },
+      "individual_modifiers": {
+        "waiter": {
+          "additional_effects": {
+            "money": -4,
+            "nerves": -2,
+            "description": "Официанты особенно страдают от снижения посещаемости"
+          }
+        },
+        "courier": {
+          "additional_effects": {
+            "money": -2,
+            "description": "Курьеры теряют часть заказов"
+          }
+        },
+        "freelance_artist": {
+          "additional_effects": {
+            "nerves": -1,
+            "description": "Художники теряют заказчиков"
+          }
+        }
+      },
+      "flavor_text": "¡Crisis económica = service sector hit!",
+      "cross_system_interaction": "character + economy + service_industry"
+    },
+    {
+      "id": "nerf_pensioner_01",
+      "name": "Пенсионные проблемы",
+      "category": "balance_nerf",
+      "type": "negative",
+      "description": "Сложности с оформлением пенсии и медицинским обслуживанием",
+      "conditions": {
+        "character_id": ["pensioner", "spanish_spouse", "entrepreneur"]
+      },
+      "effects": {
+        "money": -4,
+        "nerves": -2,
+        "documents_cards": -1
+      },
+      "individual_modifiers": {
+        "pensioner": {
+          "additional_effects": {
+            "money": -3,
+            "nerves": -2,
+            "description": "Пенсионеры особенно страдают от бюрократии"
+          }
+        },
+        "spanish_spouse": {
+          "additional_effects": {
+            "nerves": -1,
+            "description": "Супруги сталкиваются с семейными сложностями"
+          }
+        },
+        "entrepreneur": {
+          "additional_effects": {
+            "money": -2,
+            "description": "Предприниматели теряют время на оформления"
+          }
+        }
+      },
+      "flavor_text": "¡Burocracia pensional = paperwork nightmare!",
+      "cross_system_interaction": "character + age + bureaucracy"
     }
   ],
   "card_stats": {
     "positive": 15,
-    "negative": 27,
+    "negative": 35,
     "dice_challenges": 7,
-    "cross_system": 12,
+    "cross_system": 16,
     "realistic_problems": 6,
-    "total": 42
+    "balance_nerf": 8,
+    "total": 44
   }
 }

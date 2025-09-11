@@ -22,7 +22,7 @@
       "type": "targeted_negative",
       "description": "Налоговая проверка всех автономос",
       "conditions": {
-        "character_id": ["freelance_artist", "it_specialist"]
+        "character_id": ["freelance_artist", "it_specialist", "entrepreneur"]
       },
       "effects": {
         "nerves": -2,

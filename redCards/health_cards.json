@@ -20,7 +20,7 @@
       "description": "Плановый визит к зубному",
       "effects": {
         "nerves": 0,
-        "money": -2
+        "money": -6
       },
       "flavor_text": "Limpieza dental - 50€"
     },
@@ -44,7 +44,7 @@
       "description": "Весенняя аллергия атакует",
       "effects": {
         "nerves": -1,
-        "money": -1
+        "money": -5
       },
       "flavor_text": "Антигистаминные в аптеке"
     },
@@ -56,7 +56,7 @@
       "description": "Расслабляющий массаж восстановил силы",
       "effects": {
         "nerves": 2,
-        "money": -3
+        "money": -5
       },
       "flavor_text": "Relajación total"
     },
@@ -71,7 +71,7 @@
         "description": "Попытка попасть к врачу в centro de salud",
         "outcomes": {
           "success": {
-            "condition": ">4",
+            "condition": ">3",
             "description": "Врач быстро принял и выписал бесплатное лечение",
             "effects": {
               "nerves": 1,
@@ -83,7 +83,7 @@
             "description": "Попали к врачу, но пришлось покупать лекарства",
             "effects": {
               "nerves": 0,
-              "money": -1
+              "money": -5
             }
           },
           "failure": {
@@ -91,7 +91,7 @@
             "description": "Без документов отправили в частную клинику",
             "effects": {
               "nerves": -2,
-              "money": -3
+              "money": -5
             }
           }
         }
@@ -118,7 +118,7 @@
       "description": "Небольшая травма, нужна перевязка",
       "effects": {
         "nerves": -2,
-        "money": -1
+        "money": -5
       },
       "flavor_text": "Accidente laboral menor"
     },
@@ -130,7 +130,7 @@
       "description": "Врач выписал витамины, помогает настроению",
       "effects": {
         "nerves": 1,
-        "money": -1
+        "money": -5
       },
       "flavor_text": "Falta de sol en invierno"
     },
@@ -142,7 +142,7 @@
       "description": "Что-то не то съели, плохо себя чувствуете",
       "effects": {
         "nerves": -2,
-        "money": -1
+        "money": -5
       },
       "flavor_text": "Tortilla española подозрительная была"
     },
@@ -154,7 +154,7 @@
       "description": "Месячный абонемент окупается хорошим самочувствием",
       "effects": {
         "nerves": 2,
-        "money": -2
+        "money": -6
       },
       "flavor_text": "Gimnasio cerca de casa"
     },
@@ -178,7 +178,7 @@
       "description": "Срочный визит к стоматологу",
       "effects": {
         "nerves": -2,
-        "money": -3
+        "money": -5
       },
       "flavor_text": "Emergencia dental"
     },
@@ -214,7 +214,7 @@
       "description": "Местная средиземноморская диета творит чудеса",
       "effects": {
         "nerves": 1,
-        "money": -1
+        "money": -5
       },
       "flavor_text": "Aceite de oliva лечит всё"
     },
@@ -229,11 +229,11 @@
         "description": "Нужно добраться до аптеки и объяснить симптомы",
         "outcomes": {
           "success": {
-            "condition": ">4",
+            "condition": ">3",
             "description": "Фармацевт дал отличное лекарство и совет",
             "effects": {
               "nerves": 1,
-              "money": -1
+              "money": -5
             }
           },
           "partial": {
@@ -241,7 +241,7 @@
             "description": "Купили что-то, что помогло",
             "effects": {
               "nerves": 0,
-              "money": -2
+              "money": -6
             }
           },
           "failure": {
@@ -264,7 +264,7 @@
       "description": "Уроки фламенко заряжают энергией",
       "effects": {
         "nerves": 2,
-        "money": -2
+        "money": -6
       },
       "flavor_text": "¡Olé! Страсть в движении"
     },
@@ -276,7 +276,7 @@
       "description": "Недооценили испанское солнце",
       "effects": {
         "nerves": -2,
-        "money": -1
+        "money": -5
       },
       "flavor_text": "Сиеста существует не просто так"
     },
@@ -288,7 +288,7 @@
       "description": "Чуррос с шоколадом лечат депрессию",
       "effects": {
         "nerves": 1,
-        "money": -1
+        "money": -5
       },
       "flavor_text": "Dulce medicina española"
     },
@@ -303,7 +303,7 @@
         "description": "Попасть на прием в центр здоровья",
         "outcomes": {
           "success": {
-            "condition": ">4",
+            "condition": ">3",
             "description": "Врач принял быстро, лечение бесплатное",
             "effects": {
               "nerves": 1,
@@ -315,7 +315,7 @@
             "description": "Попали к врачу, но купили лекарства сами",
             "effects": {
               "nerves": 0,
-              "money": -2
+              "money": -6
             }
           },
           "failure": {
@@ -323,7 +323,7 @@
             "description": "Отправили в частную клинику",
             "effects": {
               "nerves": -1,
-              "money": -4
+              "money": -6
             }
           }
         }
@@ -341,11 +341,11 @@
         "description": "Объяснить психологу свои проблемы на испанском",
         "outcomes": {
           "success": {
-            "condition": ">4",
+            "condition": ">3",
             "description": "Психолог все понял и дал отличные советы",
             "effects": {
               "nerves": 3,
-              "money": -2
+              "money": -6
             }
           },
           "partial": {
@@ -353,7 +353,7 @@
             "description": "Частично поняли друг друга",
             "effects": {
               "nerves": 1,
-              "money": -2
+              "money": -6
             }
           },
           "failure": {
@@ -361,18 +361,324 @@
             "description": "Языковой барьер мешает терапии",
             "effects": {
               "nerves": -1,
-              "money": -2
+              "money": -6
             }
           }
         }
       },
       "flavor_text": "Terapia en español = challenge"
+    },
+    {
+      "id": "health_23",
+      "name": "Анализы крови срочно",
+      "category": "health",
+      "type": "dice_challenge",
+      "description": "Врач назначил срочные анализы, нужно разобраться в системе",
+      "challenge": {
+        "skill_type": "documents",
+        "description": "Найти лабораторию и правильно сдать анализы",
+        "outcomes": {
+          "success": {
+            "condition": ">3",
+            "description": "Быстро нашли лабораторию, анализы в норме",
+            "effects": {
+              "nerves": 2,
+              "money": -5
+            }
+          },
+          "partial": {
+            "condition": "3-4",
+            "description": "Сдали анализы, но долго искали",
+            "effects": {
+              "nerves": 0,
+              "money": -6
+            }
+          },
+          "failure": {
+            "condition": "1-2",
+            "description": "Заблудились, пришлось идти в частную клинику",
+            "effects": {
+              "nerves": -2,
+              "money": -5
+            }
+          }
+        }
+      },
+      "flavor_text": "Sistema sanitario = laberinto"
+    },
+    {
+      "id": "health_24",
+      "name": "Рецепт на испанском",
+      "category": "health",
+      "type": "dice_challenge",
+      "description": "Врач выписал рецепт, но почерк нечитаемый",
+      "challenge": {
+        "skill_type": "language",
+        "description": "Расшифровать медицинский рецепт и объяснить фармацевту",
+        "outcomes": {
+          "success": {
+            "condition": ">3",
+            "description": "Фармацевт все понял, лекарства подошли идеально",
+            "effects": {
+              "nerves": 2,
+              "money": -6
+            }
+          },
+          "partial": {
+            "condition": "2-4",
+            "description": "Купили лекарства, но не совсем те",
+            "effects": {
+              "nerves": -1,
+              "money": -5
+            }
+          },
+          "failure": {
+            "condition": "1",
+            "description": "Фармацевт ничего не понял, отправил к врачу",
+            "effects": {
+              "nerves": -3,
+              "money": -5
+            }
+          }
+        }
+      },
+      "flavor_text": "Letra de médico = jeroglíficos"
+    },
+    {
+      "id": "health_25",
+      "name": "Скорая помощь",
+      "category": "health",
+      "type": "dice_challenge",
+      "description": "Нужно срочно вызвать скорую для соседа",
+      "challenge": {
+        "skill_type": "language",
+        "description": "Объяснить диспетчеру 112 что случилось и где вы",
+        "outcomes": {
+          "success": {
+            "condition": ">3",
+            "description": "Четко объяснили, скорая приехала быстро",
+            "effects": {
+              "nerves": 1,
+              "social_bonus": true
+            }
+          },
+          "partial": {
+            "condition": "3-5",
+            "description": "Скорая приехала, но с задержкой",
+            "effects": {
+              "nerves": -1,
+              "money": 0
+            }
+          },
+          "failure": {
+            "condition": "1-2",
+            "description": "Не смогли объяснить, пришлось бежать в больницу",
+            "effects": {
+              "nerves": -3,
+              "money": -6
+            }
+          }
+        }
+      },
+      "flavor_text": "112 = español rápido required"
+    },
+    {
+      "id": "health_26",
+      "name": "Страховой случай",
+      "category": "health",
+      "type": "dice_challenge",
+      "description": "Нужно доказать страховой компании, что лечение необходимо",
+      "challenge": {
+        "skill_type": "documents",
+        "description": "Собрать все справки и убедить страховую",
+        "outcomes": {
+          "success": {
+            "condition": ">3",
+            "description": "Страховая покрыла все расходы",
+            "effects": {
+              "nerves": 3,
+              "money": 3
+            }
+          },
+          "partial": {
+            "condition": "3-5",
+            "description": "Покрыли частично",
+            "effects": {
+              "nerves": 1,
+              "money": -6
+            }
+          },
+          "failure": {
+            "condition": "1-2",
+            "description": "Отказали в выплате, платите сами",
+            "effects": {
+              "nerves": -3,
+              "money": -6
+            }
+          }
+        }
+      },
+      "flavor_text": "Seguro español = burocracia máxima"
+    },
+    {
+      "id": "health_27",
+      "name": "Специалист по записи",
+      "category": "health",
+      "type": "dice_challenge",
+      "description": "Нужно попасть к узкому специалисту через семейного врача",
+      "challenge": {
+        "skill_type": "language",
+        "description": "Убедить врача в необходимости направления",
+        "outcomes": {
+          "success": {
+            "condition": ">3",
+            "description": "Врач выписал направление, запись через месяц",
+            "effects": {
+              "nerves": 1,
+              "health_bonus": true
+            }
+          },
+          "partial": {
+            "condition": "2-4",
+            "description": "Направление дали, но не к тому специалисту",
+            "effects": {
+              "nerves": -1,
+              "money": -5
+            }
+          },
+          "failure": {
+            "condition": "1",
+            "description": "Врач не понял проблему, отказал в направлении",
+            "effects": {
+              "nerves": -2,
+              "money": -6
+            }
+          }
+        }
+      },
+      "flavor_text": "Sistema público = paciencia infinita"
+    },
+    {
+      "id": "health_28",
+      "name": "Аллергическая реакция",
+      "category": "health",
+      "type": "dice_challenge",
+      "description": "Съели что-то не то, началась аллергия",
+      "challenge": {
+        "skill_type": "documents",
+        "description": "Срочно найти аптеку и объяснить симптомы",
+        "outcomes": {
+          "success": {
+            "condition": ">3",
+            "description": "Фармацевт дал правильное лекарство",
+            "effects": {
+              "nerves": 1,
+              "money": -6
+            }
+          },
+          "partial": {
+            "condition": "2-4",
+            "description": "Купили что-то, помогло частично",
+            "effects": {
+              "nerves": -1,
+              "money": -5
+            }
+          },
+          "failure": {
+            "condition": "1",
+            "description": "Не поняли друг друга, пришлось в больницу",
+            "effects": {
+              "nerves": -3,
+              "money": -5
+            }
+          }
+        }
+      },
+      "flavor_text": "Alergia + barrera idiomática = crisis"
+    },
+    {
+      "id": "health_29",
+      "name": "Медицинская комиссия",
+      "category": "health",
+      "type": "dice_challenge",
+      "description": "Нужно пройти медкомиссию для продления документов",
+      "challenge": {
+        "skill_type": "documents",
+        "description": "Собрать все справки и пройти всех врачей",
+        "outcomes": {
+          "success": {
+            "condition": ">3",
+            "description": "Все справки собраны, комиссия пройдена",
+            "effects": {
+              "nerves": 2,
+              "documents_cards": 2
+            }
+          },
+          "partial": {
+            "condition": "3-5",
+            "description": "Пройдено частично, нужны доп. справки",
+            "effects": {
+              "nerves": -1,
+              "money": -5
+            }
+          },
+          "failure": {
+            "condition": "1-2",
+            "description": "Не хватает документов, комиссия провалена",
+            "effects": {
+              "nerves": -3,
+              "money": -6,
+              "document_penalty": true
+            }
+          }
+        }
+      },
+      "flavor_text": "Reconocimiento médico = obstáculo burocrático"
+    },
+    {
+      "id": "health_30",
+      "name": "Стоматология экстренная",
+      "category": "health",
+      "type": "dice_challenge",
+      "description": "Зуб болит невыносимо, нужен срочный стоматолог",
+      "challenge": {
+        "skill_type": "language",
+        "description": "Найти дежурного стоматолога и объяснить проблему",
+        "outcomes": {
+          "success": {
+            "condition": ">3",
+            "description": "Стоматолог принял срочно, боль прошла",
+            "effects": {
+              "nerves": 2,
+              "money": -6
+            }
+          },
+          "partial": {
+            "condition": "2-4",
+            "description": "Лечение помогло, но дорого",
+            "effects": {
+              "nerves": 0,
+              "money": -6
+            }
+          },
+          "failure": {
+            "condition": "1",
+            "description": "Не смогли объяснить, дали только обезболивающее",
+            "effects": {
+              "nerves": -2,
+              "money": -6
+            }
+          }
+        }
+      },
+      "flavor_text": "Dolor dental = emergencia universal"
     }
   ],
   "card_stats": {
     "positive": 12,
     "negative": 7,
     "neutral": 1,
-    "total": 20
+    "dice_challenges": 12,
+    "total": 30
   }
 }

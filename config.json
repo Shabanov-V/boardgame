@@ -93,7 +93,7 @@
       "description": "Открыть бизнес: Digital Certificate + 30 денег + язык 2",
       "requires": {
         "document_level": 5,
-        "money": 30,
+        "money": 70,
         "language_level": 2
       }
     },

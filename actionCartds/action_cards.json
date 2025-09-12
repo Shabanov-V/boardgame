@@ -1,917 +1,10 @@
 {
   "action_cards": [
     {
-      "id": "action_01",
-      "name": "2 бокала Tinto de verano",
-      "category": "drinks",
-      "type": "instant",
-      "description": "Освежающий летний напиток поднимает настроение",
-      "cost": {
-        "money": 2
-      },
-      "effects": {
-        "nerves": 2
-      },
-      "when_to_play": "anytime",
-      "flavor_text": "Vino tinto + limón = felicidad"
-    },
-    {
-      "id": "action_02",
-      "name": "Paella familiar",
-      "category": "food",
-      "type": "instant",
-      "description": "Домашняя паэлья объединяет и лечит душу",
-      "cost": {
-        "money": 4
-      },
-      "effects": {
-        "nerves": 3,
-        "draw_card": 1
-      },
-      "when_to_play": "anytime",
-      "flavor_text": "La paella cura todas las penas"
-    },
-    {
-      "id": "action_03",
-      "name": "Llamada a mamá",
-      "category": "social",
-      "type": "instant",
-      "description": "Звонок домой восстанавливает силы",
-      "cost": {
-        "money": 1
-      },
-      "effects": {
-        "nerves": 1,
-        "money": 2
-      },
-      "when_to_play": "anytime",
-      "flavor_text": "Mama siempre ayuda"
-    },
-    {
-      "id": "action_04",
-      "name": "Gestoría profesional",
-      "category": "services",
-      "type": "defensive",
-      "description": "Профессиональная помощь с документами",
-      "cost": {
-        "money": 6
-      },
-      "effects": {
-        "block_document_penalty": true,
-        "add_document_card": 2
-      },
-      "additional_effects": {
-        "waiter": {
-          "add_document_card": 2,
-          "description": "Официанты получают дополнительные документы благодаря клиентским связям"
-        },
-        "freelance_artist": {
-          "add_document_card": 2,
-          "money": 3,
-          "description": "Художники получают льготы для творческих профессий"
-        },
-        "courier": {
-          "add_document_card": 3,
-          "description": "Курьеры знают все gestoría в городе"
-        },
-        "student": {
-          "add_document_card": -1,
-          "money": -2,
-          "description": "Студенческие документы требуют дополнительных справок"
-        },
-        "it_specialist": {
-          "money": -4,
-          "description": "IT-шники платят повышенные тарифы как высокооплачиваемые"
-        }
-      },
-      "when_to_play": "when_drawing_documents_card",
-      "flavor_text": "Dinero soluciona burocracia"
-    },
-    {
-      "id": "action_05",
-      "name": "Amigo español",
-      "category": "social",
-      "type": "utility",
-      "description": "Местный друг помогает разобраться в ситуации",
-      "cost": {
-        "nerves": 0
-      },
-      "effects": {
-        "reroll_language_dice": true,
-        "language_bonus": 1
-      },
-      "additional_effects": {
-        "student": {
-          "language_bonus": 2,
-          "nerves": 2,
-          "description": "Студенты быстро заводят друзей среди сверстников"
-        },
-        "waiter": {
-          "language_bonus": 2,
-          "money": 3,
-          "description": "Официанты знают много людей через работу"
-        },
-        "pensioner": {
-          "language_bonus": 1,
-          "documents_cards": 6,
-          "description": "Пенсионеры находят общий язык с местными"
-        }
-      },
-      "when_to_play": "during_language_challenge",
-      "flavor_text": "Amistad española vale oro"
-    },
-    {
-      "id": "action_06",
-      "name": "Siesta sagrada",
-      "category": "lifestyle",
-      "type": "instant",
-      "description": "Классическая испанская сиеста восстанавливает силы",
-      "cost": {
-        "skip_turn": true
-      },
-      "effects": {
-        "nerves": 3,
-        "immunity_next_housing": true
-      },
-      "when_to_play": "start_of_turn",
-      "flavor_text": "La siesta es vida"
-    },
-    {
-      "id": "action_07",
-      "name": "Abogado de confianza",
-      "category": "services",
-      "type": "defensive",
-      "description": "Надежный адвокат спасает от штрафов",
-      "cost": {
-        "money": 4
-      },
-      "effects": {
-        "cancel_money_penalty": true,
-        "legal_protection": true
-      },
-      "when_to_play": "when_receiving_penalty",
-      "flavor_text": "Justicia española (con dinero)"
-    },
-    {
-      "id": "action_08",
-      "name": "Tapas con colegas",
-      "category": "social",
-      "type": "instant",
-      "description": "Посиделки с коллегами за тапас улучшают отношения",
-      "cost": {
-        "money": 2
-      },
-      "effects": {
-        "nerves": 2,
-        "work_bonus_next": true
-      },
-      "additional_effects": {
-        "waiter": {
-          "nerves": 3,
-          "money": 4,
-          "description": "Официанты знают лучшие места для нетворкинга"
-        },
-        "freelance_artist": {
-          "nerves": 2,
-          "documents_cards": 6,
-          "description": "Художники находят вдохновение и связи"
-        },
-        "courier": {
-          "nerves": 2,
-          "language_bonus": 1,
-          "description": "Курьеры встречают людей из разных сфер"
-        },
-        "spanish_spouse": {
-          "nerves": 4,
-          "money": 5,
-          "documents_cards": 6,
-          "description": "Супруг использует семейные связи для нетворкинга"
-        },
-        "pensioner": {
-          "nerves": 3,
-          "money": 3,
-          "documents_cards": 6,
-          "description": "Пенсионер находит единомышленников"
-        }
-      },
-      "when_to_play": "anytime",
-      "flavor_text": "Tapas networking español"
-    },
-    {
-      "id": "action_09",
-      "name": "Google Translate premium",
-      "category": "technology",
-      "type": "utility",
-      "description": "Продвинутый переводчик помогает в сложных ситуациях",
-      "cost": {
-        "money": 1
-      },
-      "effects": {
-        "language_dice_advantage": true
-      },
-      "when_to_play": "during_language_challenge",
-      "flavor_text": "Tecnología vs español"
-    },
-    {
-      "id": "action_10",
-      "name": "Churros con chocolate",
-      "category": "food",
-      "type": "instant",
-      "description": "Сладкая терапия против депрессии",
-      "cost": {
-        "money": 1
-      },
-      "effects": {
-        "nerves": 2,
-        "block_health_penalty": true
-      },
-      "when_to_play": "anytime_or_defensive",
-      "flavor_text": "Azúcar cura tristeza"
-    },
-    {
-      "id": "action_11",
-      "name": "Tarjeta telefónica internacional",
-      "category": "communication",
-      "type": "instant",
-      "description": "Дешевые звонки на родину",
-      "cost": {
-        "money": 1
-      },
-      "effects": {
-        "nerves": 1,
-        "money": 2
-      },
-      "when_to_play": "anytime",
-      "flavor_text": "Conexión con casa"
-    },
-    {
-      "id": "action_12",
-      "name": "Conocido en ayuntamiento",
-      "category": "connections",
-      "type": "utility",
-      "description": "Знакомый в мэрии ускоряет бюрократию",
-      "cost": {
-        "nerves": 0
-      },
-      "effects": {
-        "skip_document_queue": true,
-        "documents_fast_track": true
-      },
-      "additional_effects": {
-        "pensioner": {
-          "documents_cards": 6,
-          "description": "Пенсионеры имеют больше времени для связей"
-        },
-        "spanish_spouse": {
-          "documents_cards": 6,
-          "nerves": 1,
-          "description": "Семейные связи помогают в мэрии"
-        },
-        "it_specialist": {
-          "money": -3,
-          "description": "IT-шников подозревают в уклонении от налогов"
-        },
-        "entrepreneur": {
-          "money": -4,
-          "nerves": -1,
-          "description": "Предпринимателей проверяют особенно тщательно"
-        }
-      },
-      "when_to_play": "when_getting_documents",
-      "flavor_text": "Enchufismo español works"
-    },
-    {
-      "id": "action_13",
-      "name": "Jamón ibérico de calidad",
-      "category": "food",
-      "type": "instant",
-      "description": "Элитный хамон поднимает статус и настроение",
-      "cost": {
-        "money": 4
-      },
-      "effects": {
-        "nerves": 2,
-        "social_bonus": true
-      },
-      "when_to_play": "anytime",
-      "flavor_text": "Jamón = cultura española"
-    },
-    {
-      "id": "action_14",
-      "name": "Aire acondicionado",
-      "category": "comfort",
-      "type": "defensive",
-      "description": "Кондиционер спасает от испанской жары",
-      "cost": {
-        "money": 3
-      },
-      "effects": {
-        "block_heat_penalty": true,
-        "comfort_bonus": true
-      },
-      "additional_effects": {
-        "courier": {
-          "nerves": 3,
-          "description": "Курьеры особенно страдают от жары"
-        },
-        "freelance_artist": {
-          "nerves": 2,
-          "money": 2,
-          "description": "Художники работают продуктивнее в прохладе"
-        },
-        "pensioner": {
-          "nerves": 2,
-          "documents_cards": 6,
-          "description": "Пенсионеры могут дольше стоять в очередях"
-        },
-        "entrepreneur": {
-          "money": -2,
-          "description": "Кондиционер дорого обходится бизнесменам"
-        }
-      },
-      "when_to_play": "when_heat_event",
-      "conditions": {
-        "housing_type": "!=mortgage"
-      },
-      "flavor_text": "Salvación en verano"
-    },
-    {
-      "id": "action_15",
-      "name": "Diccionario español avanzado",
-      "category": "education",
-      "type": "utility",
-      "description": "Серьезное изучение языка приносит плоды",
-      "cost": {
-        "money": 2,
-        "nerves": 1
-      },
-      "effects": {
-        "language_upgrade_discount": true,
-        "permanent_language_bonus": true
-      },
-      "when_to_play": "anytime",
-      "flavor_text": "Educación española formal"
-    },
-    {
-      "id": "action_16",
-      "name": "Medicinas de farmacia",
-      "category": "health",
-      "type": "defensive",
-      "description": "Запас лекарств из аптеки",
-      "cost": {
-        "money": 2
-      },
-      "effects": {
-        "block_health_penalty": true,
-        "health_insurance_bonus": true
-      },
-      "when_to_play": "when_health_problem",
-      "flavor_text": "Farmacia española eficaz"
-    },
-    {
-      "id": "action_17",
-      "name": "Cita con psicólogo",
-      "category": "health",
-      "type": "instant",
-      "description": "Профессиональная помощь при стрессе",
-      "cost": {
-        "money": 3
-      },
-      "effects": {
-        "nerves": 3,
-        "stress_immunity": true
-      },
-      "when_to_play": "anytime",
-      "flavor_text": "Salud mental importante"
-    },
-    {
-      "id": "action_18",
-      "name": "Tarjeta de transporte mensual",
-      "category": "transport",
-      "type": "utility",
-      "description": "Проездной билет экономит деньги и время",
-      "cost": {
-        "money": 3
-      },
-      "effects": {
-        "transport_immunity": true,
-        "movement_bonus": true
-      },
-      "when_to_play": "start_of_turn",
-      "duration": "3_turns",
-      "flavor_text": "Movilidad urbana española"
-    },
-    {
-      "id": "action_19",
-      "name": "Intercambio de idiomas",
-      "category": "social",
-      "type": "utility",
-      "description": "Языковой обмен с местными жителями",
-      "cost": {
-        "nerves": 0
-      },
-      "effects": {
-        "language_practice": true,
-        "social_connections": true
-      },
-      "when_to_play": "anytime",
-      "flavor_text": "Intercambio cultural auténtico"
-    },
-    {
-      "id": "action_20",
-      "name": "Seguro médico privado",
-      "category": "insurance",
-      "type": "permanent",
-      "description": "Частная медицинская страховка",
-      "cost": {
-        "money": 5
-      },
-      "effects": {
-        "health_upgrade": "private",
-        "medical_immunity": true
-      },
-      "when_to_play": "anytime",
-      "duration": "permanent",
-      "flavor_text": "Sanidad privada = tranquilidad"
-    },
-    {
-      "id": "action_21",
-      "name": "Coche de segunda mano",
-      "category": "transport",
-      "type": "permanent",
-      "description": "Подержанная машина дает свободу передвижения",
-      "cost": {
-        "money": 6
-      },
-      "effects": {
-        "transport_independence": true,
-        "travel_bonus": true,
-        "nerves": 1
-      },
-      "when_to_play": "anytime",
-      "conditions": {
-        "documents_level": ">=6"
-      },
-      "flavor_text": "Libertad de movimiento"
-    },
-    {
-      "id": "action_22",
-      "name": "Clases de flamenco",
-      "category": "culture",
-      "type": "instant",
-      "description": "Уроки фламенко погружают в культуру",
-      "cost": {
-        "money": 2
-      },
-      "effects": {
-        "nerves": 2,
-        "cultural_integration": true
-      },
-      "when_to_play": "anytime",
-      "flavor_text": "Integración cultural auténtica"
-    },
-    {
-      "id": "action_23",
-      "name": "VPN для Netflix España",
-      "category": "technology",
-      "type": "instant",
-      "description": "Доступ к испанскому контенту для изучения языка",
-      "cost": {
-        "money": 1
-      },
-      "effects": {
-        "language_immersion": true,
-        "entertainment_bonus": true
-      },
-      "when_to_play": "anytime",
-      "flavor_text": "Netflix educational español"
-    },
-    {
-      "id": "action_24",
-      "name": "Botella de buen vino",
-      "category": "gifts",
-      "type": "social",
-      "description": "Хорошее вино для подарка соседям",
-      "cost": {
-        "money": 2
-      },
-      "effects": {
-        "neighbor_relations": true,
-        "housing_bonus": true
-      },
-      "when_to_play": "when_housing_problem",
-      "flavor_text": "Vino español diplomatic"
-    },
-    {
-      "id": "action_25",
-      "name": "Curso intensivo de español",
-      "category": "education",
-      "type": "instant",
-      "description": "Интенсивный курс испанского языка",
-      "cost": {
-        "money": 4,
-        "skip_turn": true
-      },
-      "effects": {
-        "language_level_up": true,
-        "confidence_bonus": true
-      },
-      "when_to_play": "start_of_turn",
-      "flavor_text": "Inversión en futuro"
-    },
-    {
-      "id": "action_26",
-      "name": "Conexión WiFi potente",
-      "category": "technology",
-      "type": "utility",
-      "description": "Быстрый интернет для удаленной работы",
-      "cost": {
-        "money": 2
-      },
-      "effects": {
-        "work_from_home": true,
-        "income_bonus": true
-      },
-      "when_to_play": "anytime",
-      "duration": "3_turns",
-      "flavor_text": "Trabajo digital español"
-    },
-    {
-      "id": "action_27",
-      "name": "Ropa de marca española",
-      "category": "lifestyle",
-      "type": "instant",
-      "description": "Одежда испанских брендов повышает уверенность",
-      "cost": {
-        "money": 3
-      },
-      "effects": {
-        "confidence_boost": true,
-        "social_acceptance": true
-      },
-      "when_to_play": "anytime",
-      "flavor_text": "Estilo español auténtico"
-    },
-    {
-      "id": "action_28",
-      "name": "Escapada de fin de semana",
-      "category": "travel",
-      "type": "instant",
-      "description": "Поездка по Испании восстанавливает силы",
-      "cost": {
-        "money": 4
-      },
-      "effects": {
-        "nerves": 3,
-        "cultural_knowledge": true
-      },
-      "when_to_play": "anytime",
-      "flavor_text": "España es diversa y bella"
-    },
-    {
-      "id": "action_29",
-      "name": "Aplicación de cita previa",
-      "category": "technology",
-      "type": "utility",
-      "description": "Мобильное приложение для записи к врачам",
-      "cost": {
-        "money": 1
-      },
-      "effects": {
-        "appointment_priority": true,
-        "bureaucracy_speed": true
-      },
-      "when_to_play": "when_documents_needed",
-      "flavor_text": "Tecnología vs burocracia"
-    },
-    {
-      "id": "action_30",
-      "name": "Fiesta de cumpleaños española",
-      "category": "social",
-      "type": "instant",
-      "description": "Организация дня рождения в испанском стиле",
-      "cost": {
-        "money": 3
-      },
-      "effects": {
-        "nerves": 2,
-        "social_network": true,
-        "draw_card": 1
-      },
-      "when_to_play": "anytime",
-      "flavor_text": "Celebración española inolvidable"
-    },
-    {
-      "id": "action_31",
-      "name": "Fake it till you make it",
-      "category": "social",
-      "type": "utility",
-      "description": "Притворяешься, что понимаешь испанский, и это работает",
-      "cost": {
-        "nerves": 1
-      },
-      "effects": {
-        "language_dice_advantage": true,
-        "documents_cards": 2
-      },
-      "when_to_play": "during_language_challenge",
-      "flavor_text": "¡Sí sí sí = universal response!",
-      "cross_system_interaction": "language + documents"
-    },
-    {
-      "id": "action_32", 
-      "name": "Corruption level: Турист",
-      "category": "connections",
-      "type": "utility",
-      "description": "Дал сдачи на чай чиновнику и документы пошли быстрее",
-      "cost": {
-        "money": 2
-      },
-      "effects": {
-        "skip_document_queue": true,
-        "instant_document_upgrade": true
-      },
-      "when_to_play": "when_getting_documents",
-      "flavor_text": "¡Pequeña propina = big results!",
-      "cross_system_interaction": "money + documents"
-    },
-    {
-      "id": "action_33",
-      "name": "Соседка-мамуля стратегический актив",
-      "category": "social",
-      "type": "permanent", 
-      "description": "Подружились с соседкой-пенсионеркой. Теперь она ваш гид по системе",
-      "cost": {
-        "money": 1
-      },
-      "effects": {
-        "language_bonus": 1,
-        "housing_bonus": true,
-        "document_help": true
-      },
-      "when_to_play": "anytime",
-      "duration": "permanent",
-      "flavor_text": "¡Señora del barrio = final boss ally!",
-      "cross_system_interaction": "housing + language + documents"
-    },
-    {
-      "id": "action_34",
-      "name": "Google Maps врёт, but интуиция не врёт",
-      "category": "technology",
-      "type": "instant",
-      "description": "Заблудились, но случайно нашли нужный офис и секретный вход",
-      "cost": {
-        "nerves": 1
-      },
-      "effects": {
-        "documents_cards": 4,
-        "money": 1,
-        "nerves": 1
-      },
-      "when_to_play": "anytime",
-      "flavor_text": "¡Lost = found en España!",
-      "cross_system_interaction": "technology + documents + money"
-    },
-    {
-      "id": "action_35",
-      "name": "Режим выживания активирован",
-      "category": "lifestyle",
-      "type": "defensive",
-      "description": "Когда все плохо, включаешь максимальную экономию и стратегическое мышление",
-      "cost": {
-        "skip_turn": true
-      },
-      "effects": {
-        "money": 3,
-        "nerves": 2,
-        "language_level_up": true
-      },
-      "when_to_play": "when_receiving_penalty",
-      "flavor_text": "¡Crisis mode = growth mode!",
-      "cross_system_interaction": "money + nerves + language"
-    },
-    {
-      "id": "action_36",
-      "name": "Llamada a la embajada в панике",
-      "category": "communication",
-      "type": "instant",
-      "description": "Звонок в посольство в панике оказался полезным - дали контакты",
-      "cost": {
-        "money": 1,
-        "nerves": 1
-      },
-      "effects": {
-        "documents_cards": 4,
-        "legal_protection": true
-      },
-      "when_to_play": "anytime",
-      "flavor_text": "¡Embajada = emergency hotline!",
-      "cross_system_interaction": "communication + documents + legal"
-    },
-    {
-      "id": "sabotage_01",
-      "name": "¡Huelga de funcionarios!",
-      "category": "sabotage",
-      "type": "interference",
-      "description": "Забастовка чиновников блокирует обмен документов другого игрока",
-      "target": "document_exchange",
-      "effects": {
-        "block_action": true,
-        "target_nerves": -2
-      },
-      "when_to_play": "instant_response",
-      "cost": {
-        "money": 1
-      },
-      "flavor_text": "¡Funcionarios en huelga = no exchange today!",
-      "cross_system_interaction": "sabotage + documents + bureaucracy"
-    },
-    {
-      "id": "sabotage_02", 
-      "name": "Сплетни и слухи",
-      "category": "sabotage",
-      "type": "interference",
-      "description": "Распускаем слухи о другом игроке, мешая его социальным связям",
-      "target": "any_positive_effect",
-      "effects": {
-        "reduce_effect": 0.5,
-        "target_nerves": -1
-      },
-      "when_to_play": "instant_response",
-      "flavor_text": "¡Rumores = social damage!",
-      "cross_system_interaction": "sabotage + social + reputation"
-    },
-    {
-      "id": "sabotage_03",
-      "name": "Поддельный штраф",
-      "category": "sabotage", 
-      "type": "interference",
-      "description": "Подкладываем поддельный штраф, заставляя потратить деньги на разбирательства",
-      "target": "money_gain",
-      "effects": {
-        "block_action": true,
-        "target_money": -3
-      },
-      "when_to_play": "instant_response",
-      "cost": {
-        "nerves": 1
-      },
-      "flavor_text": "¡Multa falsa = unexpected expenses!",
-      "cross_system_interaction": "sabotage + money + legal"
-    },
-    {
-      "id": "sabotage_04",
-      "name": "Информатор в миграционной",
-      "category": "sabotage",
-      "type": "interference", 
-      "description": "Наш человек в миграционной службе создает проблемы для документов соперника",
-      "target": "document_level_up",
-      "effects": {
-        "block_action": true,
-        "target_document_cards": -1
-      },
-      "when_to_play": "instant_response",
-      "cost": {
-        "money": 2
-      },
-      "flavor_text": "¡Infiltrado en extranjería = mission impossible!",
-      "cross_system_interaction": "sabotage + documents + corruption"
-    },
-    {
-      "id": "sabotage_05",
-      "name": "Техно-саботаж",
-      "category": "sabotage",
-      "type": "interference", 
-      "description": "Образованные люди используют технологии для помех",
-      "target": "any_positive_effect",
-      "conditions": {
-        "character_id": ["it_specialist", "entrepreneur", "spanish_spouse"]
-      },
-      "effects": {
-        "block_action": true,
-        "self_nerves": 1
-      },
-      "individual_modifiers": {
-        "it_specialist": {
-          "additional_effects": {
-            "target_nerves": -2,
-            "description": "IT-шник знает слабые места цифровых систем"
-          }
-        },
-        "entrepreneur": {
-          "additional_effects": {
-            "money": 3,
-            "description": "Предприниматель извлекает выгоду из саботажа конкурентов"
-          }
-        },
-        "spanish_spouse": {
-          "additional_effects": {
-            "documents_cards": 6,
-            "description": "Супруг использует семейные связи для информации"
-          }
-        }
-      },
-      "when_to_play": "instant_response",
-      "flavor_text": "¡Hacking skills = dark side activated!",
-      "cross_system_interaction": "sabotage + technology + character"
-    },
-    {
-      "id": "defense_01",
-      "name": "Связи в полиции",
-      "category": "defense",
-      "type": "counter",
-      "description": "Друг в полиции помогает избежать неприятностей",
-      "target": "sabotage_block",
-      "effects": {
-        "block_sabotage": true,
-        "self_nerves": 1
-      },
-      "when_to_play": "instant_response",
-      "cost": {
-        "money": 2
-      },
-      "flavor_text": "¡Amigo policía = protection guaranteed!",
-      "cross_system_interaction": "defense + legal + connections"
-    },
-    {
-      "id": "defense_02",
-      "name": "Адвокат на скорости",
-      "category": "defense", 
-      "type": "counter",
-      "description": "Экстренный вызов адвоката блокирует любые юридические проблемы",
-      "target": "any_sabotage",
-      "effects": {
-        "block_sabotage": true,
-        "self_document_cards": 1
-      },
-      "when_to_play": "instant_response",
-      "cost": {
-        "money": 3
-      },
-      "flavor_text": "¡Abogado express = emergency legal shield!",
-      "cross_system_interaction": "defense + legal + emergency"
-    },
-    {
-      "id": "defense_03",
-      "name": "Испанская мама в помощь",
-      "category": "defense",
-      "type": "counter", 
-      "description": "Испанская свекровь решает все проблемы одним звонком",
-      "conditions": {
-        "character_id": ["spanish_spouse", "pensioner", "entrepreneur"]
-      },
-      "target": "any_sabotage",
-      "effects": {
-        "block_sabotage": true,
-        "self_nerves": 2,
-        "self_money": 1
-      },
-      "individual_modifiers": {
-        "spanish_spouse": {
-          "additional_effects": {
-            "language_level_up": true,
-            "description": "Супруг получает дополнительную языковую помощь от семьи"
-          }
-        },
-        "pensioner": {
-          "additional_effects": {
-            "documents_cards": 6,
-            "description": "Пенсионер использует мудрость старшего поколения"
-          }
-        },
-        "entrepreneur": {
-          "additional_effects": {
-            "money": 5,
-            "description": "Предприниматель получает бизнес-связи через семью"
-          }
-        }
-      },
-      "when_to_play": "instant_response",
-      "flavor_text": "¡Suegra española = ultimate protection!",
-      "cross_system_interaction": "defense + family + character"
-    },
-    {
-      "id": "defense_04",
-      "name": "Срочная взятка",
-      "category": "defense",
-      "type": "counter",
-      "description": "Быстрая взятка решает проблему, но дорого стоит",
-      "target": "bureaucracy_sabotage",
-      "effects": {
-        "block_sabotage": true
-      },
-      "when_to_play": "instant_response",
-      "cost": {
-        "money": 4
-      },
-      "flavor_text": "¡Soborno express = problema solved!",
-      "cross_system_interaction": "defense + corruption + emergency"
-    },
-    {
       "id": "balance_student_01",
       "name": "Молодежные льготы",
       "category": "balance", 
-      "type": "utility",
+      "type": "instant",
       "description": "Молодые люди получают государственную поддержку",
       "conditions": {
         "character_id": ["student", "waiter", "freelance_artist"]
@@ -944,234 +37,15 @@
           }
         }
       },
-      "when_to_play": "anytime",
+      "when_to_play": "immediately",
       "flavor_text": "¡Beca universitaria = student power!",
       "cross_system_interaction": "character + education + money"
-    },
-    {
-      "id": "balance_student_02",
-      "name": "Групповой проект с испанцами",
-      "category": "balance",
-      "type": "utility",
-      "description": "Работа в команде дает документы и связи",
-      "conditions": {
-        "character_id": ["student", "waiter", "freelance_artist"]
-      },
-      "effects": {
-        "documents_cards": 5,
-        "nerves": 3,
-        "money": 3
-      },
-      "when_to_play": "anytime",
-      "flavor_text": "¡Trabajo en equipo = networking español!",
-      "cross_system_interaction": "character + education + social"
-    },
-    {
-      "id": "balance_artist_01",
-      "name": "Грант для творческих",
-      "category": "balance",
-      "type": "utility",
-      "description": "Европейский грант для креативных и гибких людей",
-      "conditions": {
-        "character_id": ["freelance_artist", "courier", "student"]
-      },
-      "effects": {
-        "money": 12,
-        "documents_cards": 4,
-        "nerves": 1
-      },
-      "when_to_play": "anytime",
-      "flavor_text": "¡Subvención europea = creative salvation!",
-      "cross_system_interaction": "character + art + funding"
-    },
-    {
-      "id": "balance_artist_02",
-      "name": "Продажа картины туристу",
-      "category": "balance",
-      "type": "utility",
-      "description": "Неожиданный заработок от творчества",
-      "conditions": {
-        "character_id": ["freelance_artist", "courier", "student"]
-      },
-      "effects": {
-        "money": 6,
-        "nerves": 3
-      },
-      "when_to_play": "anytime",
-      "flavor_text": "¡Arte vendido = bohemian success!",
-      "cross_system_interaction": "character + art + tourism"
-    },
-    {
-      "id": "balance_spouse_01",
-      "name": "Семейная поддержка",
-      "category": "balance",
-      "type": "utility", 
-      "description": "Стабильные люди получают поддержку от семьи и связей",
-      "conditions": {
-        "character_id": ["spanish_spouse", "pensioner", "entrepreneur"]
-      },
-      "effects": {
-        "money": 6,
-        "documents_cards": 2
-      },
-      "individual_modifiers": {
-        "spanish_spouse": {
-          "additional_effects": {
-            "nerves": 3,
-            "housing_upgrade": true,
-            "description": "Супруг получает семейную поддержку с жильем"
-          }
-        },
-        "pensioner": {
-          "additional_effects": {
-            "money": 4,
-            "nerves": 2,
-            "description": "Пенсионер получает дополнительную пенсию от семьи"
-          }
-        },
-        "entrepreneur": {
-          "additional_effects": {
-            "documents_cards": 6,
-            "language_level_up": true,
-            "description": "Предприниматель получает бизнес-документы и переводчика"
-          }
-        }
-      },
-      "when_to_play": "anytime",
-      "flavor_text": "¡Familia española = support network!",
-      "cross_system_interaction": "character + family + financial_help"
-    },
-    {
-      "id": "balance_spouse_02",
-      "name": "Языковая помощь супругу",
-      "category": "balance",
-      "type": "utility",
-      "description": "Можешь помочь другому игроку с языком",
-      "conditions": {
-        "character_id": ["spanish_spouse", "pensioner", "entrepreneur"]
-      },
-      "effects": {
-        "money": 3,
-        "self_nerves": 2
-      },
-      "target_other_player": true,
-      "other_effects": {
-        "language_level_up": true
-      },
-      "when_to_play": "anytime",
-      "flavor_text": "¡Ayuda lingüística = power couple!",
-      "cross_system_interaction": "character + language + cooperation"
-    },
-    {
-      "id": "balance_waiter_01",
-      "name": "Чаевые от туристов",
-      "category": "balance",
-      "type": "utility",
-      "description": "Щедрые иностранцы оставили хорошие чаевые",
-      "conditions": {
-        "character_id": ["waiter", "courier", "freelance_artist"]
-      },
-      "effects": {
-        "money": 4,
-        "nerves": 2
-      },
-      "when_to_play": "anytime",
-      "flavor_text": "¡Propinas = service magic!",
-      "cross_system_interaction": "character + hospitality + tourism"
-    },
-    {
-      "id": "balance_waiter_02",
-      "name": "Связи в ресторане",
-      "category": "balance",
-      "type": "utility",
-      "description": "Коллеги помогают с языком и документами",
-      "conditions": {
-        "character_id": ["waiter", "courier", "freelance_artist"]
-      },
-      "effects": {
-        "documents_cards": 4,
-        "language_level_up": true
-      },
-      "when_to_play": "anytime",
-      "flavor_text": "¡Networking gastronómico = social power!",
-      "cross_system_interaction": "character + service + networking"
-    },
-    {
-      "id": "balance_pensioner_01",
-      "name": "Льготы для пенсионеров",
-      "category": "balance",
-      "type": "utility",
-      "description": "Государственные льготы дают скидки и поддержку",
-      "conditions": {
-        "character_id": ["pensioner", "spanish_spouse", "it_specialist"]
-      },
-      "effects": {
-        "money": 10,
-        "nerves": 4,
-        "documents_cards": 2
-      },
-      "when_to_play": "anytime",
-      "flavor_text": "¡Descuentos tercera edad = wisdom pays!",
-      "cross_system_interaction": "character + social_benefits + age"
-    },
-    {
-      "id": "balance_pensioner_02",
-      "name": "Время = деньги",
-      "category": "balance",
-      "type": "utility",
-      "description": "У пенсионера есть время выстоять все очереди",
-      "conditions": {
-        "character_id": ["pensioner", "spanish_spouse", "it_specialist"]
-      },
-      "effects": {
-        "documents_cards": 4,
-        "nerves": 1
-      },
-      "when_to_play": "anytime",
-      "flavor_text": "¡Paciencia = bureaucratic advantage!",
-      "cross_system_interaction": "character + time + patience"
-    },
-    {
-      "id": "balance_entrepreneur_01",
-      "name": "Бизнес-связи",
-      "category": "balance",
-      "type": "utility",
-      "description": "Деловые контакты помогают с документами",
-      "conditions": {
-        "character_id": ["entrepreneur", "it_specialist", "spanish_spouse"]
-      },
-      "effects": {
-        "money": 6,
-        "documents_cards": 4,
-        "nerves": 1
-      },
-      "when_to_play": "anytime",
-      "flavor_text": "¡Business network = efficiency!",
-      "cross_system_interaction": "character + business + connections"
-    },
-    {
-      "id": "multi_service_workers",
-      "name": "Профсоюз сферы услуг",
-      "category": "balance",
-      "type": "utility",
-      "description": "Работники сферы услуг объединяются для взаимной поддержки",
-      "conditions": {
-        "character_id": ["waiter", "freelance_artist", "courier"]
-      },
-      "effects": {
-        "money": 5,
-        "nerves": 3,
-        "documents_cards": 2
-      },
-      "when_to_play": "anytime",
-      "flavor_text": "¡Unidos somos más fuertes!",
-      "cross_system_interaction": "character + solidarity + mutual_aid"
     },
     {
       "id": "multi_young_people",
       "name": "Молодежная инициатива",
       "category": "balance",
-      "type": "utility", 
+      "type": "instant", 
       "description": "Молодые люди получают специальные льготы и поддержку",
       "conditions": {
         "character_id": ["student", "waiter", "freelance_artist"]
@@ -1204,7 +78,7 @@
           }
         }
       },
-      "when_to_play": "anytime",
+      "when_to_play": "immediately",
       "flavor_text": "¡Juventud = futuro!",
       "cross_system_interaction": "character + age + opportunities"
     },
@@ -1212,7 +86,7 @@
       "id": "multi_high_earners",
       "name": "Налоговая проверка",
       "category": "balance_nerf",
-      "type": "negative",
+      "type": "instant",
       "description": "Высокооплачиваемые профессии попали под пристальное внимание налоговой",
       "conditions": {
         "character_id": ["it_specialist", "entrepreneur"]
@@ -1222,7 +96,7 @@
         "nerves": -3,
         "documents_cards": -2
       },
-      "when_to_play": "anytime",
+      "when_to_play": "immediately",
       "flavor_text": "¡Hacienda siempre gana!",
       "cross_system_interaction": "character + taxes + audit"
     },
@@ -1230,7 +104,7 @@
       "id": "multi_language_barriers",
       "name": "Языковой барьер",
       "category": "balance_nerf",
-      "type": "negative",
+      "type": "instant",
       "description": "Слабое знание языка создает проблемы в документооборота",
       "conditions": {
         "character_id": ["courier", "pensioner", "freelance_artist"]
@@ -1239,86 +113,15 @@
         "nerves": -3,
         "documents_cards": -2
       },
-      "when_to_play": "anytime",
+      "when_to_play": "immediately",
       "flavor_text": "¡No hablo español = problemas!",
       "cross_system_interaction": "character + language + bureaucracy"
-    },
-    {
-      "id": "multi_experienced_workers",
-      "name": "Опыт = преимущество",
-      "category": "balance",
-      "type": "utility",
-      "description": "Опытные работники знают как обойти бюрократические препоны",
-      "conditions": {
-        "character_id": ["pensioner", "entrepreneur", "it_specialist"]
-      },
-      "effects": {
-        "documents_cards": 4,
-        "nerves": 2
-      },
-      "when_to_play": "anytime",
-      "flavor_text": "¡Experiencia = sabiduría!",
-      "cross_system_interaction": "character + experience + wisdom"
-    },
-    {
-      "id": "balance_courier_01",
-      "name": "Бонус за скорость доставки",
-      "category": "balance",
-      "type": "utility",
-      "description": "Курьер получает премию за быструю доставку",
-      "conditions": {
-        "character_id": ["courier", "waiter", "student"]
-      },
-      "effects": {
-        "money": 12,
-        "nerves": 3,
-        "documents_cards": 2
-      },
-      "when_to_play": "anytime",
-      "flavor_text": "¡Rapidez = dinero extra!",
-      "cross_system_interaction": "character + speed + bonus"
-    },
-    {
-      "id": "balance_courier_02",
-      "name": "Знание городских дорог",
-      "category": "balance",
-      "type": "utility",
-      "description": "Курьер знает кратчайшие пути к учреждениям",
-      "conditions": {
-        "character_id": ["courier", "waiter", "student"]
-      },
-      "effects": {
-        "documents_cards": 4,
-        "nerves": 2,
-        "money": 6
-      },
-      "when_to_play": "anytime",
-      "flavor_text": "¡GPS local = navigation expert!",
-      "cross_system_interaction": "character + navigation + efficiency"
-    },
-    {
-      "id": "balance_waiter_01",
-      "name": "Щедрые чаевые от туристов",
-      "category": "balance",
-      "type": "utility",
-      "description": "Туристы оставили хорошие чаевые",
-      "conditions": {
-        "character_id": ["waiter", "courier", "freelance_artist"]
-      },
-      "effects": {
-        "money": 7,
-        "nerves": 3,
-        "language_level_up": true
-      },
-      "when_to_play": "anytime",
-      "flavor_text": "¡Propina generosa = tourist love!",
-      "cross_system_interaction": "character + service + tourism"
     },
     {
       "id": "balance_nerf_spouse_01",
       "name": "Семейные разногласия",
       "category": "balance_nerf",
-      "type": "negative",
+      "type": "instant",
       "description": "Конфликт с испанскими родственниками создает проблемы",
       "conditions": {
         "character_id": ["spanish_spouse", "pensioner", "entrepreneur"]
@@ -1328,89 +131,15 @@
         "money": -6,
         "documents_cards": -1
       },
-      "when_to_play": "anytime",
+      "when_to_play": "immediately",
       "flavor_text": "¡Familia politics = relationship stress!",
       "cross_system_interaction": "character + family + conflict"
-    },
-    {
-      "id": "balance_student_03",
-      "name": "Обмен студентами",
-      "category": "balance",
-      "type": "utility",
-      "description": "Программа обмена дает дополнительные возможности",
-      "conditions": {
-        "character_id": ["student", "waiter", "freelance_artist"]
-      },
-      "effects": {
-        "money": 10,
-        "documents_cards": 4,
-        "language_level_up": true,
-        "nerves": 2
-      },
-      "when_to_play": "anytime",
-      "flavor_text": "¡Intercambio = opportunity knocks!",
-      "cross_system_interaction": "character + education + exchange"
-    },
-    {
-      "id": "balance_waiter_02",
-      "name": "Знание меню на 5 языках",
-      "category": "balance",
-      "type": "utility",
-      "description": "Мультиязычность официанта ценится в туристических местах",
-      "conditions": {
-        "character_id": ["waiter", "courier", "freelance_artist"]
-      },
-      "effects": {
-        "money": 5,
-        "nerves": 2,
-        "documents_cards": 4,
-        "language_level_up": true
-      },
-      "when_to_play": "anytime",
-      "flavor_text": "¡Polyglot waiter = tourist magnet!",
-      "cross_system_interaction": "character + service + multilingual"
-    },
-    {
-      "id": "balance_artist_03",
-      "name": "Продажа через интернет",
-      "category": "balance",
-      "type": "utility", 
-      "description": "Онлайн-продажи открывают новые возможности для художника",
-      "conditions": {
-        "character_id": ["freelance_artist", "courier", "student"]
-      },
-      "effects": {
-        "money": 10,
-        "nerves": 2,
-        "documents_cards": 2
-      },
-      "when_to_play": "anytime",
-      "flavor_text": "¡Digital art = global market!",
-      "cross_system_interaction": "character + art + digital"
-    },
-    {
-      "id": "balance_courier_03",
-      "name": "Документы на ходу",
-      "category": "balance",
-      "type": "utility",
-      "description": "Курьер собирает документы прямо во время доставок",
-      "conditions": {
-        "character_id": ["courier", "waiter", "student"]
-      },
-      "effects": {
-        "documents_cards": 4,
-        "money": 5,
-        "nerves": 1
-      },
-      "when_to_play": "anytime",
-      "flavor_text": "¡Delivery route = document highway!",
-      "cross_system_interaction": "character + logistics + efficiency"
     },
     {
       "id": "balance_smart_people",
       "name": "Образовательная инициатива",
       "category": "balance",
-      "type": "utility",
+      "type": "instant",
       "description": "Умные и образованные люди получают специальные возможности",
       "conditions": {
         "character_id": ["student", "it_specialist", "spanish_spouse"]
@@ -1421,7 +150,7 @@
         "nerves": 2,
         "language_level_up": true
       },
-      "when_to_play": "anytime",
+      "when_to_play": "immediately",
       "flavor_text": "¡Educación = power and opportunity!",
       "cross_system_interaction": "character + education + intelligence"
     },
@@ -1429,7 +158,7 @@
       "id": "balance_young_energy", 
       "name": "Энергия молодости",
       "category": "balance",
-      "type": "utility",
+      "type": "instant",
       "description": "Молодые и активные быстро адаптируются к новым условиям",
       "conditions": {
         "character_id": ["student", "courier", "waiter"]
@@ -1440,7 +169,7 @@
         "documents_cards": 4,
         "language_level_up": true
       },
-      "when_to_play": "anytime",
+      "when_to_play": "immediately",
       "flavor_text": "¡Juventud = adaptabilidad and energy!",
       "cross_system_interaction": "character + youth + adaptation"
     },
@@ -1448,7 +177,7 @@
       "id": "balance_student_special",
       "name": "Студенческие связи",
       "category": "balance",
-      "type": "utility",
+      "type": "instant",
       "description": "Студенты помогают друг другу и находят взаимную поддержку",
       "conditions": {
         "character_id": ["student", "freelance_artist", "pensioner"]
@@ -1458,7 +187,7 @@
         "documents_cards": 4,
         "nerves": 3
       },
-      "when_to_play": "anytime",
+      "when_to_play": "immediately",
       "flavor_text": "¡Network estudiantil = mutual support!",
       "cross_system_interaction": "character + community + cooperation"
     },
@@ -1466,7 +195,7 @@
       "id": "oneshot_waiter_super",
       "name": "Супер-чаевые от миллионера",
       "category": "balance",
-      "type": "utility",
+      "type": "instant",
       "description": "Официант получил невероятные чаевые от богатого клиента",
       "conditions": {
         "character_id": "waiter"
@@ -1477,7 +206,7 @@
         "documents_cards": 4,
         "language_level_up": true
       },
-      "when_to_play": "anytime",
+      "when_to_play": "immediately",
       "one_time_use": true,
       "flavor_text": "¡Propina millonaria = life changing moment!",
       "cross_system_interaction": "character + luck + wealth"
@@ -1486,7 +215,7 @@
       "id": "oneshot_artist_breakthrough",
       "name": "Творческий прорыв",
       "category": "balance",
-      "type": "utility",
+      "type": "instant",
       "description": "Творческие люди создали шедевр, который принес славу и деньги",
       "conditions": {
         "character_id": ["freelance_artist", "student", "waiter"]
@@ -1523,7 +252,7 @@
           }
         }
       },
-      "when_to_play": "anytime",
+      "when_to_play": "immediately",
       "one_time_use": true,
       "flavor_text": "¡Obra maestra = artistic breakthrough!",
       "cross_system_interaction": "character + art + recognition"
@@ -1532,7 +261,7 @@
       "id": "oneshot_courier_express",
       "name": "Экспресс-доставка VIP",
       "category": "balance",
-      "type": "utility",
+      "type": "instant",
       "description": "Курьер получил эксклюзивный заказ от важного клиента",
       "conditions": {
         "character_id": "courier"
@@ -1543,256 +272,14 @@
         "documents_cards": 4,
         "language_level_up": true
       },
-      "when_to_play": "anytime",
+      "when_to_play": "immediately",
       "one_time_use": true,
       "flavor_text": "¡Entrega VIP = premium service!",
       "cross_system_interaction": "character + logistics + prestige"
-    },
-    {
-      "id": "oneshot_pensioner_wisdom",
-      "name": "Мудрость поколений",
-      "category": "balance",
-      "type": "utility",
-      "description": "Пенсионер знает все тонкости испанской бюрократии",
-      "conditions": {
-        "character_id": "pensioner"
-      },
-      "effects": {
-        "money": 15,
-        "nerves": 7,
-        "documents_cards": 4,
-        "language_level_up": true
-      },
-      "when_to_play": "anytime",
-      "one_time_use": true,
-      "flavor_text": "¡Sabiduría = bureaucratic mastery!",
-      "cross_system_interaction": "character + experience + knowledge"
-    },
-    {
-      "id": "oneshot_spouse_connections",
-      "name": "Семейные связи высшего уровня", 
-      "category": "balance",
-      "type": "utility",
-      "description": "Испанская семья оказалась очень влиятельной",
-      "conditions": {
-        "character_id": "spanish_spouse"
-      },
-      "effects": {
-        "money": 12,
-        "nerves": 4,
-        "documents_cards": 5,
-        "housing_upgrade": true
-      },
-      "when_to_play": "anytime",
-      "one_time_use": true,
-      "flavor_text": "¡Conexiones familiares = power network!",
-      "cross_system_interaction": "character + family + influence"
-    },
-    {
-      "id": "emergency_survival_01",
-      "name": "Экстренная помощь",
-      "category": "emergency",
-      "type": "instant",
-      "description": "Последний шанс - экстренная финансовая и моральная поддержка",
-      "when_to_play": "anytime",
-      "cost": {
-        "money": 0
-      },
-      "effects": {
-        "money": 15,
-        "nerves": 8
-      },
-      "conditions": {
-        "money": "<=5",
-        "nerves": "<=4"
-      },
-      "one_time_use": true,
-      "flavor_text": "¡Última oportunidad = never give up!",
-      "cross_system_interaction": "emergency + survival + hope"
-    },
-    {
-      "id": "emergency_survival_02", 
-      "name": "Помощь от диаспоры",
-      "category": "emergency",
-      "type": "instant",
-      "description": "Соотечественники собрали деньги на помощь в трудной ситуации",
-      "when_to_play": "anytime",
-      "cost": {
-        "nerves": 1
-      },
-      "effects": {
-        "money": 12,
-        "documents_cards": 4,
-        "nerves": 5
-      },
-      "conditions": {
-        "money": "<=8",
-        "nerves": "<=6"
-      },
-      "one_time_use": true,
-      "flavor_text": "¡Compatriotas unite = mutual aid!",
-      "cross_system_interaction": "emergency + community + solidarity"
-    },
-    {
-      "id": "emergency_survival_03",
-      "name": "Удачный поворот судьбы",
-      "category": "emergency", 
-      "type": "instant",
-      "description": "Внезапная удача спасает от полного краха",
-      "when_to_play": "anytime",
-      "cost": {
-        "documents_cards": 2
-      },
-      "effects": {
-        "money": 20,
-        "nerves": 6,
-        "language_level_up": true
-      },
-      "conditions": {
-        "money": "<=10"
-      },
-      "one_time_use": true,
-      "flavor_text": "¡Fortune smiles = second chance!",
-      "cross_system_interaction": "emergency + luck + comeback"
-    },
-    {
-      "id": "revenge_debuff_01",
-      "name": "Месть обманутого",
-      "category": "revenge",
-      "type": "debuff",
-      "description": "Обманутый в торговле наносит ответный удар",
-      "target": "specific_player",
-      "when_to_play": "anytime",
-      "cost": {
-        "nerves": 2
-      },
-      "effects": {
-        "target_money": -8,
-        "target_nerves": -3,
-        "target_documents_cards": -2
-      },
-      "conditions": {
-        "was_betrayed_by_target": true
-      },
-      "flavor_text": "¡Venganza es plato que se sirve frío!",
-      "cross_system_interaction": "betrayal + revenge + justice"
-    },
-    {
-      "id": "revenge_debuff_02",
-      "name": "Сплетни и слухи",
-      "category": "revenge",
-      "type": "debuff",
-      "description": "Распространение компромата после обмана в торговле",
-      "target": "specific_player",
-      "when_to_play": "anytime",
-      "cost": {
-        "money": 3
-      },
-      "effects": {
-        "target_nerves": -5,
-        "target_language_level_down": true,
-        "reduce_trust_all_players": true
-      },
-      "conditions": {
-        "was_betrayed_by_target": true
-      },
-      "flavor_text": "¡Chismes spreads faster than WiFi!",
-      "cross_system_interaction": "betrayal + reputation + social_damage"
-    },
-    {
-      "id": "boost_it_specialist_01",
-      "name": "Технологический прорыв",
-      "category": "balance_boost",
-      "type": "utility",
-      "description": "IT-специалисты получают преимущества от цифровой революции",
-      "conditions": {
-        "character_id": ["it_specialist", "entrepreneur", "student"]
-      },
-      "effects": {
-        "money": 15,
-        "nerves": 4,
-        "documents_cards": 4,
-        "language_level_up": true
-      },
-      "individual_modifiers": {
-        "it_specialist": {
-          "additional_effects": {
-            "money": 15,
-            "nerves": 5,
-            "documents_cards": 6,
-            "housing_upgrade": true,
-            "description": "IT-шники получают максимальную выгоду от технологий"
-          }
-        },
-        "entrepreneur": {
-          "additional_effects": {
-            "money": 10,
-            "nerves": 3,
-            "documents_cards": 6,
-            "description": "Предприниматели внедряют новые технологии"
-          }
-        },
-        "student": {
-          "additional_effects": {
-            "money": 5,
-            "documents_cards": 6,
-            "description": "Студенты осваивают новые навыки"
-          }
-        }
-      },
-      "when_to_play": "anytime",
-      "one_time_use": true,
-      "flavor_text": "¡Código limpio = vida digital!",
-      "cross_system_interaction": "character + technology + digital_transformation"
     }
   ],
-  "card_categories": {
-    "food": "Еда и напитки испанской кухни",
-    "drinks": "Алкогольные и безалкогольные напитки",
-    "social": "Социальные связи и общение",
-    "services": "Профессиональные услуги",
-    "technology": "Современные технологии",
-    "lifestyle": "Образ жизни и комфорт",
-    "health": "Здоровье и медицина",
-    "education": "Образование и саморазвитие",
-    "transport": "Транспорт и передвижение",
-    "culture": "Культурная интеграция",
-    "communication": "Связь и общение",
-    "connections": "Полезные связи",
-    "comfort": "Комфорт и удобства",
-    "insurance": "Страхование",
-    "gifts": "Подарки и дипломатия",
-    "travel": "Путешествия по Испании",
-    "sabotage": "Саботаж и помехи",
-    "defense": "Защита и контрмеры",
-    "counter_sabotage": "Отражение саботажа",
-    "preemptive": "Превентивные действия",
-    "balance": "Карты баланса персонажей",
-    "balance_boost": "Усиления слабых персонажей"
-  },
-  "play_timing": {
-    "anytime": "Можно играть в любой момент",
-    "start_of_turn": "Только в начале хода",
-    "defensive": "В ответ на негативное событие",
-    "during_challenge": "Во время испытания",
-    "when_drawing_card": "При вытягивании определенной карты",
-    "instant_response": "Мгновенный ответ в чужой ход"
-  },
   "card_stats": {
-    "instant": 20,
-    "defensive": 8,
-    "utility": 10,
-    "permanent": 4,
-    "social": 8,
-    "cross_system": 6,
-    "sabotage": 5,
-    "defense": 4,
-    "balance": 22,
-    "balance_nerf": 3,
-    "multi_character": 30,
-    "interactive": 27,
-    "emergency": 3,
-    "revenge": 2,
-    "total": 75
+    "instant": 11,
+    "total": 11
   }
 }

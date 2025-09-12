@@ -1,0 +1,1208 @@
+{
+  "personal_items": [
+    {
+      "id": "item_01",
+      "name": "2 бокала Tinto de verano",
+      "category": "drinks",
+      "type": "utility",
+      "description": "Освежающий летний напиток поднимает настроение",
+      "cost": {
+        "money": 1
+      },
+      "effects": {
+        "nerves": 2
+      },
+      "profile_modifiers": {
+        "student": {"nerves": 3, "money": 1},
+        "pensioner": {"nerves": 1},
+        "it_specialist": {"nerves": 1, "money": -1}
+      },
+      "when_to_play": "anytime",
+      "flavor_text": "Vino tinto + limón = felicidad"
+    },
+    {
+      "id": "item_02",
+      "name": "Paella familiar",
+      "category": "food",
+      "type": "utility",
+      "description": "Домашняя паэлья объединяет и лечит душу",
+      "cost": {
+        "money": 4
+      },
+      "effects": {
+        "nerves": 3,
+        "draw_card": 1
+      },
+      "profile_modifiers": {
+        "spanish_spouse": {"nerves": 4, "money": 2},
+        "student": {"nerves": 2, "money": -2},
+        "pensioner": {"nerves": 4, "money": 1}
+      },
+      "when_to_play": "anytime",
+      "flavor_text": "La paella cura todas las penas"
+    },
+    {
+      "id": "item_03",
+      "name": "Llamada a mamá",
+      "category": "social",
+      "type": "utility",
+      "description": "Звонок домой восстанавливает силы",
+      "cost": {
+        "money": 1
+      },
+      "effects": {
+        "nerves": 2,
+        "money": 1
+      },
+      "when_to_play": "anytime",
+      "flavor_text": "Mama siempre ayuda"
+    },
+    {
+      "id": "item_04",
+      "name": "Siesta sagrada",
+      "category": "lifestyle",
+      "type": "utility",
+      "description": "Классическая испанская сиеста восстанавливает силы",
+      "cost": {
+        "skip_turn": true
+      },
+      "effects": {
+        "nerves": 3,
+        "immunity_next_housing": true
+      },
+      "when_to_play": "start_of_turn",
+      "flavor_text": "La siesta es vida"
+    },
+    {
+      "id": "item_05",
+      "name": "Gestoría profesional",
+      "category": "services",
+      "type": "defensive",
+      "description": "Профессиональная помощь с документами",
+      "cost": {
+        "money": 6
+      },
+      "effects": {
+        "documents_cards": 2,
+        "nerves": 1
+      },
+      "profile_modifiers": {
+        "pensioner": {"money": -2, "documents_cards": 3},
+        "student": {"money": -3, "documents_cards": 3},
+        "it_specialist": {"money": 2, "documents_cards": 1}
+      },
+      "when_to_play": "when_drawing_documents_card",
+      "flavor_text": "Dinero soluciona burocracia"
+    },
+    {
+      "id": "item_06",
+      "name": "Amigo español",
+      "category": "social",
+      "type": "utility",
+      "description": "Местный друг помогает разобраться в ситуации",
+      "cost": {
+        "nerves": 0
+      },
+      "effects": {
+        "reroll_language_dice": true,
+        "language_bonus": 1
+      },
+      "when_to_play": "during_language_challenge",
+      "flavor_text": "Amistad española vale oro"
+    },
+    {
+      "id": "item_07",
+      "name": "Tapas con colegas",
+      "category": "social",
+      "type": "utility",
+      "description": "Посиделки с коллегами за тапас улучшают отношения",
+      "cost": {
+        "money": 1
+      },
+      "effects": {
+        "nerves": 2,
+        "work_bonus_next": true
+      },
+      "when_to_play": "anytime",
+      "flavor_text": "Compañerismo español"
+    },
+    {
+      "id": "item_08",
+      "name": "Abogado de confianza",
+      "category": "services",
+      "type": "defensive",
+      "description": "Надежный адвокат спасает от штрафов",
+      "cost": {
+        "money": 4
+      },
+      "effects": {
+        "money": 3,
+        "nerves": 2
+      },
+      "profile_modifiers": {
+        "pensioner": {"money": 4, "nerves": 3},
+        "student": {"money": 2, "nerves": 2},
+        "entrepreneur": {"money": 5, "nerves": 1}
+      },
+      "when_to_play": "when_receiving_penalty",
+      "flavor_text": "Justicia española (con dinero)"
+    },
+    {
+      "id": "item_09",
+      "name": "Google Translate premium",
+      "category": "technology",
+      "type": "utility",
+      "description": "Продвинутый переводчик помогает в сложных ситуациях",
+      "cost": {
+        "money": 1
+      },
+      "effects": {
+        "language_level": 1,
+        "nerves": 1
+      },
+      "profile_modifiers": {
+        "it_specialist": {"language_level": 2, "money": 1},
+        "student": {"language_level": 1, "money": 1},
+        "pensioner": {"language_level": 0, "money": -1}
+      },
+      "when_to_play": "during_language_challenge",
+      "flavor_text": "Tecnología vs español"
+    },
+    {
+      "id": "item_10",
+      "name": "Churros con chocolate",
+      "category": "food",
+      "type": "defensive",
+      "description": "Сладкая терапия против депрессии",
+      "cost": {
+        "money": 1
+      },
+      "effects": {
+        "nerves": 2,
+        "block_health_penalty": true
+      },
+      "when_to_play": "anytime_or_defensive",
+      "flavor_text": "Azúcar cura tristeza"
+    },
+    {
+      "id": "item_11",
+      "name": "Tarjeta telefónica internacional",
+      "category": "communication",
+      "type": "utility",
+      "description": "Дешевые звонки на родину",
+      "cost": {
+        "money": 1
+      },
+      "effects": {
+        "nerves": 2,
+        "money": 1
+      },
+      "when_to_play": "anytime",
+      "flavor_text": "Conexión con casa"
+    },
+    {
+      "id": "item_12",
+      "name": "Conocido en ayuntamiento",
+      "category": "connections",
+      "type": "utility",
+      "description": "Знакомый в мэрии ускоряет бюрократию",
+      "cost": {
+        "nerves": 0
+      },
+      "effects": {
+        "skip_document_queue": true,
+        "documents_fast_track": true
+      },
+      "when_to_play": "when_getting_documents",
+      "flavor_text": "Enchufismo español works"
+    },
+    {
+      "id": "item_13",
+      "name": "Jamón ibérico de calidad",
+      "category": "food",
+      "type": "utility",
+      "description": "Элитный хамон поднимает статус и настроение",
+      "cost": {
+        "money": 4
+      },
+      "effects": {
+        "nerves": 2,
+        "social_bonus": true
+      },
+      "when_to_play": "anytime",
+      "flavor_text": "Jamón = cultura española"
+    },
+    {
+      "id": "item_14",
+      "name": "Aire acondicionado",
+      "category": "comfort",
+      "type": "defensive",
+      "description": "Кондиционер спасает от испанской жары",
+      "cost": {
+        "money": 1
+      },
+      "effects": {
+        "block_heat_penalty": true,
+        "comfort_bonus": true
+      },
+      "when_to_play": "when_heat_event",
+      "flavor_text": "Salvación en verano"
+    },
+    {
+      "id": "item_15",
+      "name": "Diccionario español avanzado",
+      "category": "education",
+      "type": "utility",
+      "description": "Серьезное изучение языка приносит плоды",
+      "cost": {
+        "money": 1,
+        "nerves": 2
+      },
+      "effects": {
+        "language_upgrade_discount": true,
+        "permanent_language_bonus": true
+      },
+      "when_to_play": "anytime",
+      "flavor_text": "Educación española formal"
+    },
+    {
+      "id": "item_16",
+      "name": "Medicinas de farmacia",
+      "category": "health",
+      "type": "defensive",
+      "description": "Запас лекарств из аптеки",
+      "cost": {
+        "money": 1
+      },
+      "effects": {
+        "block_health_penalty": true,
+        "health_insurance_bonus": true
+      },
+      "when_to_play": "when_health_problem",
+      "flavor_text": "Farmacia española eficaz"
+    },
+    {
+      "id": "item_17",
+      "name": "Cita con psicólogo",
+      "category": "health",
+      "type": "utility",
+      "description": "Профессиональная помощь при стрессе",
+      "cost": {
+        "money": 1
+      },
+      "effects": {
+        "nerves": 3,
+        "stress_immunity": true
+      },
+      "when_to_play": "anytime",
+      "flavor_text": "Salud mental importante"
+    },
+    {
+      "id": "item_18",
+      "name": "Fake it till you make it",
+      "category": "social",
+      "type": "utility",
+      "description": "Притворяешься, что понимаешь испанский, и это работает",
+      "cost": {
+        "nerves": 2
+      },
+      "effects": {
+        "language_dice_advantage": true,
+        "documents_cards": 2
+      },
+      "when_to_play": "during_language_challenge",
+      "flavor_text": "¡Sí sí sí = universal response!"
+    },
+    {
+      "id": "item_19",
+      "name": "Поддельный штраф",
+      "category": "sabotage", 
+      "type": "interference",
+      "description": "Подкладываем поддельный штраф, заставляя потратить деньги на разбирательства",
+      "target": "money_gain",
+      "effects": {
+        "block_action": true,
+        "target_money": -3
+      },
+      "when_to_play": "instant_response",
+      "cost": {
+        "nerves": 2
+      },
+      "flavor_text": "¡Multa falsa = unexpected expenses!"
+    },
+    {
+      "id": "item_20",
+      "name": "Google Maps врёт, but интуиция не врёт",
+      "category": "technology",
+      "type": "utility",
+      "description": "Заблудились, но случайно нашли нужный офис и секретный вход",
+      "cost": {
+        "nerves": 2
+      },
+      "effects": {
+        "documents_cards": 4,
+        "money": 1,
+        "nerves": 2
+      },
+      "when_to_play": "anytime",
+      "flavor_text": "¡Lost but found = serendipity!"
+    },
+    {
+      "id": "item_21",
+      "name": "Tortilla sin cebolla",
+      "category": "food",
+      "type": "utility",
+      "description": "Настоящая тортилья без лука, как завещали предки",
+      "cost": {
+        "money": 1
+      },
+      "effects": {
+        "nerves": 2,
+        "social_bonus": true
+      },
+      "when_to_play": "anytime",
+      "flavor_text": "¡Tradición pura! Sin cebolla = respeto"
+    },
+    {
+      "id": "item_22",
+      "name": "Café con leche doble",
+      "category": "drinks",
+      "type": "utility",
+      "description": "Двойная порция утреннего кофе с молоком",
+      "cost": {
+        "money": 1
+      },
+      "effects": {
+        "nerves": 2,
+        "work_bonus_next": true
+      },
+      "when_to_play": "start_of_turn",
+      "flavor_text": "Desayuno español = energía máxima"
+    },
+    {
+      "id": "item_23",
+      "name": "Flipflops зимой",
+      "category": "lifestyle",
+      "type": "defensive",
+      "description": "Испанская привычка носить шлёпки круглый год",
+      "cost": {
+        "money": 0
+      },
+      "effects": {
+        "block_weather_penalty": true,
+        "nerves": 2
+      },
+      "when_to_play": "when_weather_event",
+      "flavor_text": "Español logic: chanclas always"
+    },
+    {
+      "id": "item_24",
+      "name": "WhatsApp grupo vecinos",
+      "category": "social",
+      "type": "utility",
+      "description": "Группа соседей в WhatsApp - источник всех новостей",
+      "cost": {
+        "money": 0
+      },
+      "effects": {
+        "draw_card": 1,
+        "housing_bonus": true
+      },
+      "when_to_play": "anytime",
+      "flavor_text": "Vecinos = red de información"
+    },
+    {
+      "id": "item_25",
+      "name": "Croquetas de jamón",
+      "category": "food",
+      "type": "utility",
+      "description": "Домашние крокеты с хамоном от соседки",
+      "cost": {
+        "money": 1
+      },
+      "effects": {
+        "nerves": 2,
+        "money": 1
+      },
+      "when_to_play": "anytime",
+      "flavor_text": "Vecina cocina mejor que restaurante"
+    },
+    {
+      "id": "item_26",
+      "name": "Buen rollo испанский",
+      "category": "social",
+      "type": "utility",
+      "description": "Хорошая атмосфера и позитивный настрой",
+      "cost": {
+        "nerves": 0
+      },
+      "effects": {
+        "nerves": 2,
+        "language_bonus": 1
+      },
+      "when_to_play": "anytime",
+      "flavor_text": "¡Buen rollo = vida mejor!"
+    },
+    {
+      "id": "item_27",
+      "name": "Ventilador de techo",
+      "category": "comfort",
+      "type": "defensive",
+      "description": "Потолочный вентилятор спасает от жары",
+      "cost": {
+        "money": 1
+      },
+      "effects": {
+        "block_heat_penalty": true,
+        "nerves": 2
+      },
+      "when_to_play": "when_heat_event",
+      "flavor_text": "Aire natural > aire acondicionado"
+    },
+    {
+      "id": "item_28",
+      "name": "Manta de la abuela",
+      "category": "comfort",
+      "type": "defensive",
+      "description": "Тёплый плед от испанской бабушки",
+      "cost": {
+        "money": 0
+      },
+      "effects": {
+        "block_cold_penalty": true,
+        "nerves": 2
+      },
+      "when_to_play": "when_cold_event",
+      "flavor_text": "Abuela's love = mejor calefacción"
+    },
+    {
+      "id": "item_29",
+      "name": "Spotify Premium",
+      "category": "technology",
+      "type": "utility",
+      "description": "Музыка без рекламы скрашивает будни",
+      "cost": {
+        "money": 1
+      },
+      "effects": {
+        "nerves": 2,
+        "language_bonus": 1
+      },
+      "when_to_play": "anytime",
+      "flavor_text": "Música española = aprendizaje"
+    },
+    {
+      "id": "item_30",
+      "name": "Calcetines con sandalias",
+      "category": "lifestyle",
+      "type": "utility",
+      "description": "Комбо носки+сандалии - испанская классика",
+      "cost": {
+        "money": 0
+      },
+      "effects": {
+        "nerves": -1,
+        "money": 1,
+        "humor_bonus": true
+      },
+      "when_to_play": "anytime",
+      "flavor_text": "Fashion español = comfort first"
+    },
+    {
+      "id": "item_31",
+      "name": "Bocadillo de tortilla",
+      "category": "food",
+      "type": "utility",
+      "description": "Бутерброд с тортильей - идеальный перекус",
+      "cost": {
+        "money": 1
+      },
+      "effects": {
+        "nerves": 2,
+        "work_bonus_next": true
+      },
+      "when_to_play": "anytime",
+      "flavor_text": "Bocata = almuerzo perfecto"
+    },
+    {
+      "id": "item_32",
+      "name": "Ventana abierta",
+      "category": "lifestyle",
+      "type": "defensive",
+      "description": "Открытое окно для проветривания",
+      "cost": {
+        "money": 0
+      },
+      "effects": {
+        "nerves": 2,
+        "block_air_penalty": true
+      },
+      "when_to_play": "when_housing_problem",
+      "flavor_text": "Aire fresco = salud mental"
+    },
+    {
+      "id": "item_33",
+      "name": "Curso de cocina española",
+      "category": "education",
+      "type": "utility",
+      "description": "Учимся готовить как местные",
+      "cost": {
+        "money": 1,
+        "nerves": 2
+      },
+      "effects": {
+        "nerves": 3,
+        "social_bonus": true,
+        "money": 1
+      },
+      "when_to_play": "anytime",
+      "flavor_text": "Cocinar = integrarse"
+    },
+    {
+      "id": "item_34",
+      "name": "Paraguas roto",
+      "category": "lifestyle",
+      "type": "defensive",
+      "description": "Сломанный зонт всё равно лучше, чем ничего",
+      "cost": {
+        "money": 0
+      },
+      "effects": {
+        "block_rain_penalty": true,
+        "nerves": 0
+      },
+      "when_to_play": "when_rain_event",
+      "flavor_text": "Algo es mejor que nada"
+    },
+    {
+      "id": "item_35",
+      "name": "Mercadona bag for life",
+      "category": "lifestyle",
+      "type": "utility",
+      "description": "Многоразовая сумка из Меркадоны",
+      "cost": {
+        "money": 0
+      },
+      "effects": {
+        "money": 1,
+        "eco_bonus": true
+      },
+      "when_to_play": "anytime",
+      "flavor_text": "Bolsa reutilizable = planeta feliz"
+    },
+    {
+      "id": "item_36",
+      "name": "Turrón de Navidad",
+      "category": "food",
+      "type": "utility",
+      "description": "Рождественский туррон - сладкая традиция",
+      "cost": {
+        "money": 1
+      },
+      "effects": {
+        "nerves": 3,
+        "draw_card": 1
+      },
+      "when_to_play": "anytime",
+      "flavor_text": "Dulce navideño = felicidad pura"
+    },
+    {
+      "id": "item_37",
+      "name": "Aplicación de intercambio",
+      "category": "technology",
+      "type": "utility",
+      "description": "Приложение для языкового обмена",
+      "cost": {
+        "money": 0
+      },
+      "effects": {
+        "language_dice_advantage": true,
+        "social_bonus": true
+      },
+      "when_to_play": "during_language_challenge",
+      "flavor_text": "Intercambio = aprender + conocer"
+    },
+    {
+      "id": "item_38",
+      "name": "Piso compartido rules",
+      "category": "housing",
+      "type": "defensive",
+      "description": "Правила совместного проживания",
+      "cost": {
+        "nerves": 2
+      },
+      "effects": {
+        "block_roommate_penalty": true,
+        "housing_bonus": true
+      },
+      "when_to_play": "when_housing_problem",
+      "flavor_text": "Convivencia = reglas claras"
+    },
+    {
+      "id": "item_39",
+      "name": "Aspirina después de fiesta",
+      "category": "health",
+      "type": "defensive",
+      "description": "Аспирин после испанской вечеринки",
+      "cost": {
+        "money": 1
+      },
+      "effects": {
+        "block_hangover_penalty": true,
+        "nerves": 2
+      },
+      "when_to_play": "when_party_event",
+      "flavor_text": "Fiesta española = resaca segura"
+    },
+    {
+      "id": "item_40",
+      "name": "Número de teléfono español",
+      "category": "communication",
+      "type": "utility",
+      "description": "Испанский номер телефона для местных дел",
+      "cost": {
+        "money": 1
+      },
+      "effects": {
+        "documents_fast_track": true,
+        "social_bonus": true
+      },
+      "when_to_play": "when_getting_documents",
+      "flavor_text": "Número local = confianza"
+    },
+    {
+      "id": "item_41",
+      "name": "Zapatillas de casa",
+      "category": "comfort",
+      "type": "utility",
+      "description": "Домашние тапочки для уюта",
+      "cost": {
+        "money": 1
+      },
+      "effects": {
+        "nerves": 2,
+        "comfort_bonus": true
+      },
+      "when_to_play": "anytime",
+      "flavor_text": "Casa = comodidad total"
+    },
+    {
+      "id": "item_42",
+      "name": "Horchata de chufa",
+      "category": "drinks",
+      "type": "utility",
+      "description": "Традиционный валенсийский напиток",
+      "cost": {
+        "money": 1
+      },
+      "effects": {
+        "nerves": 2,
+        "cultural_bonus": true
+      },
+      "when_to_play": "anytime",
+      "flavor_text": "Valencia tradicional = refrescante"
+    },
+    {
+      "id": "item_43",
+      "name": "Mapa del metro",
+      "category": "transportation",
+      "type": "utility",
+      "description": "Карта метро всегда под рукой",
+      "cost": {
+        "money": 0
+      },
+      "effects": {
+        "movement_bonus": true,
+        "money": 1
+      },
+      "when_to_play": "anytime",
+      "flavor_text": "Metro map = libertad de movimiento"
+    },
+    {
+      "id": "item_44",
+      "name": "Crema solar factor 50",
+      "category": "health",
+      "type": "defensive",
+      "description": "Солнцезащитный крем максимальной защиты",
+      "cost": {
+        "money": 1
+      },
+      "effects": {
+        "block_sun_penalty": true,
+        "nerves": 2
+      },
+      "when_to_play": "when_sun_event",
+      "flavor_text": "Sol español = protección necesaria"
+    },
+    {
+      "id": "item_45",
+      "name": "Libros de segunda mano",
+      "category": "education",
+      "type": "utility",
+      "description": "Подержанные книги на испанском языке",
+      "cost": {
+        "money": 1
+      },
+      "effects": {
+        "language_upgrade_discount": true,
+        "nerves": 2
+      },
+      "when_to_play": "anytime",
+      "flavor_text": "Lectura = mejor profesor"
+    },
+    {
+      "id": "item_46",
+      "name": "Aceite de oliva virgen extra",
+      "category": "food",
+      "type": "utility",
+      "description": "Лучшее оливковое масло - основа испанской кухни",
+      "cost": {
+        "money": 1
+      },
+      "effects": {
+        "nerves": 2,
+        "health_bonus": true,
+        "money": 1
+      },
+      "when_to_play": "anytime",
+      "flavor_text": "Oro líquido español"
+    },
+    {
+      "id": "item_47",
+      "name": "Tarjeta de descuento",
+      "category": "services",
+      "type": "utility",
+      "description": "Дисконтная карта супермаркета",
+      "cost": {
+        "money": 0
+      },
+      "effects": {
+        "money": 1,
+        "shopping_bonus": true
+      },
+      "when_to_play": "anytime",
+      "flavor_text": "Descuentos = ahorro inteligente"
+    },
+    {
+      "id": "item_48",
+      "name": "Camiseta de tu equipo",
+      "category": "social",
+      "type": "utility",
+      "description": "Футболка любимой команды для интеграции",
+      "cost": {
+        "money": 1
+      },
+      "effects": {
+        "social_bonus": true,
+        "nerves": 2,
+        "sports_bonus": true
+      },
+      "when_to_play": "anytime",
+      "flavor_text": "Fútbol = idioma universal"
+    },
+    {
+      "id": "item_49",
+      "name": "Gafas de sol baratas",
+      "category": "lifestyle",
+      "type": "defensive",
+      "description": "Дешёвые солнечные очки с рынка",
+      "cost": {
+        "money": 1
+      },
+      "effects": {
+        "block_glare_penalty": true,
+        "style_bonus": true
+      },
+      "when_to_play": "when_bright_event",
+      "flavor_text": "Estilo barato pero efectivo"
+    },
+    {
+      "id": "item_50",
+      "name": "Playlist de música española",
+      "category": "entertainment",
+      "type": "utility",
+      "description": "Подборка испанской музыки для настроения",
+      "cost": {
+        "money": 0
+      },
+      "effects": {
+        "nerves": 2,
+        "language_bonus": 1,
+        "cultural_bonus": true
+      },
+      "when_to_play": "anytime",
+      "flavor_text": "Música = alma española"
+    },
+    {
+      "id": "item_51",
+      "name": "Papel higiénico de repuesto",
+      "category": "lifestyle",
+      "type": "defensive",
+      "description": "Запас туалетной бумаги на всякий случай",
+      "cost": {
+        "money": 1
+      },
+      "effects": {
+        "block_shortage_penalty": true,
+        "comfort_bonus": true
+      },
+      "when_to_play": "when_shortage_event",
+      "flavor_text": "Preparación = tranquilidad mental"
+    },
+    {
+      "id": "item_52",
+      "name": "Cargador portátil",
+      "category": "technology",
+      "type": "utility",
+      "description": "Портативное зарядное устройство",
+      "cost": {
+        "money": 1
+      },
+      "effects": {
+        "communication_bonus": true,
+        "emergency_bonus": true
+      },
+      "when_to_play": "anytime",
+      "flavor_text": "Batería = conexión constante"
+    },
+    {
+      "id": "item_53",
+      "name": "Receta de la abuela",
+      "category": "food",
+      "type": "utility",
+      "description": "Секретный рецепт от испанской бабушки",
+      "cost": {
+        "money": 0
+      },
+      "effects": {
+        "nerves": 3,
+        "social_bonus": true,
+        "draw_card": 1
+      },
+      "when_to_play": "anytime",
+      "flavor_text": "Tradición familiar = tesoro"
+    },
+    {
+      "id": "item_54",
+      "name": "Chanclas de piscina",
+      "category": "lifestyle",
+      "type": "utility",
+      "description": "Резиновые шлёпанцы для общественных мест",
+      "cost": {
+        "money": 1
+      },
+      "effects": {
+        "hygiene_bonus": true,
+        "comfort_bonus": true
+      },
+      "when_to_play": "anytime",
+      "flavor_text": "Higiene pública = necesidad"
+    },
+    {
+      "id": "item_55",
+      "name": "Despertador analógico",
+      "category": "lifestyle",
+      "type": "utility",
+      "description": "Старомодный будильник, который точно разбудит",
+      "cost": {
+        "money": 1
+      },
+      "effects": {
+        "work_bonus_next": true,
+        "reliability_bonus": true
+      },
+      "when_to_play": "before_important_day",
+      "flavor_text": "Tecnología simple = eficacia"
+    },
+    {
+      "id": "item_56",
+      "name": "Toalla de playa",
+      "category": "lifestyle",
+      "type": "utility",
+      "description": "Пляжное полотенце для отдыха",
+      "cost": {
+        "money": 1
+      },
+      "effects": {
+        "nerves": 2,
+        "vacation_bonus": true
+      },
+      "when_to_play": "anytime",
+      "flavor_text": "Playa española = relajación"
+    },
+    {
+      "id": "item_57",
+      "name": "Termo para café",
+      "category": "drinks",
+      "type": "utility",
+      "description": "Термос для горячего кофе в дороге",
+      "cost": {
+        "money": 1
+      },
+      "effects": {
+        "nerves": 2,
+        "work_bonus": true,
+        "energy_bonus": true
+      },
+      "when_to_play": "anytime",
+      "flavor_text": "Café caliente = productividad"
+    },
+    {
+      "id": "item_58",
+      "name": "Mascarilla facial",
+      "category": "health",
+      "type": "utility",
+      "description": "Косметическая маска для ухода за кожей",
+      "cost": {
+        "money": 1
+      },
+      "effects": {
+        "nerves": 2,
+        "confidence_bonus": true
+      },
+      "when_to_play": "anytime",
+      "flavor_text": "Cuidado personal = autoestima"
+    },
+    {
+      "id": "item_59",
+      "name": "Diccionario de bolsillo",
+      "category": "education",
+      "type": "utility",
+      "description": "Карманный словарь для экстренных случаев",
+      "cost": {
+        "money": 1
+      },
+      "effects": {
+        "language_dice_advantage": true,
+        "emergency_language_bonus": true
+      },
+      "when_to_play": "during_language_challenge",
+      "flavor_text": "Palabras = poder"
+    },
+    {
+      "id": "item_60",
+      "name": "Calcetines de lana",
+      "category": "comfort",
+      "type": "defensive",
+      "description": "Тёплые шерстяные носки для зимы",
+      "cost": {
+        "money": 1
+      },
+      "effects": {
+        "block_cold_penalty": true,
+        "comfort_bonus": true
+      },
+      "when_to_play": "when_cold_event",
+      "flavor_text": "Pies calientes = cuerpo feliz"
+    },
+    {
+      "id": "item_61",
+      "name": "Botella de agua reutilizable",
+      "category": "health",
+      "type": "utility",
+      "description": "Многоразовая бутылка для воды",
+      "cost": {
+        "money": 1
+      },
+      "effects": {
+        "health_bonus": true,
+        "eco_bonus": true,
+        "money": 1
+      },
+      "when_to_play": "anytime",
+      "flavor_text": "Hidratación = salud + planeta"
+    },
+    {
+      "id": "item_62",
+      "name": "Mochila resistente",
+      "category": "lifestyle",
+      "type": "utility",
+      "description": "Прочный рюкзак для всех случаев жизни",
+      "cost": {
+        "money": 1
+      },
+      "effects": {
+        "storage_bonus": true,
+        "mobility_bonus": true,
+        "durability_bonus": true
+      },
+      "when_to_play": "anytime",
+      "flavor_text": "Mochila = libertad de movimiento"
+    },
+    {
+      "id": "item_63",
+      "name": "Plantas para el balcón",
+      "category": "lifestyle",
+      "type": "utility",
+      "description": "Растения для украшения балкона",
+      "cost": {
+        "money": 1,
+        "nerves": 2
+      },
+      "effects": {
+        "nerves": 3,
+        "air_quality_bonus": true,
+        "housing_bonus": true
+      },
+      "when_to_play": "anytime",
+      "flavor_text": "Verde = vida mejor"
+    },
+    {
+      "id": "item_64",
+      "name": "Linterna del móvil",
+      "category": "technology",
+      "type": "utility",
+      "description": "Фонарик в телефоне спасает в темноте",
+      "cost": {
+        "money": 0
+      },
+      "effects": {
+        "emergency_bonus": true,
+        "safety_bonus": true
+      },
+      "when_to_play": "when_emergency",
+      "flavor_text": "Luz = seguridad"
+    },
+    {
+      "id": "item_65",
+      "name": "Almohada ergonómica",
+      "category": "comfort",
+      "type": "utility",
+      "description": "Ортопедическая подушка для хорошего сна",
+      "cost": {
+        "money": 1
+      },
+      "effects": {
+        "nerves": 2,
+        "health_bonus": true,
+        "sleep_bonus": true
+      },
+      "when_to_play": "anytime",
+      "flavor_text": "Buen sueño = mejor día"
+    },
+    {
+      "id": "item_66",
+      "name": "Papel de aluminio",
+      "category": "lifestyle",
+      "type": "defensive",
+      "description": "Фольга для защиты еды и других нужд",
+      "cost": {
+        "money": 1
+      },
+      "effects": {
+        "block_spoilage_penalty": true,
+        "utility_bonus": true
+      },
+      "when_to_play": "when_food_event",
+      "flavor_text": "Aluminio = solución universal"
+    },
+    {
+      "id": "item_67",
+      "name": "Revista de chismes",
+      "category": "entertainment",
+      "type": "utility",
+      "description": "Журнал сплетен для развлечения",
+      "cost": {
+        "money": 1
+      },
+      "effects": {
+        "nerves": 2,
+        "language_bonus": 1,
+        "entertainment_bonus": true
+      },
+      "when_to_play": "anytime",
+      "flavor_text": "Chismes = español coloquial"
+    },
+    {
+      "id": "item_68",
+      "name": "Jabón de manos antibacterial",
+      "category": "health",
+      "type": "defensive",
+      "description": "Антибактериальное мыло для рук",
+      "cost": {
+        "money": 1
+      },
+      "effects": {
+        "block_illness_penalty": true,
+        "hygiene_bonus": true
+      },
+      "when_to_play": "when_illness_event",
+      "flavor_text": "Higiene = primera defensa"
+    },
+    {
+      "id": "item_69",
+      "name": "Mechero de emergencia",
+      "category": "lifestyle",
+      "type": "utility",
+      "description": "Зажигалка на случай отключения газа",
+      "cost": {
+        "money": 1
+      },
+      "effects": {
+        "emergency_bonus": true,
+        "self_sufficiency_bonus": true
+      },
+      "when_to_play": "when_utility_problem",
+      "flavor_text": "Preparación = supervivencia urbana"
+    },
+    {
+      "id": "item_70",
+      "name": "Sombrero de paja",
+      "category": "lifestyle",
+      "type": "defensive",
+      "description": "Соломенная шляпа от солнца",
+      "cost": {
+        "money": 1
+      },
+      "effects": {
+        "block_sun_penalty": true,
+        "style_bonus": true,
+        "nerves": 2
+      },
+      "when_to_play": "when_sun_event",
+      "flavor_text": "Estilo campestre español"
+    }
+  ],
+  "card_stats": {
+    "total_cards": 70,
+    "by_category": {
+      "food": 8,
+      "social": 6,
+      "lifestyle": 17,
+      "services": 3,
+      "technology": 6,
+      "communication": 2,
+      "connections": 1,
+      "comfort": 7,
+      "education": 4,
+      "health": 7,
+      "sabotage": 1,
+      "drinks": 4,
+      "housing": 1,
+      "transportation": 1,
+      "entertainment": 2
+    },
+    "by_type": {
+      "utility": 54,
+      "defensive": 15,
+      "interference": 1
+    },
+    "cost_distribution": {
+      "free": 18,
+      "1_money": 25,
+      "2_money": 17,
+      "3_money": 8,
+      "4_money": 1,
+      "6_money": 1
+    },
+    "effects_summary": {
+      "nerves_positive": 58,
+      "nerves_negative": 1,
+      "money_positive": 19,
+      "money_negative": 0,
+      "bonus_effects": 41,
+      "defensive_effects": 15,
+      "card_draw": 4
+    }
+  }
+}

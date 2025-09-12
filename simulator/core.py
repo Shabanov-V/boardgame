@@ -1,4 +1,5 @@
 import random
+from .analytics import GameAnalytics
 
 
 class InteractiveEvent:
@@ -17,7 +18,8 @@ class InteractiveEvent:
         """Check if this event can be interfered with."""
         interferable_actions = [
             "document_exchange", "money_gain", "document_level_up", 
-            "any_positive_effect", "close_to_win"
+            "any_positive_effect", "close_to_win", "pre_turn_action",
+            "movement", "challenge_event", "resource_gain"
         ]
         return self.action_type in interferable_actions
     
@@ -84,8 +86,7 @@ class InteractionManager:
             return event
             
         self.pending_event = event
-        print(f"\n⚡ INTERACTIVE EVENT: {event.description}")
-        print(f"   Other players can respond with interference cards...")
+        # Only show interactive events if there's actual interference
         
         # Ask other players for interference in turn order
         interference_applied = False
@@ -97,10 +98,21 @@ class InteractionManager:
                 continue
                 
             # Check if player wants to interfere
-            interference = player.ai.decide_interference(event)
+            interference = None
+            if hasattr(player, 'human_controller'):
+                # Human player
+                interference = player.human_controller.decide_interference(event)
+            else:
+                # AI player
+                interference = player.ai.decide_interference(event)
+                
             if interference:
                 card, cost_paid = interference
                 if self._can_pay_cost(player, card) and cost_paid:
+                    # Show interference only when it actually happens
+                    print(f"\n⚡ INTERFERENCE: {player.name} plays '{card['name']}' against {event.acting_player.name}")
+                    
+                    self._pay_cost(player, card)
                     interference_applied = True
                     interfering_player = player
                     interference_card = card
@@ -110,10 +122,18 @@ class InteractionManager:
                     
         # If interference was applied, check for defense
         if interference_applied and not event.is_blocked:
-            defense = event.acting_player.ai.decide_defense(event, interference_card)
+            defense = None
+            if hasattr(event.acting_player, 'human_controller'):
+                # Human player
+                defense = event.acting_player.human_controller.decide_defense(event, interference_card)
+            else:
+                # AI player
+                defense = event.acting_player.ai.decide_defense(event, interference_card)
+                
             if defense:
                 defense_card, cost_paid = defense
                 if self._can_pay_cost(event.acting_player, defense_card) and cost_paid:
+                    self._pay_cost(event.acting_player, defense_card)
                     reflected = event.apply_defense(defense_card, event.acting_player)
                     event.acting_player.action_cards.remove(defense_card)
                     
@@ -950,15 +970,22 @@ class Game:
         self.turn = 0
         self.game_over = False
         self.winner = None
+        self.interaction_manager = InteractionManager(self.players)
         self.end_reason = None
+        self.analytics = GameAnalytics()
+        self.analytics.start_game(self.players)
 
     def setup_decks(self):
         self.decks = {
             'action': Deck(self.game_data['action_cards']['action_cards']),
             'green': Deck(self.game_data['green_cards']['green_cards']),
             'red': Deck(self.game_data['health_cards']['health_cards'] + self.game_data['housing_cards']['housing_cards']),
-            'white': Deck(self.game_data['random_events']['random_events']),
+            'white': Deck(self.game_data['white_cards']['random_events']),
         }
+        
+        # Добавляем колоду предметов
+        if 'personal_items' in self.game_data:
+            self.decks['item'] = Deck(self.game_data['personal_items']['personal_items'])
 
     def setup_players(self):
         self.players = []
@@ -972,12 +999,12 @@ class Game:
             player_win_condition = None  
             player = Player(profile, player_win_condition, self.config, self.game_data['game_constants'])
 
-            # Give starting action cards
-            starting_card_count = self.game_data['game_constants']['game_constants']['starting_action_cards']
-            for _ in range(starting_card_count):
-                drawn_card = self.decks['action'].draw()
-                if drawn_card:
-                    player.add_action_card(drawn_card)
+            # Give starting item cards (3 per player) - заменяем старую систему action_cards
+            if 'item' in self.decks:
+                for _ in range(3):
+                    item_card = self.decks['item'].draw()
+                    if item_card:
+                        player.add_action_card(item_card)
 
             self.players.append(player)
         
@@ -1046,23 +1073,53 @@ class Game:
         """Manages the sequence of actions for a single player's turn."""
         print(f"\n--- Turn {self.turn}, Player: {player.name} ---")
         print(f"State before turn: {player}")
+        
+        # Analytics: Track turn start
+        self.analytics.track_turn_start(player, self.turn)
 
         # 1. AI decides to play a pre-turn action card
         card_to_play = player.ai.decide_play_action_card('start_of_turn')
         if card_to_play:
-            self.apply_card_effect(player, card_to_play, 'event') # Action cards are always events
+            # INTERVENTION POINT: Pre-turn action
+            event = InteractiveEvent(
+                action_type="pre_turn_action",
+                acting_player=player,
+                effects=card_to_play.get('effects', {}),
+                description=f"{player.name} plays '{card_to_play['name']}' before turn"
+            )
+            event = self.interaction_manager.announce_event(event)
+            
+            if not event.is_blocked:
+                self.apply_card_effect(player, card_to_play, 'event')
             player.action_cards.remove(card_to_play)
             self.decks['action'].discard(card_to_play)
 
         # 2. Roll dice and move
         roll = random.randint(1, 6)
-        player.position = (player.position + roll) % self.board.size
+        
+        # INTERVENTION POINT: Movement modification
+        movement_event = InteractiveEvent(
+            action_type="movement",
+            acting_player=player,
+            effects={"movement": roll},
+            description=f"{player.name} rolled {roll} and will move to position {(player.position + roll) % self.board.size}"
+        )
+        movement_event = self.interaction_manager.announce_event(movement_event)
+        
+        if not movement_event.is_blocked:
+            final_roll = movement_event.effects.get("movement", roll)
+            player.position = (player.position + final_roll) % self.board.size
+        else:
+            print(f"🚫 {player.name}'s movement was blocked!")
+
+        # Analytics: Track cell visit
+        cell_type = self.board.get_cell_type(player.position)
+        self.analytics.track_cell_visit(player, player.position, cell_type)
 
         # 3. Trade phase (before cell effect)
         self.handle_trade_phase(player)
 
         # 4. Handle cell effect
-        cell_type = self.board.get_cell_type(player.position)
 
         if cell_type == 'green':
             decision = player.ai.decide_on_green_space()
@@ -1072,19 +1129,85 @@ class Game:
                     use_decision = 'event' # Default for non-exchange cards
                     if card.get('exchange_instruction'):
                         use_decision = player.ai.decide_green_card_use(card)
-                    self.apply_card_effect(player, card, use_decision)
+                        
+                        # INTERVENTION POINT: Document exchange attempt
+                        if use_decision == 'exchange':
+                            exchange_event = InteractiveEvent(
+                                action_type="document_exchange",
+                                acting_player=player,
+                                effects={"document_level": 1},
+                                description=f"{player.name} attempts document exchange with '{card['name']}'"
+                            )
+                            exchange_event = self.interaction_manager.announce_event(exchange_event)
+                            
+                            if not exchange_event.is_blocked:
+                                self.apply_card_effect(player, card, use_decision)
+                            else:
+                                print(f"🚫 {player.name}'s document exchange was blocked!")
+                        else:
+                            self.apply_card_effect(player, card, use_decision)
+                    else:
+                        self.apply_card_effect(player, card, use_decision)
             elif decision == 'draw_action':
                 action_card = self.decks['action'].draw()
                 if action_card:
-                    player.add_action_card(action_card)
+                    # Проверяем, является ли это глобальным событием
+                    if self.is_global_event_card(action_card):
+                        # Применяем как событие для всех игроков
+                        self.apply_card_effect(None, action_card, 'global_event')
+                        self.decks['action'].discard(action_card)
+                    else:
+                        # Добавляем в руку как личный предмет
+                        player.add_action_card(action_card)
 
         elif cell_type in ['red', 'white']:
             card = self.decks[cell_type].draw()
             if card:
-                self.apply_card_effect(player, card, 'event') # Red/White cards are always events
+                # INTERVENTION POINT: Challenge/Event card
+                challenge_event = InteractiveEvent(
+                    action_type="challenge_event",
+                    acting_player=player,
+                    effects=card.get('effects', {}),
+                    description=f"{player.name} faces '{card['name']}' ({cell_type} card)"
+                )
+                challenge_event = self.interaction_manager.announce_event(challenge_event)
+                
+                if not challenge_event.is_blocked:
+                    # Apply potentially modified effects
+                    modified_card = card.copy()
+                    modified_card['effects'] = challenge_event.effects
+                    self.apply_card_effect(player, modified_card, 'event')
+                else:
+                    print(f"🚫 {player.name}'s challenge was blocked!")
+
+        # INTERVENTION POINT: Money/resource gains
+        if hasattr(player, '_temp_money_gain') and player._temp_money_gain > 0:
+            money_event = InteractiveEvent(
+                action_type="money_gain",
+                acting_player=player,
+                effects={"money": player._temp_money_gain},
+                description=f"{player.name} gains {player._temp_money_gain} money"
+            )
+            money_event = self.interaction_manager.announce_event(money_event)
+            
+            if not money_event.is_blocked:
+                final_money = money_event.effects.get("money", player._temp_money_gain)
+                player.money += final_money
+            else:
+                print(f"🚫 {player.name}'s money gain was blocked!")
+            delattr(player, '_temp_money_gain')
 
         # 5. Check if player reached level 5 documents and needs to choose goal
         self.check_goal_selection(player)
+        
+        # INTERVENTION POINT: Close to winning
+        if self.is_close_to_winning(player):
+            win_event = InteractiveEvent(
+                action_type="close_to_win",
+                acting_player=player,
+                description=f"{player.name} is close to winning!"
+            )
+            self.interaction_manager.announce_event(win_event)
         
         # 6. Check for win/loss conditions
         self.check_win_condition(player)
@@ -1092,10 +1215,101 @@ class Game:
             self.check_elimination(player)
 
         print(f"State after turn:  {player}")
+        
+        # Analytics: Track goal progress
+        if hasattr(player, 'win_condition') and player.win_condition:
+            goal_requirements = player.win_condition['requires']
+            current_progress = {
+                'money': player.money,
+                'document_level': player.document_level,
+                'language_level': player.language_level,
+                'housing_level': getattr(player, 'housing_level', 1),
+                'nerves': player.nerves
+            }
+            self.analytics.track_goal_progress(player, goal_requirements, current_progress)
+    
+    def _determine_card_type(self, card):
+        """Determine the type of card for analytics"""
+        card_id = card.get('id', '')
+        if card_id.startswith('action_'):
+            return 'action_cards'
+        elif card_id.startswith('item_'):
+            return 'personal_items'
+        elif card_id.startswith('health_'):
+            return 'health_cards'
+        elif card_id.startswith('housing_'):
+            return 'housing_cards'
+        elif card_id.startswith('event_'):
+            return 'white_cards'
+        else:
+            # Try to determine by category
+            category = card.get('category', '')
+            if category in ['health']:
+                return 'health_cards'
+            elif category in ['housing']:
+                return 'housing_cards'
+            elif category in ['food', 'social', 'technology', 'lifestyle']:
+                return 'personal_items'
+            else:
+                return 'green_cards'
+    
+    def is_close_to_winning(self, player):
+        """Check if player is close to winning their goal."""
+        if not player.goal_chosen or not player.win_condition:
+            return False
+            
+        requirements = player.win_condition['requires']
+        
+        # Check how close player is to meeting all requirements
+        close_factors = 0
+        total_factors = len(requirements)
+        
+        for req_type, req_value in requirements.items():
+            if req_type == 'money' and player.money >= req_value * 0.8:
+                close_factors += 1
+            elif req_type == 'document_level' and player.document_level >= req_value - 1:
+                close_factors += 1
+            elif req_type == 'housing_level' and player.housing_level >= req_value:
+                close_factors += 1
+            elif req_type == 'language_level' and player.language_level >= req_value:
+                close_factors += 1
+                
+        # Player is "close" if they meet 80% of requirements
+        return close_factors / total_factors >= 0.8
+    
+    def is_global_event_card(self, card):
+        """Определяет, является ли карта глобальным событием"""
+        # Карты с conditions (условиями для групп игроков) - это события для всех
+        if 'conditions' in card and 'character_id' in card.get('conditions', {}):
+            return True
+        
+        # Карты с типом instant И без cost - это события для всех
+        if card.get('type') == 'instant' and 'cost' not in card:
+            return True
+        
+        # ВСЕ остальные карты - это личные предметы (включая карты с cost, utility, interference и т.д.)
+        return False
+    
+    def apply_global_event(self, card):
+        """Применяет событие ко всем игрокам"""
+        print(f"System: Global event '{card['name']}' affects all players")
+        
+        # Применяем эффект ко всем игрокам
+        for target_player in self.players:
+            if not target_player.is_eliminated:
+                # Проверяем условия для конкретного игрока
+                if 'conditions' in card:
+                    conditions = card['conditions']
+                    if 'character_id' in conditions:
+                        if target_player.profile not in conditions['character_id']:
+                            continue  # Этот игрок не подходит под условия
+                
+                # Применяем эффект к игроку
+                self.apply_card_effect(target_player, card, 'event')
     
     def check_goal_selection(self, player):
         """Check if player needs to select a goal when reaching document level 5."""
-        if not player.goal_chosen and player.document_level >= 5:  # Выбор цели после достижения 5-го уровня документов
+        if not player.goal_chosen and int(player.document_level) >= 5:  # Выбор цели после достижения 5-го уровня документов
             # Выбираем случайную цель
             win_conditions = list(self.config['win_conditions'].items())
             win_key, win_data = random.choice(win_conditions)
@@ -1161,6 +1375,16 @@ class Game:
         The main engine for applying card effects.
         It checks conditions, handles challenges, and applies effects based on a decision.
         """
+        # Analytics: Track card played (if not global event)
+        if decision != 'global_event' and player is not None:
+            card_type = self._determine_card_type(card)
+            self.analytics.track_card_played(card, card_type, player)
+        
+        # 0. Handle global events (when player is None)
+        if decision == 'global_event':
+            self.apply_global_event(card)
+            return
+            
         # 1. Handle document exchange decision
         if decision == 'exchange':
             # Create interactive event for document exchange
@@ -1178,26 +1402,25 @@ class Game:
                 print(f"System: {player.name}'s document exchange was blocked!")
                 return
             
-            # Многоуровневый обмен: обменивает все возможные карты на уровни
-            levels_gained = 0
-            total_cards_used = 0
+        # Document exchange with dice roll (2+ for success) and money cost
+        if player.document_cards >= 2 and player.money >= 1:
+            roll = random.randint(1, 6)
+            print(f"System: {player.name} attempts document exchange with roll: {roll}")
             
-            while player.document_cards > 0:
-                # Линейная прогрессия: уровень N требует N карт (максимум 6)
-                required_docs = min(player.document_level + 1, 6)
-                
-                if player.document_cards >= required_docs:
-                    player.document_cards -= required_docs
-                    player.document_level += 1
-                    levels_gained += 1
-                    total_cards_used += required_docs
-                else:
-                    break  # Недостаточно карт для следующего уровня
-            
-            if levels_gained > 0:
-                print(f"System: {player.name} exchanged {total_cards_used} doc cards for {levels_gained} levels! New level: {player.document_level}")
-            else:
-                print(f"System: {player.name} failed to exchange, not enough doc cards.")
+            if roll >= 2:  # Success (simplified from 3+ to 2+)
+                player.document_level += 1
+                player.document_cards -= 2
+                player.money -= 1  # Cost 1 money per exchange
+                print(f"System: {player.name} successfully exchanged documents! New level: {player.document_level} (cost: 1 money)")
+            else:  # Failure
+                player.document_cards -= 1
+                player.money -= 1  # Still costs money even on failure
+                print(f"System: {player.name} failed document exchange. Lost 1 document card and 1 money.")
+        else:
+            if player.document_cards < 2:
+                print(f"System: {player.name} doesn't have enough document cards (need 2, has {player.document_cards})")
+            if player.money < 1:
+                print(f"System: {player.name} doesn't have enough money for document exchange (need 1, has {player.money})")
             return # Exchange action is complete
 
         # 2. Check conditions for event/challenge
@@ -1421,8 +1644,8 @@ class Game:
                 
                 affected_players = []
                 for player in self.players:
-                    # Check condition: document_level <= 5
-                    if "document_level <= 5" in condition and player.document_level <= 5:
+                    # Check condition: document_level == 5
+                    if "document_level == 5" in condition and player.document_level == 5:
                         # Apply effect: document_level -= 1
                         if "document_level -= 1" in effect:
                             old_level = player.document_level
@@ -1432,7 +1655,7 @@ class Game:
                 if affected_players:
                     print(f"System: Immigration law update! Document levels reduced: {', '.join(affected_players)}")
                 else:
-                    print(f"System: Immigration law update had no effect (no players with document level ≤5)")
+                    print(f"System: Immigration law update had no effect (no players with document level = 5)")
 
     def check_win_condition(self, player):
         """Checks if a player has met their victory condition."""
@@ -1459,6 +1682,9 @@ class Game:
             self.game_over = True
             self.winner = player
             self.end_reason = 'win'
+            
+            # Analytics: End game
+            self.analytics.end_game(player, self.end_reason)
 
     def check_elimination(self, player):
         elimination_threshold = self.game_data['game_constants']['game_constants'].get('elimination_threshold', -1)
@@ -1471,5 +1697,127 @@ class Game:
             if len(active_players) <= 1 and len(self.players) > 1:
                 self.game_over = True
                 self.winner = active_players[0] if active_players else None
+                self.end_reason = 'elimination'
+                
+                # Analytics: End game
+                self.analytics.end_game(self.winner, self.end_reason)
+    
+    def run_simulation(self, max_turns: int = 200):
+        """Run a complete game simulation"""
+        print(f"Starting game simulation with {len(self.players)} players")
+        
+        individual_turn_count = 0
+        round_number = 0
+        
+        while not self.game_over and individual_turn_count < max_turns:
+            round_number += 1
+            
+            # Each player takes a turn
+            for player in self.players:
+                if self.game_over or player.is_eliminated:
+                    continue
+                
+                individual_turn_count += 1
+                self.turn = individual_turn_count  # Track individual turns, not rounds
+                
+                self.take_turn(player)
+                
+                if self.game_over:
+                    break
+                    
+                # Stop if we hit the turn limit
+                if individual_turn_count >= max_turns:
+                    break
+            
+            # Handle end-of-round effects (salary/rent) after all players
+            if not self.game_over:
+                self.handle_end_of_round()
+        
+        # Handle timeout
+        if not self.game_over and self.turn >= max_turns:
+            self.game_over = True
+            self.end_reason = 'timeout'
+            
+            # Find player closest to winning as winner
+            best_player = None
+            best_progress = 0
+            
+            for player in self.players:
+                if not player.is_eliminated and hasattr(player, 'win_condition') and player.win_condition:
+                    progress = self._calculate_win_progress(player)
+                    if progress > best_progress:
+                        best_progress = progress
+                        best_player = player
+            
+            self.winner = best_player
+            self.analytics.end_game(self.winner, self.end_reason)
+        
+        print(f"Game ended after {self.turn} turns. Winner: {self.winner.name if self.winner else 'None'}")
+        print(f"End reason: {self.end_reason}")
+        
+        return {
+            'winner': self.winner,
+            'turns': self.turn,
+            'end_reason': self.end_reason,
+            'analytics': self.analytics
+        }
+    
+    def _calculate_win_progress(self, player) -> float:
+        """Calculate how close a player is to winning (0.0 to 1.0)"""
+        if not hasattr(player, 'win_condition') or not player.win_condition:
+            return 0.0
+        
+        goal = player.win_condition['requires']
+        progress = 0.0
+        requirements = 0
+        
+        for key, required_value in goal.items():
+            requirements += 1
+            player_value = getattr(player, key, 0)
+            
+            if key == 'housing_type':
+                # Special handling for housing type
+                housing_levels = {'room': 1, 'apartment': 2, 'mortgage': 3}
+                player_level = housing_levels.get(getattr(player, 'housing', 'room'), 1)
+                required_level = housing_levels.get(required_value, 1)
+                progress += min(1.0, player_level / required_level)
+            else:
+                if required_value > 0:
+                    progress += min(1.0, player_value / required_value)
+                else:
+                    progress += 1.0 if player_value >= required_value else 0.0
+        
+        return progress / requirements if requirements > 0 else 0.0
+    
+    def handle_end_of_round(self):
+        """Handle end-of-round effects like salary and rent"""
+        for player in self.players:
+            if player.is_eliminated:
+                continue
+                
+            # Pay salary
+            if hasattr(player, 'salary_type') and player.salary_type == 'dice':
+                salary = random.randint(1, 6) + player.salary_base
+            else:
+                salary = player.salary
+            
+            old_money = player.money
+            player.money += salary
+            
+            # Analytics: Track salary
+            self.analytics.track_resource_change(player, 'money', salary, 'salary')
+            
+            # Give 1 document card each round
+            player.document_cards += 1
+            self.analytics.track_resource_change(player, 'document_cards', 1, 'round_income')
+            
+            # Pay housing costs
+            housing_cost = player.housing_cost
+            player.money -= housing_cost
+            
+            # Analytics: Track housing cost
+            self.analytics.track_resource_change(player, 'money', -housing_cost, 'housing_cost')
+            
+            print(f"End of round: {player.name} +{salary} salary -{housing_cost} rent = {player.money - old_money} net")
 
 

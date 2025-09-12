@@ -8,7 +8,7 @@
       "description": "Авария с водопроводом в квартире",
       "effects": {
         "nerves": -2,
-        "money": -3
+        "money": -5
       },
       "flavor_text": "Fontanero стоит дорого"
     },
@@ -38,7 +38,7 @@
         "description": "Нужно договориться с хозяином о цене",
         "outcomes": {
           "success": {
-            "condition": ">4",
+            "condition": ">3",
             "description": "Убедили хозяина оставить старую цену",
             "effects": {
               "nerves": 1,
@@ -50,7 +50,7 @@
             "description": "Договорились на небольшое повышение",
             "effects": {
               "nerves": -1,
-              "money": -1
+              "money": -5
             }
           },
           "failure": {
@@ -58,7 +58,7 @@
             "description": "Хозяин поднял цену еще больше из вредности",
             "effects": {
               "nerves": -2,
-              "money": -3
+              "money": -5
             }
           }
         }
@@ -73,7 +73,7 @@
       "description": "В разгар лета отказал кондиционер",
       "effects": {
         "nerves": -2,
-        "money": -2
+        "money": -6
       },
       "flavor_text": "40 градусов и нет aire acondicionado"
     },
@@ -98,7 +98,7 @@
       "description": "Нашествие тараканов в квартире",
       "effects": {
         "nerves": -2,
-        "money": -1
+        "money": -5
       },
       "flavor_text": "Fumigación urgente"
     },
@@ -137,7 +137,7 @@
         "description": "Нужно объясниться с соседом на испанском",
         "outcomes": {
           "success": {
-            "condition": ">4",
+            "condition": ">3",
             "description": "Сосед все оплатил сам, еще и компенсировал",
             "effects": {
               "choice": [
@@ -161,7 +161,7 @@
             "description": "Сосед не компенсировал ничего, еще и поругались",
             "effects": {
               "nerves": -2,
-              "money": -3
+              "money": -5
             }
           }
         }
@@ -204,7 +204,7 @@
       "description": "Проблемы с газоснабжением в районе",
       "effects": {
         "nerves": -1,
-        "money": -1
+        "money": -5
       },
       "flavor_text": "Bocadillos вместо горячей еды"
     },
@@ -240,7 +240,7 @@
       "description": "Зимой отказала система отопления",
       "effects": {
         "nerves": -2,
-        "money": -2
+        "money": -6
       },
       "flavor_text": "Calefacción rota en enero"
     },
@@ -258,7 +258,7 @@
         "description": "Попросить соседа играть тише",
         "outcomes": {
           "success": {
-            "condition": ">4",
+            "condition": ">3",
             "description": "Сосед извинился и предложил бесплатные уроки",
             "effects": {
               "nerves": 1,
@@ -293,7 +293,7 @@
       "description": "Свекровь приехала на месяц без предупреждения",
       "effects": {
         "nerves": -2,
-        "money": -2
+        "money": -6
       },
       "conditions": {
         "character_id": "spanish_spouse"
@@ -347,7 +347,7 @@
         "description": "Объяснить почтальону, что это не ваш адрес",
         "outcomes": {
           "success": {
-            "condition": ">4",
+            "condition": ">3",
             "description": "Почтальон извинился и принес конфеты в благодарность",
             "effects": {
               "nerves": 1,
@@ -394,7 +394,7 @@
       "description": "Стая голубей решила, что ваш балкон - их дом",
       "effects": {
         "nerves": -1,
-        "money": -1
+        "money": -5
       },
       "flavor_text": "Palomas sin permiso de residencia"
     },
@@ -421,7 +421,7 @@
         "description": "Объяснить соседу, что есть закон о тишине",
         "outcomes": {
           "success": {
-            "condition": ">4",
+            "condition": ">3",
             "description": "Сосед извинился и пригласил на кофе",
             "effects": {
               "nerves": 1,
@@ -459,7 +459,7 @@
         "description": "Разобраться в испанском договоре аренды",
         "outcomes": {
           "success": {
-            "condition": ">4",
+            "condition": ">3",
             "description": "Нашли нарушение закона, хозяин отступил",
             "effects": {
               "nerves": 2,
@@ -479,7 +479,7 @@
             "description": "Подписали не то, что думали",
             "effects": {
               "nerves": -2,
-              "money": -2
+              "money": -6
             }
           }
         }
@@ -497,7 +497,7 @@
         "description": "Выяснить у коммунальной службы, что происходит",
         "outcomes": {
           "success": {
-            "condition": ">4",
+            "condition": ">3",
             "description": "Узнали причину и получили компенсацию",
             "effects": {
               "nerves": 0,
@@ -517,7 +517,7 @@
             "description": "Ничего не поняли, остались в темноте",
             "effects": {
               "nerves": -2,
-              "money": -1
+              "money": -5
             }
           }
         }
@@ -623,7 +623,7 @@
       "effects": {
         "nerves": 1,
         "documents_cards": 3,
-        "money": -1
+        "money": -5
       },
       "flavor_text": "Código español = ez pz",
       "cross_system_interaction": "housing + documents"
@@ -665,7 +665,7 @@
       "description": "Обнаружили, что договор аренды неофициальный - проблемы с регистрацией",
       "effects": {
         "nerves": -3,
-        "money": -2,
+        "money": -6,
         "documents_cards": -1
       },
       "flavor_text": "¡Sorpresa! Contract fake = problemas reales",
@@ -682,7 +682,7 @@
       },
       "effects": {
         "nerves": -3,
-        "money": -2,
+        "money": -6,
         "document_level": -1
       },
       "flavor_text": "¡Padrón falso = game over!",
@@ -714,7 +714,7 @@
       },
       "effects": {
         "nerves": -2,
-        "money": -3,
+        "money": -5,
         "language_level": -1
       },
       "flavor_text": "¡Stack Overflow no tiene answers for España!",
@@ -728,7 +728,7 @@
       "description": "Соседи устроили травлю и жалуются на вас в управляющую компанию",
       "effects": {
         "nerves": -3,
-        "money": -2,
+        "money": -6,
         "documents_cards": -1
       },
       "flavor_text": "¡Vecinos racistas = nightmare español!",
@@ -742,7 +742,7 @@
       "description": "Отдали депозит мошенникам - квартиры не существует",
       "effects": {
         "nerves": -3,
-        "money": -4,
+        "money": -6,
         "housing_search": true
       },
       "flavor_text": "¡Estafa inmobiliaria = classic!",
@@ -791,7 +791,7 @@
       },
       "effects": {
         "nerves": -3,
-        "money": -4,
+        "money": -6,
         "documents_cards": -1
       },
       "flavor_text": "¡Accidente laboral = delivery danger!",
@@ -823,7 +823,7 @@
         "character_id": ["it_specialist", "entrepreneur", "spanish_spouse"]
       },
       "effects": {
-        "money": -10,
+        "money": -50,
         "nerves": -4,
         "documents_cards": -2
       },
@@ -836,7 +836,7 @@
         },
         "entrepreneur": {
           "additional_effects": {
-            "money": -12,
+            "money": -52,
             "nerves": -2,
             "description": "Предприниматель теряет больше времени и денег"
           }
@@ -897,14 +897,14 @@
       "individual_modifiers": {
         "waiter": {
           "additional_effects": {
-            "money": -4,
+            "money": -6,
             "nerves": -2,
             "description": "Официанты особенно страдают от снижения посещаемости"
           }
         },
         "courier": {
           "additional_effects": {
-            "money": -2,
+            "money": -6,
             "description": "Курьеры теряют часть заказов"
           }
         },
@@ -928,14 +928,14 @@
         "character_id": ["pensioner", "spanish_spouse", "entrepreneur"]
       },
       "effects": {
-        "money": -4,
+        "money": -6,
         "nerves": -2,
         "documents_cards": -1
       },
       "individual_modifiers": {
         "pensioner": {
           "additional_effects": {
-            "money": -3,
+            "money": -5,
             "nerves": -2,
             "description": "Пенсионеры особенно страдают от бюрократии"
           }
@@ -948,7 +948,7 @@
         },
         "entrepreneur": {
           "additional_effects": {
-            "money": -2,
+            "money": -6,
             "description": "Предприниматели теряют время на оформления"
           }
         }
@@ -1009,20 +1009,298 @@
       "effects": {
         "documents_cards": 2,
         "nerves": 1,
-        "money": -1
+        "money": -5
       },
       "flavor_text": "¡Vecinos helpful = community support!",
       "cross_system_interaction": "community + bureaucracy + mutual_aid"
+    },
+    {
+      "id": "housing_53",
+      "name": "Inspección de vivienda",
+      "category": "housing",
+      "type": "dice_challenge",
+      "description": "Неожиданная инспекция жилья от мэрии",
+      "challenge": {
+        "skill_type": "documents",
+        "description": "Предъявить все документы на аренду и показать условия проживания",
+        "outcomes": {
+          "success": {
+            "condition": ">3",
+            "description": "Все документы в порядке, инспектор доволен",
+            "effects": {
+              "nerves": 2,
+              "housing_bonus": true
+            }
+          },
+          "partial": {
+            "condition": "3-5",
+            "description": "Мелкие нарушения, дали время исправить",
+            "effects": {
+              "nerves": -1,
+              "money": -6
+            }
+          },
+          "failure": {
+            "condition": "1-2",
+            "description": "Серьезные нарушения, грозят выселением",
+            "effects": {
+              "nerves": -4,
+              "money": -5,
+              "housing_penalty": true
+            }
+          }
+        }
+      },
+      "flavor_text": "Inspección = pánico burocrático"
+    },
+    {
+      "id": "housing_54",
+      "name": "Соседская война",
+      "category": "housing",
+      "type": "dice_challenge",
+      "description": "Конфликт соседей из-за парковки перерос в серьезную ссору",
+      "challenge": {
+        "skill_type": "language",
+        "description": "Выступить медиатором и помирить соседей",
+        "outcomes": {
+          "success": {
+            "condition": ">3",
+            "description": "Успешно помирили всех, стали местным героем",
+            "effects": {
+              "nerves": 3,
+              "social_bonus": true,
+              "money": 1
+            }
+          },
+          "partial": {
+            "condition": "2-4",
+            "description": "Конфликт утих временно",
+            "effects": {
+              "nerves": 0,
+              "money": 0
+            }
+          },
+          "failure": {
+            "condition": "1",
+            "description": "Сами стали участником конфликта",
+            "effects": {
+              "nerves": -3,
+              "social_penalty": true
+            }
+          }
+        }
+      },
+      "flavor_text": "Guerra vecinal = estrés máximo"
+    },
+    {
+      "id": "housing_55",
+      "name": "Авария газопровода",
+      "category": "housing",
+      "type": "dice_challenge",
+      "description": "Утечка газа в здании, нужно срочно действовать",
+      "challenge": {
+        "skill_type": "language",
+        "description": "Вызвать газовую службу и эвакуировать соседей",
+        "outcomes": {
+          "success": {
+            "condition": ">3",
+            "description": "Быстро вызвали службу, авария устранена",
+            "effects": {
+              "nerves": 2,
+              "safety_bonus": true
+            }
+          },
+          "partial": {
+            "condition": "3-5",
+            "description": "Служба приехала с задержкой",
+            "effects": {
+              "nerves": -1,
+              "money": -5
+            }
+          },
+          "failure": {
+            "condition": "1-2",
+            "description": "Не смогли объяснить проблему, паника",
+            "effects": {
+              "nerves": -4,
+              "money": -5,
+              "emergency_penalty": true
+            }
+          }
+        }
+      },
+      "flavor_text": "Gas + idioma = peligro real"
+    },
+    {
+      "id": "housing_56",
+      "name": "Договор на испанском",
+      "category": "housing",
+      "type": "dice_challenge",
+      "description": "Хозяин принес новый договор аренды с изменениями",
+      "challenge": {
+        "skill_type": "documents",
+        "description": "Разобрать юридический текст и найти подвохи",
+        "outcomes": {
+          "success": {
+            "condition": ">3",
+            "description": "Нашли скрытые пункты, договорились об изменениях",
+            "effects": {
+              "nerves": 2,
+              "money": 2,
+              "housing_cost": -1
+            }
+          },
+          "partial": {
+            "condition": "3-5",
+            "description": "Подписали как есть, надеясь на лучшее",
+            "effects": {
+              "nerves": -1,
+              "money": 0
+            }
+          },
+          "failure": {
+            "condition": "1-2",
+            "description": "Подписали невыгодный договор",
+            "effects": {
+              "nerves": -2,
+              "money": -5,
+              "housing_cost": 1
+            }
+          }
+        }
+      },
+      "flavor_text": "Contrato español = trampa legal"
+    },
+    {
+      "id": "housing_57",
+      "name": "Проблемы с интернетом",
+      "category": "housing",
+      "type": "dice_challenge",
+      "description": "Интернет не работает уже неделю, провайдер не отвечает",
+      "challenge": {
+        "skill_type": "language",
+        "description": "Дозвониться в техподдержку и добиться ремонта",
+        "outcomes": {
+          "success": {
+            "condition": ">3",
+            "description": "Техник приехал в тот же день, все починил",
+            "effects": {
+              "nerves": 2,
+              "work_bonus": true
+            }
+          },
+          "partial": {
+            "condition": "2-4",
+            "description": "Обещали приехать 'завтра'",
+            "effects": {
+              "nerves": -1,
+              "work_penalty": true
+            }
+          },
+          "failure": {
+            "condition": "1",
+            "description": "Не поняли проблему, сказали 'все работает'",
+            "effects": {
+              "nerves": -3,
+              "money": -6,
+              "work_penalty": true
+            }
+          }
+        }
+      },
+      "flavor_text": "Internet + español = pesadilla digital"
+    },
+    {
+      "id": "housing_58",
+      "name": "Кража в подъезде",
+      "category": "housing",
+      "type": "dice_challenge",
+      "description": "Украли велосипед из подъезда, нужно заявить в полицию",
+      "challenge": {
+        "skill_type": "documents",
+        "description": "Написать заявление в полицию и описать украденное",
+        "outcomes": {
+          "success": {
+            "condition": ">3",
+            "description": "Заявление принято, полиция ведет расследование",
+            "effects": {
+              "nerves": 1,
+              "money": 1,
+              "safety_bonus": true
+            }
+          },
+          "partial": {
+            "condition": "2-4",
+            "description": "Заявление приняли, но без особого энтузиазма",
+            "effects": {
+              "nerves": 0,
+              "money": 0
+            }
+          },
+          "failure": {
+            "condition": "1",
+            "description": "Не смогли правильно оформить заявление",
+            "effects": {
+              "nerves": -2,
+              "money": -5,
+              "safety_penalty": true
+            }
+          }
+        }
+      },
+      "flavor_text": "Robo + denuncia = burocracia doble"
+    },
+    {
+      "id": "housing_59",
+      "name": "Лифт сломался",
+      "category": "housing",
+      "type": "dice_challenge",
+      "description": "Лифт не работает месяц, а вы живете на 8 этаже",
+      "conditions": {
+        "housing_type": ["apartment", "mortgage"]
+      },
+      "challenge": {
+        "skill_type": "language",
+        "description": "Организовать соседей для давления на управляющую компанию",
+        "outcomes": {
+          "success": {
+            "condition": ">3",
+            "description": "Соседи объединились, лифт починили",
+            "effects": {
+              "nerves": 3,
+              "social_bonus": true,
+              "housing_bonus": true
+            }
+          },
+          "partial": {
+            "condition": "2-4",
+            "description": "Обещали починить 'на следующей неделе'",
+            "effects": {
+              "nerves": -1,
+              "money": 0
+            }
+          },
+          "failure": {
+            "condition": "1",
+            "description": "Никто не понял, что вы хотите",
+            "effects": {
+              "nerves": -3,
+              "health_penalty": true
+            }
+          }
+        }
+      },
+      "flavor_text": "Ascensor roto = ejercicio forzado"
     }
   ],
   "card_stats": {
     "positive": 16,
     "negative": 35,
-    "dice_challenges": 7,
+    "dice_challenges": 14,
     "cross_system": 16,
     "realistic_problems": 6,
     "balance_nerf": 8,
     "balance_boost": 1,
-    "total": 46
+    "total": 59
   }
 }

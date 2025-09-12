@@ -10,7 +10,7 @@
       "effects": {
         "nerves": 2,
         "money": 0,
-        "documents_cards": 2
+        "documents_cards": 3
       },
       "flavor_text": "Enchufismo español in action"
     },
@@ -24,7 +24,7 @@
       "effects": {
         "nerves": 0,
         "money": 0,
-        "documents_cards": 2
+        "documents_cards": 3
       },
       "flavor_text": "Milagro tecnológico español"
     },
@@ -41,7 +41,7 @@
       "effects": {
         "instant_document_upgrade": true,
         "nerves": 2,
-        "documents_cards": 1
+        "documents_cards": 2
       },
       "flavor_text": "Efficiency? In Spain? ¡Imposible!"
     },
@@ -55,7 +55,7 @@
       "effects": {
         "nerves": 1,
         "money": 0,
-        "documents_cards": 2
+        "documents_cards": 3
       },
       "flavor_text": "Funcionario nice = rare species"
     },
@@ -86,7 +86,7 @@
       "effects": {
         "nerves": 0,
         "money": 1,
-        "documents_cards": 2
+        "documents_cards": 3
       },
       "flavor_text": "Pequeños milagros españoles"
     },
@@ -100,7 +100,7 @@
       "effects": {
         "nerves": 1,
         "money": 0,
-        "documents_cards": 2
+        "documents_cards": 3
       },
       "flavor_text": "IT español breakthrough"
     },
@@ -114,7 +114,7 @@
       "effects": {
         "nerves": 0,
         "money": 2,
-        "documents_cards": 2
+        "documents_cards": 3
       },
       "flavor_text": "Traductor económico = unicornio"
     },
@@ -133,7 +133,7 @@
             "description": "Документы приняли с первого раза",
             "effects": {
               "nerves": 1,
-              "documents_cards": 2
+              "documents_cards": 3
             }
           },
           "partial": {
@@ -141,7 +141,7 @@
             "description": "Пришлось переделывать, но получилось",
             "effects": {
               "nerves": 0,
-              "documents_cards": 2
+              "documents_cards": 3
             }
           },
           "failure": {
@@ -220,7 +220,7 @@
         "nerves": 1,
         "money": 0,
         "skill_improvement": true,
-        "documents_cards": 1
+        "documents_cards": 2
       },
       "flavor_text": "Empresa invierte en empleados"
     },
@@ -449,7 +449,7 @@
       "effects": {
         "nerves": 0,
         "money": 1,
-        "documents_cards": 2
+        "documents_cards": 3
       },
       "flavor_text": "Ayuda mutua laboral"
     },
@@ -526,7 +526,7 @@
       "effects": {
         "nerves": 0,
         "money": 0,
-        "documents_cards": 2
+        "documents_cards": 3
       },
       "flavor_text": "Mercadillo = everything available"
     },
@@ -555,7 +555,7 @@
       "effects": {
         "nerves": 2,
         "money": 0,
-        "documents_cards": 2
+        "documents_cards": 3
       },
       "flavor_text": "One-stop bureaucracy shop"
     },
@@ -619,7 +619,7 @@
       "effects": {
         "nerves": 3,
         "money": 0,
-        "documents_cards": 2
+        "documents_cards": 3
       },
       "flavor_text": "Burocracia española miracle"
     },
@@ -632,7 +632,7 @@
       "effects": {
         "nerves": 2,
         "money": 4,
-        "documents_cards": 2
+        "documents_cards": 3
       },
       "flavor_text": "¡Nepotismo imaginario funciona!",
       "cross_system_interaction": "work + money + documents"
@@ -847,7 +847,7 @@
       "effects": {
         "money": 4,
         "nerves": 2,
-        "documents_cards": 2
+        "documents_cards": 3
       },
       "flavor_text": "¡Carnet de estudiante = discount power!",
       "cross_system_interaction": "character + education + economy"
@@ -960,7 +960,7 @@
       "effects": {
         "money": 10,
         "nerves": 3,
-        "documents_cards": 2
+        "documents_cards": 3
       },
       "individual_modifiers": {
         "waiter": {
@@ -1041,7 +1041,7 @@
       "effects": {
         "money": 6,
         "nerves": 2,
-        "documents_cards": 2
+        "documents_cards": 3
       },
       "individual_modifiers": {
         "student": {

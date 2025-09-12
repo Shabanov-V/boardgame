@@ -17,7 +17,7 @@
       "starting_language": 2,
       "starting_housing": "room",
       "starting_document_cards": 3,
-      "salary": 12,
+      "salary": 6,
       "housing_cost": 3,
       "description": "Высокий доход, но уязвим к стрессу и дорогой образ жизни"
     },
@@ -29,7 +29,7 @@
       "starting_language": 2,
       "starting_housing": "room",
       "starting_document_cards": 3,
-      "salary": 5,
+      "salary": 3,
       "housing_cost": 1,
       "description": "Мало денег, хороший язык, низкий доход"
     },
@@ -40,7 +40,7 @@
       "starting_nerves": 8,
       "starting_language": 1,
       "starting_housing": "room",
-      "salary": 6,
+      "salary": 4,
       "housing_cost": 2,
       "description": "Физически крепкий, средний доход, плохой язык"
     },
@@ -51,7 +51,7 @@
       "starting_nerves": 6,
       "starting_language": 3,
       "starting_housing": "apartment",
-      "salary": 6,
+      "salary": 4,
       "housing_cost": 0,
       "description": "Лучшее жилье, отличный язык, но ограниченные ресурсы"
     },
@@ -63,7 +63,7 @@
       "starting_language": 1,
       "starting_housing": "room",
       "salary_type": "dice",
-      "salary_base": 4,
+      "salary_base": 3,
       "housing_cost": 1,
       "description": "Непредсказуемый доход, творческий, но нестабильный"
     },
@@ -74,7 +74,7 @@
       "starting_nerves": 7,
       "starting_language": 2,
       "starting_housing": "room",
-      "salary": 6,
+      "salary": 4,
       "housing_cost": 2,
       "description": "Работа в сфере услуг, постоянный контакт с людьми, чаевые"
     },
@@ -85,7 +85,7 @@
       "starting_nerves": 6,
       "starting_language": 1,
       "starting_housing": "apartment",
-      "salary": 4,
+      "salary": 3,
       "housing_cost": 1,
       "description": "Много времени, мало денег, стресс от бюрократии"
     },
@@ -97,7 +97,7 @@
       "starting_language": 2,
       "starting_housing": "apartment",
       "salary_type": "dice",
-      "salary_base": 5,
+      "salary_base": 3,
       "housing_cost": 5,
       "description": "Высокие риски, высокие доходы, постоянный стресс"
     }
@@ -113,49 +113,49 @@
   },
   "win_conditions": {
     "buy_housing": {
-      "description": "Купить жильё: квартира + язык 2 + 30 денег + нервы 12",
+      "description": "Купить жильё: квартира + язык 2 + 15 денег + нервы 5",
       "requires": {
         "housing_type": "apartment",
         "document_level": 5,
         "language_level": 2,
-        "money": 70,
-        "nerves": 12
+        "money": 25,
+        "nerves": 5
       }
     },
     "get_citizenship": {
-      "description": "Получить гражданство: Nacionalidad Española + язык 3 + 5 денег + нервы 8",
+      "description": "Получить гражданство: документы + язык 3 + 10 денег + нервы 5",
       "requires": {
         "document_level": 7,
         "language_level": 3,
-        "money": 1,
-        "nerves": 2
+        "money": 15,
+        "nerves": 5
       }
     },
     "vacation": {
-      "description": "Накопить 100 денег и уехать в отпуск с хорошими нервами + язык 2",
+      "description": "Накопить 30 денег и уехать в отпуск с хорошими нервами + язык 2",
       "requires": {
         "document_level": 5,
         "language_level": 2,
-        "money": 100,
-        "nerves": 18
+        "money": 30,
+        "nerves": 8
       }
     },
     "open_business": {
-      "description": "Открыть бизнес: Digital Certificate + язык 2 + 40 денег + нервы 12",
+      "description": "Открыть бизнес: документы + язык 3 + 25 денег + нервы 8",
       "requires": {
         "document_level": 6,
-        "language_level": 2,
-        "money": 60,
-        "nerves": 12
+        "language_level": 3,
+        "money": 25,
+        "nerves": 8
       }
     },
     "family_reunion": {
-      "description": "Воссоединение семьи: Residencia + квартира + 25 денег + нервы 10",
+      "description": "Воссоединение семьи: документы + квартира + 20 денег + нервы 6",
       "requires": {
         "document_level": 5,
         "housing_type": "apartment",
-        "money": 75,
-        "nerves": 10
+        "money": 20,
+        "nerves": 6
       }
     }
   },

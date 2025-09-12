@@ -25,8 +25,8 @@
         "character_id": ["freelance_artist", "it_specialist", "entrepreneur"]
       },
       "effects": {
-        "nerves": -2,
-        "money": -3
+        "nerves": -1,
+        "money": -6
       },
       "flavor_text": "Hacienda siempre gana"
     },
@@ -38,7 +38,7 @@
       "description": "Фиеста в честь местного святого покровителя",
       "effects": {
         "nerves": 1,
-        "money": -1
+        "money": -5
       },
       "global_effects": {
         "next_red_card_skip": true
@@ -66,7 +66,7 @@
       "description": "Аномальная жара парализует страну",
       "effects": {
         "nerves": -1,
-        "money": -1
+        "money": -5
       },
       "conditions": {
         "housing_type": "room"
@@ -97,7 +97,7 @@
       "description": "Вся страна смотрит Евровидение и празднует",
       "effects": {
         "nerves": 2,
-        "money": -1
+        "money": -5
       },
       "flavor_text": "¡Eurovision! Fiesta nacional"
     },
@@ -132,7 +132,7 @@
             "description": "Проблемы с документами, штраф",
             "effects": {
               "nerves": -2,
-              "money": -3
+              "money": -5
             }
           }
         }
@@ -185,7 +185,7 @@
       "description": "Рождественские праздники в испанском стиле",
       "effects": {
         "nerves": 2,
-        "money": -2
+        "money": -6
       },
       "global_effects": {
         "family_bonus": true
@@ -204,7 +204,7 @@
       "description": "Ваш любимый супермаркет внезапно закрылся",
       "effects": {
         "nerves": -2,
-        "money": -1
+        "money": -5
       },
       "flavor_text": "¿Dónde comprar now?"
     },
@@ -231,7 +231,7 @@
       "description": "Испанская почта в своем репертуаре",
       "effects": {
         "nerves": -1,
-        "money": -1
+        "money": -5
       },
       "flavor_text": "Correos español strikes again"
     },
@@ -281,7 +281,7 @@
       "description": "Финал чемпионата Испании, вся страна прикована к экранам",
       "effects": {
         "nerves": 1,
-        "money": -1
+        "money": -5
       },
       "global_effects": {
         "work_productivity_down": true
@@ -299,7 +299,7 @@
       },
       "effects": {
         "nerves": -1,
-        "money": -2
+        "money": -6
       },
       "flavor_text": "Calefacción muy cara"
     },
@@ -346,7 +346,7 @@
             "description": "Отличное свидание, планируете встречу",
             "effects": {
               "nerves": 2,
-              "money": -2
+              "money": -6
             }
           },
           "partial": {
@@ -354,7 +354,7 @@
             "description": "Нормальное свидание, может быть продолжение",
             "effects": {
               "nerves": 1,
-              "money": -1
+              "money": -5
             }
           },
           "failure": {
@@ -362,7 +362,7 @@
             "description": "Полный провал, языковой барьер",
             "effects": {
               "nerves": -1,
-              "money": -1
+              "money": -5
             }
           }
         }
@@ -393,7 +393,7 @@
       "description": "Знаменитая апрельская ярмарка в Севилье",
       "effects": {
         "nerves": 2,
-        "money": -3
+        "money": -5
       },
       "special_effect": "draw_action_card",
       "flavor_text": "¡Feria! Casetas y sevillanas"
@@ -409,7 +409,7 @@
       },
       "effects": {
         "nerves": 2,
-        "money": -3
+        "money": -5
       },
       "special_effect": "free_document_card",
       "flavor_text": "Dinero solved problems"
@@ -475,7 +475,7 @@
       "description": "Грандиозный тур по тапас-барам",
       "effects": {
         "nerves": 2,
-        "money": -3
+        "money": -5
       },
       "conditions": {
         "language_level": ">=2"
@@ -734,7 +734,7 @@
       "description": "Адвокат помог правильно оформить все документы",
       "effects": {
         "document_level": 1,
-        "money": -3,
+        "money": -5,
         "nerves": 4
       },
       "flavor_text": "¡Profesional expertise!"
@@ -765,7 +765,7 @@
         "documents_cards": 1
       },
       "individual_modifiers": {
-        "it_specialist": {"money": 25, "nerves": 3},
+        "it_specialist": {"money": 25, "nerves": 5},
         "entrepreneur": {"money": 20, "nerves": 2}
       },
       "flavor_text": "¡Tech revolution benefits!"
@@ -784,7 +784,7 @@
       },
       "individual_modifiers": {
         "entrepreneur": {"money": 25, "nerves": 3},
-        "it_specialist": {"money": 20, "nerves": 2}
+        "it_specialist": {"money": 20, "nerves": 4}
       },
       "flavor_text": "¡Startup ecosystem boom!"
     },
@@ -797,7 +797,7 @@
       "target_groups": ["student", "waiter", "courier"],
       "effects": {
         "nerves": -2,
-        "money": -3
+        "money": -5
       },
       "individual_modifiers": {
         "student": {"nerves": -4, "money": -5}
@@ -809,17 +809,17 @@
       "name": "Обновление иммиграционного законодательства",
       "category": "bureaucracy",
       "type": "global_negative",
-      "description": "Новые требования к документам - все игроки с уровнем документов ≤5 теряют 1 уровень",
+      "description": "Новые требования к документам - игроки с уровнем документов = 5 теряют 1 уровень",
       "conditions": {},
       "effects": {},
       "special_effects": {
         "document_level_penalty": {
-          "condition": "document_level <= 5",
+          "condition": "document_level == 5",
           "effect": "document_level -= 1"
         }
       },
-      "flavor_text": "¡Nueva ley de extranjería! Документы нужно переоформлять",
-      "cross_system_interaction": "law_change + bureaucracy + document_reset"
+      "flavor_text": "¡Nueva ley de extranjería! Только 5-й уровень нужно переоформлять",
+      "cross_system_interaction": "law_change + bureaucracy + selective_reset"
     },
     {
       "id": "doc_level_06",
@@ -854,7 +854,7 @@
       "description": "Апелляция одобрена - документ получен мгновенно +1 уровень",
       "effects": {
         "document_level": 1,
-        "money": -1,
+        "money": -5,
         "nerves": 3
       },
       "flavor_text": "¡La justicia española funciona!"
@@ -867,7 +867,7 @@
       "description": "Заплатил за срочность - документ готов сразу +1 уровень",
       "effects": {
         "document_level": 1,
-        "money": -3,
+        "money": -5,
         "nerves": 1
       },
       "flavor_text": "¡Dinero = velocidad burocrática!"
@@ -898,7 +898,7 @@
         "documents_cards": 2
       },
       "individual_modifiers": {
-        "pensioner": {"money": 8, "nerves": 4, "documents_cards": 4}
+        "pensioner": {"money": 15, "nerves": 8, "documents_cards": 6}
       },
       "flavor_text": "¡Programa especial para jubilados!"
     },
@@ -914,9 +914,208 @@
         "nerves": 1
       },
       "individual_modifiers": {
-        "pensioner": {"money": 6, "nerves": 3, "document_level": 1}
+        "pensioner": {"money": 12, "nerves": 6, "document_level": 2}
       },
       "flavor_text": "¡Descuentos especiales para la tercera edad!"
+    },
+    {
+      "id": "electronics_store_opening_01",
+      "name": "Открылся новый магазин электроники",
+      "category": "consumer",
+      "type": "targeted_negative",
+      "description": "Новый магазин с крутыми гаджетами - IT-шники тратят больше всех",
+      "conditions": {
+        "character_id": ["it_specialist"]
+      },
+      "effects": {
+        "money": -15,
+        "nerves": 2
+      },
+      "additional_effects": {
+        "other_profiles": {
+          "character_id": ["freelance_artist", "entrepreneur", "student"],
+          "money": -8,
+          "nerves": 1
+        },
+        "all_others": {
+          "money": -3,
+          "nerves": 0
+        }
+      },
+      "flavor_text": "¡Nueva tienda de electrónicos! iPhone 15 Pro Max, MacBook M3...",
+      "cross_system_interaction": "consumer_spending + tech_obsession"
+    },
+    {
+      "id": "tech_burnout_01",
+      "name": "Выгорание от технологий",
+      "category": "health",
+      "type": "targeted_negative",
+      "description": "IT-шники страдают от переработки и стресса",
+      "conditions": {
+        "character_id": ["it_specialist"]
+      },
+      "effects": {
+        "nerves": -4,
+        "money": -8,
+        "language_level": -1
+      },
+      "flavor_text": "Burnout digital - 12 часов в день за компьютером",
+      "cross_system_interaction": "mental_health + work_stress"
+    },
+    {
+      "id": "crypto_crash_01",
+      "name": "Крах криптовалют",
+      "category": "financial",
+      "type": "targeted_negative",
+      "description": "IT-шники потеряли деньги на криптовалютах",
+      "conditions": {
+        "character_id": ["it_specialist", "entrepreneur"]
+      },
+      "effects": {
+        "money": -20,
+        "nerves": -3
+      },
+      "flavor_text": "Bitcoin bajó 50% - HODL не помог",
+      "cross_system_interaction": "investment_loss + tech_bubble"
+    },
+    {
+      "id": "art_grant_01",
+      "name": "Грант для художников",
+      "category": "cultural",
+      "type": "targeted_positive",
+      "description": "Государственная поддержка творческих работников",
+      "conditions": {
+        "character_id": ["freelance_artist"]
+      },
+      "effects": {
+        "money": 25,
+        "nerves": 4,
+        "documents_cards": 5
+      },
+      "flavor_text": "¡Subvención para artistas! El arte es vida",
+      "cross_system_interaction": "cultural_support + creative_funding"
+    },
+    {
+      "id": "delivery_boom_01",
+      "name": "Бум доставки",
+      "category": "economic",
+      "type": "targeted_positive",
+      "description": "Курьеры получают больше заказов и бонусов",
+      "conditions": {
+        "character_id": ["courier"]
+      },
+      "effects": {
+        "money": 18,
+        "nerves": 3,
+        "documents_cards": 4
+      },
+      "flavor_text": "¡Más pedidos! Glovo, Uber Eats, Just Eat",
+      "cross_system_interaction": "gig_economy + delivery_demand"
+    },
+    {
+      "id": "pension_increase_01",
+      "name": "Повышение пенсии",
+      "category": "social",
+      "type": "targeted_positive",
+      "description": "Пенсионеры получают дополнительную поддержку",
+      "conditions": {
+        "character_id": ["pensioner"]
+      },
+      "effects": {
+        "money": 20,
+        "nerves": 5,
+        "documents_cards": 6
+      },
+      "flavor_text": "¡Aumento de pensión! La tercera edad importa",
+      "cross_system_interaction": "social_welfare + elderly_support"
+    },
+    {
+      "id": "creative_community_01",
+      "name": "Творческое сообщество",
+      "category": "social",
+      "type": "targeted_positive",
+      "description": "Художники находят поддержку в творческом сообществе",
+      "conditions": {
+        "character_id": ["freelance_artist", "student"]
+      },
+      "effects": {
+        "money": 12,
+        "nerves": 4,
+        "documents_cards": 3,
+        "language_level": 1
+      },
+      "flavor_text": "¡Comunidad artística! Networking creativo",
+      "cross_system_interaction": "community_support + creative_networking"
+    },
+    {
+      "id": "student_discounts_01",
+      "name": "Студенческие скидки",
+      "category": "social",
+      "type": "targeted_positive",
+      "description": "Студенты получают скидки на все услуги и товары",
+      "conditions": {
+        "character_id": ["student"]
+      },
+      "effects": {
+        "money": 8,
+        "nerves": 3,
+        "documents_cards": 4,
+        "language_level": 1
+      },
+      "flavor_text": "¡Descuentos estudiantiles! Carnet joven",
+      "cross_system_interaction": "student_benefits + youth_discounts"
+    },
+    {
+      "id": "pensioner_medical_01",
+      "name": "Медицинские льготы пенсионерам",
+      "category": "social",
+      "type": "targeted_positive",
+      "description": "Пенсионеры получают бесплатное медицинское обслуживание",
+      "conditions": {
+        "character_id": ["pensioner"]
+      },
+      "effects": {
+        "money": 10,
+        "nerves": 4,
+        "documents_cards": 3,
+        "health_immunity": true
+      },
+      "flavor_text": "¡Sanidad pública para jubilados!",
+      "cross_system_interaction": "elderly_healthcare + social_welfare"
+    },
+    {
+      "id": "student_transport_01",
+      "name": "Бесплатный транспорт для студентов",
+      "category": "social",
+      "type": "targeted_positive",
+      "description": "Студенты ездят на общественном транспорте бесплатно",
+      "conditions": {
+        "character_id": ["student"]
+      },
+      "effects": {
+        "money": 6,
+        "nerves": 2,
+        "mobility_bonus": true
+      },
+      "flavor_text": "¡Transporte gratuito! Abono joven",
+      "cross_system_interaction": "student_transport + mobility_benefits"
+    },
+    {
+      "id": "pensioner_tax_01",
+      "name": "Налоговые льготы пенсионерам",
+      "category": "social",
+      "type": "targeted_positive",
+      "description": "Пенсионеры платят меньше налогов",
+      "conditions": {
+        "character_id": ["pensioner"]
+      },
+      "effects": {
+        "money": 12,
+        "nerves": 3,
+        "tax_immunity": true
+      },
+      "flavor_text": "¡Menos impuestos para jubilados!",
+      "cross_system_interaction": "elderly_tax_benefits + financial_relief"
     }
   ],
   "card_stats": {
@@ -926,9 +1125,13 @@
     "negative": 5,
     "dice_challenges": 6,
     "seasonal": 4,
-    "cultural": 8,
-    "social": 3,
+    "cultural": 9,
+    "social": 6,
     "bureaucracy": 25,
-    "total": 57
+    "consumer": 1,
+    "health": 1,
+    "financial": 1,
+    "economic": 1,
+    "total": 62
   }
 }

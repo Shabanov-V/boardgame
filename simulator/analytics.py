@@ -49,7 +49,14 @@ class GameAnalytics:
             'language_upgrades': {'basic_to_b1': 0, 'b1_to_c1': 0},
             'money_transactions': {'gains': [], 'losses': []},
             'nerve_changes': {'gains': [], 'losses': []},
-            'interactions': {'interferences': 0, 'defenses': 0, 'blocks': 0}
+            'interactions': {'interferences': 0, 'defenses': 0, 'blocks': 0},
+            'effect_thefts': {
+                'total_thefts': 0,
+                'thefts_by_effect': defaultdict(int),
+                'thefts_by_stealer': defaultdict(int),
+                'thefts_by_target': defaultdict(int),
+                'steal_cards_used': defaultdict(int)
+            }
         }
         
         # Game flow tracking
@@ -228,8 +235,21 @@ class GameAnalytics:
         
         for req_type, req_value in goal_requirements.items():
             current_value = current_progress.get(req_type, 0)
-            if current_value >= req_value:
-                met_requirements += 1
+            # Handle string types like housing_type
+            if req_type == 'housing_type':
+                # For housing_type, compare as strings or convert to levels
+                if str(current_value) == str(req_value):
+                    met_requirements += 1
+            else:
+                # For numeric values, ensure both are numbers
+                try:
+                    req_value = float(req_value)
+                    current_value = float(current_value)
+                    if current_value >= req_value:
+                        met_requirements += 1
+                except (ValueError, TypeError):
+                    # If conversion fails, assume requirement not met
+                    pass
         
         progress_percentage = (met_requirements / total_requirements) * 100 if total_requirements > 0 else 0
         
@@ -333,6 +353,15 @@ class GameAnalytics:
             insights['interactions_per_turn'] = total_interactions / self.total_turns
         
         return insights
+    
+    def track_effect_theft(self, stealing_player: Any, target_player: Any, effect_stolen: str, steal_card: Dict):
+        """Track when a player steals a permanent effect from another player."""
+        theft_stats = self.mechanics_stats['effect_thefts']
+        theft_stats['total_thefts'] += 1
+        theft_stats['thefts_by_effect'][effect_stolen] += 1
+        theft_stats['thefts_by_stealer'][stealing_player.profile] += 1
+        theft_stats['thefts_by_target'][target_player.profile] += 1
+        theft_stats['steal_cards_used'][steal_card['name']] += 1
 
 
 class MultiGameAnalytics:

@@ -1,0 +1,513 @@
+{
+  "completed_games": 2,
+  "timestamp": 1757693784,
+  "summary": {
+    "summary": {
+      "total_games": 2,
+      "average_duration": 0.0027315616607666016,
+      "average_turns": 71.0,
+      "win_distribution": {
+        "Пенсионер": 1,
+        "Курьер": 1
+      },
+      "end_reason_distribution": {
+        "win": 2
+      }
+    },
+    "card_usage_summary": {
+      "total_cards_played": 181,
+      "cards_by_type": {
+        "personal_items": 28,
+        "health_cards": 12,
+        "housing_cards": 16,
+        "green_cards": 115,
+        "white_cards": 10
+      },
+      "most_used_cards_overall": [
+        {
+          "card_type": "green_cards",
+          "card_id": "balance_young_energy",
+          "usage_count": 3,
+          "games_appeared": 1
+        },
+        {
+          "card_type": "personal_items",
+          "card_id": "item_25",
+          "usage_count": 2,
+          "games_appeared": 2
+        },
+        {
+          "card_type": "personal_items",
+          "card_id": "item_53",
+          "usage_count": 2,
+          "games_appeared": 2
+        },
+        {
+          "card_type": "personal_items",
+          "card_id": "item_58",
+          "usage_count": 2,
+          "games_appeared": 2
+        },
+        {
+          "card_type": "personal_items",
+          "card_id": "item_67",
+          "usage_count": 2,
+          "games_appeared": 2
+        },
+        {
+          "card_type": "health_cards",
+          "card_id": "health_29",
+          "usage_count": 2,
+          "games_appeared": 2
+        },
+        {
+          "card_type": "housing_cards",
+          "card_id": "housing_upgrade_01",
+          "usage_count": 2,
+          "games_appeared": 2
+        },
+        {
+          "card_type": "housing_cards",
+          "card_id": "housing_34",
+          "usage_count": 2,
+          "games_appeared": 2
+        },
+        {
+          "card_type": "green_cards",
+          "card_id": "nerf_pensioner_01",
+          "usage_count": 2,
+          "games_appeared": 2
+        },
+        {
+          "card_type": "green_cards",
+          "card_id": "mixed_01",
+          "usage_count": 2,
+          "games_appeared": 2
+        },
+        {
+          "card_type": "green_cards",
+          "card_id": "documents_14",
+          "usage_count": 2,
+          "games_appeared": 2
+        },
+        {
+          "card_type": "green_cards",
+          "card_id": "cultural_01",
+          "usage_count": 2,
+          "games_appeared": 2
+        },
+        {
+          "card_type": "green_cards",
+          "card_id": "work_05",
+          "usage_count": 2,
+          "games_appeared": 2
+        },
+        {
+          "card_type": "green_cards",
+          "card_id": "documents_15",
+          "usage_count": 2,
+          "games_appeared": 2
+        },
+        {
+          "card_type": "green_cards",
+          "card_id": "boost_courier_special_01",
+          "usage_count": 2,
+          "games_appeared": 2
+        },
+        {
+          "card_type": "green_cards",
+          "card_id": "mixed_05",
+          "usage_count": 2,
+          "games_appeared": 2
+        },
+        {
+          "card_type": "green_cards",
+          "card_id": "documents_07",
+          "usage_count": 2,
+          "games_appeared": 2
+        },
+        {
+          "card_type": "green_cards",
+          "card_id": "mixed_06",
+          "usage_count": 2,
+          "games_appeared": 2
+        },
+        {
+          "card_type": "green_cards",
+          "card_id": "work_13",
+          "usage_count": 2,
+          "games_appeared": 2
+        },
+        {
+          "card_type": "green_cards",
+          "card_id": "mixed_09",
+          "usage_count": 2,
+          "games_appeared": 2
+        }
+      ],
+      "unused_cards": {
+        "personal_items": [],
+        "health_cards": [],
+        "housing_cards": [],
+        "green_cards": [],
+        "white_cards": []
+      }
+    },
+    "mechanics_summary": {
+      "document_exchanges": {
+        "attempts": 0,
+        "successes": 0,
+        "failures": 0
+      },
+      "language_challenges": {
+        "attempts": 0,
+        "successes": 0,
+        "failures": 0
+      },
+      "dice_challenges": {
+        "total": 0,
+        "health": 0,
+        "housing": 0,
+        "successes": 0
+      },
+      "housing_upgrades": {
+        "room_to_apartment": 0,
+        "apartment_to_mortgage": 0
+      },
+      "language_upgrades": {
+        "basic_to_b1": 0,
+        "b1_to_c1": 0
+      },
+      "money_transactions": {
+        "gains": [
+          3,
+          5,
+          5,
+          10,
+          3,
+          4,
+          4,
+          6,
+          3,
+          5,
+          5,
+          10,
+          3,
+          4,
+          4,
+          8,
+          3,
+          5,
+          5,
+          5,
+          3,
+          4,
+          4,
+          7,
+          3,
+          5,
+          5,
+          9,
+          3,
+          4,
+          4,
+          7,
+          3,
+          5,
+          5,
+          8,
+          3,
+          4,
+          4,
+          7,
+          3,
+          5,
+          5,
+          9,
+          3,
+          4,
+          4,
+          6,
+          3,
+          5,
+          5,
+          6,
+          3,
+          4,
+          4,
+          9,
+          3,
+          5,
+          5,
+          8,
+          3,
+          4,
+          4,
+          6,
+          3,
+          5,
+          5,
+          7,
+          3,
+          4,
+          4,
+          7,
+          4,
+          6,
+          3,
+          3,
+          5,
+          4,
+          5,
+          6,
+          4,
+          6,
+          3,
+          3,
+          5,
+          4,
+          5,
+          8,
+          4,
+          5,
+          3,
+          3,
+          5,
+          4,
+          5,
+          5,
+          4,
+          7,
+          3,
+          3,
+          5,
+          4,
+          5,
+          7,
+          4,
+          9,
+          3,
+          3,
+          5,
+          4,
+          5,
+          5,
+          4,
+          7,
+          3,
+          3,
+          5,
+          4,
+          5,
+          8,
+          4,
+          4,
+          3,
+          3,
+          5,
+          4,
+          5,
+          5,
+          4,
+          7,
+          3,
+          3,
+          5,
+          4,
+          5,
+          10
+        ],
+        "losses": [
+          1,
+          3,
+          2,
+          1,
+          1,
+          1,
+          2,
+          3,
+          1,
+          3,
+          2,
+          1,
+          1,
+          5,
+          2,
+          3,
+          1,
+          3,
+          2,
+          1,
+          1,
+          5,
+          2,
+          3,
+          1,
+          3,
+          2,
+          1,
+          1,
+          5,
+          2,
+          3,
+          1,
+          3,
+          2,
+          1,
+          1,
+          5,
+          2,
+          3,
+          1,
+          3,
+          2,
+          1,
+          1,
+          5,
+          2,
+          3,
+          1,
+          3,
+          2,
+          1,
+          1,
+          5,
+          2,
+          3,
+          1,
+          3,
+          2,
+          1,
+          1,
+          5,
+          2,
+          3,
+          1,
+          3,
+          2,
+          1,
+          1,
+          5,
+          2,
+          3,
+          2,
+          3,
+          1,
+          1,
+          2,
+          1,
+          3,
+          1,
+          2,
+          3,
+          1,
+          1,
+          2,
+          1,
+          3,
+          1,
+          2,
+          3,
+          1,
+          1,
+          2,
+          1,
+          3,
+          1,
+          2,
+          3,
+          1,
+          1,
+          2,
+          1,
+          3,
+          1,
+          2,
+          5,
+          1,
+          1,
+          2,
+          1,
+          3,
+          1,
+          2,
+          5,
+          1,
+          1,
+          2,
+          1,
+          3,
+          1,
+          2,
+          5,
+          1,
+          1,
+          2,
+          1,
+          3,
+          1,
+          2,
+          5,
+          1,
+          1,
+          2,
+          1,
+          3,
+          1
+        ]
+      },
+      "nerve_changes": {
+        "gains": [],
+        "losses": []
+      },
+      "interactions": {
+        "interferences": 0,
+        "defenses": 0,
+        "blocks": 0
+      },
+      "effect_thefts": {
+        "total_thefts": 0
+      }
+    },
+    "balance_analysis": {
+      "game_length_stats": {
+        "min_turns": 69,
+        "max_turns": 73,
+        "avg_turns": 71.0,
+        "median_turns": 73
+      },
+      "win_balance": {
+        "total_winners": 2,
+        "unique_winners": 2,
+        "win_distribution": {
+          "Пенсионер": 1,
+          "Курьер": 1
+        },
+        "most_successful_profile": [
+          "Пенсионер",
+          1
+        ]
+      },
+      "success_rates": {
+        "avg_document_success_rate": 0,
+        "avg_challenge_success_rate": 0
+      }
+    }
+  },
+  "recent_games": [
+    {
+      "game_id": 1,
+      "winner": "Пенсионер",
+      "end_reason": "win",
+      "turns": 73,
+      "duration": 0.0025048255920410156
+    },
+    {
+      "game_id": 2,
+      "winner": "Курьер",
+      "end_reason": "win",
+      "turns": 69,
+      "duration": 0.0038568973541259766
+    }
+  ]
+}

@@ -1,0 +1,328 @@
+{
+  "completed_games": 1,
+  "timestamp": 1757688835,
+  "summary": {
+    "summary": {
+      "total_games": 1,
+      "average_duration": 0.041140079498291016,
+      "average_turns": 51.0,
+      "win_distribution": {
+        "Студент": 1
+      },
+      "end_reason_distribution": {
+        "win": 1
+      }
+    },
+    "card_usage_summary": {
+      "total_cards_played": 66,
+      "cards_by_type": {
+        "personal_items": 15,
+        "health_cards": 5,
+        "housing_cards": 5,
+        "green_cards": 37,
+        "white_cards": 4
+      },
+      "most_used_cards_overall": [
+        {
+          "card_type": "personal_items",
+          "card_id": "item_43",
+          "usage_count": 1,
+          "games_appeared": 1
+        },
+        {
+          "card_type": "personal_items",
+          "card_id": "item_53",
+          "usage_count": 1,
+          "games_appeared": 1
+        },
+        {
+          "card_type": "personal_items",
+          "card_id": "item_35",
+          "usage_count": 1,
+          "games_appeared": 1
+        },
+        {
+          "card_type": "personal_items",
+          "card_id": "item_20",
+          "usage_count": 1,
+          "games_appeared": 1
+        },
+        {
+          "card_type": "personal_items",
+          "card_id": "item_15",
+          "usage_count": 1,
+          "games_appeared": 1
+        },
+        {
+          "card_type": "personal_items",
+          "card_id": "item_63",
+          "usage_count": 1,
+          "games_appeared": 1
+        },
+        {
+          "card_type": "personal_items",
+          "card_id": "item_13",
+          "usage_count": 1,
+          "games_appeared": 1
+        },
+        {
+          "card_type": "personal_items",
+          "card_id": "item_46",
+          "usage_count": 1,
+          "games_appeared": 1
+        },
+        {
+          "card_type": "personal_items",
+          "card_id": "item_25",
+          "usage_count": 1,
+          "games_appeared": 1
+        },
+        {
+          "card_type": "personal_items",
+          "card_id": "student_transport_01",
+          "usage_count": 1,
+          "games_appeared": 1
+        },
+        {
+          "card_type": "personal_items",
+          "card_id": "item_42",
+          "usage_count": 1,
+          "games_appeared": 1
+        },
+        {
+          "card_type": "personal_items",
+          "card_id": "item_56",
+          "usage_count": 1,
+          "games_appeared": 1
+        },
+        {
+          "card_type": "personal_items",
+          "card_id": "item_33",
+          "usage_count": 1,
+          "games_appeared": 1
+        },
+        {
+          "card_type": "personal_items",
+          "card_id": "item_30",
+          "usage_count": 1,
+          "games_appeared": 1
+        },
+        {
+          "card_type": "personal_items",
+          "card_id": "doc_level_07",
+          "usage_count": 1,
+          "games_appeared": 1
+        },
+        {
+          "card_type": "health_cards",
+          "card_id": "health_09",
+          "usage_count": 1,
+          "games_appeared": 1
+        },
+        {
+          "card_type": "health_cards",
+          "card_id": "health_04",
+          "usage_count": 1,
+          "games_appeared": 1
+        },
+        {
+          "card_type": "health_cards",
+          "card_id": "health_15",
+          "usage_count": 1,
+          "games_appeared": 1
+        },
+        {
+          "card_type": "health_cards",
+          "card_id": "health_01",
+          "usage_count": 1,
+          "games_appeared": 1
+        },
+        {
+          "card_type": "health_cards",
+          "card_id": "health_13",
+          "usage_count": 1,
+          "games_appeared": 1
+        }
+      ],
+      "unused_cards": {
+        "personal_items": [],
+        "health_cards": [],
+        "housing_cards": [],
+        "green_cards": [],
+        "white_cards": []
+      }
+    },
+    "mechanics_summary": {
+      "document_exchanges": {
+        "attempts": 0,
+        "successes": 0,
+        "failures": 0
+      },
+      "language_challenges": {
+        "attempts": 0,
+        "successes": 0,
+        "failures": 0
+      },
+      "dice_challenges": {
+        "total": 0,
+        "health": 0,
+        "housing": 0,
+        "successes": 0
+      },
+      "housing_upgrades": {
+        "room_to_apartment": 0,
+        "apartment_to_mortgage": 0
+      },
+      "language_upgrades": {
+        "basic_to_b1": 0,
+        "b1_to_c1": 0
+      },
+      "money_transactions": {
+        "gains": [
+          7,
+          4,
+          3,
+          4,
+          9,
+          3,
+          4,
+          6,
+          5,
+          4,
+          3,
+          4,
+          4,
+          3,
+          4,
+          6,
+          8,
+          4,
+          3,
+          4,
+          8,
+          3,
+          4,
+          6,
+          5,
+          4,
+          3,
+          4,
+          7,
+          3,
+          4,
+          6,
+          6,
+          4,
+          3,
+          4,
+          8,
+          3,
+          4,
+          6,
+          8,
+          4,
+          3,
+          4,
+          5,
+          3,
+          4,
+          6
+        ],
+        "losses": [
+          5,
+          2,
+          1,
+          0,
+          1,
+          1,
+          2,
+          3,
+          5,
+          2,
+          1,
+          0,
+          1,
+          1,
+          2,
+          3,
+          5,
+          2,
+          1,
+          0,
+          1,
+          1,
+          2,
+          3,
+          5,
+          2,
+          1,
+          0,
+          3,
+          1,
+          2,
+          3,
+          5,
+          2,
+          1,
+          0,
+          3,
+          1,
+          2,
+          3,
+          5,
+          2,
+          1,
+          0,
+          3,
+          1,
+          2,
+          3
+        ]
+      },
+      "nerve_changes": {
+        "gains": [],
+        "losses": []
+      },
+      "interactions": {
+        "interferences": 0,
+        "defenses": 0,
+        "blocks": 0
+      },
+      "effect_thefts": {
+        "total_thefts": 0
+      }
+    },
+    "balance_analysis": {
+      "game_length_stats": {
+        "min_turns": 51,
+        "max_turns": 51,
+        "avg_turns": 51.0,
+        "median_turns": 51
+      },
+      "win_balance": {
+        "total_winners": 1,
+        "unique_winners": 1,
+        "win_distribution": {
+          "Студент": 1
+        },
+        "most_successful_profile": [
+          "Студент",
+          1
+        ]
+      },
+      "success_rates": {
+        "avg_document_success_rate": 0,
+        "avg_challenge_success_rate": 0
+      }
+    }
+  },
+  "recent_games": [
+    {
+      "game_id": 3,
+      "winner": "Студент",
+      "end_reason": "win",
+      "turns": 51,
+      "duration": 0.04752182960510254
+    }
+  ]
+}

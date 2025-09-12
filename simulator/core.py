@@ -375,33 +375,60 @@ class AI:
 
 
     def decide_play_action_card(self, turn_context):
-        """Decides which action card to play from hand, if any, based on goal and current status."""
-        # Priority 1: Manage low nerves
+        """Decides which action card(s) to play from hand, if any, based on goal and current status."""
+        cards_to_play = []
+        
+        # Priority 1: Manage low nerves (can play multiple nerve cards)
         if self.player.nerves < self.nerve_threshold:
             for card in self.player.action_cards:
                 if card.get('effects', {}).get('nerves', 0) > 0 and self._can_play_now(card, turn_context):
+                    cards_to_play.append(card)
                     print(f"AI ({self.player.name}): Nerves are low ({self.player.nerves}), playing '{card['name']}' to restore them.")
-                    return card
+                    # If nerves are very low, play multiple cards
+                    if self.player.nerves < 2 and len(cards_to_play) < 2:
+                        continue
+                    else:
+                        break
 
         # Priority 2: Play cards that directly advance the win condition (if goal is chosen)
-        if self.player.win_condition:
+        if self.player.win_condition and not cards_to_play:
             for card in self.player.action_cards:
                 if self._can_play_now(card, turn_context) and self._card_helps_goal(card):
+                    cards_to_play.append(card)
                     print(f"AI ({self.player.name}): Playing '{card['name']}' to advance win condition '{self.player.win_condition['key']}'.")
-                    return card
-        else:
+                    break
+        elif not self.player.win_condition and not cards_to_play:
             # Без цели фокусируемся на документах для быстрого достижения уровня выбора цели
             for card in self.player.action_cards:
                 if self._can_play_now(card, turn_context) and card.get('effects', {}).get('documents_cards', 0) > 0:
+                    cards_to_play.append(card)
                     print(f"AI ({self.player.name}): Нет цели - накапливаю документы, играю '{card['name']}'.")
-                    return card
+                    break
 
-        return None
+        # Priority 3: Play utility cards that provide general benefits
+        if not cards_to_play:
+            for card in self.player.action_cards:
+                if self._can_play_now(card, turn_context) and self._is_utility_card(card):
+                    cards_to_play.append(card)
+                    print(f"AI ({self.player.name}): Playing utility card '{card['name']}'.")
+                    break
+
+        return cards_to_play if cards_to_play else None
 
     def _can_play_now(self, card, turn_context):
         """Checks if a card can be played in the current context."""
         when_to_play = card.get('when_to_play', 'anytime')
         return when_to_play == 'anytime' or when_to_play == turn_context
+    
+    def _is_utility_card(self, card):
+        """Checks if a card provides general utility benefits."""
+        effects = card.get('effects', {})
+        # Cards that provide general benefits like money, documents, or special abilities
+        return (effects.get('money', 0) > 0 or 
+                effects.get('documents_cards', 0) > 0 or
+                effects.get('steal_permanent_effect', False) or
+                any(key.endswith('_bonus') for key in effects.keys()) or
+                any(key.startswith('block_') for key in effects.keys()))
 
     def _card_helps_goal(self, card):
         """Checks if a card's effects align with the player's win condition."""
@@ -429,7 +456,7 @@ class AI:
             return 'draw_green'
 
         # If goal is money-based, prefer action cards which might give money or other advantages
-        if 'money' in self.goal_requirements and self.goal_requirements['money'] > self.player.money:
+        if 'money' in self.goal_requirements and int(self.goal_requirements['money']) > self.player.money:
             print(f"AI ({self.player.name}): Goal is financial, preferring to draw an action card.")
             return 'draw_action'
 
@@ -441,7 +468,7 @@ class AI:
     def _calculate_potential_levels(self):
         """Рассчитывает, сколько уровней документов можно получить с текущими картами."""
         cards_available = self.player.document_cards
-        current_level = self.player.document_level
+        current_level = int(self.player.document_level)
         levels_possible = 0
         
         while cards_available > 0:
@@ -462,7 +489,7 @@ class AI:
         if not self.player.win_condition:
             if card.get('category') == 'documents':
                 # Проверяем, можем ли получить хотя бы один уровень (линейная прогрессия)
-                required_docs_for_upgrade = min(self.player.document_level + 1, 6)
+                required_docs_for_upgrade = min(int(self.player.document_level) + 1, 6)
                 if self.player.document_cards >= required_docs_for_upgrade:
                     # Подсчитываем, сколько уровней можем получить
                     potential_levels = self._calculate_potential_levels()
@@ -480,7 +507,7 @@ class AI:
 
         # If the goal is document-related, prioritize exchanging cards to level up.
         if is_doc_goal and card.get('category') == 'documents':
-            required_docs_for_upgrade = min(self.player.document_level + 1, 6)
+            required_docs_for_upgrade = min(int(self.player.document_level) + 1, 6)
             if self.player.document_cards >= required_docs_for_upgrade:
                 potential_levels = self._calculate_potential_levels()
                 print(f"AI ({self.player.name}): Goal requires documents. Exchanging for {potential_levels} levels.")
@@ -767,19 +794,19 @@ class AI:
         total_factors = 0
         
         if 'money' in requires:
-            money_progress = player.money / requires['money']
+            money_progress = player.money / int(requires['money'])
             if money_progress >= 0.8:  # 80% of required money
                 close_factors += 1
             total_factors += 1
             
         if 'document_level' in requires:
-            doc_progress = player.document_level / requires['document_level']
+            doc_progress = int(player.document_level) / int(requires['document_level'])
             if doc_progress >= 0.8:  # 80% of required document level
                 close_factors += 1
             total_factors += 1
             
         if 'language_level' in requires:
-            lang_progress = player.language_level / requires['language_level']
+            lang_progress = player.language_level / int(requires['language_level'])
             if lang_progress >= 0.8:  # 80% of required language level
                 close_factors += 1
             total_factors += 1
@@ -805,11 +832,11 @@ class AI:
         total_factors = 0
         
         if 'money' in requires:
-            progress_factors += min(1.0, self.player.money / requires['money'])
+            progress_factors += min(1.0, self.player.money / int(requires['money']))
             total_factors += 1
             
         if 'document_level' in requires:
-            progress_factors += min(1.0, self.player.document_level / requires['document_level'])
+            progress_factors += min(1.0, int(self.player.document_level) / int(requires['document_level']))
             total_factors += 1
             
         return total_factors > 0 and (progress_factors / total_factors) >= 0.6
@@ -932,7 +959,7 @@ class Player:
         self.housing_cost = profile.get('housing_cost', 0)
 
         self.position = 0
-        self.document_level = 0
+        self._document_level = int(0)
         self.action_cards = []
         self.max_action_cards = game_constants['game_constants']['max_action_cards']
         self.document_cards = 1  # Number of collected document cards (balanced start)
@@ -943,6 +970,29 @@ class Player:
         self.is_eliminated = False
         self.eliminated_on_turn = None
         self.ai = AI(self, config)
+        
+        # Система временных бонусов и иммунитетов
+        self.temporary_bonuses = {
+            'social': 0, 'housing': 0, 'work': 0, 'language': 0,
+            'movement': 0, 'comfort': 0, 'health': 0, 'shopping': 0,
+            'communication': 0, 'confidence': 0, 'cultural': 0, 'durability': 0,
+            'eco': 0, 'emergency': 0, 'energy': 0, 'entertainment': 0,
+            'humor': 0, 'hygiene': 0, 'mobility': 0, 'reliability': 0,
+            'safety': 0, 'self_sufficiency': 0, 'storage': 0, 'style': 0,
+            'utility': 0, 'vacation': 0, 'sports': 0
+        }
+        self.immunities = set()  # {'health_penalty', 'heat_penalty', etc.}
+        self.special_abilities = set()  # {'documents_fast_track', 'language_dice_advantage', etc.}
+
+    @property
+    def document_level(self):
+        """Always return document_level as int"""
+        return int(self._document_level)
+    
+    @document_level.setter
+    def document_level(self, value):
+        """Always store document_level as int"""
+        self._document_level = int(value)
 
     def __repr__(self):
         goal_text = self.win_condition['key'] if self.win_condition else "Не выбрана"
@@ -957,6 +1007,42 @@ class Player:
             print(f"{self.name} received action card: {card['name']}.")
         else:
             print(f"{self.name}'s action card hand is full, cannot draw more.")
+    
+    def add_temporary_bonus(self, bonus_type, amount):
+        """Добавляет временный бонус к игроку."""
+        if bonus_type in self.temporary_bonuses:
+            self.temporary_bonuses[bonus_type] += amount
+            print(f"System: {self.name} gained {amount} {bonus_type} bonus (total: {self.temporary_bonuses[bonus_type]})")
+    
+    def add_immunity(self, immunity_type):
+        """Добавляет иммунитет к определенному типу штрафа."""
+        self.immunities.add(immunity_type)
+        print(f"System: {self.name} gained immunity to {immunity_type}")
+    
+    def add_special_ability(self, ability_type):
+        """Добавляет специальную способность."""
+        self.special_abilities.add(ability_type)
+        print(f"System: {self.name} gained special ability: {ability_type}")
+    
+    def has_immunity(self, immunity_type):
+        """Проверяет, есть ли у игрока иммунитет к определенному типу штрафа."""
+        return immunity_type in self.immunities
+    
+    def has_special_ability(self, ability_type):
+        """Проверяет, есть ли у игрока специальная способность."""
+        return ability_type in self.special_abilities
+    
+    def get_bonus(self, bonus_type):
+        """Возвращает текущий бонус определенного типа."""
+        return self.temporary_bonuses.get(bonus_type, 0)
+    
+    def clear_temporary_effects(self):
+        """Очищает все временные эффекты в конце хода."""
+        for bonus_type in self.temporary_bonuses:
+            if self.temporary_bonuses[bonus_type] > 0:
+                print(f"System: {self.name} lost {self.temporary_bonuses[bonus_type]} {bonus_type} bonus")
+                self.temporary_bonuses[bonus_type] = 0
+        # Иммунитеты и специальные способности остаются до конца игры
 
 
 class Game:
@@ -985,7 +1071,11 @@ class Game:
         
         # Добавляем колоду предметов
         if 'personal_items' in self.game_data:
-            self.decks['item'] = Deck(self.game_data['personal_items']['personal_items'])
+            all_items = self.game_data['personal_items']['personal_items'].copy()
+            # Добавляем карты для кражи эффектов
+            if 'steal_effect_cards' in self.game_data['personal_items']:
+                all_items.extend(self.game_data['personal_items']['steal_effect_cards'])
+            self.decks['item'] = Deck(all_items)
 
     def setup_players(self):
         self.players = []
@@ -1077,22 +1167,27 @@ class Game:
         # Analytics: Track turn start
         self.analytics.track_turn_start(player, self.turn)
 
-        # 1. AI decides to play a pre-turn action card
-        card_to_play = player.ai.decide_play_action_card('start_of_turn')
-        if card_to_play:
-            # INTERVENTION POINT: Pre-turn action
-            event = InteractiveEvent(
-                action_type="pre_turn_action",
-                acting_player=player,
-                effects=card_to_play.get('effects', {}),
-                description=f"{player.name} plays '{card_to_play['name']}' before turn"
-            )
-            event = self.interaction_manager.announce_event(event)
+        # 1. AI decides to play pre-turn action card(s)
+        cards_to_play = player.ai.decide_play_action_card('start_of_turn')
+        if cards_to_play:
+            # Handle multiple cards
+            if not isinstance(cards_to_play, list):
+                cards_to_play = [cards_to_play]
             
-            if not event.is_blocked:
-                self.apply_card_effect(player, card_to_play, 'event')
-            player.action_cards.remove(card_to_play)
-            self.decks['action'].discard(card_to_play)
+            for card_to_play in cards_to_play:
+                # INTERVENTION POINT: Pre-turn action
+                event = InteractiveEvent(
+                    action_type="pre_turn_action",
+                    acting_player=player,
+                    effects=card_to_play.get('effects', {}),
+                    description=f"{player.name} plays '{card_to_play['name']}' before turn"
+                )
+                event = self.interaction_manager.announce_event(event)
+                
+                if not event.is_blocked:
+                    self.apply_card_effect(player, card_to_play, 'event')
+                player.action_cards.remove(card_to_play)
+                self.decks['action'].discard(card_to_play)
 
         # 2. Roll dice and move
         roll = random.randint(1, 6)
@@ -1221,9 +1316,10 @@ class Game:
             goal_requirements = player.win_condition['requires']
             current_progress = {
                 'money': player.money,
-                'document_level': player.document_level,
+                'document_level': int(player.document_level),
                 'language_level': player.language_level,
                 'housing_level': getattr(player, 'housing_level', 1),
+                'housing_type': getattr(player, 'housing', 'room'),
                 'nerves': player.nerves
             }
             self.analytics.track_goal_progress(player, goal_requirements, current_progress)
@@ -1267,8 +1363,15 @@ class Game:
         for req_type, req_value in requirements.items():
             if req_type == 'money' and player.money >= req_value * 0.8:
                 close_factors += 1
-            elif req_type == 'document_level' and player.document_level >= req_value - 1:
-                close_factors += 1
+            elif req_type == 'document_level':
+                try:
+                    req_value = int(req_value)  # Ensure req_value is int
+                    if player.document_level >= req_value - 1:
+                        close_factors += 1
+                except (ValueError, TypeError) as e:
+                    print(f"❌ ERROR in check_goal_progress: {e}")
+                    print(f"   player.document_level = {player.document_level} (type: {type(player.document_level)})")
+                    print(f"   req_value = {req_value} (type: {type(req_value)})")
             elif req_type == 'housing_level' and player.housing_level >= req_value:
                 close_factors += 1
             elif req_type == 'language_level' and player.language_level >= req_value:
@@ -1309,17 +1412,21 @@ class Game:
     
     def check_goal_selection(self, player):
         """Check if player needs to select a goal when reaching document level 5."""
-        if not player.goal_chosen and int(player.document_level) >= 5:  # Выбор цели после достижения 5-го уровня документов
-            # Выбираем случайную цель
-            win_conditions = list(self.config['win_conditions'].items())
-            win_key, win_data = random.choice(win_conditions)
-            player.win_condition = {"key": win_key, **win_data}
-            player.goal_chosen = True
-            
-            # Обновляем AI с новой целью
-            player.ai.goal_requirements = player.win_condition.get('requires', {})
-            
-            print(f"🎯 {player.name} достиг 5-го уровня документов и выбрал цель: {win_key}!")
+        try:
+            if not player.goal_chosen and player.document_level >= 5:  # Выбор цели после достижения 5-го уровня документов
+                # Выбираем случайную цель
+                win_conditions = list(self.config['win_conditions'].items())
+                win_key, win_data = random.choice(win_conditions)
+                player.win_condition = {"key": win_key, **win_data}
+                player.goal_chosen = True
+                
+                # Обновляем AI с новой целью
+                player.ai.goal_requirements = player.win_condition.get('requires', {})
+                
+                print(f"🎯 {player.name} достиг 5-го уровня документов и выбрал цель: {win_key}!")
+        except (ValueError, TypeError) as e:
+            print(f"❌ ERROR in check_goal_selection: {e}")
+            print(f"   player.document_level = {player.document_level} (type: {type(player.document_level)})")
     
     def handle_trade_phase(self, current_player):
         """Handle the trading phase for the current player."""
@@ -1408,7 +1515,7 @@ class Game:
             print(f"System: {player.name} attempts document exchange with roll: {roll}")
             
             if roll >= 2:  # Success (simplified from 3+ to 2+)
-                player.document_level += 1
+                player.document_level = player.document_level + 1
                 player.document_cards -= 2
                 player.money -= 1  # Cost 1 money per exchange
                 print(f"System: {player.name} successfully exchanged documents! New level: {player.document_level} (cost: 1 money)")
@@ -1456,6 +1563,17 @@ class Game:
         else:
             # 6. Apply direct effects for event
             effects = chosen_effect or card.get('effects', {})
+        
+        # 7. Apply profile_modifiers if this is an item card
+        if 'profile_modifiers' in card and player.profile in card['profile_modifiers']:
+            profile_modifiers = card['profile_modifiers'][player.profile]
+            print(f"System: Applying profile modifiers for {player.profile}: {profile_modifiers}")
+            # Override effects with profile-specific modifiers
+            for key, value in profile_modifiers.items():
+                if key in effects:
+                    effects[key] = value
+                else:
+                    effects[key] = value
             
         if not effects:
             return
@@ -1525,7 +1643,7 @@ class Game:
                 doc_event = self.interaction_manager.announce_event(doc_event)
                 
                 if not doc_event.is_blocked:
-                    player.document_level += 1
+                    player.document_level = player.document_level + 1
             elif key == 'language_level_up':
                 if player.language_level < 3:
                     player.language_level += 1
@@ -1546,6 +1664,56 @@ class Game:
                     print(f"System: {player.name} lost language level! {old_level} → {player.language_level}")
                 else:
                     print(f"System: {player.name} gained language level! {old_level} → {player.language_level}")
+            
+            # === НОВЫЕ ЭФФЕКТЫ: БОНУСЫ ===
+            elif key in ['social_bonus', 'housing_bonus', 'work_bonus', 'language_bonus', 
+                        'movement_bonus', 'comfort_bonus', 'health_bonus', 'shopping_bonus',
+                        'communication_bonus', 'confidence_bonus', 'cultural_bonus', 'durability_bonus',
+                        'eco_bonus', 'emergency_bonus', 'energy_bonus', 'entertainment_bonus',
+                        'humor_bonus', 'hygiene_bonus', 'mobility_bonus', 'reliability_bonus',
+                        'safety_bonus', 'self_sufficiency_bonus', 'storage_bonus', 'style_bonus',
+                        'utility_bonus', 'vacation_bonus', 'sports_bonus']:
+                bonus_type = key.replace('_bonus', '')
+                player.add_temporary_bonus(bonus_type, value)
+            
+            # === НОВЫЕ ЭФФЕКТЫ: ИММУНИТЕТЫ ===
+            elif key in ['block_health_penalty', 'block_heat_penalty', 'block_cold_penalty',
+                        'block_rain_penalty', 'block_sun_penalty', 'block_weather_penalty',
+                        'block_air_penalty', 'block_glare_penalty', 'block_hangover_penalty',
+                        'block_illness_penalty', 'block_roommate_penalty', 'block_shortage_penalty',
+                        'block_spoilage_penalty']:
+                if value:  # Only if True
+                    immunity_type = key.replace('block_', '')
+                    player.add_immunity(immunity_type)
+            
+            # === НОВЫЕ ЭФФЕКТЫ: СПЕЦИАЛЬНЫЕ СПОСОБНОСТИ ===
+            elif key in ['documents_fast_track', 'language_dice_advantage', 'reroll_language_dice',
+                        'skip_document_queue', 'language_upgrade_discount', 'permanent_language_bonus',
+                        'stress_immunity', 'immunity_next_housing']:
+                if value:  # Only if True
+                    player.add_special_ability(key)
+            
+            # === НОВЫЕ ЭФФЕКТЫ: ДОПОЛНИТЕЛЬНЫЕ КАРТЫ ===
+            elif key == 'draw_card':
+                for _ in range(value):
+                    drawn_card = self.decks['action'].draw()
+                    if drawn_card:
+                        player.add_action_card(drawn_card)
+            
+            # === НОВЫЕ ЭФФЕКТЫ: ВОЗДЕЙСТВИЕ НА ДРУГИХ ИГРОКОВ ===
+            elif key == 'target_money':
+                # Этот эффект применяется к цели, а не к игроку
+                pass  # Обрабатывается в InteractiveEvent
+            
+            # === НОВЫЕ ЭФФЕКТЫ: БЛОКИРОВКА ДЕЙСТВИЙ ===
+            elif key == 'block_action':
+                # Этот эффект применяется в InteractiveEvent
+                pass
+            
+            # === НОВЫЕ ЭФФЕКТЫ: КРАЖА ПОСТОЯННЫХ ЭФФЕКТОВ ===
+            elif key == 'steal_permanent_effect':
+                if value:  # Only if True
+                    self.handle_steal_permanent_effect(player, card)
 
         # Also handle special_effect outside the main effects block
         if 'special_effect' in card:
@@ -1593,7 +1761,7 @@ class Game:
                     return False
             elif key == 'documents_level':
                 try:
-                    if not eval(f"{player.document_level} {value}"):
+                    if not eval(f"{int(player.document_level)} {value}"):
                         return False
                 except:
                     return False  # a bit unsafe, but for this context is ok
@@ -1645,12 +1813,16 @@ class Game:
                 affected_players = []
                 for player in self.players:
                     # Check condition: document_level == 5
-                    if "document_level == 5" in condition and player.document_level == 5:
-                        # Apply effect: document_level -= 1
-                        if "document_level -= 1" in effect:
-                            old_level = player.document_level
-                            player.document_level = max(0, player.document_level - 1)
-                            affected_players.append(f"{player.name} ({old_level}→{player.document_level})")
+                    try:
+                        if "document_level == 5" in condition and player.document_level == 5:
+                            # Apply effect: document_level -= 1
+                            if "document_level -= 1" in effect:
+                                old_level = player.document_level
+                                player.document_level = max(0, player.document_level - 1)
+                                affected_players.append(f"{player.name} ({old_level}→{player.document_level})")
+                    except (ValueError, TypeError) as e:
+                        print(f"❌ ERROR in handle_special_effects: {e}")
+                        print(f"   player.document_level = {player.document_level} (type: {type(player.document_level)})")
                 
                 if affected_players:
                     print(f"System: Immigration law update! Document levels reduced: {', '.join(affected_players)}")
@@ -1670,13 +1842,34 @@ class Game:
         met_all_conditions = True
         for key, required_value in goal.items():
             player_value = getattr(player, key, None)
+            # Special handling for document_level to ensure it's always int
+            if key == 'document_level':
+                player_value = int(player_value)
             if key == 'housing_type':
                 if player.housing != required_value:
                     met_all_conditions = False
                     break
-            elif player_value is None or player_value < required_value:
+            elif player_value is None:
                 met_all_conditions = False
                 break
+            else:
+                # Ensure both values are the same type for comparison
+                try:
+                    if isinstance(required_value, (int, float)):
+                        player_value = float(player_value)
+                    elif isinstance(required_value, str):
+                        player_value = str(player_value)
+                    
+                    if player_value < required_value:
+                        met_all_conditions = False
+                        break
+                except (ValueError, TypeError) as e:
+                    # If conversion fails, assume condition not met
+                    print(f"❌ ERROR in check_win_condition: {e}")
+                    print(f"   key = {key}, player_value = {player_value} (type: {type(player_value)})")
+                    print(f"   required_value = {required_value} (type: {type(required_value)})")
+                    met_all_conditions = False
+                    break
 
         if met_all_conditions:
             self.game_over = True
@@ -1774,6 +1967,9 @@ class Game:
         for key, required_value in goal.items():
             requirements += 1
             player_value = getattr(player, key, 0)
+            # Ensure document_level is always int
+            if key == 'document_level':
+                player_value = int(player_value)
             
             if key == 'housing_type':
                 # Special handling for housing type
@@ -1782,10 +1978,19 @@ class Game:
                 required_level = housing_levels.get(required_value, 1)
                 progress += min(1.0, player_level / required_level)
             else:
-                if required_value > 0:
-                    progress += min(1.0, player_value / required_value)
-                else:
-                    progress += 1.0 if player_value >= required_value else 0.0
+                # Ensure both values are numeric for comparison
+                try:
+                    required_value = float(required_value)
+                    player_value = float(player_value)
+                    if required_value > 0:
+                        progress += min(1.0, player_value / required_value)
+                    else:
+                        progress += 1.0 if player_value >= required_value else 0.0
+                except (ValueError, TypeError) as e:
+                    # If conversion fails, assume no progress
+                    print(f"❌ CONVERSION ERROR in _calculate_win_progress: {e}")
+                    print(f"   key={key}, player_value={player_value} (type: {type(player_value)}), required_value={required_value} (type: {type(required_value)})")
+                    progress += 0.0
         
         return progress / requirements if requirements > 0 else 0.0
     
@@ -1819,5 +2024,35 @@ class Game:
             self.analytics.track_resource_change(player, 'money', -housing_cost, 'housing_cost')
             
             print(f"End of round: {player.name} +{salary} salary -{housing_cost} rent = {player.money - old_money} net")
+
+    def handle_steal_permanent_effect(self, stealing_player, steal_card):
+        """Handle stealing permanent effects from other players."""
+        stealable_effects = steal_card.get('stealable_effects', [])
+        
+        # Find players with stealable effects
+        targets = []
+        for player in self.players:
+            if player != stealing_player and not player.is_eliminated:
+                for effect in stealable_effects:
+                    if player.has_special_ability(effect):
+                        targets.append((player, effect))
+        
+        if not targets:
+            print(f"System: {steal_card['name']} - no players with stealable effects found")
+            return
+        
+        # Choose a random target and effect
+        target_player, effect_to_steal = random.choice(targets)
+        
+        # Remove effect from target
+        target_player.special_abilities.discard(effect_to_steal)
+        
+        # Add effect to stealing player
+        stealing_player.add_special_ability(effect_to_steal)
+        
+        print(f"System: {stealing_player.name} stole '{effect_to_steal}' from {target_player.name} using {steal_card['name']}!")
+        
+        # Analytics: Track effect theft
+        self.analytics.track_effect_theft(stealing_player, target_player, effect_to_steal, steal_card)
 
 

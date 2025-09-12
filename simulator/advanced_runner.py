@@ -20,10 +20,21 @@ class AdvancedGameRunner:
     def __init__(self, config_path: str = None):
         """Initialize the runner with configuration"""
         if config_path is None:
-            config_path = os.path.join(os.path.dirname(__file__), 'config.json')
-        
-        with open(config_path, 'r', encoding='utf-8') as f:
-            self.config = json.load(f)
+            # Load both game config and character config
+            game_config_path = os.path.join(os.path.dirname(__file__), 'game_config.json')
+            char_config_path = os.path.join(os.path.dirname(__file__), 'character_config.json')
+            
+            with open(game_config_path, 'r', encoding='utf-8') as f:
+                game_config = json.load(f)
+            with open(char_config_path, 'r', encoding='utf-8') as f:
+                char_config = json.load(f)
+            
+            # Merge configs
+            self.config = game_config.copy()
+            self.config.update(char_config)
+        else:
+            with open(config_path, 'r', encoding='utf-8') as f:
+                self.config = json.load(f)
         
         # Load all game data
         self.game_data = self._load_all_game_data()

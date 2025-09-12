@@ -54,6 +54,11 @@
         "nerves": 2,
         "money": 1
       },
+      "profile_modifiers": {
+        "student": {"nerves": 3, "money": 2},
+        "pensioner": {"nerves": 1, "money": 0},
+        "spanish_spouse": {"nerves": 1, "money": 1}
+      },
       "when_to_play": "anytime",
       "flavor_text": "Mama siempre ayuda"
     },
@@ -122,6 +127,11 @@
       "effects": {
         "nerves": 2,
         "work_bonus_next": true
+      },
+      "profile_modifiers": {
+        "waiter": {"nerves": 3, "money": 1},
+        "entrepreneur": {"nerves": 2, "money": 2},
+        "it_specialist": {"nerves": 1, "money": 0}
       },
       "when_to_play": "anytime",
       "flavor_text": "Compañerismo español"
@@ -262,6 +272,11 @@
         "language_upgrade_discount": true,
         "permanent_language_bonus": true
       },
+      "profile_modifiers": {
+        "student": {"money": 0, "nerves": 1},
+        "pensioner": {"money": 1, "nerves": 3},
+        "it_specialist": {"money": 1, "nerves": 1}
+      },
       "when_to_play": "anytime",
       "flavor_text": "Educación española formal"
     },
@@ -277,6 +292,11 @@
       "effects": {
         "block_health_penalty": true,
         "health_insurance_bonus": true
+      },
+      "profile_modifiers": {
+        "pensioner": {"money": 0},
+        "student": {"money": 1},
+        "it_specialist": {"money": 1}
       },
       "when_to_play": "when_health_problem",
       "flavor_text": "Farmacia española eficaz"
@@ -1204,5 +1224,93 @@
       "defensive_effects": 15,
       "card_draw": 4
     }
+  },
+  "steal_effect_cards": [
+    {
+      "id": "steal_effect_01",
+      "name": "Копировальная машина",
+      "category": "utility",
+      "type": "steal_effect",
+      "description": "Копирует постоянный эффект другого игрока",
+      "cost": {
+        "money": 3
+      },
+      "effects": {
+        "steal_permanent_effect": true
+      },
+      "when_to_play": "anytime",
+      "flavor_text": "¡Fotocopiadora mágica!",
+      "stealable_effects": ["documents_fast_track", "language_dice_advantage", "reroll_language_dice", "skip_document_queue", "language_upgrade_discount", "permanent_language_bonus", "stress_immunity", "immunity_next_housing"]
+    },
+    {
+      "id": "steal_effect_02", 
+      "name": "Шпионские очки",
+      "category": "utility",
+      "type": "steal_effect",
+      "description": "Подглядывает и крадет способности",
+      "cost": {
+        "money": 4
+      },
+      "effects": {
+        "steal_permanent_effect": true
+      },
+      "when_to_play": "anytime",
+      "flavor_text": "¡Gafas de espía!",
+      "stealable_effects": ["documents_fast_track", "language_dice_advantage", "reroll_language_dice", "skip_document_queue", "language_upgrade_discount", "permanent_language_bonus", "stress_immunity", "immunity_next_housing"]
+    },
+    {
+      "id": "steal_effect_03",
+      "name": "Зеркало навыков",
+      "category": "utility", 
+      "type": "steal_effect",
+      "description": "Отражает и перенимает способности",
+      "cost": {
+        "money": 5
+      },
+      "effects": {
+        "steal_permanent_effect": true
+      },
+      "when_to_play": "anytime",
+      "flavor_text": "¡Espejo de habilidades!",
+      "stealable_effects": ["documents_fast_track", "language_dice_advantage", "reroll_language_dice", "skip_document_queue", "language_upgrade_discount", "permanent_language_bonus", "stress_immunity", "immunity_next_housing"]
+    },
+    {
+      "id": "steal_effect_04",
+      "name": "Паразит знаний",
+      "category": "utility",
+      "type": "steal_effect", 
+      "description": "Паразитирует на чужих способностях",
+      "cost": {
+        "money": 2,
+        "nerves": 1
+      },
+      "effects": {
+        "steal_permanent_effect": true
+      },
+      "when_to_play": "anytime",
+      "flavor_text": "¡Parásito del conocimiento!",
+      "stealable_effects": ["documents_fast_track", "language_dice_advantage", "reroll_language_dice", "skip_document_queue", "language_upgrade_discount", "permanent_language_bonus", "stress_immunity", "immunity_next_housing"]
+    },
+    {
+      "id": "steal_effect_05",
+      "name": "Кража интеллекта",
+      "category": "utility",
+      "type": "steal_effect",
+      "description": "Крадет интеллектуальные способности",
+      "cost": {
+        "money": 6
+      },
+      "effects": {
+        "steal_permanent_effect": true
+      },
+      "when_to_play": "anytime", 
+      "flavor_text": "¡Robo de inteligencia!",
+      "stealable_effects": ["documents_fast_track", "language_dice_advantage", "reroll_language_dice", "skip_document_queue", "language_upgrade_discount", "permanent_language_bonus", "stress_immunity", "immunity_next_housing"]
+    }
+  ],
+  "steal_effect_stats": {
+    "total_steal_cards": 5,
+    "stealable_effects": 8,
+    "average_cost": 4.0
   }
 }

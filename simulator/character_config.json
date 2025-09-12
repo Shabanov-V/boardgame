@@ -1,0 +1,96 @@
+{
+  "character_profiles": [
+    {
+      "id": "it_specialist",
+      "name": "IT-шник",
+      "starting_money": 20,
+      "starting_nerves": 4,
+      "starting_language": 2,
+      "starting_housing": "room",
+      "starting_document_cards": 3,
+      "salary": 5,
+      "housing_cost": 3,
+      "description": "Высокий доход, но уязвим к стрессу и дорогой образ жизни"
+    },
+    {
+      "id": "student",
+      "name": "Студент",
+      "starting_money": 4,
+      "starting_nerves": 7,
+      "starting_language": 2,
+      "starting_housing": "room",
+      "starting_document_cards": 3,
+      "salary": 3,
+      "housing_cost": 1,
+      "description": "Мало денег, хороший язык, низкий доход"
+    },
+    {
+      "id": "courier",
+      "name": "Курьер",
+      "starting_money": 8,
+      "starting_nerves": 8,
+      "starting_language": 1,
+      "starting_housing": "room",
+      "salary": 5,
+      "housing_cost": 2,
+      "description": "Физически крепкий, средний доход, плохой язык"
+    },
+    {
+      "id": "spanish_spouse",
+      "name": "Жена/муж испанца",
+      "starting_money": 10,
+      "starting_nerves": 6,
+      "starting_language": 3,
+      "starting_housing": "apartment",
+      "salary": 4,
+      "housing_cost": 1,
+      "description": "Лучшее жилье, отличный язык, но ограниченные ресурсы"
+    },
+    {
+      "id": "freelance_artist",
+      "name": "Художник-фрилансер",
+      "starting_money": 3,
+      "starting_nerves": 8,
+      "starting_language": 1,
+      "starting_housing": "room",
+      "salary_type": "dice",
+      "salary_base": 4,
+      "housing_cost": 1,
+      "description": "Непредсказуемый доход, творческий, но нестабильный"
+    },
+    {
+      "id": "waiter",
+      "name": "Официант",
+      "starting_money": 8,
+      "starting_nerves": 7,
+      "starting_language": 2,
+      "starting_housing": "room",
+      "salary": 4,
+      "housing_cost": 2,
+      "description": "Работа в сфере услуг, постоянный контакт с людьми, чаевые"
+    },
+    {
+      "id": "pensioner",
+      "name": "Пенсионер",
+      "starting_money": 20,
+      "starting_nerves": 6,
+      "starting_language": 1,
+      "starting_housing": "apartment",
+      "salary": 3,
+      "housing_cost": 1,
+      "description": "Много времени, мало денег, стресс от бюрократии"
+    },
+    {
+      "id": "entrepreneur",
+      "name": "Предприниматель",
+      "starting_money": 15,
+      "starting_nerves": 4,
+      "starting_language": 2,
+      "starting_housing": "apartment",
+      "salary_type": "dice",
+      "salary_base": 3,
+      "housing_cost": 3,
+      "description": "Высокие риски, высокие доходы, постоянный стресс"
+    }
+  ]
+}

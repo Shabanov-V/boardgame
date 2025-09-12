@@ -42,7 +42,8 @@
             "description": "Убедили хозяина оставить старую цену",
             "effects": {
               "nerves": 1,
-              "money": 0
+              "money": 0,
+              "personal_items": 1
             }
           },
           "partial": {
@@ -141,8 +142,8 @@
             "description": "Сосед все оплатил сам, еще и компенсировал",
             "effects": {
               "choice": [
-                {"nerves": 1, "money": 0},
-                {"nerves": 0, "money": 1}
+                {"nerves": 1, "money": 0, "personal_items": 1},
+                {"nerves": 0, "money": 1, "personal_items": 1}
               ]
             }
           },
@@ -262,7 +263,8 @@
             "description": "Сосед извинился и предложил бесплатные уроки",
             "effects": {
               "nerves": 1,
-              "money": 1
+              "money": 1,
+              "personal_items": 2
             }
           },
           "partial": {
@@ -1069,7 +1071,8 @@
             "effects": {
               "nerves": 3,
               "social_bonus": true,
-              "money": 1
+              "money": 1,
+              "personal_items": 2
             }
           },
           "partial": {

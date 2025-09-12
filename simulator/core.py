@@ -372,11 +372,93 @@ class AI:
         self.goal_requirements = self.player.win_condition.get('requires', {}) if self.player.win_condition else {}
         self.lie_probability = 0.3  # 30% chance to lie in trades
         self.trust_levels = {}  # Track trust towards other players
+        self.grudges = {}  # Track grudges against players who hurt us
 
+
+    def decide_use_personal_item(self, turn_context):
+        """Решает, какой одноразовый предмет использовать."""
+        if not self.player.personal_items_hand:
+            return None
+            
+        # Приоритет 1: Критически низкие нервы
+        if self.player.nerves <= 2:
+            for item in self.player.personal_items_hand:
+                if (self._item_helps_nerves(item) and 
+                    self.player.can_use_personal_item(item) and
+                    self._can_use_item_now(item, turn_context)):
+                    print(f"AI ({self.player.name}): Критически низкие нервы, использую '{item['name']}'")
+                    return item
+        
+        # Приоритет 2: Продвижение к цели
+        if self.player.win_condition:
+            for item in self.player.personal_items_hand:
+                if (self._item_helps_goal(item) and 
+                    self.player.can_use_personal_item(item) and
+                    self._can_use_item_now(item, turn_context)):
+                    print(f"AI ({self.player.name}): Предмет поможет цели, использую '{item['name']}'")
+                    return item
+        
+        # Приоритет 3: Защитные предметы при низких ресурсах
+        if self.player.money <= 3 or self.player.nerves <= 4:
+            for item in self.player.personal_items_hand:
+                if (self._is_defensive_item(item) and 
+                    self.player.can_use_personal_item(item) and
+                    self._can_use_item_now(item, turn_context)):
+                    print(f"AI ({self.player.name}): Низкие ресурсы, использую защитный предмет '{item['name']}'")
+                    return item
+        
+        return None
+    
+    def decide_use_aggressive_item(self, turn_context, other_players):
+        """Решает, использовать ли агрессивный предмет против соперника."""
+        if not self.player.personal_items_hand or not other_players:
+            return None
+            
+        # Приоритет 1: Месть тем, кто обижал нас
+        if hasattr(self, 'grudges') and self.grudges:
+            for enemy_id, grudge_level in self.grudges.items():
+                if grudge_level >= 2:  # Серьезная обида
+                    target = next((p for p in other_players if p.id == enemy_id), None)
+                    if target:
+                        for item in self.player.personal_items_hand:
+                            if (self._is_aggressive_item(item) and 
+                                self.player.can_use_personal_item(item) and
+                                self._should_target_enemy(item, target)):
+                                print(f"AI ({self.player.name}): МЕСТЬ! Использую '{item['name']}' против {target.name} (обида: {grudge_level})")
+                                return ('aggressive_item', item, target)
+        
+        # Приоритет 2: Атака лидера, если мы отстаем
+        leader = max(other_players, key=lambda p: self._estimate_player_progress(p))
+        if (self._estimate_player_progress(leader) > self._estimate_player_progress(self.player) + 3):
+            for item in self.player.personal_items_hand:
+                if (self._is_aggressive_item(item) and 
+                    self.player.can_use_personal_item(item) and
+                    self._should_target_leader(item, leader)):
+                    print(f"AI ({self.player.name}): Атакую лидера {leader.name} предметом '{item['name']}'")
+                    return ('aggressive_item', item, leader)
+        
+        # Приоритет 3: Превентивная атака на близкого к победе
+        for player in other_players:
+            if self._is_close_to_winning_estimate(player):
+                for item in self.player.personal_items_hand:
+                    if (self._is_aggressive_item(item) and 
+                        self.player.can_use_personal_item(item)):
+                        print(f"AI ({self.player.name}): Превентивная атака! {player.name} близок к победе, использую '{item['name']}'")
+                        return ('aggressive_item', item, player)
+        
+        return None
 
     def decide_play_action_card(self, turn_context):
         """Decides which action card(s) to play from hand, if any, based on goal and current status."""
         cards_to_play = []
+        
+        # Сначала проверяем одноразовые предметы
+        personal_item = self.decide_use_personal_item(turn_context)
+        if personal_item:
+            return ('personal_item', personal_item)
+        
+        # Проверяем агрессивные предметы против соперников
+        # (Пока не реализуем в начале хода, только как реакции)
         
         # Priority 1: Manage low nerves (can play multiple nerve cards)
         if self.player.nerves < self.nerve_threshold:
@@ -414,6 +496,151 @@ class AI:
                     break
 
         return cards_to_play if cards_to_play else None
+    
+    def _item_helps_nerves(self, item):
+        """Проверяет, помогает ли предмет с нервами."""
+        effects = item.get('effects', {})
+        profile_effects = item.get('profile_modifiers', {}).get(self.player.id, {})
+        return (effects.get('nerves', 0) > 0 or 
+                profile_effects.get('nerves', 0) > 0)
+    
+    def _item_helps_goal(self, item):
+        """Проверяет, помогает ли предмет достижению цели."""
+        if not self.player.win_condition:
+            return False
+            
+        effects = item.get('effects', {})
+        profile_effects = item.get('profile_modifiers', {}).get(self.player.id, {})
+        
+        requirements = self.goal_requirements
+        
+        # Проверяем каждое требование цели
+        for req, target_value in requirements.items():
+            current_value = getattr(self.player, req, 0)
+            if isinstance(current_value, str):
+                continue
+                
+            if current_value < target_value:
+                # Нужно улучшить этот параметр
+                item_bonus = effects.get(req, 0) + profile_effects.get(req, 0)
+                if item_bonus > 0:
+                    return True
+        
+        return False
+    
+    def _is_defensive_item(self, item):
+        """Проверяет, является ли предмет защитным."""
+        effects = item.get('effects', {})
+        special_effects = item.get('special_effects', [])
+        
+        # Защитные эффекты
+        defensive_keywords = ['immunity', 'protection', 'shield', 'block', 'prevent']
+        for keyword in defensive_keywords:
+            if keyword in str(special_effects).lower():
+                return True
+        
+        # Предметы, которые дают стабильность
+        return (effects.get('nerves', 0) >= 2 or 
+                effects.get('money', 0) >= 3)
+    
+    def _can_use_item_now(self, item, turn_context):
+        """Проверяет, можно ли использовать предмет сейчас."""
+        when_to_play = item.get('when_to_play', 'anytime')
+        return when_to_play == 'anytime' or when_to_play == turn_context
+    
+    def _is_aggressive_item(self, item):
+        """Проверяет, является ли предмет агрессивным."""
+        item_type = item.get('type', '')
+        target_type = item.get('target', '')
+        special_effects = item.get('special_effects', [])
+        
+        # Агрессивные типы
+        if item_type in ['attack', 'sabotage', 'interference']:
+            return True
+            
+        # Предметы с целью на других игроков
+        if target_type in ['other_player', 'enemy', 'target_player']:
+            return True
+            
+        # Специальные агрессивные эффекты
+        aggressive_effects = ['challenge_target', 'reduce_resources', 'block_action', 'steal_effect']
+        return any(effect in special_effects for effect in aggressive_effects)
+    
+    def _should_target_enemy(self, item, target):
+        """Определяет, стоит ли использовать предмет против конкретного врага."""
+        # Проверяем, подходит ли цель под условия предмета
+        target_conditions = item.get('target_conditions', {})
+        
+        if 'min_money' in target_conditions and target.money < target_conditions['min_money']:
+            return False
+        if 'max_nerves' in target_conditions and target.nerves > target_conditions['max_nerves']:
+            return False
+        if 'required_resources' in target_conditions:
+            for resource, min_value in target_conditions['required_resources'].items():
+                if getattr(target, resource, 0) < min_value:
+                    return False
+        
+        return True
+    
+    def _should_target_leader(self, item, leader):
+        """Определяет, стоит ли атаковать лидера этим предметом."""
+        # Лидеров стоит атаковать предметами, которые замедляют прогресс
+        effects = item.get('target_effects', {})
+        special_effects = item.get('special_effects', [])
+        
+        # Предметы, которые хороши против лидеров
+        anti_leader_effects = ['reduce_money', 'reduce_documents', 'force_challenge', 'block_progress']
+        return (any(effect in effects for effect in ['money', 'documents_cards', 'nerves']) or
+                any(effect in special_effects for effect in anti_leader_effects))
+    
+    def _estimate_player_progress(self, player):
+        """Оценивает прогресс игрока к победе."""
+        if not player.win_condition:
+            # Без цели оцениваем общий прогресс
+            return player.money + player.nerves + player.document_level * 3
+        
+        requirements = player.win_condition.get('requires', {})
+        progress = 0
+        
+        for req, target_value in requirements.items():
+            current_value = getattr(player, req, 0)
+            if isinstance(current_value, (int, float)):
+                progress += min(current_value / target_value, 1.0) * 10
+        
+        return progress
+    
+    def _is_close_to_winning_estimate(self, player):
+        """Оценивает, близок ли игрок к победе."""
+        if not player.win_condition:
+            return False
+            
+        requirements = player.win_condition.get('requires', {})
+        progress_ratio = 0
+        total_requirements = len(requirements)
+        
+        for req, target_value in requirements.items():
+            current_value = getattr(player, req, 0)
+            if isinstance(current_value, (int, float)):
+                progress_ratio += min(current_value / target_value, 1.0)
+        
+        # Близок к победе если выполнено 75%+ требований
+        return (progress_ratio / total_requirements) >= 0.75
+    
+    def add_grudge(self, enemy_player_id, severity=1):
+        """Добавляет обиду на игрока."""
+        if enemy_player_id not in self.grudges:
+            self.grudges[enemy_player_id] = 0
+        self.grudges[enemy_player_id] += severity
+        
+        enemy_name = enemy_player_id  # Упрощаем пока без ссылки на игру
+        print(f"💢 {self.player.name} запомнил обиду на {enemy_name} (уровень: {self.grudges[enemy_player_id]})")
+    
+    def reduce_grudge(self, player_id, amount=1):
+        """Уменьшает обиду на игрока (например, после успешной мести)."""
+        if player_id in self.grudges:
+            self.grudges[player_id] = max(0, self.grudges[player_id] - amount)
+            if self.grudges[player_id] == 0:
+                del self.grudges[player_id]
 
     def _can_play_now(self, card, turn_context):
         """Checks if a card can be played in the current context."""
@@ -449,16 +676,22 @@ class AI:
         return False
 
     def decide_on_green_space(self):
-        """Decides whether to draw a green card or an action card."""
-        # If hand is full, must draw green
-        if len(self.player.action_cards) >= self.player.max_action_cards:
-            print(f"AI ({self.player.name}): Action card hand is full, must draw green card.")
+        """Decides whether to draw a green card or a personal item."""
+        # If personal items hand is full, must draw green
+        if len(self.player.personal_items_hand) >= self.player.max_personal_items_hand:
+            print(f"AI ({self.player.name}): Personal items hand is full, must draw green card.")
             return 'draw_green'
 
-        # If goal is money-based, prefer action cards which might give money or other advantages
+        # If personal items hand is empty, prefer to get one
+        if len(self.player.personal_items_hand) == 0:
+            print(f"AI ({self.player.name}): No personal items, getting one.")
+            return 'draw_personal_item'
+
+        # If goal is money-based and low on money, personal items might help
         if 'money' in self.goal_requirements and int(self.goal_requirements['money']) > self.player.money:
-            print(f"AI ({self.player.name}): Goal is financial, preferring to draw an action card.")
-            return 'draw_action'
+            if len(self.player.personal_items_hand) < 3:
+                print(f"AI ({self.player.name}): Goal is financial, getting personal item for help.")
+                return 'draw_personal_item'
 
         # Default to drawing a green card to advance game state
         print(f"AI ({self.player.name}): Decided to draw a green card to advance game state.")
@@ -962,6 +1195,8 @@ class Player:
         self._document_level = int(0)
         self.action_cards = []
         self.max_action_cards = game_constants['game_constants']['max_action_cards']
+        self.personal_items_hand = []  # Personal items in hand (max 5)
+        self.max_personal_items_hand = game_constants['game_constants']['max_personal_items_hand']
         self.document_cards = 1  # Number of collected document cards (balanced start)
         self.housing_search = False  # Whether player is actively searching for housing
 
@@ -999,6 +1234,7 @@ class Player:
         return (f"Player(Name: {self.name}, Money: {self.money}, Nerves: {self.nerves}, "
                 f"Lang Lvl: {self.language_level}, Housing: {self.housing} (Lvl {self.housing_level}), "
                 f"Docs Lvl: {self.document_level}, Doc Cards: {self.document_cards}, "
+                f"Personal Items: {len(self.personal_items_hand)}/{self.max_personal_items_hand}, "
                 f"Goal: {goal_text})")
 
     def add_action_card(self, card):
@@ -1007,6 +1243,103 @@ class Player:
             print(f"{self.name} received action card: {card['name']}.")
         else:
             print(f"{self.name}'s action card hand is full, cannot draw more.")
+    
+    def add_personal_items(self, count, game=None):
+        """Добавляет одноразовые шмотки в руку игрока."""
+        if count <= 0:
+            return
+            
+        items_to_add = min(count, self.max_personal_items_hand - len(self.personal_items_hand))
+        if items_to_add > 0:
+            for _ in range(items_to_add):
+                if game and 'item' in game.decks:
+                    # Берем настоящий предмет из колоды
+                    item = game.decks['item'].draw()
+                    if item:
+                        self.personal_items_hand.append(item)
+                        print(f"{self.name} получил '{item['name']}'")
+                    else:
+                        # Если колода пуста, добавляем заглушку
+                        self.personal_items_hand.append({"name": "Personal Item", "type": "utility"})
+                        print(f"{self.name} получил базовый предмет (колода пуста)")
+                else:
+                    # Фоллбэк для случаев без доступа к игре
+                    self.personal_items_hand.append({"name": "Personal Item", "type": "utility"})
+            
+            if not game:
+                print(f"{self.name} получил {items_to_add} одноразовых предметов.")
+        
+        if count > items_to_add:
+            excess = count - items_to_add
+            print(f"{self.name} не смог взять {excess} предметов - рука полная!")
+    
+    def check_personal_items_hand_limit(self):
+        """Проверяет лимит руки и возвращает количество карт для сброса."""
+        excess = len(self.personal_items_hand) - self.max_personal_items_hand
+        return max(0, excess)
+    
+    def discard_personal_items(self, count):
+        """Сбрасывает указанное количество одноразовых предметов."""
+        if count <= 0:
+            return
+        
+        actual_discard = min(count, len(self.personal_items_hand))
+        for _ in range(actual_discard):
+            discarded = self.personal_items_hand.pop()
+            print(f"{self.name} сбросил: {discarded.get('name', 'Personal Item')}")
+        
+        return actual_discard
+    
+    def force_discard_excess_personal_items(self):
+        """Принудительно сбрасывает лишние одноразовые предметы."""
+        excess = self.check_personal_items_hand_limit()
+        if excess > 0:
+            print(f"⚠️  {self.name} должен сбросить {excess} одноразовых предметов (лимит: {self.max_personal_items_hand})")
+            self.discard_personal_items(excess)
+            return True
+        return False
+    
+    def can_use_personal_item(self, item):
+        """Проверяет, может ли игрок использовать предмет."""
+        if not item:
+            return False
+            
+        # Проверяем стоимость
+        cost = item.get('cost', {})
+        for resource, amount in cost.items():
+            if resource == 'money' and self.money < amount:
+                return False
+            elif resource == 'nerves' and self.nerves < amount:
+                return False
+            elif resource == 'document_cards' and self.document_cards < amount:
+                return False
+        
+        return True
+    
+    def use_personal_item(self, item, target_player=None):
+        """Использует одноразовый предмет."""
+        if not self.can_use_personal_item(item):
+            return False
+            
+        if item not in self.personal_items_hand:
+            return False
+        
+        print(f"📦 {self.name} использует '{item['name']}'")
+        
+        # Платим стоимость
+        cost = item.get('cost', {})
+        for resource, amount in cost.items():
+            if resource == 'money':
+                self.money = max(0, self.money - amount)
+            elif resource == 'nerves':
+                self.nerves = max(1, self.nerves - amount)
+            elif resource == 'document_cards':
+                self.document_cards = max(0, self.document_cards - amount)
+        
+        # Убираем предмет из руки
+        self.personal_items_hand.remove(item)
+        
+        return True
     
     def add_temporary_bonus(self, bonus_type, amount):
         """Добавляет временный бонус к игроку."""
@@ -1063,10 +1396,10 @@ class Game:
 
     def setup_decks(self):
         self.decks = {
-            'action': Deck(self.game_data['action_cards']['action_cards']),
+            'action': Deck(self.game_data['action_cards']['additional_action_cards']),
             'green': Deck(self.game_data['green_cards']['green_cards']),
             'red': Deck(self.game_data['health_cards']['health_cards'] + self.game_data['housing_cards']['housing_cards']),
-            'white': Deck(self.game_data['white_cards']['random_events']),
+            'white': Deck(self.game_data['white_cards']['random_events']) if 'white_cards' in self.game_data else Deck([]),
         }
         
         # Добавляем колоду предметов
@@ -1167,27 +1500,34 @@ class Game:
         # Analytics: Track turn start
         self.analytics.track_turn_start(player, self.turn)
 
-        # 1. AI decides to play pre-turn action card(s)
-        cards_to_play = player.ai.decide_play_action_card('start_of_turn')
-        if cards_to_play:
-            # Handle multiple cards
-            if not isinstance(cards_to_play, list):
-                cards_to_play = [cards_to_play]
-            
-            for card_to_play in cards_to_play:
-                # INTERVENTION POINT: Pre-turn action
-                event = InteractiveEvent(
-                    action_type="pre_turn_action",
-                    acting_player=player,
-                    effects=card_to_play.get('effects', {}),
-                    description=f"{player.name} plays '{card_to_play['name']}' before turn"
-                )
-                event = self.interaction_manager.announce_event(event)
+        # 1. AI decides to play pre-turn action card(s) or personal items
+        decision = player.ai.decide_play_action_card('start_of_turn')
+        if decision:
+            if isinstance(decision, tuple) and decision[0] == 'personal_item':
+                # Используем одноразовый предмет
+                _, item_to_use = decision
+                if player.use_personal_item(item_to_use):
+                    self.apply_personal_item_effects(player, item_to_use)
+            else:
+                # Обрабатываем карты действий
+                cards_to_play = decision
+                if not isinstance(cards_to_play, list):
+                    cards_to_play = [cards_to_play]
                 
-                if not event.is_blocked:
-                    self.apply_card_effect(player, card_to_play, 'event')
-                player.action_cards.remove(card_to_play)
-                self.decks['action'].discard(card_to_play)
+                for card_to_play in cards_to_play:
+                    # INTERVENTION POINT: Pre-turn action
+                    event = InteractiveEvent(
+                        action_type="pre_turn_action",
+                        acting_player=player,
+                        effects=card_to_play.get('effects', {}),
+                        description=f"{player.name} plays '{card_to_play['name']}' before turn"
+                    )
+                    event = self.interaction_manager.announce_event(event)
+                    
+                    if not event.is_blocked:
+                        self.apply_card_effect(player, card_to_play, 'event')
+                    player.action_cards.remove(card_to_play)
+                    self.decks['action'].discard(card_to_play)
 
         # 2. Roll dice and move
         roll = random.randint(1, 6)
@@ -1243,17 +1583,10 @@ class Game:
                             self.apply_card_effect(player, card, use_decision)
                     else:
                         self.apply_card_effect(player, card, use_decision)
-            elif decision == 'draw_action':
-                action_card = self.decks['action'].draw()
-                if action_card:
-                    # Проверяем, является ли это глобальным событием
-                    if self.is_global_event_card(action_card):
-                        # Применяем как событие для всех игроков
-                        self.apply_card_effect(None, action_card, 'global_event')
-                        self.decks['action'].discard(action_card)
-                    else:
-                        # Добавляем в руку как личный предмет
-                        player.add_action_card(action_card)
+            elif decision == 'draw_personal_item':
+                # Дать игроку одноразовую шмотку
+                player.add_personal_items(1, self)
+                print(f"{player.name} получил одноразовую шмотку вместо зелёной карты.")
 
         elif cell_type in ['red', 'white']:
             card = self.decks[cell_type].draw()
@@ -1309,6 +1642,10 @@ class Game:
         if not self.game_over:
             self.check_elimination(player)
 
+        # 7. Check and enforce personal items hand limit
+        if player.force_discard_excess_personal_items():
+            print(f"📦 {player.name} now has {len(player.personal_items_hand)}/{player.max_personal_items_hand} personal items")
+
         print(f"State after turn:  {player}")
         
         # Analytics: Track goal progress
@@ -1323,6 +1660,146 @@ class Game:
                 'nerves': player.nerves
             }
             self.analytics.track_goal_progress(player, goal_requirements, current_progress)
+    
+    def apply_personal_item_effects(self, player, item):
+        """Применяет эффекты одноразового предмета к игроку."""
+        # Базовые эффекты
+        effects = item.get('effects', {})
+        
+        # Эффекты для конкретного персонажа
+        profile_effects = item.get('profile_modifiers', {}).get(player.id, {})
+        
+        # Объединяем эффекты
+        combined_effects = effects.copy()
+        for key, value in profile_effects.items():
+            combined_effects[key] = combined_effects.get(key, 0) + value
+        
+        print(f"  ✨ Эффекты '{item['name']}':")
+        for effect, value in combined_effects.items():
+            if effect == 'nerves':
+                old_nerves = player.nerves
+                player.nerves = max(1, min(10, player.nerves + value))
+                print(f"    🧠 Нервы: {old_nerves} → {player.nerves} ({value:+})")
+            elif effect == 'money':
+                old_money = player.money
+                player.money = max(0, player.money + value)
+                print(f"    💰 Деньги: {old_money} → {player.money} ({value:+})")
+            elif effect == 'documents_cards':
+                old_docs = player.document_cards
+                player.document_cards = max(0, player.document_cards + value)
+                print(f"    📄 Карты документов: {old_docs} → {player.document_cards} ({value:+})")
+            elif effect == 'language_level':
+                if value > 0:
+                    old_lang = player.language_level
+                    player.language_level = min(3, player.language_level + value)
+                    print(f"    🗣️ Язык: {old_lang} → {player.language_level} ({value:+})")
+            elif effect == 'housing_upgrade' and value:
+                self.handle_housing_upgrade(player)
+        
+        # Специальные эффекты
+        special_effects = item.get('special_effects', [])
+        if special_effects:
+            print(f"    🌟 Специальные эффекты: {', '.join(special_effects)}")
+            for special_effect in special_effects:
+                self.handle_special_item_effect(player, special_effect)
+    
+    def apply_aggressive_item_effects(self, attacker, target, item):
+        """Применяет эффекты агрессивного предмета к цели."""
+        print(f"⚔️ {attacker.name} использует '{item['name']}' против {target.name}!")
+        
+        # Добавляем обиду цели на атакующего
+        target.ai.add_grudge(attacker.id, 2)
+        
+        # Проверяем тип агрессивного эффекта
+        special_effects = item.get('special_effects', [])
+        target_effects = item.get('target_effects', {})
+        
+        if 'challenge_target' in special_effects:
+            # Принудительный челлендж для цели
+            self.force_challenge_on_target(target, item)
+        
+        if 'reduce_resources' in special_effects:
+            # Прямое отнимание ресурсов
+            for resource, amount in target_effects.items():
+                if resource == 'money':
+                    old_money = target.money
+                    target.money = max(0, target.money - amount)
+                    print(f"  💸 {target.name}: деньги {old_money} → {target.money} (-{amount})")
+                elif resource == 'nerves':
+                    old_nerves = target.nerves
+                    target.nerves = max(1, target.nerves - amount)
+                    print(f"  😰 {target.name}: нервы {old_nerves} → {target.nerves} (-{amount})")
+                elif resource == 'documents_cards':
+                    old_docs = target.document_cards
+                    target.document_cards = max(0, target.document_cards - amount)
+                    print(f"  📄 {target.name}: карты документов {old_docs} → {target.document_cards} (-{amount})")
+        
+        if 'steal_effect' in special_effects:
+            # Кража ресурсов в пользу атакующего
+            self.steal_resources_from_target(attacker, target, target_effects)
+    
+    def force_challenge_on_target(self, target, item):
+        """Принуждает цель пройти специальный челлендж."""
+        challenge_name = item.get('challenge_name', f"Последствия '{item['name']}'")
+        print(f"🎯 {target.name} должен пройти челлендж: {challenge_name}")
+        
+        # Создаем специальный челлендж
+        roll = random.randint(1, 6)
+        difficulty = item.get('challenge_difficulty', 4)
+        
+        print(f"  🎲 {target.name} бросает кубик: {roll} (нужно {difficulty}+)")
+        
+        if roll >= difficulty:
+            # Успех - минимальные последствия
+            success_effects = item.get('challenge_success', {'documents_cards': 1})
+            print(f"  ✅ Успех! {target.name} избежал серьезных последствий")
+            for effect, value in success_effects.items():
+                if effect == 'documents_cards':
+                    target.document_cards += value
+                    print(f"    📄 +{value} карта документов (доказал невиновность)")
+        else:
+            # Провал - серьезные последствия  
+            fail_effects = item.get('challenge_fail', {'money': -5, 'nerves': -2})
+            print(f"  ❌ Провал! {target.name} получает серьезные последствия")
+            for effect, value in fail_effects.items():
+                if effect == 'money':
+                    old_money = target.money
+                    target.money = max(0, target.money + value)  # value уже негативное
+                    print(f"    💸 Штраф: деньги {old_money} → {target.money} ({value})")
+                elif effect == 'nerves':
+                    old_nerves = target.nerves
+                    target.nerves = max(1, target.nerves + value)  # value уже негативное
+                    print(f"    😰 Стресс: нервы {old_nerves} → {target.nerves} ({value})")
+    
+    def steal_resources_from_target(self, attacker, target, steal_effects):
+        """Кража ресурсов от цели в пользу атакующего."""
+        print(f"  🎭 {attacker.name} крадет ресурсы у {target.name}:")
+        
+        for resource, amount in steal_effects.items():
+            if resource == 'money':
+                stolen = min(amount, target.money)
+                target.money -= stolen
+                attacker.money += stolen
+                print(f"    💰 Украдено денег: {stolen}")
+            elif resource == 'documents_cards':
+                stolen = min(amount, target.document_cards)
+                target.document_cards -= stolen
+                attacker.document_cards += stolen
+                print(f"    📄 Украдено карт документов: {stolen}")
+    
+    def handle_special_item_effect(self, player, effect):
+        """Обрабатывает специальные эффекты предметов."""
+        if effect == 'immunity_stress':
+            player.add_immunity('stress_penalty')
+        elif effect == 'immunity_cold':
+            player.add_immunity('cold_penalty')
+        elif effect == 'immunity_heat':
+            player.add_immunity('heat_penalty')
+        elif effect == 'document_boost':
+            player.add_special_ability('documents_fast_track')
+        elif effect == 'language_boost':
+            player.add_special_ability('language_dice_advantage')
+        # Добавить больше специальных эффектов по мере необходимости
     
     def _determine_card_type(self, card):
         """Determine the type of card for analytics"""
@@ -1627,6 +2104,8 @@ class Game:
                     player.money += value
             elif key == 'documents_cards':
                 player.document_cards += value
+            elif key == 'personal_items':
+                player.add_personal_items(value, self)
             elif key == 'draw_action_card':
                 for _ in range(value):
                     drawn_card = self.decks['action'].draw()

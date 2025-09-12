@@ -1,0 +1,324 @@
+{
+  "defensive_items": [
+    {
+      "id": "item_05",
+      "name": "Gestoría profesional",
+      "category": "services",
+      "type": "defensive",
+      "description": "Профессиональная помощь с документами",
+      "cost": {
+        "money": 6
+      },
+      "effects": {
+        "documents_cards": 2,
+        "nerves": 1
+      },
+      "profile_modifiers": {
+        "pensioner": {"money": -2, "documents_cards": 3},
+        "student": {"money": -3, "documents_cards": 3},
+        "it_specialist": {"money": 2, "documents_cards": 1}
+      },
+      "when_to_play": "when_drawing_documents_card",
+      "flavor_text": "Dinero soluciona burocracia"
+    },
+    {
+      "id": "item_08",
+      "name": "Abogado de confianza",
+      "category": "services",
+      "type": "defensive",
+      "description": "Надежный адвокат спасает от штрафов",
+      "cost": {
+        "money": 4
+      },
+      "effects": {
+        "money": 3,
+        "nerves": 2
+      },
+      "profile_modifiers": {
+        "pensioner": {"money": 4, "nerves": 3},
+        "student": {"money": 2, "nerves": 2},
+        "entrepreneur": {"money": 5, "nerves": 1}
+      },
+      "when_to_play": "when_receiving_penalty",
+      "flavor_text": "Justicia española (con dinero)"
+    },
+    {
+      "id": "item_10",
+      "name": "Churros con chocolate",
+      "category": "food",
+      "type": "defensive",
+      "description": "Сладкая терапия против депрессии",
+      "cost": {
+        "money": 1
+      },
+      "effects": {
+        "nerves": 2,
+        "block_health_penalty": true
+      },
+      "when_to_play": "anytime_or_defensive",
+      "flavor_text": "Azúcar cura tristeza"
+    },
+    {
+      "id": "item_14",
+      "name": "Aire acondicionado",
+      "category": "comfort",
+      "type": "defensive",
+      "description": "Кондиционер спасает от испанской жары",
+      "cost": {
+        "money": 1
+      },
+      "effects": {
+        "block_heat_penalty": true,
+        "comfort_bonus": true
+      },
+      "when_to_play": "when_heat_event",
+      "flavor_text": "Salvación en verano"
+    },
+    {
+      "id": "item_16",
+      "name": "Medicinas de farmacia",
+      "category": "health",
+      "type": "defensive",
+      "description": "Запас лекарств из аптеки",
+      "cost": {
+        "money": 1
+      },
+      "effects": {
+        "block_health_penalty": true,
+        "health_insurance_bonus": true
+      },
+      "profile_modifiers": {
+        "pensioner": {"money": 0},
+        "student": {"money": 1},
+        "it_specialist": {"money": 1}
+      },
+      "when_to_play": "when_health_problem",
+      "flavor_text": "Farmacia española eficaz"
+    },
+    {
+      "id": "item_23",
+      "name": "Flipflops зимой",
+      "category": "lifestyle",
+      "type": "defensive",
+      "description": "Испанская привычка носить шлёпки круглый год",
+      "cost": {
+        "money": 0
+      },
+      "effects": {
+        "block_weather_penalty": true,
+        "nerves": 2
+      },
+      "when_to_play": "when_weather_event",
+      "flavor_text": "Español logic: chanclas always"
+    },
+    {
+      "id": "item_27",
+      "name": "Ventilador de techo",
+      "category": "comfort",
+      "type": "defensive",
+      "description": "Потолочный вентилятор спасает от жары",
+      "cost": {
+        "money": 1
+      },
+      "effects": {
+        "block_heat_penalty": true,
+        "nerves": 2
+      },
+      "when_to_play": "when_heat_event",
+      "flavor_text": "Aire natural > aire acondicionado"
+    },
+    {
+      "id": "item_28",
+      "name": "Manta de la abuela",
+      "category": "comfort",
+      "type": "defensive",
+      "description": "Тёплый плед от испанской бабушки",
+      "cost": {
+        "money": 0
+      },
+      "effects": {
+        "block_cold_penalty": true,
+        "nerves": 2
+      },
+      "when_to_play": "when_cold_event",
+      "flavor_text": "Abuela's love = mejor calefacción"
+    },
+    {
+      "id": "item_32",
+      "name": "Ventana abierta",
+      "category": "lifestyle",
+      "type": "defensive",
+      "description": "Открытое окно для проветривания",
+      "cost": {
+        "money": 0
+      },
+      "effects": {
+        "nerves": 2,
+        "block_air_penalty": true
+      },
+      "when_to_play": "when_housing_problem",
+      "flavor_text": "Aire fresco = salud mental"
+    },
+    {
+      "id": "item_34",
+      "name": "Paraguas roto",
+      "category": "lifestyle",
+      "type": "defensive",
+      "description": "Сломанный зонт всё равно лучше, чем ничего",
+      "cost": {
+        "money": 0
+      },
+      "effects": {
+        "block_rain_penalty": true,
+        "nerves": 0
+      },
+      "when_to_play": "when_rain_event",
+      "flavor_text": "Algo es mejor que nada"
+    },
+    {
+      "id": "item_38",
+      "name": "Piso compartido rules",
+      "category": "housing",
+      "type": "defensive",
+      "description": "Правила совместного проживания",
+      "cost": {
+        "nerves": 2
+      },
+      "effects": {
+        "block_roommate_penalty": true,
+        "housing_bonus": true
+      },
+      "when_to_play": "when_housing_problem",
+      "flavor_text": "Convivencia = reglas claras"
+    },
+    {
+      "id": "item_39",
+      "name": "Aspirina después de fiesta",
+      "category": "health",
+      "type": "defensive",
+      "description": "Аспирин после испанской вечеринки",
+      "cost": {
+        "money": 1
+      },
+      "effects": {
+        "block_hangover_penalty": true,
+        "nerves": 2
+      },
+      "when_to_play": "when_party_event",
+      "flavor_text": "Fiesta española = resaca segura"
+    },
+    {
+      "id": "item_44",
+      "name": "Crema solar factor 50",
+      "category": "health",
+      "type": "defensive",
+      "description": "Солнцезащитный крем максимальной защиты",
+      "cost": {
+        "money": 1
+      },
+      "effects": {
+        "block_sun_penalty": true,
+        "nerves": 2
+      },
+      "when_to_play": "when_sun_event",
+      "flavor_text": "Sol español = protección necesaria"
+    },
+    {
+      "id": "item_49",
+      "name": "Gafas de sol baratas",
+      "category": "lifestyle",
+      "type": "defensive",
+      "description": "Дешёвые солнечные очки с рынка",
+      "cost": {
+        "money": 1
+      },
+      "effects": {
+        "block_glare_penalty": true,
+        "style_bonus": true
+      },
+      "when_to_play": "when_bright_event",
+      "flavor_text": "Estilo barato pero efectivo"
+    },
+    {
+      "id": "item_51",
+      "name": "Papel higiénico de repuesto",
+      "category": "lifestyle",
+      "type": "defensive",
+      "description": "Запас туалетной бумаги на всякий случай",
+      "cost": {
+        "money": 1
+      },
+      "effects": {
+        "block_shortage_penalty": true,
+        "comfort_bonus": true
+      },
+      "when_to_play": "when_shortage_event",
+      "flavor_text": "Preparación = tranquilidad mental"
+    },
+    {
+      "id": "item_60",
+      "name": "Calcetines de lana",
+      "category": "comfort",
+      "type": "defensive",
+      "description": "Тёплые шерстяные носки для зимы",
+      "cost": {
+        "money": 1
+      },
+      "effects": {
+        "block_cold_penalty": true,
+        "comfort_bonus": true
+      },
+      "when_to_play": "when_cold_event",
+      "flavor_text": "Pies calientes = cuerpo feliz"
+    },
+    {
+      "id": "item_66",
+      "name": "Papel de aluminio",
+      "category": "lifestyle",
+      "type": "defensive",
+      "description": "Фольга для защиты еды и других нужд",
+      "cost": {
+        "money": 1
+      },
+      "effects": {
+        "block_spoilage_penalty": true,
+        "utility_bonus": true
+      },
+      "when_to_play": "when_food_event",
+      "flavor_text": "Aluminio = solución universal"
+    },
+    {
+      "id": "item_68",
+      "name": "Jabón de manos antibacterial",
+      "category": "health",
+      "type": "defensive",
+      "description": "Антибактериальное мыло для рук",
+      "cost": {
+        "money": 1
+      },
+      "effects": {
+        "block_illness_penalty": true,
+        "hygiene_bonus": true
+      },
+      "when_to_play": "when_illness_event",
+      "flavor_text": "Higiene = primera defensa"
+    },
+    {
+      "id": "item_70",
+      "name": "Sombrero de paja",
+      "category": "lifestyle",
+      "type": "defensive",
+      "description": "Соломенная шляпа от солнца",
+      "cost": {
+        "money": 1
+      },
+      "effects": {
+        "block_sun_penalty": true,
+        "style_bonus": true,
+        "nerves": 2
+      },
+      "when_to_play": "when_sun_event",
+      "flavor_text": "Estilo campestre español"
+    }
+  ]
+}

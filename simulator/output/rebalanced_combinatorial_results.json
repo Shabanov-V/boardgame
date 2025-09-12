@@ -1,0 +1,3616 @@
+{
+  "character_statistics": {
+    "it_specialist": {
+      "wins": 450,
+      "games": 2380
+    },
+    "student": {
+      "wins": 448,
+      "games": 2380
+    },
+    "courier": {
+      "wins": 204,
+      "games": 2380
+    },
+    "spanish_spouse": {
+      "wins": 1251,
+      "games": 2380
+    },
+    "freelance_artist": {
+      "wins": 755,
+      "games": 2380
+    },
+    "waiter": {
+      "wins": 584,
+      "games": 2380
+    },
+    "pensioner": {
+      "wins": 806,
+      "games": 2380
+    },
+    "entrepreneur": {
+      "wins": 262,
+      "games": 2380
+    }
+  },
+  "detailed_results": {
+    "2_players_it_specialist_student": {
+      "players": [
+        "it_specialist",
+        "student"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 5,
+        "student": 15
+      }
+    },
+    "2_players_courier_it_specialist": {
+      "players": [
+        "it_specialist",
+        "courier"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 13,
+        "courier": 7
+      }
+    },
+    "2_players_it_specialist_spanish_spouse": {
+      "players": [
+        "it_specialist",
+        "spanish_spouse"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 1,
+        "spanish_spouse": 19
+      }
+    },
+    "2_players_freelance_artist_it_specialist": {
+      "players": [
+        "it_specialist",
+        "freelance_artist"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 5,
+        "freelance_artist": 15
+      }
+    },
+    "2_players_it_specialist_waiter": {
+      "players": [
+        "it_specialist",
+        "waiter"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 6,
+        "waiter": 14
+      }
+    },
+    "2_players_it_specialist_pensioner": {
+      "players": [
+        "it_specialist",
+        "pensioner"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 7,
+        "pensioner": 13
+      }
+    },
+    "2_players_entrepreneur_it_specialist": {
+      "players": [
+        "it_specialist",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 11,
+        "entrepreneur": 9
+      }
+    },
+    "2_players_courier_student": {
+      "players": [
+        "student",
+        "courier"
+      ],
+      "games": 20,
+      "wins": {
+        "student": 15,
+        "courier": 5
+      }
+    },
+    "2_players_spanish_spouse_student": {
+      "players": [
+        "student",
+        "spanish_spouse"
+      ],
+      "games": 20,
+      "wins": {
+        "student": 4,
+        "spanish_spouse": 16
+      }
+    },
+    "2_players_freelance_artist_student": {
+      "players": [
+        "student",
+        "freelance_artist"
+      ],
+      "games": 20,
+      "wins": {
+        "student": 4,
+        "freelance_artist": 16
+      }
+    },
+    "2_players_student_waiter": {
+      "players": [
+        "student",
+        "waiter"
+      ],
+      "games": 20,
+      "wins": {
+        "student": 13,
+        "waiter": 7
+      }
+    },
+    "2_players_pensioner_student": {
+      "players": [
+        "student",
+        "pensioner"
+      ],
+      "games": 20,
+      "wins": {
+        "student": 11,
+        "pensioner": 9
+      }
+    },
+    "2_players_entrepreneur_student": {
+      "players": [
+        "student",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "student": 13,
+        "entrepreneur": 7
+      }
+    },
+    "2_players_courier_spanish_spouse": {
+      "players": [
+        "courier",
+        "spanish_spouse"
+      ],
+      "games": 20,
+      "wins": {
+        "courier": 4,
+        "spanish_spouse": 16
+      }
+    },
+    "2_players_courier_freelance_artist": {
+      "players": [
+        "courier",
+        "freelance_artist"
+      ],
+      "games": 20,
+      "wins": {
+        "courier": 4,
+        "freelance_artist": 16
+      }
+    },
+    "2_players_courier_waiter": {
+      "players": [
+        "courier",
+        "waiter"
+      ],
+      "games": 20,
+      "wins": {
+        "courier": 3,
+        "waiter": 17
+      }
+    },
+    "2_players_courier_pensioner": {
+      "players": [
+        "courier",
+        "pensioner"
+      ],
+      "games": 20,
+      "wins": {
+        "courier": 7,
+        "pensioner": 13
+      }
+    },
+    "2_players_courier_entrepreneur": {
+      "players": [
+        "courier",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "courier": 6,
+        "entrepreneur": 14
+      }
+    },
+    "2_players_freelance_artist_spanish_spouse": {
+      "players": [
+        "spanish_spouse",
+        "freelance_artist"
+      ],
+      "games": 20,
+      "wins": {
+        "spanish_spouse": 16,
+        "freelance_artist": 4
+      }
+    },
+    "2_players_spanish_spouse_waiter": {
+      "players": [
+        "spanish_spouse",
+        "waiter"
+      ],
+      "games": 20,
+      "wins": {
+        "spanish_spouse": 15,
+        "waiter": 5
+      }
+    },
+    "2_players_pensioner_spanish_spouse": {
+      "players": [
+        "spanish_spouse",
+        "pensioner"
+      ],
+      "games": 20,
+      "wins": {
+        "spanish_spouse": 14,
+        "pensioner": 6
+      }
+    },
+    "2_players_entrepreneur_spanish_spouse": {
+      "players": [
+        "spanish_spouse",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "spanish_spouse": 16,
+        "entrepreneur": 4
+      }
+    },
+    "2_players_freelance_artist_waiter": {
+      "players": [
+        "freelance_artist",
+        "waiter"
+      ],
+      "games": 20,
+      "wins": {
+        "freelance_artist": 10,
+        "waiter": 10
+      }
+    },
+    "2_players_freelance_artist_pensioner": {
+      "players": [
+        "freelance_artist",
+        "pensioner"
+      ],
+      "games": 20,
+      "wins": {
+        "freelance_artist": 6,
+        "pensioner": 14
+      }
+    },
+    "2_players_entrepreneur_freelance_artist": {
+      "players": [
+        "freelance_artist",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "freelance_artist": 12,
+        "entrepreneur": 8
+      }
+    },
+    "2_players_pensioner_waiter": {
+      "players": [
+        "waiter",
+        "pensioner"
+      ],
+      "games": 20,
+      "wins": {
+        "waiter": 10,
+        "pensioner": 10
+      }
+    },
+    "2_players_entrepreneur_waiter": {
+      "players": [
+        "waiter",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "waiter": 12,
+        "entrepreneur": 8
+      }
+    },
+    "2_players_entrepreneur_pensioner": {
+      "players": [
+        "pensioner",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "pensioner": 16,
+        "entrepreneur": 4
+      }
+    },
+    "3_players_courier_it_specialist_student": {
+      "players": [
+        "it_specialist",
+        "student",
+        "courier"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 6,
+        "student": 12,
+        "courier": 2
+      }
+    },
+    "3_players_it_specialist_spanish_spouse_student": {
+      "players": [
+        "it_specialist",
+        "student",
+        "spanish_spouse"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 2,
+        "student": 3,
+        "spanish_spouse": 15
+      }
+    },
+    "3_players_freelance_artist_it_specialist_student": {
+      "players": [
+        "it_specialist",
+        "student",
+        "freelance_artist"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 5,
+        "student": 4,
+        "freelance_artist": 11
+      }
+    },
+    "3_players_it_specialist_student_waiter": {
+      "players": [
+        "it_specialist",
+        "student",
+        "waiter"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 3,
+        "student": 4,
+        "waiter": 13
+      }
+    },
+    "3_players_it_specialist_pensioner_student": {
+      "players": [
+        "it_specialist",
+        "student",
+        "pensioner"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 9,
+        "student": 3,
+        "pensioner": 8
+      }
+    },
+    "3_players_entrepreneur_it_specialist_student": {
+      "players": [
+        "it_specialist",
+        "student",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 10,
+        "student": 8,
+        "entrepreneur": 2
+      }
+    },
+    "3_players_courier_it_specialist_spanish_spouse": {
+      "players": [
+        "it_specialist",
+        "courier",
+        "spanish_spouse"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 4,
+        "courier": 2,
+        "spanish_spouse": 14
+      }
+    },
+    "3_players_courier_freelance_artist_it_specialist": {
+      "players": [
+        "it_specialist",
+        "courier",
+        "freelance_artist"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 6,
+        "courier": 1,
+        "freelance_artist": 13
+      }
+    },
+    "3_players_courier_it_specialist_waiter": {
+      "players": [
+        "it_specialist",
+        "courier",
+        "waiter"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 6,
+        "courier": 3,
+        "waiter": 11
+      }
+    },
+    "3_players_courier_it_specialist_pensioner": {
+      "players": [
+        "it_specialist",
+        "courier",
+        "pensioner"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 5,
+        "courier": 2,
+        "pensioner": 13
+      }
+    },
+    "3_players_courier_entrepreneur_it_specialist": {
+      "players": [
+        "it_specialist",
+        "courier",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 7,
+        "courier": 5,
+        "entrepreneur": 8
+      }
+    },
+    "3_players_freelance_artist_it_specialist_spanish_spouse": {
+      "players": [
+        "it_specialist",
+        "spanish_spouse",
+        "freelance_artist"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 3,
+        "spanish_spouse": 10,
+        "freelance_artist": 7
+      }
+    },
+    "3_players_it_specialist_spanish_spouse_waiter": {
+      "players": [
+        "it_specialist",
+        "spanish_spouse",
+        "waiter"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 3,
+        "spanish_spouse": 13,
+        "waiter": 4
+      }
+    },
+    "3_players_it_specialist_pensioner_spanish_spouse": {
+      "players": [
+        "it_specialist",
+        "spanish_spouse",
+        "pensioner"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 3,
+        "spanish_spouse": 14,
+        "pensioner": 3
+      }
+    },
+    "3_players_entrepreneur_it_specialist_spanish_spouse": {
+      "players": [
+        "it_specialist",
+        "spanish_spouse",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 10,
+        "spanish_spouse": 9,
+        "entrepreneur": 1
+      }
+    },
+    "3_players_freelance_artist_it_specialist_waiter": {
+      "players": [
+        "it_specialist",
+        "freelance_artist",
+        "waiter"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 7,
+        "freelance_artist": 9,
+        "waiter": 4
+      }
+    },
+    "3_players_freelance_artist_it_specialist_pensioner": {
+      "players": [
+        "it_specialist",
+        "freelance_artist",
+        "pensioner"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 3,
+        "freelance_artist": 10,
+        "pensioner": 7
+      }
+    },
+    "3_players_entrepreneur_freelance_artist_it_specialist": {
+      "players": [
+        "it_specialist",
+        "freelance_artist",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 2,
+        "freelance_artist": 13,
+        "entrepreneur": 5
+      }
+    },
+    "3_players_it_specialist_pensioner_waiter": {
+      "players": [
+        "it_specialist",
+        "waiter",
+        "pensioner"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 6,
+        "waiter": 3,
+        "pensioner": 11
+      }
+    },
+    "3_players_entrepreneur_it_specialist_waiter": {
+      "players": [
+        "it_specialist",
+        "waiter",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 5,
+        "waiter": 13,
+        "entrepreneur": 2
+      }
+    },
+    "3_players_entrepreneur_it_specialist_pensioner": {
+      "players": [
+        "it_specialist",
+        "pensioner",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 8,
+        "pensioner": 10,
+        "entrepreneur": 2
+      }
+    },
+    "3_players_courier_spanish_spouse_student": {
+      "players": [
+        "student",
+        "courier",
+        "spanish_spouse"
+      ],
+      "games": 20,
+      "wins": {
+        "student": 6,
+        "courier": 0,
+        "spanish_spouse": 14
+      }
+    },
+    "3_players_courier_freelance_artist_student": {
+      "players": [
+        "student",
+        "courier",
+        "freelance_artist"
+      ],
+      "games": 20,
+      "wins": {
+        "student": 9,
+        "courier": 1,
+        "freelance_artist": 10
+      }
+    },
+    "3_players_courier_student_waiter": {
+      "players": [
+        "student",
+        "courier",
+        "waiter"
+      ],
+      "games": 20,
+      "wins": {
+        "student": 3,
+        "courier": 4,
+        "waiter": 13
+      }
+    },
+    "3_players_courier_pensioner_student": {
+      "players": [
+        "student",
+        "courier",
+        "pensioner"
+      ],
+      "games": 20,
+      "wins": {
+        "student": 7,
+        "courier": 2,
+        "pensioner": 11
+      }
+    },
+    "3_players_courier_entrepreneur_student": {
+      "players": [
+        "student",
+        "courier",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "student": 6,
+        "courier": 5,
+        "entrepreneur": 9
+      }
+    },
+    "3_players_freelance_artist_spanish_spouse_student": {
+      "players": [
+        "student",
+        "spanish_spouse",
+        "freelance_artist"
+      ],
+      "games": 20,
+      "wins": {
+        "student": 5,
+        "spanish_spouse": 10,
+        "freelance_artist": 5
+      }
+    },
+    "3_players_spanish_spouse_student_waiter": {
+      "players": [
+        "student",
+        "spanish_spouse",
+        "waiter"
+      ],
+      "games": 20,
+      "wins": {
+        "student": 0,
+        "spanish_spouse": 12,
+        "waiter": 8
+      }
+    },
+    "3_players_pensioner_spanish_spouse_student": {
+      "players": [
+        "student",
+        "spanish_spouse",
+        "pensioner"
+      ],
+      "games": 20,
+      "wins": {
+        "student": 3,
+        "spanish_spouse": 14,
+        "pensioner": 3
+      }
+    },
+    "3_players_entrepreneur_spanish_spouse_student": {
+      "players": [
+        "student",
+        "spanish_spouse",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "student": 7,
+        "spanish_spouse": 10,
+        "entrepreneur": 3
+      }
+    },
+    "3_players_freelance_artist_student_waiter": {
+      "players": [
+        "student",
+        "freelance_artist",
+        "waiter"
+      ],
+      "games": 20,
+      "wins": {
+        "student": 6,
+        "freelance_artist": 8,
+        "waiter": 6
+      }
+    },
+    "3_players_freelance_artist_pensioner_student": {
+      "players": [
+        "student",
+        "freelance_artist",
+        "pensioner"
+      ],
+      "games": 20,
+      "wins": {
+        "student": 6,
+        "freelance_artist": 6,
+        "pensioner": 8
+      }
+    },
+    "3_players_entrepreneur_freelance_artist_student": {
+      "players": [
+        "student",
+        "freelance_artist",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "student": 5,
+        "freelance_artist": 8,
+        "entrepreneur": 7
+      }
+    },
+    "3_players_pensioner_student_waiter": {
+      "players": [
+        "student",
+        "waiter",
+        "pensioner"
+      ],
+      "games": 20,
+      "wins": {
+        "student": 2,
+        "waiter": 10,
+        "pensioner": 8
+      }
+    },
+    "3_players_entrepreneur_student_waiter": {
+      "players": [
+        "student",
+        "waiter",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "student": 3,
+        "waiter": 15,
+        "entrepreneur": 2
+      }
+    },
+    "3_players_entrepreneur_pensioner_student": {
+      "players": [
+        "student",
+        "pensioner",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "student": 5,
+        "pensioner": 10,
+        "entrepreneur": 5
+      }
+    },
+    "3_players_courier_freelance_artist_spanish_spouse": {
+      "players": [
+        "courier",
+        "spanish_spouse",
+        "freelance_artist"
+      ],
+      "games": 20,
+      "wins": {
+        "courier": 1,
+        "spanish_spouse": 12,
+        "freelance_artist": 7
+      }
+    },
+    "3_players_courier_spanish_spouse_waiter": {
+      "players": [
+        "courier",
+        "spanish_spouse",
+        "waiter"
+      ],
+      "games": 20,
+      "wins": {
+        "courier": 1,
+        "spanish_spouse": 12,
+        "waiter": 7
+      }
+    },
+    "3_players_courier_pensioner_spanish_spouse": {
+      "players": [
+        "courier",
+        "spanish_spouse",
+        "pensioner"
+      ],
+      "games": 20,
+      "wins": {
+        "courier": 3,
+        "spanish_spouse": 10,
+        "pensioner": 7
+      }
+    },
+    "3_players_courier_entrepreneur_spanish_spouse": {
+      "players": [
+        "courier",
+        "spanish_spouse",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "courier": 1,
+        "spanish_spouse": 18,
+        "entrepreneur": 1
+      }
+    },
+    "3_players_courier_freelance_artist_waiter": {
+      "players": [
+        "courier",
+        "freelance_artist",
+        "waiter"
+      ],
+      "games": 20,
+      "wins": {
+        "courier": 4,
+        "freelance_artist": 10,
+        "waiter": 6
+      }
+    },
+    "3_players_courier_freelance_artist_pensioner": {
+      "players": [
+        "courier",
+        "freelance_artist",
+        "pensioner"
+      ],
+      "games": 20,
+      "wins": {
+        "courier": 3,
+        "freelance_artist": 11,
+        "pensioner": 6
+      }
+    },
+    "3_players_courier_entrepreneur_freelance_artist": {
+      "players": [
+        "courier",
+        "freelance_artist",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "courier": 3,
+        "freelance_artist": 12,
+        "entrepreneur": 5
+      }
+    },
+    "3_players_courier_pensioner_waiter": {
+      "players": [
+        "courier",
+        "waiter",
+        "pensioner"
+      ],
+      "games": 20,
+      "wins": {
+        "courier": 7,
+        "waiter": 8,
+        "pensioner": 5
+      }
+    },
+    "3_players_courier_entrepreneur_waiter": {
+      "players": [
+        "courier",
+        "waiter",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "courier": 4,
+        "waiter": 13,
+        "entrepreneur": 3
+      }
+    },
+    "3_players_courier_entrepreneur_pensioner": {
+      "players": [
+        "courier",
+        "pensioner",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "courier": 1,
+        "pensioner": 13,
+        "entrepreneur": 6
+      }
+    },
+    "3_players_freelance_artist_spanish_spouse_waiter": {
+      "players": [
+        "spanish_spouse",
+        "freelance_artist",
+        "waiter"
+      ],
+      "games": 20,
+      "wins": {
+        "spanish_spouse": 15,
+        "freelance_artist": 3,
+        "waiter": 2
+      }
+    },
+    "3_players_freelance_artist_pensioner_spanish_spouse": {
+      "players": [
+        "spanish_spouse",
+        "freelance_artist",
+        "pensioner"
+      ],
+      "games": 20,
+      "wins": {
+        "spanish_spouse": 11,
+        "freelance_artist": 5,
+        "pensioner": 4
+      }
+    },
+    "3_players_entrepreneur_freelance_artist_spanish_spouse": {
+      "players": [
+        "spanish_spouse",
+        "freelance_artist",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "spanish_spouse": 9,
+        "freelance_artist": 7,
+        "entrepreneur": 4
+      }
+    },
+    "3_players_pensioner_spanish_spouse_waiter": {
+      "players": [
+        "spanish_spouse",
+        "waiter",
+        "pensioner"
+      ],
+      "games": 20,
+      "wins": {
+        "spanish_spouse": 11,
+        "waiter": 5,
+        "pensioner": 4
+      }
+    },
+    "3_players_entrepreneur_spanish_spouse_waiter": {
+      "players": [
+        "spanish_spouse",
+        "waiter",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "spanish_spouse": 12,
+        "waiter": 5,
+        "entrepreneur": 3
+      }
+    },
+    "3_players_entrepreneur_pensioner_spanish_spouse": {
+      "players": [
+        "spanish_spouse",
+        "pensioner",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "spanish_spouse": 9,
+        "pensioner": 9,
+        "entrepreneur": 2
+      }
+    },
+    "3_players_freelance_artist_pensioner_waiter": {
+      "players": [
+        "freelance_artist",
+        "waiter",
+        "pensioner"
+      ],
+      "games": 20,
+      "wins": {
+        "freelance_artist": 4,
+        "waiter": 5,
+        "pensioner": 11
+      }
+    },
+    "3_players_entrepreneur_freelance_artist_waiter": {
+      "players": [
+        "freelance_artist",
+        "waiter",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "freelance_artist": 12,
+        "waiter": 6,
+        "entrepreneur": 2
+      }
+    },
+    "3_players_entrepreneur_freelance_artist_pensioner": {
+      "players": [
+        "freelance_artist",
+        "pensioner",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "freelance_artist": 7,
+        "pensioner": 12,
+        "entrepreneur": 1
+      }
+    },
+    "3_players_entrepreneur_pensioner_waiter": {
+      "players": [
+        "waiter",
+        "pensioner",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "waiter": 8,
+        "pensioner": 12,
+        "entrepreneur": 0
+      }
+    },
+    "4_players_courier_it_specialist_spanish_spouse_student": {
+      "players": [
+        "it_specialist",
+        "student",
+        "courier",
+        "spanish_spouse"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 5,
+        "student": 5,
+        "courier": 3,
+        "spanish_spouse": 7
+      }
+    },
+    "4_players_courier_freelance_artist_it_specialist_student": {
+      "players": [
+        "it_specialist",
+        "student",
+        "courier",
+        "freelance_artist"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 9,
+        "student": 2,
+        "courier": 1,
+        "freelance_artist": 8
+      }
+    },
+    "4_players_courier_it_specialist_student_waiter": {
+      "players": [
+        "it_specialist",
+        "student",
+        "courier",
+        "waiter"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 5,
+        "student": 5,
+        "courier": 1,
+        "waiter": 9
+      }
+    },
+    "4_players_courier_it_specialist_pensioner_student": {
+      "players": [
+        "it_specialist",
+        "student",
+        "courier",
+        "pensioner"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 4,
+        "student": 4,
+        "courier": 2,
+        "pensioner": 10
+      }
+    },
+    "4_players_courier_entrepreneur_it_specialist_student": {
+      "players": [
+        "it_specialist",
+        "student",
+        "courier",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 9,
+        "student": 6,
+        "courier": 2,
+        "entrepreneur": 3
+      }
+    },
+    "4_players_freelance_artist_it_specialist_spanish_spouse_student": {
+      "players": [
+        "it_specialist",
+        "student",
+        "spanish_spouse",
+        "freelance_artist"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 3,
+        "student": 5,
+        "spanish_spouse": 9,
+        "freelance_artist": 3
+      }
+    },
+    "4_players_it_specialist_spanish_spouse_student_waiter": {
+      "players": [
+        "it_specialist",
+        "student",
+        "spanish_spouse",
+        "waiter"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 2,
+        "student": 4,
+        "spanish_spouse": 10,
+        "waiter": 4
+      }
+    },
+    "4_players_it_specialist_pensioner_spanish_spouse_student": {
+      "players": [
+        "it_specialist",
+        "student",
+        "spanish_spouse",
+        "pensioner"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 2,
+        "student": 2,
+        "spanish_spouse": 12,
+        "pensioner": 4
+      }
+    },
+    "4_players_entrepreneur_it_specialist_spanish_spouse_student": {
+      "players": [
+        "it_specialist",
+        "student",
+        "spanish_spouse",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 5,
+        "student": 6,
+        "spanish_spouse": 8,
+        "entrepreneur": 1
+      }
+    },
+    "4_players_freelance_artist_it_specialist_student_waiter": {
+      "players": [
+        "it_specialist",
+        "student",
+        "freelance_artist",
+        "waiter"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 6,
+        "student": 5,
+        "freelance_artist": 7,
+        "waiter": 2
+      }
+    },
+    "4_players_freelance_artist_it_specialist_pensioner_student": {
+      "players": [
+        "it_specialist",
+        "student",
+        "freelance_artist",
+        "pensioner"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 4,
+        "student": 3,
+        "freelance_artist": 7,
+        "pensioner": 6
+      }
+    },
+    "4_players_entrepreneur_freelance_artist_it_specialist_student": {
+      "players": [
+        "it_specialist",
+        "student",
+        "freelance_artist",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 5,
+        "student": 7,
+        "freelance_artist": 8,
+        "entrepreneur": 0
+      }
+    },
+    "4_players_it_specialist_pensioner_student_waiter": {
+      "players": [
+        "it_specialist",
+        "student",
+        "waiter",
+        "pensioner"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 1,
+        "student": 4,
+        "waiter": 4,
+        "pensioner": 11
+      }
+    },
+    "4_players_entrepreneur_it_specialist_student_waiter": {
+      "players": [
+        "it_specialist",
+        "student",
+        "waiter",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 3,
+        "student": 5,
+        "waiter": 9,
+        "entrepreneur": 3
+      }
+    },
+    "4_players_entrepreneur_it_specialist_pensioner_student": {
+      "players": [
+        "it_specialist",
+        "student",
+        "pensioner",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 5,
+        "student": 2,
+        "pensioner": 11,
+        "entrepreneur": 2
+      }
+    },
+    "4_players_courier_freelance_artist_it_specialist_spanish_spouse": {
+      "players": [
+        "it_specialist",
+        "courier",
+        "spanish_spouse",
+        "freelance_artist"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 3,
+        "courier": 2,
+        "spanish_spouse": 11,
+        "freelance_artist": 4
+      }
+    },
+    "4_players_courier_it_specialist_spanish_spouse_waiter": {
+      "players": [
+        "it_specialist",
+        "courier",
+        "spanish_spouse",
+        "waiter"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 4,
+        "courier": 1,
+        "spanish_spouse": 15,
+        "waiter": 0
+      }
+    },
+    "4_players_courier_it_specialist_pensioner_spanish_spouse": {
+      "players": [
+        "it_specialist",
+        "courier",
+        "spanish_spouse",
+        "pensioner"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 3,
+        "courier": 0,
+        "spanish_spouse": 13,
+        "pensioner": 4
+      }
+    },
+    "4_players_courier_entrepreneur_it_specialist_spanish_spouse": {
+      "players": [
+        "it_specialist",
+        "courier",
+        "spanish_spouse",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 2,
+        "courier": 3,
+        "spanish_spouse": 14,
+        "entrepreneur": 1
+      }
+    },
+    "4_players_courier_freelance_artist_it_specialist_waiter": {
+      "players": [
+        "it_specialist",
+        "courier",
+        "freelance_artist",
+        "waiter"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 2,
+        "courier": 0,
+        "freelance_artist": 11,
+        "waiter": 7
+      }
+    },
+    "4_players_courier_freelance_artist_it_specialist_pensioner": {
+      "players": [
+        "it_specialist",
+        "courier",
+        "freelance_artist",
+        "pensioner"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 1,
+        "courier": 4,
+        "freelance_artist": 4,
+        "pensioner": 11
+      }
+    },
+    "4_players_courier_entrepreneur_freelance_artist_it_specialist": {
+      "players": [
+        "it_specialist",
+        "courier",
+        "freelance_artist",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 5,
+        "courier": 3,
+        "freelance_artist": 8,
+        "entrepreneur": 4
+      }
+    },
+    "4_players_courier_it_specialist_pensioner_waiter": {
+      "players": [
+        "it_specialist",
+        "courier",
+        "waiter",
+        "pensioner"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 4,
+        "courier": 1,
+        "waiter": 10,
+        "pensioner": 5
+      }
+    },
+    "4_players_courier_entrepreneur_it_specialist_waiter": {
+      "players": [
+        "it_specialist",
+        "courier",
+        "waiter",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 5,
+        "courier": 3,
+        "waiter": 10,
+        "entrepreneur": 2
+      }
+    },
+    "4_players_courier_entrepreneur_it_specialist_pensioner": {
+      "players": [
+        "it_specialist",
+        "courier",
+        "pensioner",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 2,
+        "courier": 5,
+        "pensioner": 10,
+        "entrepreneur": 3
+      }
+    },
+    "4_players_freelance_artist_it_specialist_spanish_spouse_waiter": {
+      "players": [
+        "it_specialist",
+        "spanish_spouse",
+        "freelance_artist",
+        "waiter"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 3,
+        "spanish_spouse": 11,
+        "freelance_artist": 3,
+        "waiter": 3
+      }
+    },
+    "4_players_freelance_artist_it_specialist_pensioner_spanish_spouse": {
+      "players": [
+        "it_specialist",
+        "spanish_spouse",
+        "freelance_artist",
+        "pensioner"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 2,
+        "spanish_spouse": 5,
+        "freelance_artist": 6,
+        "pensioner": 7
+      }
+    },
+    "4_players_entrepreneur_freelance_artist_it_specialist_spanish_spouse": {
+      "players": [
+        "it_specialist",
+        "spanish_spouse",
+        "freelance_artist",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 3,
+        "spanish_spouse": 15,
+        "freelance_artist": 2,
+        "entrepreneur": 0
+      }
+    },
+    "4_players_it_specialist_pensioner_spanish_spouse_waiter": {
+      "players": [
+        "it_specialist",
+        "spanish_spouse",
+        "waiter",
+        "pensioner"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 6,
+        "spanish_spouse": 9,
+        "waiter": 1,
+        "pensioner": 4
+      }
+    },
+    "4_players_entrepreneur_it_specialist_spanish_spouse_waiter": {
+      "players": [
+        "it_specialist",
+        "spanish_spouse",
+        "waiter",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 1,
+        "spanish_spouse": 13,
+        "waiter": 6,
+        "entrepreneur": 0
+      }
+    },
+    "4_players_entrepreneur_it_specialist_pensioner_spanish_spouse": {
+      "players": [
+        "it_specialist",
+        "spanish_spouse",
+        "pensioner",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 2,
+        "spanish_spouse": 8,
+        "pensioner": 10,
+        "entrepreneur": 0
+      }
+    },
+    "4_players_freelance_artist_it_specialist_pensioner_waiter": {
+      "players": [
+        "it_specialist",
+        "freelance_artist",
+        "waiter",
+        "pensioner"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 1,
+        "freelance_artist": 10,
+        "waiter": 4,
+        "pensioner": 5
+      }
+    },
+    "4_players_entrepreneur_freelance_artist_it_specialist_waiter": {
+      "players": [
+        "it_specialist",
+        "freelance_artist",
+        "waiter",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 9,
+        "freelance_artist": 5,
+        "waiter": 5,
+        "entrepreneur": 1
+      }
+    },
+    "4_players_entrepreneur_freelance_artist_it_specialist_pensioner": {
+      "players": [
+        "it_specialist",
+        "freelance_artist",
+        "pensioner",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 0,
+        "freelance_artist": 9,
+        "pensioner": 9,
+        "entrepreneur": 2
+      }
+    },
+    "4_players_entrepreneur_it_specialist_pensioner_waiter": {
+      "players": [
+        "it_specialist",
+        "waiter",
+        "pensioner",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 2,
+        "waiter": 9,
+        "pensioner": 9,
+        "entrepreneur": 0
+      }
+    },
+    "4_players_courier_freelance_artist_spanish_spouse_student": {
+      "players": [
+        "student",
+        "courier",
+        "spanish_spouse",
+        "freelance_artist"
+      ],
+      "games": 20,
+      "wins": {
+        "student": 2,
+        "courier": 1,
+        "spanish_spouse": 10,
+        "freelance_artist": 7
+      }
+    },
+    "4_players_courier_spanish_spouse_student_waiter": {
+      "players": [
+        "student",
+        "courier",
+        "spanish_spouse",
+        "waiter"
+      ],
+      "games": 20,
+      "wins": {
+        "student": 4,
+        "courier": 1,
+        "spanish_spouse": 7,
+        "waiter": 8
+      }
+    },
+    "4_players_courier_pensioner_spanish_spouse_student": {
+      "players": [
+        "student",
+        "courier",
+        "spanish_spouse",
+        "pensioner"
+      ],
+      "games": 20,
+      "wins": {
+        "student": 0,
+        "courier": 1,
+        "spanish_spouse": 12,
+        "pensioner": 7
+      }
+    },
+    "4_players_courier_entrepreneur_spanish_spouse_student": {
+      "players": [
+        "student",
+        "courier",
+        "spanish_spouse",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "student": 4,
+        "courier": 1,
+        "spanish_spouse": 13,
+        "entrepreneur": 2
+      }
+    },
+    "4_players_courier_freelance_artist_student_waiter": {
+      "players": [
+        "student",
+        "courier",
+        "freelance_artist",
+        "waiter"
+      ],
+      "games": 20,
+      "wins": {
+        "student": 3,
+        "courier": 3,
+        "freelance_artist": 8,
+        "waiter": 6
+      }
+    },
+    "4_players_courier_freelance_artist_pensioner_student": {
+      "players": [
+        "student",
+        "courier",
+        "freelance_artist",
+        "pensioner"
+      ],
+      "games": 20,
+      "wins": {
+        "student": 2,
+        "courier": 1,
+        "freelance_artist": 6,
+        "pensioner": 11
+      }
+    },
+    "4_players_courier_entrepreneur_freelance_artist_student": {
+      "players": [
+        "student",
+        "courier",
+        "freelance_artist",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "student": 2,
+        "courier": 2,
+        "freelance_artist": 10,
+        "entrepreneur": 6
+      }
+    },
+    "4_players_courier_pensioner_student_waiter": {
+      "players": [
+        "student",
+        "courier",
+        "waiter",
+        "pensioner"
+      ],
+      "games": 20,
+      "wins": {
+        "student": 3,
+        "courier": 1,
+        "waiter": 10,
+        "pensioner": 6
+      }
+    },
+    "4_players_courier_entrepreneur_student_waiter": {
+      "players": [
+        "student",
+        "courier",
+        "waiter",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "student": 8,
+        "courier": 2,
+        "waiter": 8,
+        "entrepreneur": 2
+      }
+    },
+    "4_players_courier_entrepreneur_pensioner_student": {
+      "players": [
+        "student",
+        "courier",
+        "pensioner",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "student": 2,
+        "courier": 0,
+        "pensioner": 11,
+        "entrepreneur": 7
+      }
+    },
+    "4_players_freelance_artist_spanish_spouse_student_waiter": {
+      "players": [
+        "student",
+        "spanish_spouse",
+        "freelance_artist",
+        "waiter"
+      ],
+      "games": 20,
+      "wins": {
+        "student": 4,
+        "spanish_spouse": 12,
+        "freelance_artist": 2,
+        "waiter": 2
+      }
+    },
+    "4_players_freelance_artist_pensioner_spanish_spouse_student": {
+      "players": [
+        "student",
+        "spanish_spouse",
+        "freelance_artist",
+        "pensioner"
+      ],
+      "games": 20,
+      "wins": {
+        "student": 2,
+        "spanish_spouse": 12,
+        "freelance_artist": 3,
+        "pensioner": 3
+      }
+    },
+    "4_players_entrepreneur_freelance_artist_spanish_spouse_student": {
+      "players": [
+        "student",
+        "spanish_spouse",
+        "freelance_artist",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "student": 5,
+        "spanish_spouse": 9,
+        "freelance_artist": 4,
+        "entrepreneur": 2
+      }
+    },
+    "4_players_pensioner_spanish_spouse_student_waiter": {
+      "players": [
+        "student",
+        "spanish_spouse",
+        "waiter",
+        "pensioner"
+      ],
+      "games": 20,
+      "wins": {
+        "student": 3,
+        "spanish_spouse": 7,
+        "waiter": 5,
+        "pensioner": 5
+      }
+    },
+    "4_players_entrepreneur_spanish_spouse_student_waiter": {
+      "players": [
+        "student",
+        "spanish_spouse",
+        "waiter",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "student": 5,
+        "spanish_spouse": 8,
+        "waiter": 3,
+        "entrepreneur": 4
+      }
+    },
+    "4_players_entrepreneur_pensioner_spanish_spouse_student": {
+      "players": [
+        "student",
+        "spanish_spouse",
+        "pensioner",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "student": 3,
+        "spanish_spouse": 7,
+        "pensioner": 10,
+        "entrepreneur": 0
+      }
+    },
+    "4_players_freelance_artist_pensioner_student_waiter": {
+      "players": [
+        "student",
+        "freelance_artist",
+        "waiter",
+        "pensioner"
+      ],
+      "games": 20,
+      "wins": {
+        "student": 3,
+        "freelance_artist": 7,
+        "waiter": 5,
+        "pensioner": 5
+      }
+    },
+    "4_players_entrepreneur_freelance_artist_student_waiter": {
+      "players": [
+        "student",
+        "freelance_artist",
+        "waiter",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "student": 4,
+        "freelance_artist": 7,
+        "waiter": 6,
+        "entrepreneur": 3
+      }
+    },
+    "4_players_entrepreneur_freelance_artist_pensioner_student": {
+      "players": [
+        "student",
+        "freelance_artist",
+        "pensioner",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "student": 3,
+        "freelance_artist": 12,
+        "pensioner": 5,
+        "entrepreneur": 0
+      }
+    },
+    "4_players_entrepreneur_pensioner_student_waiter": {
+      "players": [
+        "student",
+        "waiter",
+        "pensioner",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "student": 4,
+        "waiter": 7,
+        "pensioner": 6,
+        "entrepreneur": 3
+      }
+    },
+    "4_players_courier_freelance_artist_spanish_spouse_waiter": {
+      "players": [
+        "courier",
+        "spanish_spouse",
+        "freelance_artist",
+        "waiter"
+      ],
+      "games": 20,
+      "wins": {
+        "courier": 1,
+        "spanish_spouse": 15,
+        "freelance_artist": 3,
+        "waiter": 1
+      }
+    },
+    "4_players_courier_freelance_artist_pensioner_spanish_spouse": {
+      "players": [
+        "courier",
+        "spanish_spouse",
+        "freelance_artist",
+        "pensioner"
+      ],
+      "games": 20,
+      "wins": {
+        "courier": 2,
+        "spanish_spouse": 9,
+        "freelance_artist": 5,
+        "pensioner": 4
+      }
+    },
+    "4_players_courier_entrepreneur_freelance_artist_spanish_spouse": {
+      "players": [
+        "courier",
+        "spanish_spouse",
+        "freelance_artist",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "courier": 0,
+        "spanish_spouse": 8,
+        "freelance_artist": 9,
+        "entrepreneur": 3
+      }
+    },
+    "4_players_courier_pensioner_spanish_spouse_waiter": {
+      "players": [
+        "courier",
+        "spanish_spouse",
+        "waiter",
+        "pensioner"
+      ],
+      "games": 20,
+      "wins": {
+        "courier": 0,
+        "spanish_spouse": 12,
+        "waiter": 1,
+        "pensioner": 7
+      }
+    },
+    "4_players_courier_entrepreneur_spanish_spouse_waiter": {
+      "players": [
+        "courier",
+        "spanish_spouse",
+        "waiter",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "courier": 0,
+        "spanish_spouse": 15,
+        "waiter": 3,
+        "entrepreneur": 2
+      }
+    },
+    "4_players_courier_entrepreneur_pensioner_spanish_spouse": {
+      "players": [
+        "courier",
+        "spanish_spouse",
+        "pensioner",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "courier": 0,
+        "spanish_spouse": 15,
+        "pensioner": 4,
+        "entrepreneur": 1
+      }
+    },
+    "4_players_courier_freelance_artist_pensioner_waiter": {
+      "players": [
+        "courier",
+        "freelance_artist",
+        "waiter",
+        "pensioner"
+      ],
+      "games": 20,
+      "wins": {
+        "courier": 1,
+        "freelance_artist": 6,
+        "waiter": 7,
+        "pensioner": 6
+      }
+    },
+    "4_players_courier_entrepreneur_freelance_artist_waiter": {
+      "players": [
+        "courier",
+        "freelance_artist",
+        "waiter",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "courier": 1,
+        "freelance_artist": 8,
+        "waiter": 7,
+        "entrepreneur": 4
+      }
+    },
+    "4_players_courier_entrepreneur_freelance_artist_pensioner": {
+      "players": [
+        "courier",
+        "freelance_artist",
+        "pensioner",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "courier": 0,
+        "freelance_artist": 5,
+        "pensioner": 12,
+        "entrepreneur": 3
+      }
+    },
+    "4_players_courier_entrepreneur_pensioner_waiter": {
+      "players": [
+        "courier",
+        "waiter",
+        "pensioner",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "courier": 2,
+        "waiter": 7,
+        "pensioner": 10,
+        "entrepreneur": 1
+      }
+    },
+    "4_players_freelance_artist_pensioner_spanish_spouse_waiter": {
+      "players": [
+        "spanish_spouse",
+        "freelance_artist",
+        "waiter",
+        "pensioner"
+      ],
+      "games": 20,
+      "wins": {
+        "spanish_spouse": 7,
+        "freelance_artist": 6,
+        "waiter": 3,
+        "pensioner": 4
+      }
+    },
+    "4_players_entrepreneur_freelance_artist_spanish_spouse_waiter": {
+      "players": [
+        "spanish_spouse",
+        "freelance_artist",
+        "waiter",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "spanish_spouse": 11,
+        "freelance_artist": 5,
+        "waiter": 4,
+        "entrepreneur": 0
+      }
+    },
+    "4_players_entrepreneur_freelance_artist_pensioner_spanish_spouse": {
+      "players": [
+        "spanish_spouse",
+        "freelance_artist",
+        "pensioner",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "spanish_spouse": 10,
+        "freelance_artist": 2,
+        "pensioner": 5,
+        "entrepreneur": 3
+      }
+    },
+    "4_players_entrepreneur_pensioner_spanish_spouse_waiter": {
+      "players": [
+        "spanish_spouse",
+        "waiter",
+        "pensioner",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "spanish_spouse": 11,
+        "waiter": 3,
+        "pensioner": 6,
+        "entrepreneur": 0
+      }
+    },
+    "4_players_entrepreneur_freelance_artist_pensioner_waiter": {
+      "players": [
+        "freelance_artist",
+        "waiter",
+        "pensioner",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "freelance_artist": 6,
+        "waiter": 3,
+        "pensioner": 11,
+        "entrepreneur": 0
+      }
+    },
+    "5_players_courier_freelance_artist_it_specialist_spanish_spouse_student": {
+      "players": [
+        "it_specialist",
+        "student",
+        "courier",
+        "spanish_spouse",
+        "freelance_artist"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 4,
+        "student": 0,
+        "courier": 1,
+        "spanish_spouse": 11,
+        "freelance_artist": 4
+      }
+    },
+    "5_players_courier_it_specialist_spanish_spouse_student_waiter": {
+      "players": [
+        "it_specialist",
+        "student",
+        "courier",
+        "spanish_spouse",
+        "waiter"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 1,
+        "student": 3,
+        "courier": 2,
+        "spanish_spouse": 14,
+        "waiter": 0
+      }
+    },
+    "5_players_courier_it_specialist_pensioner_spanish_spouse_student": {
+      "players": [
+        "it_specialist",
+        "student",
+        "courier",
+        "spanish_spouse",
+        "pensioner"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 7,
+        "student": 3,
+        "courier": 2,
+        "spanish_spouse": 8,
+        "pensioner": 0
+      }
+    },
+    "5_players_courier_entrepreneur_it_specialist_spanish_spouse_student": {
+      "players": [
+        "it_specialist",
+        "student",
+        "courier",
+        "spanish_spouse",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 3,
+        "student": 4,
+        "courier": 1,
+        "spanish_spouse": 10,
+        "entrepreneur": 2
+      }
+    },
+    "5_players_courier_freelance_artist_it_specialist_student_waiter": {
+      "players": [
+        "it_specialist",
+        "student",
+        "courier",
+        "freelance_artist",
+        "waiter"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 4,
+        "student": 2,
+        "courier": 1,
+        "freelance_artist": 5,
+        "waiter": 8
+      }
+    },
+    "5_players_courier_freelance_artist_it_specialist_pensioner_student": {
+      "players": [
+        "it_specialist",
+        "student",
+        "courier",
+        "freelance_artist",
+        "pensioner"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 3,
+        "student": 0,
+        "courier": 2,
+        "freelance_artist": 9,
+        "pensioner": 6
+      }
+    },
+    "5_players_courier_entrepreneur_freelance_artist_it_specialist_student": {
+      "players": [
+        "it_specialist",
+        "student",
+        "courier",
+        "freelance_artist",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 3,
+        "student": 2,
+        "courier": 0,
+        "freelance_artist": 13,
+        "entrepreneur": 2
+      }
+    },
+    "5_players_courier_it_specialist_pensioner_student_waiter": {
+      "players": [
+        "it_specialist",
+        "student",
+        "courier",
+        "waiter",
+        "pensioner"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 5,
+        "student": 7,
+        "courier": 0,
+        "waiter": 2,
+        "pensioner": 6
+      }
+    },
+    "5_players_courier_entrepreneur_it_specialist_student_waiter": {
+      "players": [
+        "it_specialist",
+        "student",
+        "courier",
+        "waiter",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 2,
+        "student": 3,
+        "courier": 1,
+        "waiter": 13,
+        "entrepreneur": 1
+      }
+    },
+    "5_players_courier_entrepreneur_it_specialist_pensioner_student": {
+      "players": [
+        "it_specialist",
+        "student",
+        "courier",
+        "pensioner",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 2,
+        "student": 4,
+        "courier": 3,
+        "pensioner": 7,
+        "entrepreneur": 4
+      }
+    },
+    "5_players_freelance_artist_it_specialist_spanish_spouse_student_waiter": {
+      "players": [
+        "it_specialist",
+        "student",
+        "spanish_spouse",
+        "freelance_artist",
+        "waiter"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 4,
+        "student": 1,
+        "spanish_spouse": 10,
+        "freelance_artist": 4,
+        "waiter": 1
+      }
+    },
+    "5_players_freelance_artist_it_specialist_pensioner_spanish_spouse_student": {
+      "players": [
+        "it_specialist",
+        "student",
+        "spanish_spouse",
+        "freelance_artist",
+        "pensioner"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 2,
+        "student": 1,
+        "spanish_spouse": 6,
+        "freelance_artist": 3,
+        "pensioner": 8
+      }
+    },
+    "5_players_entrepreneur_freelance_artist_it_specialist_spanish_spouse_student": {
+      "players": [
+        "it_specialist",
+        "student",
+        "spanish_spouse",
+        "freelance_artist",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 4,
+        "student": 2,
+        "spanish_spouse": 12,
+        "freelance_artist": 2,
+        "entrepreneur": 0
+      }
+    },
+    "5_players_it_specialist_pensioner_spanish_spouse_student_waiter": {
+      "players": [
+        "it_specialist",
+        "student",
+        "spanish_spouse",
+        "waiter",
+        "pensioner"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 1,
+        "student": 1,
+        "spanish_spouse": 9,
+        "waiter": 7,
+        "pensioner": 2
+      }
+    },
+    "5_players_entrepreneur_it_specialist_spanish_spouse_student_waiter": {
+      "players": [
+        "it_specialist",
+        "student",
+        "spanish_spouse",
+        "waiter",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 1,
+        "student": 2,
+        "spanish_spouse": 13,
+        "waiter": 3,
+        "entrepreneur": 1
+      }
+    },
+    "5_players_entrepreneur_it_specialist_pensioner_spanish_spouse_student": {
+      "players": [
+        "it_specialist",
+        "student",
+        "spanish_spouse",
+        "pensioner",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 4,
+        "student": 2,
+        "spanish_spouse": 6,
+        "pensioner": 8,
+        "entrepreneur": 0
+      }
+    },
+    "5_players_freelance_artist_it_specialist_pensioner_student_waiter": {
+      "players": [
+        "it_specialist",
+        "student",
+        "freelance_artist",
+        "waiter",
+        "pensioner"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 1,
+        "student": 3,
+        "freelance_artist": 9,
+        "waiter": 1,
+        "pensioner": 6
+      }
+    },
+    "5_players_entrepreneur_freelance_artist_it_specialist_student_waiter": {
+      "players": [
+        "it_specialist",
+        "student",
+        "freelance_artist",
+        "waiter",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 3,
+        "student": 3,
+        "freelance_artist": 9,
+        "waiter": 5,
+        "entrepreneur": 0
+      }
+    },
+    "5_players_entrepreneur_freelance_artist_it_specialist_pensioner_student": {
+      "players": [
+        "it_specialist",
+        "student",
+        "freelance_artist",
+        "pensioner",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 4,
+        "student": 1,
+        "freelance_artist": 4,
+        "pensioner": 10,
+        "entrepreneur": 1
+      }
+    },
+    "5_players_entrepreneur_it_specialist_pensioner_student_waiter": {
+      "players": [
+        "it_specialist",
+        "student",
+        "waiter",
+        "pensioner",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 3,
+        "student": 3,
+        "waiter": 7,
+        "pensioner": 5,
+        "entrepreneur": 2
+      }
+    },
+    "5_players_courier_freelance_artist_it_specialist_spanish_spouse_waiter": {
+      "players": [
+        "it_specialist",
+        "courier",
+        "spanish_spouse",
+        "freelance_artist",
+        "waiter"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 3,
+        "courier": 0,
+        "spanish_spouse": 11,
+        "freelance_artist": 6,
+        "waiter": 0
+      }
+    },
+    "5_players_courier_freelance_artist_it_specialist_pensioner_spanish_spouse": {
+      "players": [
+        "it_specialist",
+        "courier",
+        "spanish_spouse",
+        "freelance_artist",
+        "pensioner"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 3,
+        "courier": 0,
+        "spanish_spouse": 10,
+        "freelance_artist": 3,
+        "pensioner": 4
+      }
+    },
+    "5_players_courier_entrepreneur_freelance_artist_it_specialist_spanish_spouse": {
+      "players": [
+        "it_specialist",
+        "courier",
+        "spanish_spouse",
+        "freelance_artist",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 2,
+        "courier": 3,
+        "spanish_spouse": 9,
+        "freelance_artist": 4,
+        "entrepreneur": 2
+      }
+    },
+    "5_players_courier_it_specialist_pensioner_spanish_spouse_waiter": {
+      "players": [
+        "it_specialist",
+        "courier",
+        "spanish_spouse",
+        "waiter",
+        "pensioner"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 1,
+        "courier": 1,
+        "spanish_spouse": 9,
+        "waiter": 5,
+        "pensioner": 4
+      }
+    },
+    "5_players_courier_entrepreneur_it_specialist_spanish_spouse_waiter": {
+      "players": [
+        "it_specialist",
+        "courier",
+        "spanish_spouse",
+        "waiter",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 3,
+        "courier": 0,
+        "spanish_spouse": 11,
+        "waiter": 5,
+        "entrepreneur": 1
+      }
+    },
+    "5_players_courier_entrepreneur_it_specialist_pensioner_spanish_spouse": {
+      "players": [
+        "it_specialist",
+        "courier",
+        "spanish_spouse",
+        "pensioner",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 0,
+        "courier": 1,
+        "spanish_spouse": 10,
+        "pensioner": 9,
+        "entrepreneur": 0
+      }
+    },
+    "5_players_courier_freelance_artist_it_specialist_pensioner_waiter": {
+      "players": [
+        "it_specialist",
+        "courier",
+        "freelance_artist",
+        "waiter",
+        "pensioner"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 8,
+        "courier": 2,
+        "freelance_artist": 6,
+        "waiter": 1,
+        "pensioner": 3
+      }
+    },
+    "5_players_courier_entrepreneur_freelance_artist_it_specialist_waiter": {
+      "players": [
+        "it_specialist",
+        "courier",
+        "freelance_artist",
+        "waiter",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 6,
+        "courier": 1,
+        "freelance_artist": 7,
+        "waiter": 6,
+        "entrepreneur": 0
+      }
+    },
+    "5_players_courier_entrepreneur_freelance_artist_it_specialist_pensioner": {
+      "players": [
+        "it_specialist",
+        "courier",
+        "freelance_artist",
+        "pensioner",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 0,
+        "courier": 4,
+        "freelance_artist": 8,
+        "pensioner": 8,
+        "entrepreneur": 0
+      }
+    },
+    "5_players_courier_entrepreneur_it_specialist_pensioner_waiter": {
+      "players": [
+        "it_specialist",
+        "courier",
+        "waiter",
+        "pensioner",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 6,
+        "courier": 1,
+        "waiter": 5,
+        "pensioner": 8,
+        "entrepreneur": 0
+      }
+    },
+    "5_players_freelance_artist_it_specialist_pensioner_spanish_spouse_waiter": {
+      "players": [
+        "it_specialist",
+        "spanish_spouse",
+        "freelance_artist",
+        "waiter",
+        "pensioner"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 4,
+        "spanish_spouse": 7,
+        "freelance_artist": 5,
+        "waiter": 0,
+        "pensioner": 4
+      }
+    },
+    "5_players_entrepreneur_freelance_artist_it_specialist_spanish_spouse_waiter": {
+      "players": [
+        "it_specialist",
+        "spanish_spouse",
+        "freelance_artist",
+        "waiter",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 2,
+        "spanish_spouse": 5,
+        "freelance_artist": 11,
+        "waiter": 0,
+        "entrepreneur": 2
+      }
+    },
+    "5_players_entrepreneur_freelance_artist_it_specialist_pensioner_spanish_spouse": {
+      "players": [
+        "it_specialist",
+        "spanish_spouse",
+        "freelance_artist",
+        "pensioner",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 1,
+        "spanish_spouse": 11,
+        "freelance_artist": 4,
+        "pensioner": 4,
+        "entrepreneur": 0
+      }
+    },
+    "5_players_entrepreneur_it_specialist_pensioner_spanish_spouse_waiter": {
+      "players": [
+        "it_specialist",
+        "spanish_spouse",
+        "waiter",
+        "pensioner",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 0,
+        "spanish_spouse": 14,
+        "waiter": 4,
+        "pensioner": 2,
+        "entrepreneur": 0
+      }
+    },
+    "5_players_entrepreneur_freelance_artist_it_specialist_pensioner_waiter": {
+      "players": [
+        "it_specialist",
+        "freelance_artist",
+        "waiter",
+        "pensioner",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 5,
+        "freelance_artist": 6,
+        "waiter": 4,
+        "pensioner": 4,
+        "entrepreneur": 1
+      }
+    },
+    "5_players_courier_freelance_artist_spanish_spouse_student_waiter": {
+      "players": [
+        "student",
+        "courier",
+        "spanish_spouse",
+        "freelance_artist",
+        "waiter"
+      ],
+      "games": 20,
+      "wins": {
+        "student": 2,
+        "courier": 0,
+        "spanish_spouse": 10,
+        "freelance_artist": 7,
+        "waiter": 1
+      }
+    },
+    "5_players_courier_freelance_artist_pensioner_spanish_spouse_student": {
+      "players": [
+        "student",
+        "courier",
+        "spanish_spouse",
+        "freelance_artist",
+        "pensioner"
+      ],
+      "games": 20,
+      "wins": {
+        "student": 1,
+        "courier": 1,
+        "spanish_spouse": 10,
+        "freelance_artist": 3,
+        "pensioner": 5
+      }
+    },
+    "5_players_courier_entrepreneur_freelance_artist_spanish_spouse_student": {
+      "players": [
+        "student",
+        "courier",
+        "spanish_spouse",
+        "freelance_artist",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "student": 3,
+        "courier": 0,
+        "spanish_spouse": 12,
+        "freelance_artist": 3,
+        "entrepreneur": 2
+      }
+    },
+    "5_players_courier_pensioner_spanish_spouse_student_waiter": {
+      "players": [
+        "student",
+        "courier",
+        "spanish_spouse",
+        "waiter",
+        "pensioner"
+      ],
+      "games": 20,
+      "wins": {
+        "student": 4,
+        "courier": 1,
+        "spanish_spouse": 8,
+        "waiter": 3,
+        "pensioner": 4
+      }
+    },
+    "5_players_courier_entrepreneur_spanish_spouse_student_waiter": {
+      "players": [
+        "student",
+        "courier",
+        "spanish_spouse",
+        "waiter",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "student": 4,
+        "courier": 1,
+        "spanish_spouse": 7,
+        "waiter": 6,
+        "entrepreneur": 2
+      }
+    },
+    "5_players_courier_entrepreneur_pensioner_spanish_spouse_student": {
+      "players": [
+        "student",
+        "courier",
+        "spanish_spouse",
+        "pensioner",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "student": 2,
+        "courier": 0,
+        "spanish_spouse": 12,
+        "pensioner": 4,
+        "entrepreneur": 2
+      }
+    },
+    "5_players_courier_freelance_artist_pensioner_student_waiter": {
+      "players": [
+        "student",
+        "courier",
+        "freelance_artist",
+        "waiter",
+        "pensioner"
+      ],
+      "games": 20,
+      "wins": {
+        "student": 4,
+        "courier": 0,
+        "freelance_artist": 4,
+        "waiter": 3,
+        "pensioner": 9
+      }
+    },
+    "5_players_courier_entrepreneur_freelance_artist_student_waiter": {
+      "players": [
+        "student",
+        "courier",
+        "freelance_artist",
+        "waiter",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "student": 1,
+        "courier": 1,
+        "freelance_artist": 8,
+        "waiter": 6,
+        "entrepreneur": 4
+      }
+    },
+    "5_players_courier_entrepreneur_freelance_artist_pensioner_student": {
+      "players": [
+        "student",
+        "courier",
+        "freelance_artist",
+        "pensioner",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "student": 3,
+        "courier": 0,
+        "freelance_artist": 4,
+        "pensioner": 7,
+        "entrepreneur": 6
+      }
+    },
+    "5_players_courier_entrepreneur_pensioner_student_waiter": {
+      "players": [
+        "student",
+        "courier",
+        "waiter",
+        "pensioner",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "student": 1,
+        "courier": 1,
+        "waiter": 7,
+        "pensioner": 6,
+        "entrepreneur": 5
+      }
+    },
+    "5_players_freelance_artist_pensioner_spanish_spouse_student_waiter": {
+      "players": [
+        "student",
+        "spanish_spouse",
+        "freelance_artist",
+        "waiter",
+        "pensioner"
+      ],
+      "games": 20,
+      "wins": {
+        "student": 5,
+        "spanish_spouse": 12,
+        "freelance_artist": 2,
+        "waiter": 0,
+        "pensioner": 1
+      }
+    },
+    "5_players_entrepreneur_freelance_artist_spanish_spouse_student_waiter": {
+      "players": [
+        "student",
+        "spanish_spouse",
+        "freelance_artist",
+        "waiter",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "student": 7,
+        "spanish_spouse": 11,
+        "freelance_artist": 1,
+        "waiter": 0,
+        "entrepreneur": 1
+      }
+    },
+    "5_players_entrepreneur_freelance_artist_pensioner_spanish_spouse_student": {
+      "players": [
+        "student",
+        "spanish_spouse",
+        "freelance_artist",
+        "pensioner",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "student": 5,
+        "spanish_spouse": 9,
+        "freelance_artist": 1,
+        "pensioner": 4,
+        "entrepreneur": 1
+      }
+    },
+    "5_players_entrepreneur_pensioner_spanish_spouse_student_waiter": {
+      "players": [
+        "student",
+        "spanish_spouse",
+        "waiter",
+        "pensioner",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "student": 2,
+        "spanish_spouse": 6,
+        "waiter": 3,
+        "pensioner": 7,
+        "entrepreneur": 2
+      }
+    },
+    "5_players_entrepreneur_freelance_artist_pensioner_student_waiter": {
+      "players": [
+        "student",
+        "freelance_artist",
+        "waiter",
+        "pensioner",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "student": 2,
+        "freelance_artist": 7,
+        "waiter": 4,
+        "pensioner": 5,
+        "entrepreneur": 2
+      }
+    },
+    "5_players_courier_freelance_artist_pensioner_spanish_spouse_waiter": {
+      "players": [
+        "courier",
+        "spanish_spouse",
+        "freelance_artist",
+        "waiter",
+        "pensioner"
+      ],
+      "games": 20,
+      "wins": {
+        "courier": 1,
+        "spanish_spouse": 4,
+        "freelance_artist": 5,
+        "waiter": 0,
+        "pensioner": 10
+      }
+    },
+    "5_players_courier_entrepreneur_freelance_artist_spanish_spouse_waiter": {
+      "players": [
+        "courier",
+        "spanish_spouse",
+        "freelance_artist",
+        "waiter",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "courier": 3,
+        "spanish_spouse": 9,
+        "freelance_artist": 4,
+        "waiter": 1,
+        "entrepreneur": 3
+      }
+    },
+    "5_players_courier_entrepreneur_freelance_artist_pensioner_spanish_spouse": {
+      "players": [
+        "courier",
+        "spanish_spouse",
+        "freelance_artist",
+        "pensioner",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "courier": 1,
+        "spanish_spouse": 11,
+        "freelance_artist": 2,
+        "pensioner": 4,
+        "entrepreneur": 2
+      }
+    },
+    "5_players_courier_entrepreneur_pensioner_spanish_spouse_waiter": {
+      "players": [
+        "courier",
+        "spanish_spouse",
+        "waiter",
+        "pensioner",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "courier": 3,
+        "spanish_spouse": 9,
+        "waiter": 2,
+        "pensioner": 5,
+        "entrepreneur": 1
+      }
+    },
+    "5_players_courier_entrepreneur_freelance_artist_pensioner_waiter": {
+      "players": [
+        "courier",
+        "freelance_artist",
+        "waiter",
+        "pensioner",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "courier": 2,
+        "freelance_artist": 7,
+        "waiter": 2,
+        "pensioner": 7,
+        "entrepreneur": 2
+      }
+    },
+    "5_players_entrepreneur_freelance_artist_pensioner_spanish_spouse_waiter": {
+      "players": [
+        "spanish_spouse",
+        "freelance_artist",
+        "waiter",
+        "pensioner",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "spanish_spouse": 8,
+        "freelance_artist": 5,
+        "waiter": 0,
+        "pensioner": 7,
+        "entrepreneur": 0
+      }
+    },
+    "6_players_courier_freelance_artist_it_specialist_spanish_spouse_student_waiter": {
+      "players": [
+        "it_specialist",
+        "student",
+        "courier",
+        "spanish_spouse",
+        "freelance_artist",
+        "waiter"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 3,
+        "student": 2,
+        "courier": 0,
+        "spanish_spouse": 11,
+        "freelance_artist": 4,
+        "waiter": 0
+      }
+    },
+    "6_players_courier_freelance_artist_it_specialist_pensioner_spanish_spouse_student": {
+      "players": [
+        "it_specialist",
+        "student",
+        "courier",
+        "spanish_spouse",
+        "freelance_artist",
+        "pensioner"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 7,
+        "student": 1,
+        "courier": 1,
+        "spanish_spouse": 4,
+        "freelance_artist": 2,
+        "pensioner": 5
+      }
+    },
+    "6_players_courier_entrepreneur_freelance_artist_it_specialist_spanish_spouse_student": {
+      "players": [
+        "it_specialist",
+        "student",
+        "courier",
+        "spanish_spouse",
+        "freelance_artist",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 2,
+        "student": 2,
+        "courier": 0,
+        "spanish_spouse": 11,
+        "freelance_artist": 4,
+        "entrepreneur": 1
+      }
+    },
+    "6_players_courier_it_specialist_pensioner_spanish_spouse_student_waiter": {
+      "players": [
+        "it_specialist",
+        "student",
+        "courier",
+        "spanish_spouse",
+        "waiter",
+        "pensioner"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 0,
+        "student": 3,
+        "courier": 0,
+        "spanish_spouse": 9,
+        "waiter": 1,
+        "pensioner": 7
+      }
+    },
+    "6_players_courier_entrepreneur_it_specialist_spanish_spouse_student_waiter": {
+      "players": [
+        "it_specialist",
+        "student",
+        "courier",
+        "spanish_spouse",
+        "waiter",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 5,
+        "student": 3,
+        "courier": 0,
+        "spanish_spouse": 9,
+        "waiter": 3,
+        "entrepreneur": 0
+      }
+    },
+    "6_players_courier_entrepreneur_it_specialist_pensioner_spanish_spouse_student": {
+      "players": [
+        "it_specialist",
+        "student",
+        "courier",
+        "spanish_spouse",
+        "pensioner",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 2,
+        "student": 3,
+        "courier": 0,
+        "spanish_spouse": 10,
+        "pensioner": 5,
+        "entrepreneur": 0
+      }
+    },
+    "6_players_courier_freelance_artist_it_specialist_pensioner_student_waiter": {
+      "players": [
+        "it_specialist",
+        "student",
+        "courier",
+        "freelance_artist",
+        "waiter",
+        "pensioner"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 3,
+        "student": 1,
+        "courier": 0,
+        "freelance_artist": 9,
+        "waiter": 2,
+        "pensioner": 5
+      }
+    },
+    "6_players_courier_entrepreneur_freelance_artist_it_specialist_student_waiter": {
+      "players": [
+        "it_specialist",
+        "student",
+        "courier",
+        "freelance_artist",
+        "waiter",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 5,
+        "student": 2,
+        "courier": 2,
+        "freelance_artist": 5,
+        "waiter": 5,
+        "entrepreneur": 1
+      }
+    },
+    "6_players_courier_entrepreneur_freelance_artist_it_specialist_pensioner_student": {
+      "players": [
+        "it_specialist",
+        "student",
+        "courier",
+        "freelance_artist",
+        "pensioner",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 2,
+        "student": 5,
+        "courier": 0,
+        "freelance_artist": 6,
+        "pensioner": 6,
+        "entrepreneur": 1
+      }
+    },
+    "6_players_courier_entrepreneur_it_specialist_pensioner_student_waiter": {
+      "players": [
+        "it_specialist",
+        "student",
+        "courier",
+        "waiter",
+        "pensioner",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 5,
+        "student": 2,
+        "courier": 1,
+        "waiter": 8,
+        "pensioner": 4,
+        "entrepreneur": 0
+      }
+    },
+    "6_players_freelance_artist_it_specialist_pensioner_spanish_spouse_student_waiter": {
+      "players": [
+        "it_specialist",
+        "student",
+        "spanish_spouse",
+        "freelance_artist",
+        "waiter",
+        "pensioner"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 1,
+        "student": 1,
+        "spanish_spouse": 10,
+        "freelance_artist": 4,
+        "waiter": 1,
+        "pensioner": 3
+      }
+    },
+    "6_players_entrepreneur_freelance_artist_it_specialist_spanish_spouse_student_waiter": {
+      "players": [
+        "it_specialist",
+        "student",
+        "spanish_spouse",
+        "freelance_artist",
+        "waiter",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 3,
+        "student": 4,
+        "spanish_spouse": 7,
+        "freelance_artist": 4,
+        "waiter": 2,
+        "entrepreneur": 0
+      }
+    },
+    "6_players_entrepreneur_freelance_artist_it_specialist_pensioner_spanish_spouse_student": {
+      "players": [
+        "it_specialist",
+        "student",
+        "spanish_spouse",
+        "freelance_artist",
+        "pensioner",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 5,
+        "student": 2,
+        "spanish_spouse": 6,
+        "freelance_artist": 4,
+        "pensioner": 3,
+        "entrepreneur": 0
+      }
+    },
+    "6_players_entrepreneur_it_specialist_pensioner_spanish_spouse_student_waiter": {
+      "players": [
+        "it_specialist",
+        "student",
+        "spanish_spouse",
+        "waiter",
+        "pensioner",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 1,
+        "student": 2,
+        "spanish_spouse": 7,
+        "waiter": 4,
+        "pensioner": 6,
+        "entrepreneur": 0
+      }
+    },
+    "6_players_entrepreneur_freelance_artist_it_specialist_pensioner_student_waiter": {
+      "players": [
+        "it_specialist",
+        "student",
+        "freelance_artist",
+        "waiter",
+        "pensioner",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 2,
+        "student": 1,
+        "freelance_artist": 2,
+        "waiter": 5,
+        "pensioner": 8,
+        "entrepreneur": 2
+      }
+    },
+    "6_players_courier_freelance_artist_it_specialist_pensioner_spanish_spouse_waiter": {
+      "players": [
+        "it_specialist",
+        "courier",
+        "spanish_spouse",
+        "freelance_artist",
+        "waiter",
+        "pensioner"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 1,
+        "courier": 0,
+        "spanish_spouse": 9,
+        "freelance_artist": 5,
+        "waiter": 0,
+        "pensioner": 5
+      }
+    },
+    "6_players_courier_entrepreneur_freelance_artist_it_specialist_spanish_spouse_waiter": {
+      "players": [
+        "it_specialist",
+        "courier",
+        "spanish_spouse",
+        "freelance_artist",
+        "waiter",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 2,
+        "courier": 1,
+        "spanish_spouse": 7,
+        "freelance_artist": 9,
+        "waiter": 0,
+        "entrepreneur": 1
+      }
+    },
+    "6_players_courier_entrepreneur_freelance_artist_it_specialist_pensioner_spanish_spouse": {
+      "players": [
+        "it_specialist",
+        "courier",
+        "spanish_spouse",
+        "freelance_artist",
+        "pensioner",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 2,
+        "courier": 0,
+        "spanish_spouse": 8,
+        "freelance_artist": 5,
+        "pensioner": 5,
+        "entrepreneur": 0
+      }
+    },
+    "6_players_courier_entrepreneur_it_specialist_pensioner_spanish_spouse_waiter": {
+      "players": [
+        "it_specialist",
+        "courier",
+        "spanish_spouse",
+        "waiter",
+        "pensioner",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 0,
+        "courier": 0,
+        "spanish_spouse": 9,
+        "waiter": 2,
+        "pensioner": 9,
+        "entrepreneur": 0
+      }
+    },
+    "6_players_courier_entrepreneur_freelance_artist_it_specialist_pensioner_waiter": {
+      "players": [
+        "it_specialist",
+        "courier",
+        "freelance_artist",
+        "waiter",
+        "pensioner",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 4,
+        "courier": 2,
+        "freelance_artist": 2,
+        "waiter": 5,
+        "pensioner": 6,
+        "entrepreneur": 1
+      }
+    },
+    "6_players_entrepreneur_freelance_artist_it_specialist_pensioner_spanish_spouse_waiter": {
+      "players": [
+        "it_specialist",
+        "spanish_spouse",
+        "freelance_artist",
+        "waiter",
+        "pensioner",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "it_specialist": 1,
+        "spanish_spouse": 4,
+        "freelance_artist": 9,
+        "waiter": 1,
+        "pensioner": 4,
+        "entrepreneur": 1
+      }
+    },
+    "6_players_courier_freelance_artist_pensioner_spanish_spouse_student_waiter": {
+      "players": [
+        "student",
+        "courier",
+        "spanish_spouse",
+        "freelance_artist",
+        "waiter",
+        "pensioner"
+      ],
+      "games": 20,
+      "wins": {
+        "student": 2,
+        "courier": 1,
+        "spanish_spouse": 9,
+        "freelance_artist": 3,
+        "waiter": 2,
+        "pensioner": 3
+      }
+    },
+    "6_players_courier_entrepreneur_freelance_artist_spanish_spouse_student_waiter": {
+      "players": [
+        "student",
+        "courier",
+        "spanish_spouse",
+        "freelance_artist",
+        "waiter",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "student": 2,
+        "courier": 3,
+        "spanish_spouse": 9,
+        "freelance_artist": 5,
+        "waiter": 0,
+        "entrepreneur": 1
+      }
+    },
+    "6_players_courier_entrepreneur_freelance_artist_pensioner_spanish_spouse_student": {
+      "players": [
+        "student",
+        "courier",
+        "spanish_spouse",
+        "freelance_artist",
+        "pensioner",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "student": 1,
+        "courier": 2,
+        "spanish_spouse": 11,
+        "freelance_artist": 3,
+        "pensioner": 3,
+        "entrepreneur": 0
+      }
+    },
+    "6_players_courier_entrepreneur_pensioner_spanish_spouse_student_waiter": {
+      "players": [
+        "student",
+        "courier",
+        "spanish_spouse",
+        "waiter",
+        "pensioner",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "student": 1,
+        "courier": 2,
+        "spanish_spouse": 9,
+        "waiter": 4,
+        "pensioner": 4,
+        "entrepreneur": 0
+      }
+    },
+    "6_players_courier_entrepreneur_freelance_artist_pensioner_student_waiter": {
+      "players": [
+        "student",
+        "courier",
+        "freelance_artist",
+        "waiter",
+        "pensioner",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "student": 1,
+        "courier": 4,
+        "freelance_artist": 8,
+        "waiter": 1,
+        "pensioner": 4,
+        "entrepreneur": 2
+      }
+    },
+    "6_players_entrepreneur_freelance_artist_pensioner_spanish_spouse_student_waiter": {
+      "players": [
+        "student",
+        "spanish_spouse",
+        "freelance_artist",
+        "waiter",
+        "pensioner",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "student": 1,
+        "spanish_spouse": 10,
+        "freelance_artist": 3,
+        "waiter": 1,
+        "pensioner": 4,
+        "entrepreneur": 1
+      }
+    },
+    "6_players_courier_entrepreneur_freelance_artist_pensioner_spanish_spouse_waiter": {
+      "players": [
+        "courier",
+        "spanish_spouse",
+        "freelance_artist",
+        "waiter",
+        "pensioner",
+        "entrepreneur"
+      ],
+      "games": 20,
+      "wins": {
+        "courier": 2,
+        "spanish_spouse": 12,
+        "freelance_artist": 1,
+        "waiter": 0,
+        "pensioner": 4,
+        "entrepreneur": 1
+      }
+    }
+  },
+  "summary": {
+    "total_games": 4760,
+    "total_combinations": 238,
+    "win_rate_spread": 43.991596638655466,
+    "average_win_rate": 25.0,
+    "testing_time_seconds": 0.14275193214416504,
+    "improvement_from_baseline": 8.608403361344536
+  }
+}

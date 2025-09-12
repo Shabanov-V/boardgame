@@ -1,0 +1,137 @@
+{
+  "aggressive_items": [
+    {
+      "id": "item_19",
+      "name": "Поддельный штраф",
+      "category": "sabotage", 
+      "type": "interference",
+      "description": "Подкладываем поддельный штраф, заставляя потратить деньги на разбирательства",
+      "target": "money_gain",
+      "effects": {
+        "block_action": true,
+        "target_money": -3
+      },
+      "when_to_play": "instant_response",
+      "cost": {
+        "nerves": 2
+      },
+      "flavor_text": "¡Multa falsa = unexpected expenses!"
+    },
+    {
+      "id": "aggressive_01",
+      "name": "А еще он криптой торгует",
+      "category": "sabotage",
+      "type": "attack",
+      "target": "other_player",
+      "description": "Анонимная наводка в полицию на соперника",
+      "cost": {
+        "money": 2
+      },
+      "special_effects": ["challenge_target"],
+      "challenge_name": "Полицейская проверка",
+      "challenge_difficulty": 4,
+      "challenge_success": {
+        "documents_cards": 1
+      },
+      "challenge_fail": {
+        "money": -8,
+        "nerves": -3
+      },
+      "when_to_play": "anytime",
+      "flavor_text": "Donde fuentes dijeron que...",
+      "target_conditions": {
+        "min_money": 5
+      }
+    },
+    {
+      "id": "aggressive_02", 
+      "name": "Chivatazo al casero",
+      "category": "sabotage",
+      "type": "attack",
+      "target": "other_player",
+      "description": "Сообщаешь хозяину квартиры про нарушения соседа",
+      "cost": {
+        "nerves": 1
+      },
+      "special_effects": ["reduce_resources"],
+      "target_effects": {
+        "money": 5,
+        "nerves": 2
+      },
+      "when_to_play": "anytime",
+      "flavor_text": "Tu vecino hace mucho ruido por las noches...",
+      "target_conditions": {
+        "max_nerves": 8
+      }
+    },
+    {
+      "id": "aggressive_03",
+      "name": "Robapersonas profesional", 
+      "category": "theft",
+      "type": "attack",
+      "target": "other_player",
+      "description": "Перехватываешь документы соперника через знакомого в gestoria",
+      "cost": {
+        "money": 5
+      },
+      "special_effects": ["steal_effect"],
+      "target_effects": {
+        "documents_cards": 2
+      },
+      "when_to_play": "anytime",
+      "flavor_text": "Estas colas están muy confusas...",
+      "target_conditions": {
+        "required_resources": {
+          "documents_cards": 3
+        }
+      }
+    },
+    {
+      "id": "aggressive_04",
+      "name": "Inspección de Hacienda Express",
+      "category": "sabotage", 
+      "type": "attack",
+      "target": "other_player",
+      "description": "Вызываешь налоговую проверку на богатого соперника",
+      "cost": {
+        "money": 3
+      },
+      "special_effects": ["challenge_target"],
+      "challenge_name": "Налоговая проверка",
+      "challenge_difficulty": 5,
+      "challenge_success": {
+        "nerves": -1
+      },
+      "challenge_fail": {
+        "money": -12,
+        "nerves": -4
+      },
+      "when_to_play": "anytime",
+      "flavor_text": "¿Declara usted todos sus ingresos?",
+      "target_conditions": {
+        "min_money": 15
+      }
+    },
+    {
+      "id": "aggressive_05",
+      "name": "Fake Tinder Match",
+      "category": "social",
+      "type": "attack", 
+      "target": "other_player",
+      "description": "Отправляешь соперника на фальшивое свидание",
+      "cost": {
+        "money": 1
+      },
+      "special_effects": ["reduce_resources"],
+      "target_effects": {
+        "money": 8,
+        "nerves": 3
+      },
+      "when_to_play": "anytime",
+      "flavor_text": "Hola guapo! ¿Te apetece un café?",
+      "target_conditions": {
+        "min_money": 8
+      }
+    }
+  ]
+}

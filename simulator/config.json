@@ -8,6 +8,62 @@
       "white": 10
     }
   },
+  "costs": {
+    "language_b_cost": 2,
+    "language_c_cost": 4,
+    "housing_rent": {
+      "room": 1,
+      "apartment": 3,
+      "mortgage": 5
+    }
+  },
+  "win_conditions": {
+    "buy_housing": {
+      "description": "Купить жильё: ипотека + 20 денег",
+      "requires": {
+        "housing_type": "mortgage",
+        "money": 20
+      }
+    },
+    "get_citizenship": {
+      "description": "Получить гражданство: 7 уровень документов + 3 уровень языка",
+      "requires": {
+        "document_level": 7,
+        "language_level": 3
+      }
+    },
+    "open_business": {
+      "description": "Открыть бизнес: 6 уровень документов + 30 денег + 2 уровень языка",
+      "requires": {
+        "document_level": 6,
+        "money": 30,
+        "language_level": 2
+      }
+    },
+    "family_reunion": {
+      "description": "Воссоединение семьи: 7 уровень документов + квартира + 15 денег",
+      "requires": {
+        "document_level": 7,
+        "housing_type": "apartment",
+        "money": 15
+      }
+    },
+    "vacation": {
+      "description": "Поехать в отпуск: 5 уровень документов + 25 денег + 10 нервов",
+      "requires": {
+        "document_level": 5,
+        "money": 25,
+        "nerves": 10
+      }
+    }
+  },
+  "white_cards": {
+    "random_events": "../whiteCards/random_events.json"
+  },
+  "simulation_parameters": {
+    "max_turns": 200,
+    "ai_nerve_threshold": 3
+  },
   "character_profiles": [
     {
       "id": "it_specialist",
@@ -17,7 +73,7 @@
       "starting_language": 2,
       "starting_housing": "room",
       "starting_document_cards": 3,
-      "salary": 6,
+      "salary": 5,
       "housing_cost": 3,
       "description": "Высокий доход, но уязвим к стрессу и дорогой образ жизни"
     },
@@ -40,19 +96,19 @@
       "starting_nerves": 8,
       "starting_language": 1,
       "starting_housing": "room",
-      "salary": 4,
+      "salary": 5,
       "housing_cost": 2,
       "description": "Физически крепкий, средний доход, плохой язык"
     },
     {
       "id": "spanish_spouse",
       "name": "Жена/муж испанца",
-      "starting_money": 8,
+      "starting_money": 10,
       "starting_nerves": 6,
       "starting_language": 3,
       "starting_housing": "apartment",
       "salary": 4,
-      "housing_cost": 0,
+      "housing_cost": 1,
       "description": "Лучшее жилье, отличный язык, но ограниченные ресурсы"
     },
     {
@@ -63,7 +119,7 @@
       "starting_language": 1,
       "starting_housing": "room",
       "salary_type": "dice",
-      "salary_base": 3,
+      "salary_base": 4,
       "housing_cost": 1,
       "description": "Непредсказуемый доход, творческий, но нестабильный"
     },
@@ -98,73 +154,8 @@
       "starting_housing": "apartment",
       "salary_type": "dice",
       "salary_base": 3,
-      "housing_cost": 5,
+      "housing_cost": 3,
       "description": "Высокие риски, высокие доходы, постоянный стресс"
     }
-  ],
-  "costs": {
-    "language_b_cost": 2,
-    "language_c_cost": 4,
-    "housing_rent": {
-      "room": 1,
-      "apartment": 3,
-      "mortgage": 5
-    }
-  },
-  "win_conditions": {
-    "buy_housing": {
-      "description": "Купить жильё: квартира + язык 2 + 15 денег + нервы 5",
-      "requires": {
-        "housing_type": "apartment",
-        "document_level": 5,
-        "language_level": 2,
-        "money": 25,
-        "nerves": 5
-      }
-    },
-    "get_citizenship": {
-      "description": "Получить гражданство: документы + язык 3 + 10 денег + нервы 5",
-      "requires": {
-        "document_level": 7,
-        "language_level": 3,
-        "money": 15,
-        "nerves": 5
-      }
-    },
-    "vacation": {
-      "description": "Накопить 30 денег и уехать в отпуск с хорошими нервами + язык 2",
-      "requires": {
-        "document_level": 5,
-        "language_level": 2,
-        "money": 30,
-        "nerves": 8
-      }
-    },
-    "open_business": {
-      "description": "Открыть бизнес: документы + язык 3 + 25 денег + нервы 8",
-      "requires": {
-        "document_level": 6,
-        "language_level": 3,
-        "money": 25,
-        "nerves": 8
-      }
-    },
-    "family_reunion": {
-      "description": "Воссоединение семьи: документы + квартира + 20 денег + нервы 6",
-      "requires": {
-        "document_level": 5,
-        "housing_type": "apartment",
-        "money": 20,
-        "nerves": 6
-      }
-    }
-  },
-  "simulation_parameters": {
-    "ai_nerve_threshold": 3,
-    "trade_frequency": 0.4,
-    "trade_deception_rate": 0.5,
-    "trust_decay_factor": 0.3,
-    "min_trades_per_game": 5,
-    "max_trades_per_game": 8
-  }
+  ]
 }

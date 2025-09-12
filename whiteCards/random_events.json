@@ -22,17 +22,30 @@
       "type": "targeted_negative",
       "description": "Налоговая проверка всех автономос и семейной документации",
       "conditions": {
-        "character_id": ["freelance_artist", "it_specialist", "entrepreneur", "spanish_spouse"]
-      },
-      "effects": {
-        "nerves": -1,
-        "money": -6
+        "character_id": [
+          "freelance_artist",
+          "it_specialist",
+          "entrepreneur",
+          "spanish_spouse"
+        ]
       },
       "individual_modifiers": {
-        "freelance_artist": {"nerves": -1, "money": -6},
-        "it_specialist": {"nerves": -1, "money": -6},
-        "entrepreneur": {"nerves": -1, "money": -6},
-        "spanish_spouse": {"nerves": -2, "money": -8}
+        "freelance_artist": {
+          "nerves": -2,
+          "money": -7
+        },
+        "it_specialist": {
+          "nerves": -4,
+          "money": -8
+        },
+        "entrepreneur": {
+        "nerves": -1,
+          "money": -3
+        },
+        "spanish_spouse": {
+          "nerves": -2,
+          "money": -5
+        }
       },
       "flavor_text": "Hacienda siempre gana - también проверяют семейные документы"
     },
@@ -53,21 +66,27 @@
     },
     {
       "id": "event_04_spouse_nerf",
-      "name": "Семейные конфликты",
+      "name": "Испанские страсти",
       "category": "social",
-      "type": "targeted_negative", 
-      "description": "Проблемы в семье испанца создают дополнительный стресс",
+      "type": "targeted_negative",
+      "description": "Проблемы в отношениях создают дополнительный стресс",
       "conditions": {
-        "character_id": ["spanish_spouse", "pensioner", "student"]
-      },
-      "effects": {
-        "nerves": -2,
-        "money": -5
+        "character_id": [
+          "spanish_spouse",
+          "student"
+        ]
       },
       "individual_modifiers": {
-        "spanish_spouse": {"nerves": -6, "money": -15, "documents_cards": -2},
-        "pensioner": {"nerves": 1, "money": 2, "documents_cards": 1},
-        "student": {"nerves": -1, "money": -3}
+        "spanish_spouse": {
+          "nerves": -8,
+          "money": -17,
+          "documents_cards": -2
+        },
+        "student": {
+          "nerves": -3,
+          "money": -2,
+          "documents_cards": 0
+        }
       },
       "flavor_text": "Problemas familiares - el precio de la integración"
     },
@@ -321,7 +340,10 @@
       "type": "negative",
       "description": "Зима в Мадриде холоднее, чем ожидали",
       "conditions": {
-        "housing_type": ["room", "apartment"]
+        "housing_type": [
+          "room",
+          "apartment"
+        ]
       },
       "effects": {
         "nerves": -1,
@@ -784,15 +806,31 @@
       "category": "technology",
       "type": "positive",
       "description": "Спрос на IT-услуги резко вырос",
-      "target_groups": ["it_specialist", "entrepreneur"],
-      "effects": {
-        "money": 15,
-        "nerves": 2,
-        "documents_cards": 1
-      },
+      "target_groups": [
+        "it_specialist",
+        "entrepreneur"
+      ],
       "individual_modifiers": {
-        "it_specialist": {"money": 25, "nerves": 5},
-        "entrepreneur": {"money": 20, "nerves": 2}
+        "it_specialist": {
+          "money": 8,
+          "nerves": 1,
+          "documents_cards": 0
+        },
+        "entrepreneur": {
+          "money": 25,
+          "nerves": 5,
+          "documents_cards": 4
+        },
+        "spanish_spouse": {
+          "money": 8,
+          "nerves": 1,
+          "documents_cards": 1
+        },
+        "waiter": {
+          "money": 15,
+          "nerves": 3,
+          "documents_cards": 2
+        }
       },
       "flavor_text": "¡Tech revolution benefits!"
     },
@@ -802,15 +840,32 @@
       "category": "business",
       "type": "positive", 
       "description": "Новые возможности для предпринимателей и IT",
-      "target_groups": ["entrepreneur", "it_specialist", "freelance_artist"],
-      "effects": {
-        "money": 12,
-        "nerves": 1,
-        "documents_cards": 1
-      },
+      "target_groups": [
+        "entrepreneur",
+        "it_specialist",
+        "freelance_artist"
+      ],
       "individual_modifiers": {
-        "entrepreneur": {"money": 25, "nerves": 3},
-        "it_specialist": {"money": 20, "nerves": 4}
+        "entrepreneur": {
+          "money": 30,
+          "nerves": 6,
+          "documents_cards": 5
+        },
+        "it_specialist": {
+          "money": 5,
+          "nerves": 1,
+          "documents_cards": 0
+        },
+        "spanish_spouse": {
+          "money": 5,
+          "nerves": 1,
+          "documents_cards": 1
+        },
+        "waiter": {
+          "money": 18,
+          "nerves": 3,
+          "documents_cards": 2
+        }
       },
       "flavor_text": "¡Startup ecosystem boom!"
     },
@@ -820,13 +875,16 @@
       "category": "education",
       "type": "negative",
       "description": "Стрессовый период для студентов и учащихся",
-      "target_groups": ["student", "waiter", "courier"],
-      "effects": {
-        "nerves": -2,
-        "money": -5
-      },
+      "target_groups": [
+        "student",
+        "waiter",
+        "courier"
+      ],
       "individual_modifiers": {
-        "student": {"nerves": -4, "money": -5}
+        "student": {
+          "nerves": -1,
+          "money": -2
+        }
       },
       "flavor_text": "¡Exámenes = stress máximo!"
     },
@@ -917,14 +975,27 @@
       "category": "social",
       "type": "positive",
       "description": "Специальная программа помощи пенсионерам",
-      "target_groups": ["pensioner", "waiter", "courier"],
-      "effects": {
-        "money": 8,
-        "nerves": 4,
-        "documents_cards": 4
-      },
+      "target_groups": [
+        "pensioner",
+        "waiter",
+        "courier"
+      ],
       "individual_modifiers": {
-        "pensioner": {"money": 15, "nerves": 8, "documents_cards": 6}
+        "pensioner": {
+          "money": 2,
+          "nerves": 1,
+          "documents_cards": 1
+        },
+        "waiter": {
+          "money": 12,
+          "nerves": 6,
+          "documents_cards": 4
+        },
+        "spanish_spouse": {
+          "money": 8,
+          "nerves": 2,
+          "documents_cards": 2
+        }
       },
       "flavor_text": "¡Programa especial para jubilados!"
     },
@@ -934,13 +1005,17 @@
       "category": "social",
       "type": "positive",
       "description": "Льготы при оформлении документов для пенсионеров",
-      "target_groups": ["pensioner", "waiter", "student"],
-      "effects": {
-        "money": 2,
-        "nerves": 1
-      },
+      "target_groups": [
+        "pensioner",
+        "waiter",
+        "student"
+      ],
       "individual_modifiers": {
-        "pensioner": {"money": 12, "nerves": 6, "document_level": 2}
+        "pensioner": {
+          "money": 12,
+          "nerves": 6,
+          "document_level": 2
+        }
       },
       "flavor_text": "¡Descuentos especiales para la tercera edad!"
     },
@@ -951,7 +1026,9 @@
       "type": "targeted_negative",
       "description": "Новый магазин с крутыми гаджетами - IT-шники тратят больше всех",
       "conditions": {
-        "character_id": ["it_specialist"]
+        "character_id": [
+          "it_specialist"
+        ]
       },
       "effects": {
         "money": -15,
@@ -959,9 +1036,13 @@
       },
       "additional_effects": {
         "other_profiles": {
-          "character_id": ["freelance_artist", "entrepreneur", "student"],
-          "money": -8,
-          "nerves": 1
+          "character_id": [
+            "freelance_artist",
+            "entrepreneur",
+            "student"
+          ],
+          "money": -6,
+          "nerves": 2
         },
         "all_others": {
           "money": -3,
@@ -978,17 +1059,28 @@
       "type": "targeted_negative",
       "description": "Переработка и стресс затрагивают IT-шников, предпринимателей и художников",
       "conditions": {
-        "character_id": ["it_specialist", "entrepreneur", "freelance_artist"]
-      },
-      "effects": {
-        "nerves": -2,
-        "money": -4,
-        "language_level": 0
+        "character_id": [
+          "it_specialist",
+          "entrepreneur",
+          "freelance_artist"
+        ]
       },
       "individual_modifiers": {
-        "it_specialist": {"nerves": -4, "money": -8, "language_level": -1},
-        "entrepreneur": {"nerves": -3, "money": -6, "language_level": 0},
-        "freelance_artist": {"nerves": -2, "money": -4, "language_level": 0}
+        "it_specialist": {
+          "nerves": -2,
+          "money": -4,
+          "language_level": 0
+        },
+        "entrepreneur": {
+          "nerves": -3,
+          "money": -6,
+          "language_level": 0
+        },
+        "freelance_artist": {
+          "nerves": -2,
+          "money": -4,
+          "language_level": 0
+        }
       },
       "flavor_text": "Burnout digital - 12 часов в день за компьютером",
       "cross_system_interaction": "mental_health + work_stress"
@@ -1000,7 +1092,10 @@
       "type": "targeted_negative",
       "description": "IT-шники потеряли деньги на криптовалютах",
       "conditions": {
-        "character_id": ["it_specialist", "entrepreneur"]
+        "character_id": [
+          "it_specialist",
+          "entrepreneur"
+        ]
       },
       "effects": {
         "money": -20,
@@ -1016,17 +1111,28 @@
       "type": "targeted_positive",
       "description": "Государственная поддержка творческих работников - художников, студентов и курьеров",
       "conditions": {
-        "character_id": ["freelance_artist", "student", "courier"]
-      },
-      "effects": {
-        "money": 15,
-        "nerves": 2,
-        "documents_cards": 2
+        "character_id": [
+          "freelance_artist",
+          "student",
+          "courier"
+        ]
       },
       "individual_modifiers": {
-        "freelance_artist": {"money": 30, "nerves": 5, "documents_cards": 6},
-        "student": {"money": 18, "nerves": 3, "documents_cards": 3},
-        "courier": {"money": 20, "nerves": 4, "documents_cards": 4}
+        "freelance_artist": {
+          "money": 22,
+          "nerves": 3,
+          "documents_cards": 4
+        },
+        "student": {
+          "money": 20,
+          "nerves": 4,
+          "documents_cards": 4
+        },
+        "courier": {
+          "money": 20,
+          "nerves": 4,
+          "documents_cards": 4
+        }
       },
       "flavor_text": "¡Subvención para artistas! El arte es vida",
       "cross_system_interaction": "cultural_support + creative_funding"
@@ -1038,17 +1144,38 @@
       "type": "targeted_positive",
       "description": "Бум доставки приносит доходы курьерам, официантам и студентам",
       "conditions": {
-        "character_id": ["courier", "waiter", "student"]
-      },
-      "effects": {
-        "money": 12,
-        "nerves": 2,
-        "documents_cards": 2
+        "character_id": [
+          "courier",
+          "waiter",
+          "student"
+        ]
       },
       "individual_modifiers": {
-        "courier": {"money": 35, "nerves": 6, "documents_cards": 7},
-        "waiter": {"money": 15, "nerves": 2, "documents_cards": 3},
-        "student": {"money": 5, "nerves": 1, "documents_cards": 1}
+        "courier": {
+          "money": 15,
+          "nerves": 3,
+          "documents_cards": 2
+        },
+        "waiter": {
+          "money": 25,
+          "nerves": 5,
+          "documents_cards": 6
+        },
+        "student": {
+          "money": 15,
+          "nerves": 4,
+          "documents_cards": 4
+        },
+        "spanish_spouse": {
+          "money": 5,
+          "nerves": 1,
+          "documents_cards": 1
+        },
+        "entrepreneur": {
+          "money": 25,
+          "nerves": 5,
+          "documents_cards": 5
+        }
       },
       "flavor_text": "¡Más pedidos! Glovo, Uber Eats, Just Eat",
       "cross_system_interaction": "gig_economy + delivery_demand"
@@ -1060,17 +1187,28 @@
       "type": "targeted_positive",
       "description": "Социальная поддержка для пенсионеров, студентов и официантов",
       "conditions": {
-        "character_id": ["pensioner", "student", "waiter"]
-      },
-      "effects": {
-        "money": 12,
-        "nerves": 3,
-        "documents_cards": 3
+        "character_id": [
+          "pensioner",
+          "student",
+          "waiter"
+        ]
       },
       "individual_modifiers": {
-        "pensioner": {"money": 20, "nerves": 5, "documents_cards": 6},
-        "student": {"money": 8, "nerves": 1, "documents_cards": 2},
-        "waiter": {"money": 10, "nerves": 2, "documents_cards": 2}
+        "pensioner": {
+          "money": 20,
+          "nerves": 5,
+          "documents_cards": 6
+        },
+        "student": {
+          "money": 15,
+          "nerves": 3,
+          "documents_cards": 4
+        },
+        "waiter": {
+          "money": 10,
+          "nerves": 2,
+          "documents_cards": 2
+        }
       },
       "flavor_text": "¡Aumento de pensión! La tercera edad importa",
       "cross_system_interaction": "social_welfare + elderly_support"
@@ -1082,13 +1220,24 @@
       "type": "targeted_positive",
       "description": "Художники находят поддержку в творческом сообществе",
       "conditions": {
-        "character_id": ["freelance_artist", "student"]
+        "character_id": [
+          "freelance_artist",
+          "student"
+        ]
       },
-      "effects": {
-        "money": 12,
-        "nerves": 4,
-        "documents_cards": 3,
-        "language_level": 1
+      "individual_modifiers": {
+        "freelance_artist": {
+          "money": 10,
+          "nerves": 3,
+          "documents_cards": 2,
+          "language_level": 1
+        },
+        "student": {
+          "money": 15,
+          "nerves": 4,
+          "documents_cards": 4,
+          "language_level": 1
+        }
       },
       "flavor_text": "¡Comunidad artística! Networking creativo",
       "cross_system_interaction": "community_support + creative_networking"
@@ -1100,18 +1249,31 @@
       "type": "targeted_positive",
       "description": "Молодежные скидки для студентов, художников и курьеров",
       "conditions": {
-        "character_id": ["student", "freelance_artist", "courier"]
-      },
-      "effects": {
-        "money": 5,
-        "nerves": 2,
-        "documents_cards": 2,
-        "language_level": 0
+        "character_id": [
+          "student",
+          "freelance_artist",
+          "courier"
+        ]
       },
       "individual_modifiers": {
-        "student": {"money": 4, "nerves": 1, "documents_cards": 2, "language_level": 0},
-        "freelance_artist": {"money": 6, "nerves": 2, "documents_cards": 3, "language_level": 0},
-        "courier": {"money": 4, "nerves": 2, "documents_cards": 2, "language_level": 0}
+        "student": {
+          "money": 6,
+          "nerves": 2,
+          "documents_cards": 3,
+          "language_level": 1
+        },
+        "freelance_artist": {
+          "money": 4,
+          "nerves": 1,
+          "documents_cards": 2,
+          "language_level": 0
+        },
+        "courier": {
+          "money": 4,
+          "nerves": 2,
+          "documents_cards": 2,
+          "language_level": 0
+        }
       },
       "flavor_text": "¡Descuentos estudiantiles! Carnet joven",
       "cross_system_interaction": "student_benefits + youth_discounts"
@@ -1123,18 +1285,31 @@
       "type": "targeted_positive",
       "description": "Медицинские льготы для пенсионеров, студентов и официантов",
       "conditions": {
-        "character_id": ["pensioner", "student", "waiter"]
-      },
-      "effects": {
-        "money": 6,
-        "nerves": 2,
-        "documents_cards": 2,
-        "health_immunity": false
+        "character_id": [
+          "pensioner",
+          "student",
+          "waiter"
+        ]
       },
       "individual_modifiers": {
-        "pensioner": {"money": 10, "nerves": 4, "documents_cards": 3, "health_immunity": true},
-        "student": {"money": 4, "nerves": 1, "documents_cards": 1, "health_immunity": false},
-        "waiter": {"money": 5, "nerves": 2, "documents_cards": 1, "health_immunity": false}
+        "pensioner": {
+          "money": 10,
+          "nerves": 4,
+          "documents_cards": 3,
+          "health_immunity": true
+        },
+        "student": {
+          "money": 8,
+          "nerves": 3,
+          "documents_cards": 3,
+          "health_immunity": false
+        },
+        "waiter": {
+          "money": 5,
+          "nerves": 2,
+          "documents_cards": 1,
+          "health_immunity": false
+        }
       },
       "flavor_text": "¡Sanidad pública para jubilados!",
       "cross_system_interaction": "elderly_healthcare + social_welfare"
@@ -1146,17 +1321,28 @@
       "type": "targeted_positive",
       "description": "Транспортные льготы для студентов, курьеров и художников",
       "conditions": {
-        "character_id": ["student", "courier", "freelance_artist"]
-      },
-      "effects": {
-        "money": 4,
-        "nerves": 1,
-        "mobility_bonus": false
+        "character_id": [
+          "student",
+          "courier",
+          "freelance_artist"
+        ]
       },
       "individual_modifiers": {
-        "student": {"money": 3, "nerves": 1, "mobility_bonus": true},
-        "courier": {"money": 5, "nerves": 2, "mobility_bonus": true},
-        "freelance_artist": {"money": 3, "nerves": 1, "mobility_bonus": false}
+        "student": {
+          "money": 8,
+          "nerves": 3,
+          "mobility_bonus": true
+        },
+        "courier": {
+          "money": 5,
+          "nerves": 2,
+          "mobility_bonus": true
+        },
+        "freelance_artist": {
+          "money": 1,
+          "nerves": 0,
+          "mobility_bonus": false
+        }
       },
       "flavor_text": "¡Transporte gratuito! Abono joven",
       "cross_system_interaction": "student_transport + mobility_benefits"
@@ -1168,17 +1354,28 @@
       "type": "targeted_positive",
       "description": "Налоговые льготы для пенсионеров, студентов и официантов",
       "conditions": {
-        "character_id": ["pensioner", "student", "waiter"]
-      },
-      "effects": {
-        "money": 8,
-        "nerves": 2,
-        "tax_immunity": false
+        "character_id": [
+          "pensioner",
+          "student",
+          "waiter"
+        ]
       },
       "individual_modifiers": {
-        "pensioner": {"money": 12, "nerves": 3, "tax_immunity": true},
-        "student": {"money": 10, "nerves": 2, "tax_immunity": false},
-        "waiter": {"money": 6, "nerves": 1, "tax_immunity": false}
+        "pensioner": {
+          "money": 12,
+          "nerves": 3,
+          "tax_immunity": true
+        },
+        "student": {
+          "money": 15,
+          "nerves": 4,
+          "tax_immunity": false
+        },
+        "waiter": {
+          "money": 6,
+          "nerves": 1,
+          "tax_immunity": false
+        }
       },
       "flavor_text": "¡Menos impuestos para jubilados!",
       "cross_system_interaction": "elderly_tax_benefits + financial_relief"
@@ -1190,18 +1387,28 @@
       "type": "targeted_positive",
       "description": "Бизнес-инкубатор поддерживает предпринимателей, IT-шников и художников",
       "conditions": {
-        "character_id": ["entrepreneur", "it_specialist", "freelance_artist"]
-      },
-      "effects": {
-        "money": 15,
-        "nerves": 2,
-        "documents_cards": 2,
-        "business_bonus": true
+        "character_id": [
+          "entrepreneur",
+          "it_specialist",
+          "freelance_artist"
+        ]
       },
       "individual_modifiers": {
-        "entrepreneur": {"money": 25, "nerves": 4, "documents_cards": 3},
-        "it_specialist": {"money": 20, "nerves": 3, "documents_cards": 2},
-        "freelance_artist": {"money": 10, "nerves": 1, "documents_cards": 1}
+        "entrepreneur": {
+          "money": 18,
+          "nerves": 2,
+          "documents_cards": 2
+        },
+        "it_specialist": {
+          "money": 25,
+          "nerves": 4,
+          "documents_cards": 3
+        },
+        "freelance_artist": {
+          "money": 10,
+          "nerves": 1,
+          "documents_cards": 1
+        }
       },
       "flavor_text": "¡Startup incubator support!",
       "cross_system_interaction": "entrepreneur_ecosystem + business_development"
@@ -1213,18 +1420,28 @@
       "type": "targeted_positive",
       "description": "Инвесторы вкладывают в предпринимателей, IT-шников и курьеров",
       "conditions": {
-        "character_id": ["entrepreneur", "it_specialist", "courier"]
-      },
-      "effects": {
-        "money": 20,
-        "nerves": 3,
-        "documents_cards": 1,
-        "investment_bonus": true
+        "character_id": [
+          "entrepreneur",
+          "it_specialist",
+          "courier"
+        ]
       },
       "individual_modifiers": {
-        "entrepreneur": {"money": 30, "nerves": 5, "documents_cards": 2},
-        "it_specialist": {"money": 25, "nerves": 4, "documents_cards": 2},
-        "courier": {"money": 15, "nerves": 2, "documents_cards": 1}
+        "entrepreneur": {
+          "money": 22,
+          "nerves": 3,
+          "documents_cards": 1
+        },
+        "it_specialist": {
+          "money": 30,
+          "nerves": 5,
+          "documents_cards": 3
+        },
+        "courier": {
+          "money": 15,
+          "nerves": 2,
+          "documents_cards": 1
+        }
       },
       "flavor_text": "¡Venture capital funding!",
       "cross_system_interaction": "investment_ecosystem + financial_growth"
@@ -1236,18 +1453,28 @@
       "type": "targeted_positive",
       "description": "Государство выдает субсидии предпринимателям, пенсионерам и студентам",
       "conditions": {
-        "character_id": ["entrepreneur", "pensioner", "student"]
-      },
-      "effects": {
-        "money": 12,
-        "nerves": 2,
-        "documents_cards": 2,
-        "subsidy_bonus": true
+        "character_id": [
+          "entrepreneur",
+          "pensioner",
+          "student"
+        ]
       },
       "individual_modifiers": {
-        "entrepreneur": {"money": 20, "nerves": 3, "documents_cards": 4},
-        "pensioner": {"money": 15, "nerves": 2, "documents_cards": 3},
-        "student": {"money": 4, "nerves": 0, "documents_cards": 1}
+        "entrepreneur": {
+          "money": 12,
+          "nerves": 1,
+          "documents_cards": 2
+        },
+        "pensioner": {
+          "money": 15,
+          "nerves": 2,
+          "documents_cards": 3
+        },
+        "student": {
+          "money": 10,
+          "nerves": 2,
+          "documents_cards": 3
+        }
       },
       "flavor_text": "¡Ayudas públicas para emprendedores!",
       "cross_system_interaction": "government_support + business_grants"
@@ -1259,17 +1486,28 @@
       "type": "targeted_negative",
       "description": "Повышение платы за обучение затрагивает студентов, художников и курьеров",
       "conditions": {
-        "character_id": ["student", "freelance_artist", "courier"]
-      },
-      "effects": {
-        "money": -8,
-        "nerves": -2,
-        "documents_cards": -1
+        "character_id": [
+          "student",
+          "freelance_artist",
+          "courier"
+        ]
       },
       "individual_modifiers": {
-        "student": {"money": -15, "nerves": -3, "documents_cards": -1},
-        "freelance_artist": {"money": -10, "nerves": -2, "documents_cards": -1},
-        "courier": {"money": -5, "nerves": -1, "documents_cards": 0}
+        "student": {
+          "money": -15,
+          "nerves": -3,
+          "documents_cards": -1
+        },
+        "freelance_artist": {
+          "money": -10,
+          "nerves": -2,
+          "documents_cards": -1
+        },
+        "courier": {
+          "money": -5,
+          "nerves": -1,
+          "documents_cards": 0
+        }
       },
       "flavor_text": "¡Matrícula más cara!",
       "cross_system_interaction": "education_costs + financial_pressure"
@@ -1281,17 +1519,28 @@
       "type": "targeted_negative",
       "description": "Сокращение стипендий затрагивает студентов, художников и официантов",
       "conditions": {
-        "character_id": ["student", "freelance_artist", "waiter"]
-      },
-      "effects": {
-        "money": -6,
-        "nerves": -1,
-        "documents_cards": -1
+        "character_id": [
+          "student",
+          "freelance_artist",
+          "waiter"
+        ]
       },
       "individual_modifiers": {
-        "student": {"money": -10, "nerves": -2, "documents_cards": -2},
-        "freelance_artist": {"money": -8, "nerves": -2, "documents_cards": -1},
-        "waiter": {"money": -5, "nerves": -1, "documents_cards": 0}
+        "student": {
+          "money": -10,
+          "nerves": -2,
+          "documents_cards": -2
+        },
+        "freelance_artist": {
+          "money": -8,
+          "nerves": -2,
+          "documents_cards": -1
+        },
+        "waiter": {
+          "money": -5,
+          "nerves": -1,
+          "documents_cards": 0
+        }
       },
       "flavor_text": "¡Menos becas estudiantiles!",
       "cross_system_interaction": "scholarship_cuts + financial_stress"
@@ -1303,17 +1552,25 @@
       "type": "targeted_negative",
       "description": "Ужесточение требований затрагивает студентов, художников и курьеров",
       "conditions": {
-        "character_id": ["student", "freelance_artist", "courier"]
-      },
-      "effects": {
-        "nerves": -2,
-        "documents_cards": -1,
-        "document_penalty": true
+        "character_id": [
+          "student",
+          "freelance_artist",
+          "courier"
+        ]
       },
       "individual_modifiers": {
-        "student": {"nerves": -4, "documents_cards": -3},
-        "freelance_artist": {"nerves": -3, "documents_cards": -2},
-        "courier": {"nerves": -2, "documents_cards": -1}
+        "student": {
+          "nerves": -4,
+          "documents_cards": -3
+        },
+        "freelance_artist": {
+          "nerves": -3,
+          "documents_cards": -2
+        },
+        "courier": {
+          "nerves": -2,
+          "documents_cards": -1
+        }
       },
       "flavor_text": "¡Más requisitos para estudiantes!",
       "cross_system_interaction": "bureaucracy_increase + student_difficulties"
@@ -1325,16 +1582,26 @@
       "type": "targeted_negative",
       "description": "Давление испанской семьи и необходимость соответствовать традициям",
       "conditions": {
-        "character_id": ["spanish_spouse", "waiter", "pensioner"]
-      },
-      "effects": {
-        "nerves": -2,
-        "money": -7
+        "character_id": [
+          "spanish_spouse",
+          "waiter",
+          "pensioner"
+        ]
       },
       "individual_modifiers": {
-        "spanish_spouse": {"nerves": -3, "money": -12, "language_level": -1},
-        "waiter": {"nerves": -1, "money": -3},
-        "pensioner": {"nerves": -1, "money": -2}
+        "spanish_spouse": {
+          "nerves": -3,
+          "money": -12,
+          "language_level": -1
+        },
+        "waiter": {
+          "nerves": -1,
+          "money": -3
+        },
+        "pensioner": {
+          "nerves": -1,
+          "money": -2
+        }
       },
       "flavor_text": "¡Tienes que integrarte! Pressure from Spanish family",
       "cross_system_interaction": "cultural_integration + family_pressure"
@@ -1346,17 +1613,30 @@
       "type": "targeted_positive",
       "description": "Расцвет творческой индустрии и гиг-экономики дает шанс художникам и курьерам",
       "conditions": {
-        "character_id": ["freelance_artist", "courier", "student"]
-      },
-      "effects": {
-        "money": 20,
-        "nerves": 3,
-        "documents_cards": 3
+        "character_id": [
+          "freelance_artist",
+          "courier",
+          "student"
+        ]
       },
       "individual_modifiers": {
-        "freelance_artist": {"money": 35, "nerves": 5, "documents_cards": 5, "language_level": 1},
-        "courier": {"money": 28, "nerves": 4, "documents_cards": 4, "language_level": 1},
-        "student": {"money": 15, "nerves": 2, "documents_cards": 2}
+        "freelance_artist": {
+          "money": 15,
+          "nerves": 2,
+          "documents_cards": 2,
+          "language_level": 0
+        },
+        "courier": {
+          "money": 12,
+          "nerves": 2,
+          "documents_cards": 2,
+          "language_level": 1
+        },
+        "student": {
+          "money": 15,
+          "nerves": 2,
+          "documents_cards": 2
+        }
       },
       "flavor_text": "¡Boom creativo! Arte y delivery en alza",
       "cross_system_interaction": "creative_economy + gig_opportunities"
@@ -1368,37 +1648,58 @@
       "type": "targeted_negative",
       "description": "Семейные обязательства испанских супругов требуют больших затрат",
       "conditions": {
-        "character_id": ["spanish_spouse", "pensioner", "entrepreneur"]
-      },
-      "effects": {
-        "nerves": -3,
-        "money": -8
+        "character_id": [
+          "spanish_spouse",
+          "pensioner",
+          "entrepreneur"
+        ]
       },
       "individual_modifiers": {
-        "spanish_spouse": {"nerves": -7, "money": -20, "documents_cards": -3},
-        "pensioner": {"nerves": 1, "money": 3, "documents_cards": 1},
-        "entrepreneur": {"nerves": -2, "money": -6}
+        "spanish_spouse": {
+          "nerves": -2,
+          "money": -5,
+          "documents_cards": -1
+        },
+        "pensioner": {
+          "nerves": 1,
+          "money": 3,
+          "documents_cards": 1
+        },
+        "entrepreneur": {
+          "nerves": -2,
+          "money": -6
+        }
       },
       "flavor_text": "Familia española requiere mucho tiempo y dinero",
       "cross_system_interaction": "family_responsibilities + financial_burden"
     },
     {
-      "id": "major_spouse_nerf_02", 
+      "id": "major_spouse_nerf_02",
       "name": "Бюрократия для семей",
       "category": "bureaucracy",
       "type": "targeted_negative",
       "description": "Дополнительные требования к документам для семейных пар",
       "conditions": {
-        "character_id": ["spanish_spouse", "waiter", "it_specialist"]
-      },
-      "effects": {
-        "nerves": -2,
-        "documents_cards": -2
+        "character_id": [
+          "spanish_spouse",
+          "waiter",
+          "it_specialist"
+        ]
       },
       "individual_modifiers": {
-        "spanish_spouse": {"nerves": -4, "documents_cards": -3, "money": -10},
-        "waiter": {"nerves": -1, "documents_cards": -1},
-        "it_specialist": {"nerves": -1, "documents_cards": -1}
+        "spanish_spouse": {
+          "nerves": -3,
+          "documents_cards": -2,
+          "money": -8
+        },
+        "waiter": {
+          "nerves": -1,
+          "documents_cards": -1
+        },
+        "it_specialist": {
+          "nerves": -1,
+          "documents_cards": -1
+        }
       },
       "flavor_text": "Papeles adicionales para familias",
       "cross_system_interaction": "family_bureaucracy + document_requirements"
@@ -1406,21 +1707,34 @@
     {
       "id": "major_weak_boost_01",
       "name": "Программа поддержки творчества",
-      "category": "cultural", 
+      "category": "cultural",
       "type": "targeted_positive",
       "description": "Специальная государственная программа для поддержки художников и курьеров",
       "conditions": {
-        "character_id": ["freelance_artist", "courier", "waiter"]
-      },
-      "effects": {
-        "money": 25,
-        "nerves": 4,
-        "documents_cards": 4
+        "character_id": [
+          "freelance_artist",
+          "courier",
+          "waiter"
+        ]
       },
       "individual_modifiers": {
-        "freelance_artist": {"money": 40, "nerves": 6, "documents_cards": 6, "language_level": 1},
-        "courier": {"money": 45, "nerves": 7, "documents_cards": 7, "language_level": 1},
-        "waiter": {"money": 25, "nerves": 4, "documents_cards": 4}
+        "freelance_artist": {
+          "money": 18,
+          "nerves": 3,
+          "documents_cards": 3,
+          "language_level": 0
+        },
+        "courier": {
+          "money": 15,
+          "nerves": 3,
+          "documents_cards": 3,
+          "language_level": 1
+        },
+        "waiter": {
+          "money": 25,
+          "nerves": 4,
+          "documents_cards": 4
+        }
       },
       "flavor_text": "¡Apoyo gubernamental para trabajadores esenciales!",
       "cross_system_interaction": "government_support + worker_benefits"
@@ -1429,20 +1743,33 @@
       "id": "major_weak_boost_02",
       "name": "Льготы для рабочего класса",
       "category": "social",
-      "type": "targeted_positive", 
+      "type": "targeted_positive",
       "description": "Специальные льготы и скидки для курьеров, художников и официантов",
       "conditions": {
-        "character_id": ["courier", "freelance_artist", "waiter"]
-      },
-      "effects": {
-        "money": 20,
-        "nerves": 3,
-        "documents_cards": 3
+        "character_id": [
+          "courier",
+          "freelance_artist",
+          "waiter"
+        ]
       },
       "individual_modifiers": {
-        "courier": {"money": 40, "nerves": 6, "documents_cards": 6, "housing_upgrade": true},
-        "freelance_artist": {"money": 35, "nerves": 5, "documents_cards": 5, "housing_upgrade": true},
-        "waiter": {"money": 25, "nerves": 3, "documents_cards": 3}
+        "courier": {
+          "money": 18,
+          "nerves": 3,
+          "documents_cards": 3,
+          "housing_upgrade": true
+        },
+        "freelance_artist": {
+          "money": 15,
+          "nerves": 2,
+          "documents_cards": 2,
+          "housing_upgrade": false
+        },
+        "waiter": {
+          "money": 25,
+          "nerves": 3,
+          "documents_cards": 3
+        }
       },
       "flavor_text": "¡Descuentos especiales para trabajadores!",
       "cross_system_interaction": "worker_benefits + social_support"
@@ -1454,16 +1781,27 @@
       "type": "targeted_negative",
       "description": "Дополнительные налоги для семейных пар и зажиточных граждан",
       "conditions": {
-        "character_id": ["spanish_spouse", "it_specialist", "pensioner"]
-      },
-      "effects": {
-        "money": -12,
-        "nerves": -2
+        "character_id": [
+          "spanish_spouse",
+          "it_specialist",
+          "pensioner"
+        ]
       },
       "individual_modifiers": {
-        "spanish_spouse": {"money": -25, "nerves": -6, "documents_cards": -2},
-        "it_specialist": {"money": -15, "nerves": -3},
-        "pensioner": {"money": 5, "nerves": 2, "documents_cards": 1}
+        "spanish_spouse": {
+          "money": -10,
+          "nerves": -3,
+          "documents_cards": -2
+        },
+        "it_specialist": {
+          "money": -15,
+          "nerves": -3
+        },
+        "pensioner": {
+          "money": 5,
+          "nerves": 2,
+          "documents_cards": 1
+        }
       },
       "flavor_text": "Impuestos adicionales para familias",
       "cross_system_interaction": "family_taxation + wealth_redistribution"
@@ -1475,16 +1813,26 @@
       "type": "targeted_negative",
       "description": "Проблемы в семье испанских супругов требуют внимания",
       "conditions": {
-        "character_id": ["spanish_spouse", "waiter", "pensioner"]
-      },
-      "effects": {
-        "nerves": -2,
-        "money": -4
+        "character_id": [
+          "spanish_spouse",
+          "waiter",
+          "pensioner"
+        ]
       },
       "individual_modifiers": {
-        "spanish_spouse": {"nerves": -3, "money": -8, "documents_cards": -1},
-        "waiter": {"nerves": -1, "money": -2},
-        "pensioner": {"nerves": -1, "money": -2}
+        "spanish_spouse": {
+          "nerves": -2,
+          "money": -8,
+          "documents_cards": -1
+        },
+        "waiter": {
+          "nerves": -1,
+          "money": -2
+        },
+        "pensioner": {
+          "nerves": -1,
+          "money": -2
+        }
       },
       "flavor_text": "Crisis familiar requiere atención",
       "cross_system_interaction": "family_stress + financial_burden"
@@ -1496,17 +1844,28 @@
       "type": "targeted_positive",
       "description": "Дополнительная поддержка для курьеров и слабых персонажей",
       "conditions": {
-        "character_id": ["courier", "pensioner", "waiter"]
-      },
-      "effects": {
-        "money": 12,
-        "nerves": 2,
-        "documents_cards": 2
+        "character_id": [
+          "courier",
+          "pensioner",
+          "waiter"
+        ]
       },
       "individual_modifiers": {
-        "courier": {"money": 25, "nerves": 5, "documents_cards": 5},
-        "pensioner": {"money": 25, "nerves": 6, "documents_cards": 5},
-        "waiter": {"money": 15, "nerves": 3, "documents_cards": 3}
+        "courier": {
+          "money": 15,
+          "nerves": 3,
+          "documents_cards": 3
+        },
+        "pensioner": {
+          "money": 3,
+          "nerves": 1,
+          "documents_cards": 0
+        },
+        "waiter": {
+          "money": 15,
+          "nerves": 3,
+          "documents_cards": 3
+        }
       },
       "flavor_text": "¡Apoyo extra para trabajadores esenciales!",
       "cross_system_interaction": "worker_support + government_aid"
@@ -1518,37 +1877,108 @@
       "type": "targeted_negative",
       "description": "Противоречивые субсидии - помогают художникам, но создают бюрократию",
       "conditions": {
-        "character_id": ["freelance_artist", "spanish_spouse", "it_specialist"]
-      },
-      "effects": {
-        "money": 8,
-        "nerves": -1,
-        "documents_cards": 1
+        "character_id": [
+          "freelance_artist",
+          "spanish_spouse",
+          "it_specialist"
+        ]
       },
       "individual_modifiers": {
-        "freelance_artist": {"money": 20, "nerves": 2, "documents_cards": 3},
-        "spanish_spouse": {"money": 5, "nerves": -3, "documents_cards": -1},
-        "it_specialist": {"money": 5, "nerves": -2, "documents_cards": 0}
+        "freelance_artist": {
+          "money": 12,
+          "nerves": 1,
+          "documents_cards": 2
+        },
+        "spanish_spouse": {
+          "money": -8,
+          "nerves": -2,
+          "documents_cards": -1
+        },
+        "it_specialist": {
+          "money": 12,
+          "nerves": 1,
+          "documents_cards": 2
+        }
       },
       "flavor_text": "Subvenciones artísticas con burocracia",
       "cross_system_interaction": "cultural_support + bureaucratic_burden"
+    },
+    {
+      "id": "bonus_items_01",
+      "name": "Благотворительная ярмарка",
+      "type": "positive",
+      "description": "На благотворительной ярмарке раздавали полезные мелочи",
+      "effects": {
+        "nerves": 1,
+        "money": -1,
+        "personal_items": 2
+      },
+      "flavor_text": "¡Caridad española = free stuff!"
+    },
+    {
+      "id": "bonus_items_02",
+      "name": "Соседка-накопительница",
+      "type": "positive",
+      "description": "Пожилая соседка раздаёт вещи, которые 'могут пригодиться'",
+      "effects": {
+        "nerves": 1,
+        "money": 0,
+        "personal_items": 3
+      },
+      "flavor_text": "¡Abuela tiene todo lo que necesitas!"
+    },
+    {
+      "id": "bonus_items_03",
+      "name": "Распродажа на Mercadillo",
+      "type": "positive",
+      "description": "На блошином рынке купили кучу полезного за копейки",
+      "effects": {
+        "nerves": 0,
+        "money": -2,
+        "personal_items": 4
+      },
+      "flavor_text": "¡Segunda mano = primera calidad!"
+    },
+    {
+      "id": "bonus_items_04",
+      "name": "Переезд соседа",
+      "type": "positive",
+      "description": "Сосед переезжает и отдаёт нужные вещи",
+      "effects": {
+        "nerves": 1,
+        "money": 0,
+        "personal_items": 2
+      },
+      "flavor_text": "¡Mudanza = oportunidad!"
+    },
+    {
+      "id": "bonus_items_05",
+      "name": "День рождения в офисе",
+      "type": "positive",
+      "description": "Коллеги подарили полезные мелочи для быта",
+      "effects": {
+        "nerves": 2,
+        "money": 0,
+        "personal_items": 2
+      },
+      "flavor_text": "¡Compañeros = familia!"
     }
   ],
   "card_stats": {
     "global_positive": 8,
     "global_negative": 8,
-    "positive": 33,
+    "positive": 38,
     "negative": 8,
     "dice_challenges": 6,
     "seasonal": 4,
     "cultural": 9,
-    "social": 6,
+    "social": 11,
     "bureaucracy": 28,
     "consumer": 1,
     "health": 1,
     "financial": 2,
     "economic": 2,
     "educational": 3,
-    "total": 68
+    "total": 73
   }
 }

@@ -133,7 +133,8 @@
             "description": "Документы приняли с первого раза",
             "effects": {
               "nerves": 1,
-              "documents_cards": 3
+              "documents_cards": 3,
+              "personal_items": 1
             }
           },
           "partial": {
@@ -187,7 +188,8 @@
             "description": "Проект выполнен идеально, босс доволен",
             "effects": {
               "nerves": 1,
-              "money": 4
+              "money": 4,
+              "personal_items": 1
             }
           },
           "partial": {
@@ -220,7 +222,8 @@
         "nerves": 1,
         "money": 0,
         "skill_improvement": true,
-        "documents_cards": 2
+        "documents_cards": 2,
+        "personal_items": 1
       },
       "flavor_text": "Empresa invierte en empleados"
     },
@@ -233,7 +236,8 @@
       "effects": {
         "nerves": 1,
         "money": 0,
-        "draw_action_card": 1
+        "draw_action_card": 1,
+        "personal_items": 1
       },
       "flavor_text": "Solidaridad laboral española"
     },
@@ -282,7 +286,8 @@
             "effects": {
               "nerves": 2,
               "social_connections": true,
-              "draw_action_card": 1
+              "draw_action_card": 1,
+              "personal_items": 2
             }
           },
           "partial": {
@@ -323,7 +328,8 @@
             "description": "Все оформили легально, получили доход",
             "effects": {
               "nerves": 0,
-              "money": 3
+              "money": 3,
+              "personal_items": 1
             }
           },
           "partial": {

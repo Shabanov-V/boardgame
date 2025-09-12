@@ -75,7 +75,8 @@
             "description": "Врач быстро принял и выписал бесплатное лечение",
             "effects": {
               "nerves": 1,
-              "money": 0
+              "money": 0,
+              "personal_items": 1
             }
           },
           "partial": {
@@ -233,7 +234,8 @@
             "description": "Фармацевт дал отличное лекарство и совет",
             "effects": {
               "nerves": 1,
-              "money": -5
+              "money": -5,
+              "personal_items": 1
             }
           },
           "partial": {
@@ -345,7 +347,8 @@
             "description": "Психолог все понял и дал отличные советы",
             "effects": {
               "nerves": 3,
-              "money": -6
+              "money": -6,
+              "personal_items": 2
             }
           },
           "partial": {
@@ -383,7 +386,8 @@
             "description": "Быстро нашли лабораторию, анализы в норме",
             "effects": {
               "nerves": 2,
-              "money": -5
+              "money": -5,
+              "personal_items": 1
             }
           },
           "partial": {
@@ -459,7 +463,8 @@
             "description": "Четко объяснили, скорая приехала быстро",
             "effects": {
               "nerves": 1,
-              "social_bonus": true
+              "social_bonus": true,
+              "personal_items": 2
             }
           },
           "partial": {

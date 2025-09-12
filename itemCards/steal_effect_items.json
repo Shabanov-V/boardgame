@@ -1,0 +1,110 @@
+{
+  "steal_effect_items": [
+    {
+      "id": "steal_01",
+      "name": "Interceptar documentos",
+      "category": "theft",
+      "type": "steal_effect",
+      "description": "Перехватываешь документы соперника через знакомого в gestoria",
+      "target": "other_player",
+      "cost": {
+        "money": 3
+      },
+      "special_effects": ["steal_effect"],
+      "target_effects": {
+        "documents_cards": 1
+      },
+      "when_to_play": "anytime",
+      "flavor_text": "Estas colas están muy confusas...",
+      "target_conditions": {
+        "required_resources": {
+          "documents_cards": 2
+        }
+      }
+    },
+    {
+      "id": "steal_02",
+      "name": "Robo de efectivo",
+      "category": "theft",
+      "type": "steal_effect",
+      "description": "Крадешь деньги у богатого соперника",
+      "target": "other_player",
+      "cost": {
+        "nerves": 2
+      },
+      "special_effects": ["steal_effect"],
+      "target_effects": {
+        "money": 5
+      },
+      "when_to_play": "anytime",
+      "flavor_text": "¡Qué casualidad que se me cayó la cartera!",
+      "target_conditions": {
+        "min_money": 10
+      }
+    },
+    {
+      "id": "steal_03",
+      "name": "Sabotaje de nervios",
+      "category": "sabotage",
+      "type": "steal_effect",
+      "description": "Подрываешь моральное состояние соперника",
+      "target": "other_player",
+      "cost": {
+        "money": 2
+      },
+      "special_effects": ["steal_effect"],
+      "target_effects": {
+        "nerves": 2
+      },
+      "when_to_play": "anytime",
+      "flavor_text": "¿Por qué no te vas a tu país?",
+      "target_conditions": {
+        "min_nerves": 5
+      }
+    },
+    {
+      "id": "steal_04",
+      "name": "Interceptar trabajo",
+      "category": "competition",
+      "type": "steal_effect",
+      "description": "Перехватываешь рабочую возможность у соперника",
+      "target": "other_player",
+      "cost": {
+        "money": 4
+      },
+      "special_effects": ["steal_effect"],
+      "target_effects": {
+        "money": 3,
+        "documents_cards": 1
+      },
+      "when_to_play": "anytime",
+      "flavor_text": "Lo siento, pero ya tenemos a alguien...",
+      "target_conditions": {
+        "min_money": 8
+      }
+    },
+    {
+      "id": "steal_05",
+      "name": "Robo de contactos",
+      "category": "social",
+      "type": "steal_effect",
+      "description": "Крадешь полезные контакты у соперника",
+      "target": "other_player",
+      "cost": {
+        "nerves": 1
+      },
+      "special_effects": ["steal_effect"],
+      "target_effects": {
+        "documents_cards": 2,
+        "nerves": 1
+      },
+      "when_to_play": "anytime",
+      "flavor_text": "¿Conoces a alguien que pueda ayudarme?",
+      "target_conditions": {
+        "required_resources": {
+          "documents_cards": 1
+        }
+      }
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 {
-  "personal_items": [
+  "utility_items": [
     {
       "id": "item_01",
       "name": "2 бокала Tinto de verano",
@@ -79,27 +79,6 @@
       "flavor_text": "La siesta es vida"
     },
     {
-      "id": "item_05",
-      "name": "Gestoría profesional",
-      "category": "services",
-      "type": "defensive",
-      "description": "Профессиональная помощь с документами",
-      "cost": {
-        "money": 6
-      },
-      "effects": {
-        "documents_cards": 2,
-        "nerves": 1
-      },
-      "profile_modifiers": {
-        "pensioner": {"money": -2, "documents_cards": 3},
-        "student": {"money": -3, "documents_cards": 3},
-        "it_specialist": {"money": 2, "documents_cards": 1}
-      },
-      "when_to_play": "when_drawing_documents_card",
-      "flavor_text": "Dinero soluciona burocracia"
-    },
-    {
       "id": "item_06",
       "name": "Amigo español",
       "category": "social",
@@ -137,27 +116,6 @@
       "flavor_text": "Compañerismo español"
     },
     {
-      "id": "item_08",
-      "name": "Abogado de confianza",
-      "category": "services",
-      "type": "defensive",
-      "description": "Надежный адвокат спасает от штрафов",
-      "cost": {
-        "money": 4
-      },
-      "effects": {
-        "money": 3,
-        "nerves": 2
-      },
-      "profile_modifiers": {
-        "pensioner": {"money": 4, "nerves": 3},
-        "student": {"money": 2, "nerves": 2},
-        "entrepreneur": {"money": 5, "nerves": 1}
-      },
-      "when_to_play": "when_receiving_penalty",
-      "flavor_text": "Justicia española (con dinero)"
-    },
-    {
       "id": "item_09",
       "name": "Google Translate premium",
       "category": "technology",
@@ -177,22 +135,6 @@
       },
       "when_to_play": "during_language_challenge",
       "flavor_text": "Tecnología vs español"
-    },
-    {
-      "id": "item_10",
-      "name": "Churros con chocolate",
-      "category": "food",
-      "type": "defensive",
-      "description": "Сладкая терапия против депрессии",
-      "cost": {
-        "money": 1
-      },
-      "effects": {
-        "nerves": 2,
-        "block_health_penalty": true
-      },
-      "when_to_play": "anytime_or_defensive",
-      "flavor_text": "Azúcar cura tristeza"
     },
     {
       "id": "item_11",
@@ -243,22 +185,6 @@
       "flavor_text": "Jamón = cultura española"
     },
     {
-      "id": "item_14",
-      "name": "Aire acondicionado",
-      "category": "comfort",
-      "type": "defensive",
-      "description": "Кондиционер спасает от испанской жары",
-      "cost": {
-        "money": 1
-      },
-      "effects": {
-        "block_heat_penalty": true,
-        "comfort_bonus": true
-      },
-      "when_to_play": "when_heat_event",
-      "flavor_text": "Salvación en verano"
-    },
-    {
       "id": "item_15",
       "name": "Diccionario español avanzado",
       "category": "education",
@@ -279,27 +205,6 @@
       },
       "when_to_play": "anytime",
       "flavor_text": "Educación española formal"
-    },
-    {
-      "id": "item_16",
-      "name": "Medicinas de farmacia",
-      "category": "health",
-      "type": "defensive",
-      "description": "Запас лекарств из аптеки",
-      "cost": {
-        "money": 1
-      },
-      "effects": {
-        "block_health_penalty": true,
-        "health_insurance_bonus": true
-      },
-      "profile_modifiers": {
-        "pensioner": {"money": 0},
-        "student": {"money": 1},
-        "it_specialist": {"money": 1}
-      },
-      "when_to_play": "when_health_problem",
-      "flavor_text": "Farmacia española eficaz"
     },
     {
       "id": "item_17",
@@ -332,23 +237,6 @@
       },
       "when_to_play": "during_language_challenge",
       "flavor_text": "¡Sí sí sí = universal response!"
-    },
-    {
-      "id": "item_19",
-      "name": "Поддельный штраф",
-      "category": "sabotage", 
-      "type": "interference",
-      "description": "Подкладываем поддельный штраф, заставляя потратить деньги на разбирательства",
-      "target": "money_gain",
-      "effects": {
-        "block_action": true,
-        "target_money": -3
-      },
-      "when_to_play": "instant_response",
-      "cost": {
-        "nerves": 2
-      },
-      "flavor_text": "¡Multa falsa = unexpected expenses!"
     },
     {
       "id": "item_20",
@@ -400,22 +288,6 @@
       "flavor_text": "Desayuno español = energía máxima"
     },
     {
-      "id": "item_23",
-      "name": "Flipflops зимой",
-      "category": "lifestyle",
-      "type": "defensive",
-      "description": "Испанская привычка носить шлёпки круглый год",
-      "cost": {
-        "money": 0
-      },
-      "effects": {
-        "block_weather_penalty": true,
-        "nerves": 2
-      },
-      "when_to_play": "when_weather_event",
-      "flavor_text": "Español logic: chanclas always"
-    },
-    {
       "id": "item_24",
       "name": "WhatsApp grupo vecinos",
       "category": "social",
@@ -462,38 +334,6 @@
       },
       "when_to_play": "anytime",
       "flavor_text": "¡Buen rollo = vida mejor!"
-    },
-    {
-      "id": "item_27",
-      "name": "Ventilador de techo",
-      "category": "comfort",
-      "type": "defensive",
-      "description": "Потолочный вентилятор спасает от жары",
-      "cost": {
-        "money": 1
-      },
-      "effects": {
-        "block_heat_penalty": true,
-        "nerves": 2
-      },
-      "when_to_play": "when_heat_event",
-      "flavor_text": "Aire natural > aire acondicionado"
-    },
-    {
-      "id": "item_28",
-      "name": "Manta de la abuela",
-      "category": "comfort",
-      "type": "defensive",
-      "description": "Тёплый плед от испанской бабушки",
-      "cost": {
-        "money": 0
-      },
-      "effects": {
-        "block_cold_penalty": true,
-        "nerves": 2
-      },
-      "when_to_play": "when_cold_event",
-      "flavor_text": "Abuela's love = mejor calefacción"
     },
     {
       "id": "item_29",
@@ -545,22 +385,6 @@
       "flavor_text": "Bocata = almuerzo perfecto"
     },
     {
-      "id": "item_32",
-      "name": "Ventana abierta",
-      "category": "lifestyle",
-      "type": "defensive",
-      "description": "Открытое окно для проветривания",
-      "cost": {
-        "money": 0
-      },
-      "effects": {
-        "nerves": 2,
-        "block_air_penalty": true
-      },
-      "when_to_play": "when_housing_problem",
-      "flavor_text": "Aire fresco = salud mental"
-    },
-    {
       "id": "item_33",
       "name": "Curso de cocina española",
       "category": "education",
@@ -577,22 +401,6 @@
       },
       "when_to_play": "anytime",
       "flavor_text": "Cocinar = integrarse"
-    },
-    {
-      "id": "item_34",
-      "name": "Paraguas roto",
-      "category": "lifestyle",
-      "type": "defensive",
-      "description": "Сломанный зонт всё равно лучше, чем ничего",
-      "cost": {
-        "money": 0
-      },
-      "effects": {
-        "block_rain_penalty": true,
-        "nerves": 0
-      },
-      "when_to_play": "when_rain_event",
-      "flavor_text": "Algo es mejor que nada"
     },
     {
       "id": "item_35",
@@ -641,38 +449,6 @@
       },
       "when_to_play": "during_language_challenge",
       "flavor_text": "Intercambio = aprender + conocer"
-    },
-    {
-      "id": "item_38",
-      "name": "Piso compartido rules",
-      "category": "housing",
-      "type": "defensive",
-      "description": "Правила совместного проживания",
-      "cost": {
-        "nerves": 2
-      },
-      "effects": {
-        "block_roommate_penalty": true,
-        "housing_bonus": true
-      },
-      "when_to_play": "when_housing_problem",
-      "flavor_text": "Convivencia = reglas claras"
-    },
-    {
-      "id": "item_39",
-      "name": "Aspirina después de fiesta",
-      "category": "health",
-      "type": "defensive",
-      "description": "Аспирин после испанской вечеринки",
-      "cost": {
-        "money": 1
-      },
-      "effects": {
-        "block_hangover_penalty": true,
-        "nerves": 2
-      },
-      "when_to_play": "when_party_event",
-      "flavor_text": "Fiesta española = resaca segura"
     },
     {
       "id": "item_40",
@@ -737,22 +513,6 @@
       },
       "when_to_play": "anytime",
       "flavor_text": "Metro map = libertad de movimiento"
-    },
-    {
-      "id": "item_44",
-      "name": "Crema solar factor 50",
-      "category": "health",
-      "type": "defensive",
-      "description": "Солнцезащитный крем максимальной защиты",
-      "cost": {
-        "money": 1
-      },
-      "effects": {
-        "block_sun_penalty": true,
-        "nerves": 2
-      },
-      "when_to_play": "when_sun_event",
-      "flavor_text": "Sol español = protección necesaria"
     },
     {
       "id": "item_45",
@@ -821,22 +581,6 @@
       "flavor_text": "Fútbol = idioma universal"
     },
     {
-      "id": "item_49",
-      "name": "Gafas de sol baratas",
-      "category": "lifestyle",
-      "type": "defensive",
-      "description": "Дешёвые солнечные очки с рынка",
-      "cost": {
-        "money": 1
-      },
-      "effects": {
-        "block_glare_penalty": true,
-        "style_bonus": true
-      },
-      "when_to_play": "when_bright_event",
-      "flavor_text": "Estilo barato pero efectivo"
-    },
-    {
       "id": "item_50",
       "name": "Playlist de música española",
       "category": "entertainment",
@@ -852,22 +596,6 @@
       },
       "when_to_play": "anytime",
       "flavor_text": "Música = alma española"
-    },
-    {
-      "id": "item_51",
-      "name": "Papel higiénico de repuesto",
-      "category": "lifestyle",
-      "type": "defensive",
-      "description": "Запас туалетной бумаги на всякий случай",
-      "cost": {
-        "money": 1
-      },
-      "effects": {
-        "block_shortage_penalty": true,
-        "comfort_bonus": true
-      },
-      "when_to_play": "when_shortage_event",
-      "flavor_text": "Preparación = tranquilidad mental"
     },
     {
       "id": "item_52",
@@ -1000,22 +728,6 @@
       "flavor_text": "Palabras = poder"
     },
     {
-      "id": "item_60",
-      "name": "Calcetines de lana",
-      "category": "comfort",
-      "type": "defensive",
-      "description": "Тёплые шерстяные носки для зимы",
-      "cost": {
-        "money": 1
-      },
-      "effects": {
-        "block_cold_penalty": true,
-        "comfort_bonus": true
-      },
-      "when_to_play": "when_cold_event",
-      "flavor_text": "Pies calientes = cuerpo feliz"
-    },
-    {
       "id": "item_61",
       "name": "Botella de agua reutilizable",
       "category": "health",
@@ -1101,22 +813,6 @@
       "flavor_text": "Buen sueño = mejor día"
     },
     {
-      "id": "item_66",
-      "name": "Papel de aluminio",
-      "category": "lifestyle",
-      "type": "defensive",
-      "description": "Фольга для защиты еды и других нужд",
-      "cost": {
-        "money": 1
-      },
-      "effects": {
-        "block_spoilage_penalty": true,
-        "utility_bonus": true
-      },
-      "when_to_play": "when_food_event",
-      "flavor_text": "Aluminio = solución universal"
-    },
-    {
       "id": "item_67",
       "name": "Revista de chismes",
       "category": "entertainment",
@@ -1134,22 +830,6 @@
       "flavor_text": "Chismes = español coloquial"
     },
     {
-      "id": "item_68",
-      "name": "Jabón de manos antibacterial",
-      "category": "health",
-      "type": "defensive",
-      "description": "Антибактериальное мыло для рук",
-      "cost": {
-        "money": 1
-      },
-      "effects": {
-        "block_illness_penalty": true,
-        "hygiene_bonus": true
-      },
-      "when_to_play": "when_illness_event",
-      "flavor_text": "Higiene = primera defensa"
-    },
-    {
       "id": "item_69",
       "name": "Mechero de emergencia",
       "category": "lifestyle",
@@ -1164,153 +844,6 @@
       },
       "when_to_play": "when_utility_problem",
       "flavor_text": "Preparación = supervivencia urbana"
-    },
-    {
-      "id": "item_70",
-      "name": "Sombrero de paja",
-      "category": "lifestyle",
-      "type": "defensive",
-      "description": "Соломенная шляпа от солнца",
-      "cost": {
-        "money": 1
-      },
-      "effects": {
-        "block_sun_penalty": true,
-        "style_bonus": true,
-        "nerves": 2
-      },
-      "when_to_play": "when_sun_event",
-      "flavor_text": "Estilo campestre español"
     }
-  ],
-  "card_stats": {
-    "total_cards": 70,
-    "by_category": {
-      "food": 8,
-      "social": 6,
-      "lifestyle": 17,
-      "services": 3,
-      "technology": 6,
-      "communication": 2,
-      "connections": 1,
-      "comfort": 7,
-      "education": 4,
-      "health": 7,
-      "sabotage": 1,
-      "drinks": 4,
-      "housing": 1,
-      "transportation": 1,
-      "entertainment": 2
-    },
-    "by_type": {
-      "utility": 54,
-      "defensive": 15,
-      "interference": 1
-    },
-    "cost_distribution": {
-      "free": 18,
-      "1_money": 25,
-      "2_money": 17,
-      "3_money": 8,
-      "4_money": 1,
-      "6_money": 1
-    },
-    "effects_summary": {
-      "nerves_positive": 58,
-      "nerves_negative": 1,
-      "money_positive": 19,
-      "money_negative": 0,
-      "bonus_effects": 41,
-      "defensive_effects": 15,
-      "card_draw": 4
-    }
-  },
-  "steal_effect_cards": [
-    {
-      "id": "steal_effect_01",
-      "name": "Копировальная машина",
-      "category": "utility",
-      "type": "steal_effect",
-      "description": "Копирует постоянный эффект другого игрока",
-      "cost": {
-        "money": 3
-      },
-      "effects": {
-        "steal_permanent_effect": true
-      },
-      "when_to_play": "anytime",
-      "flavor_text": "¡Fotocopiadora mágica!",
-      "stealable_effects": ["documents_fast_track", "language_dice_advantage", "reroll_language_dice", "skip_document_queue", "language_upgrade_discount", "permanent_language_bonus", "stress_immunity", "immunity_next_housing"]
-    },
-    {
-      "id": "steal_effect_02", 
-      "name": "Шпионские очки",
-      "category": "utility",
-      "type": "steal_effect",
-      "description": "Подглядывает и крадет способности",
-      "cost": {
-        "money": 4
-      },
-      "effects": {
-        "steal_permanent_effect": true
-      },
-      "when_to_play": "anytime",
-      "flavor_text": "¡Gafas de espía!",
-      "stealable_effects": ["documents_fast_track", "language_dice_advantage", "reroll_language_dice", "skip_document_queue", "language_upgrade_discount", "permanent_language_bonus", "stress_immunity", "immunity_next_housing"]
-    },
-    {
-      "id": "steal_effect_03",
-      "name": "Зеркало навыков",
-      "category": "utility", 
-      "type": "steal_effect",
-      "description": "Отражает и перенимает способности",
-      "cost": {
-        "money": 5
-      },
-      "effects": {
-        "steal_permanent_effect": true
-      },
-      "when_to_play": "anytime",
-      "flavor_text": "¡Espejo de habilidades!",
-      "stealable_effects": ["documents_fast_track", "language_dice_advantage", "reroll_language_dice", "skip_document_queue", "language_upgrade_discount", "permanent_language_bonus", "stress_immunity", "immunity_next_housing"]
-    },
-    {
-      "id": "steal_effect_04",
-      "name": "Паразит знаний",
-      "category": "utility",
-      "type": "steal_effect", 
-      "description": "Паразитирует на чужих способностях",
-      "cost": {
-        "money": 2,
-        "nerves": 1
-      },
-      "effects": {
-        "steal_permanent_effect": true
-      },
-      "when_to_play": "anytime",
-      "flavor_text": "¡Parásito del conocimiento!",
-      "stealable_effects": ["documents_fast_track", "language_dice_advantage", "reroll_language_dice", "skip_document_queue", "language_upgrade_discount", "permanent_language_bonus", "stress_immunity", "immunity_next_housing"]
-    },
-    {
-      "id": "steal_effect_05",
-      "name": "Кража интеллекта",
-      "category": "utility",
-      "type": "steal_effect",
-      "description": "Крадет интеллектуальные способности",
-      "cost": {
-        "money": 6
-      },
-      "effects": {
-        "steal_permanent_effect": true
-      },
-      "when_to_play": "anytime", 
-      "flavor_text": "¡Robo de inteligencia!",
-      "stealable_effects": ["documents_fast_track", "language_dice_advantage", "reroll_language_dice", "skip_document_queue", "language_upgrade_discount", "permanent_language_bonus", "stress_immunity", "immunity_next_housing"]
-    }
-  ],
-  "steal_effect_stats": {
-    "total_steal_cards": 5,
-    "stealable_effects": 8,
-    "average_cost": 4.0
-  }
+  ]
 }

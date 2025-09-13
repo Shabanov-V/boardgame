@@ -43,7 +43,7 @@
       "type": "negative", 
       "description": "Весенняя аллергия атакует",
       "effects": {
-        "nerves": -6,
+        "nerves": -3,
         "money": -1
       },
       "flavor_text": "Антигистаминные в аптеке"
@@ -91,7 +91,7 @@
             "condition": "1",
             "description": "Без документов отправили в частную клинику",
             "effects": {
-              "nerves": -6,
+              "nerves": -3,
               "money": -1
             }
           }
@@ -118,7 +118,7 @@
       "type": "negative",
       "description": "Небольшая травма, нужна перевязка",
       "effects": {
-        "nerves": -6,
+        "nerves": -3,
         "money": -1
       },
       "flavor_text": "Accidente laboral menor"
@@ -142,7 +142,7 @@
       "type": "negative",
       "description": "Что-то не то съели, плохо себя чувствуете",
       "effects": {
-        "nerves": -6,
+        "nerves": -3,
         "money": -1
       },
       "flavor_text": "Tortilla española подозрительная была"
@@ -178,7 +178,7 @@
       "type": "negative",
       "description": "Срочный визит к стоматологу",
       "effects": {
-        "nerves": -6,
+        "nerves": -3,
         "money": -1
       },
       "flavor_text": "Emergencia dental"
@@ -250,7 +250,7 @@
             "condition": "1",
             "description": "Без документов в аптеку не пустили",
             "effects": {
-              "nerves": -6,
+              "nerves": -3,
               "money": 0
             }
           }
@@ -277,7 +277,7 @@
       "type": "negative",
       "description": "Недооценили испанское солнце",
       "effects": {
-        "nerves": -6,
+        "nerves": -3,
         "money": -1
       },
       "flavor_text": "Сиеста существует не просто так"
@@ -324,7 +324,7 @@
             "condition": "1",
             "description": "Отправили в частную клинику",
             "effects": {
-              "nerves": -6,
+              "nerves": -3,
               "money": -1
             }
           }
@@ -363,7 +363,7 @@
             "condition": "1",
             "description": "Языковой барьер мешает терапии",
             "effects": {
-              "nerves": -6,
+              "nerves": -3,
               "money": -1
             }
           }
@@ -402,7 +402,7 @@
             "condition": "1-2",
             "description": "Заблудились, пришлось идти в частную клинику",
             "effects": {
-              "nerves": -6,
+              "nerves": -3,
               "money": -1
             }
           }
@@ -432,7 +432,7 @@
             "condition": "2-4",
             "description": "Купили лекарства, но не совсем те",
             "effects": {
-              "nerves": -6,
+              "nerves": -3,
               "money": -1
             }
           },
@@ -440,7 +440,7 @@
             "condition": "1",
             "description": "Фармацевт ничего не понял, отправил к врачу",
             "effects": {
-              "nerves": -6,
+              "nerves": -3,
               "money": -1
             }
           }
@@ -471,7 +471,7 @@
             "condition": "3-5",
             "description": "Скорая приехала, но с задержкой",
             "effects": {
-              "nerves": -6,
+              "nerves": -3,
               "money": 0
             }
           },
@@ -479,7 +479,7 @@
             "condition": "1-2",
             "description": "Не смогли объяснить, пришлось бежать в больницу",
             "effects": {
-              "nerves": -6,
+              "nerves": -3,
               "money": -1
             }
           }
@@ -517,7 +517,7 @@
             "condition": "1-2",
             "description": "Отказали в выплате, платите сами",
             "effects": {
-              "nerves": -6,
+              "nerves": -3,
               "money": -1
             }
           }
@@ -547,7 +547,7 @@
             "condition": "2-4",
             "description": "Направление дали, но не к тому специалисту",
             "effects": {
-              "nerves": -6,
+              "nerves": -3,
               "money": -1
             }
           },
@@ -555,7 +555,7 @@
             "condition": "1",
             "description": "Врач не понял проблему, отказал в направлении",
             "effects": {
-              "nerves": -6,
+              "nerves": -3,
               "money": -1
             }
           }
@@ -585,7 +585,7 @@
             "condition": "2-4",
             "description": "Купили что-то, помогло частично",
             "effects": {
-              "nerves": -6,
+              "nerves": -3,
               "money": -1
             }
           },
@@ -593,7 +593,7 @@
             "condition": "1",
             "description": "Не поняли друг друга, пришлось в больницу",
             "effects": {
-              "nerves": -6,
+              "nerves": -3,
               "money": -1
             }
           }
@@ -623,7 +623,7 @@
             "condition": "3-5",
             "description": "Пройдено частично, нужны доп. справки",
             "effects": {
-              "nerves": -6,
+              "nerves": -3,
               "money": -1
             }
           },
@@ -631,7 +631,7 @@
             "condition": "1-2",
             "description": "Не хватает документов, комиссия провалена",
             "effects": {
-              "nerves": -6,
+              "nerves": -3,
               "money": -1,
               "document_penalty": true
             }
@@ -670,7 +670,7 @@
             "condition": "1",
             "description": "Не смогли объяснить, дали только обезболивающее",
             "effects": {
-              "nerves": -6,
+              "nerves": -3,
               "money": -1
             }
           }

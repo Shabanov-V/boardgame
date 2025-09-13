@@ -31,6 +31,9 @@ class Player:
         self.max_personal_items_hand = game_constants['game_constants']['max_personal_items_hand']
         self.document_cards = 1  # Number of collected document cards
         self.housing_search = False  # Whether player is actively searching for housing
+        
+        # Add starting personal items
+        self.add_personal_items(5)
 
         self.win_condition = win_condition
         self.goal_chosen = False

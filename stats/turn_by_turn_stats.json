@@ -3,81 +3,81 @@
     "0": {
       "turn_number": 0,
       "characters": {
-        "pensioner": {
-          "money": 153.04,
-          "nerves": 6.23,
-          "items": 0.0,
-          "documents": 2.52,
-          "language": 1.82,
-          "goal_progress": 0.9355555555555556
-        },
-        "student": {
-          "money": 135.88,
-          "nerves": 6.53,
-          "items": 0.0,
-          "documents": 2.75,
-          "language": 2.58,
-          "goal_progress": 0.8792592592592593
-        },
-        "entrepreneur": {
-          "money": 117.34,
-          "nerves": 5.58,
-          "items": 0.0,
-          "documents": 2.4,
-          "language": 2.51,
-          "goal_progress": 0.8920634920634921
-        },
         "freelance_artist": {
-          "money": 161.51,
-          "nerves": 5.72,
+          "money": 179.39,
+          "nerves": 5.91,
           "items": 0.0,
-          "documents": 2.86,
-          "language": 1.97,
-          "goal_progress": 0.9052287581699346
-        },
-        "courier": {
-          "money": 159.89,
-          "nerves": 6.05,
-          "items": 0.0,
-          "documents": 2.74,
-          "language": 2.03,
-          "goal_progress": 0.8292929292929293
-        },
-        "spanish_spouse": {
-          "money": 165.53,
-          "nerves": 6.23,
-          "items": 0.0,
-          "documents": 2.41,
-          "language": 2.79,
-          "goal_progress": 0.9060606060606061
-        },
-        "it_specialist": {
-          "money": 159.31,
-          "nerves": 6.63,
-          "items": 0.0,
-          "documents": 2.7,
-          "language": 2.62,
+          "documents": 2.38,
+          "language": 2.21,
           "goal_progress": 0.85
         },
-        "waiter": {
-          "money": 144.95,
-          "nerves": 6.37,
+        "student": {
+          "money": 143.65,
+          "nerves": 5.79,
           "items": 0.0,
-          "documents": 2.74,
-          "language": 2.58,
-          "goal_progress": 0.8567460317460317
+          "documents": 2.35,
+          "language": 2.66,
+          "goal_progress": 0.8769841269841271
+        },
+        "courier": {
+          "money": 169.29,
+          "nerves": 5.9,
+          "items": 0.0,
+          "documents": 2.48,
+          "language": 1.96,
+          "goal_progress": 0.8148148148148149
+        },
+        "it_specialist": {
+          "money": 163.82,
+          "nerves": 6.13,
+          "items": 0.0,
+          "documents": 2.71,
+          "language": 2.54,
+          "goal_progress": 0.8337606837606837
+        },
+        "entrepreneur": {
+          "money": 128.48,
+          "nerves": 6.63,
+          "items": 0.0,
+          "documents": 2.72,
+          "language": 2.57,
+          "goal_progress": 0.8614285714285714
+        },
+        "pensioner": {
+          "money": 162.69,
+          "nerves": 5.94,
+          "items": 0.0,
+          "documents": 2.43,
+          "language": 1.96,
+          "goal_progress": 0.912962962962963
+        },
+        "waiter": {
+          "money": 155.35,
+          "nerves": 7.03,
+          "items": 0.0,
+          "documents": 2.55,
+          "language": 2.53,
+          "goal_progress": 0.8636363636363636
+        },
+        "spanish_spouse": {
+          "money": 180.83,
+          "nerves": 6.99,
+          "items": 0.0,
+          "documents": 2.96,
+          "language": 2.77,
+          "goal_progress": 0.9444444444444444
         }
       }
     }
   },
   "characters": [
-    "pensioner",
-    "student",
-    "entrepreneur",
     "freelance_artist",
+    "student",
     "courier",
-    "spanish_spouse",
     "it_specialist",
-    "waiter"
+    "entrepreneur",
+    "pensioner",
+    "waiter",
+    "spanish_spouse"
   ]
 }

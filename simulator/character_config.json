@@ -8,7 +8,7 @@
       "starting_language": 2,
       "starting_housing": "room",
       "starting_document_cards": 3,
-      "salary": 5,
+      "salary": 4,
       "housing_cost": 3,
       "description": "Высокий доход, но уязвим к стрессу и дорогой образ жизни"
     },
@@ -20,7 +20,7 @@
       "starting_language": 2,
       "starting_housing": "room",
       "starting_document_cards": 3,
-      "salary": 3,
+      "salary": 2,
       "housing_cost": 1,
       "description": "Мало денег, хороший язык, низкий доход"
     },
@@ -31,7 +31,7 @@
       "starting_nerves": 8,
       "starting_language": 1,
       "starting_housing": "room",
-      "salary": 5,
+      "salary": 3,
       "housing_cost": 2,
       "description": "Физически крепкий, средний доход, плохой язык"
     },
@@ -42,7 +42,8 @@
       "starting_nerves": 7,
       "starting_language": 3,
       "starting_housing": "apartment",
-      "salary": 5,
+      "salary_type": "dice",
+      "salary_base": 2,
       "housing_cost": 1,
       "description": "Лучшее жилье, отличный язык, но ограниченные ресурсы"
     },
@@ -54,7 +55,7 @@
       "starting_language": 2,
       "starting_housing": "room",
       "salary_type": "dice",
-      "salary_base": 4,
+      "salary_base": 2,
       "housing_cost": 1,
       "description": "Непредсказуемый доход, творческий, но нестабильный"
     },
@@ -65,7 +66,7 @@
       "starting_nerves": 7,
       "starting_language": 2,
       "starting_housing": "room",
-      "salary": 4,
+      "salary": 3,
       "housing_cost": 2,
       "description": "Работа в сфере услуг, постоянный контакт с людьми, чаевые"
     },
@@ -76,7 +77,7 @@
       "starting_nerves": 5,
       "starting_language": 1,
       "starting_housing": "apartment",
-      "salary": 3,
+      "salary": 2,
       "housing_cost": 1,
       "description": "Много времени, мало денег, стресс от бюрократии"
     },
@@ -88,7 +89,7 @@
       "starting_language": 2,
       "starting_housing": "apartment",
       "salary_type": "dice",
-      "salary_base": 3,
+      "salary_base": 2,
       "housing_cost": 3,
       "description": "Высокие риски, высокие доходы, постоянный стресс"
     }

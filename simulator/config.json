@@ -19,40 +19,40 @@
   },
   "win_conditions": {
     "buy_housing": {
-      "description": "Купить жильё: ипотека + 20 денег",
+      "description": "Купить жильё: ипотека + 5 денег",
       "requires": {
         "housing_type": "mortgage",
-        "money": 20
+        "money": 5
       }
     },
     "get_citizenship": {
-      "description": "Получить гражданство: 7 уровень документов + 3 уровень языка",
+      "description": "Получить гражданство: 5 уровень документов + 2 уровень языка",
       "requires": {
-        "document_level": 7,
-        "language_level": 3
-      }
-    },
-    "open_business": {
-      "description": "Открыть бизнес: 6 уровень документов + 30 денег + 2 уровень языка",
-      "requires": {
-        "document_level": 6,
-        "money": 30,
+        "document_level": 5,
         "language_level": 2
       }
     },
-    "family_reunion": {
-      "description": "Воссоединение семьи: 7 уровень документов + квартира + 15 денег",
+    "open_business": {
+      "description": "Открыть бизнес: 3 уровень документов + 10 денег + 1 уровень языка",
       "requires": {
-        "document_level": 7,
+        "document_level": 3,
+        "money": 10,
+        "language_level": 1
+      }
+    },
+    "family_reunion": {
+      "description": "Воссоединение семьи: 6 уровень документов + квартира + 35 денег",
+      "requires": {
+        "document_level": 6,
         "housing_type": "apartment",
-        "money": 15
+        "money": 35
       }
     },
     "vacation": {
-      "description": "Поехать в отпуск: 5 уровень документов + 25 денег + 10 нервов",
+      "description": "Поехать в отпуск: 6 уровень документов + 30 денег + 10 нервов",
       "requires": {
-        "document_level": 5,
-        "money": 25,
+        "document_level": 6,
+        "money": 30,
         "nerves": 10
       }
     }
@@ -73,7 +73,7 @@
       "starting_language": 2,
       "starting_housing": "room",
       "starting_document_cards": 3,
-      "salary": 5,
+      "salary": 10,
       "housing_cost": 3,
       "description": "Высокий доход, но уязвим к стрессу и дорогой образ жизни"
     },
@@ -85,7 +85,7 @@
       "starting_language": 2,
       "starting_housing": "room",
       "starting_document_cards": 3,
-      "salary": 3,
+      "salary": 8,
       "housing_cost": 1,
       "description": "Мало денег, хороший язык, низкий доход"
     },
@@ -96,7 +96,7 @@
       "starting_nerves": 8,
       "starting_language": 1,
       "starting_housing": "room",
-      "salary": 5,
+      "salary": 10,
       "housing_cost": 2,
       "description": "Физически крепкий, средний доход, плохой язык"
     },
@@ -107,7 +107,7 @@
       "starting_nerves": 6,
       "starting_language": 3,
       "starting_housing": "apartment",
-      "salary": 4,
+      "salary": 9,
       "housing_cost": 1,
       "description": "Лучшее жилье, отличный язык, но ограниченные ресурсы"
     },
@@ -119,7 +119,7 @@
       "starting_language": 1,
       "starting_housing": "room",
       "salary_type": "dice",
-      "salary_base": 4,
+      "salary_base": 6,
       "housing_cost": 1,
       "description": "Непредсказуемый доход, творческий, но нестабильный"
     },
@@ -130,7 +130,7 @@
       "starting_nerves": 7,
       "starting_language": 2,
       "starting_housing": "room",
-      "salary": 4,
+      "salary": 9,
       "housing_cost": 2,
       "description": "Работа в сфере услуг, постоянный контакт с людьми, чаевые"
     },
@@ -141,7 +141,7 @@
       "starting_nerves": 6,
       "starting_language": 1,
       "starting_housing": "apartment",
-      "salary": 3,
+      "salary": 8,
       "housing_cost": 1,
       "description": "Много времени, мало денег, стресс от бюрократии"
     },
@@ -153,7 +153,7 @@
       "starting_language": 2,
       "starting_housing": "apartment",
       "salary_type": "dice",
-      "salary_base": 3,
+      "salary_base": 5,
       "housing_cost": 3,
       "description": "Высокие риски, высокие доходы, постоянный стресс"
     }

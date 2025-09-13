@@ -31,20 +31,22 @@
       },
       "individual_modifiers": {
         "freelance_artist": {
-          "nerves": -2,
-          "money": -7
+          "nerves": 2,
+          "money": 3
         },
         "it_specialist": {
-          "nerves": -4,
-          "money": -8
+          "nerves": -12,
+          "money": -12,
+          "documents_cards": -4
         },
         "entrepreneur": {
-        "nerves": -1,
-          "money": -3
+          "nerves": -4,
+          "money": -4
         },
         "spanish_spouse": {
-          "nerves": -2,
-          "money": -5
+          "nerves": -10,
+          "money": -10,
+          "documents_cards": -4
         }
       },
       "flavor_text": "Hacienda siempre gana - también проверяют семейные документы"
@@ -57,7 +59,7 @@
       "description": "Фиеста в честь местного святого покровителя",
       "effects": {
         "nerves": 1,
-        "money": -5
+        "money": -1
       },
       "global_effects": {
         "next_red_card_skip": true
@@ -78,14 +80,14 @@
       },
       "individual_modifiers": {
         "spanish_spouse": {
-          "nerves": -8,
-          "money": -17,
+          "nerves": -7,
+          "money": -4,
           "documents_cards": -2
         },
         "student": {
-          "nerves": -3,
-          "money": -2,
-          "documents_cards": 0
+          "nerves": 2,
+          "money": 2,
+          "documents_cards": 2
         }
       },
       "flavor_text": "Problemas familiares - el precio de la integración"
@@ -111,7 +113,7 @@
       "description": "Аномальная жара парализует страну",
       "effects": {
         "nerves": -1,
-        "money": -5
+        "money": -1
       },
       "conditions": {
         "housing_type": "room"
@@ -142,7 +144,7 @@
       "description": "Вся страна смотрит Евровидение и празднует",
       "effects": {
         "nerves": 2,
-        "money": -5
+        "money": -1
       },
       "flavor_text": "¡Eurovision! Fiesta nacional"
     },
@@ -176,8 +178,8 @@
             "condition": "1",
             "description": "Проблемы с документами, штраф",
             "effects": {
-              "nerves": -2,
-              "money": -5
+              "nerves": -3,
+              "money": -1
             }
           }
         }
@@ -214,7 +216,7 @@
             "condition": "1",
             "description": "Опозорились перед всеми",
             "effects": {
-              "nerves": -1,
+              "nerves": -3,
               "money": 0
             }
           }
@@ -230,7 +232,7 @@
       "description": "Рождественские праздники в испанском стиле - дорого и хлопотно",
       "effects": {
         "nerves": 1,
-        "money": -10
+        "money": -5
       },
       "global_effects": {
         "family_bonus": true
@@ -248,8 +250,8 @@
       "type": "global_negative",
       "description": "Ваш любимый супермаркет внезапно закрылся",
       "effects": {
-        "nerves": -2,
-        "money": -5
+        "nerves": -1,
+        "money": -1
       },
       "flavor_text": "¿Dónde comprar now?"
     },
@@ -276,7 +278,7 @@
       "description": "Испанская почта в своем репертуаре",
       "effects": {
         "nerves": -1,
-        "money": -5
+        "money": -1
       },
       "flavor_text": "Correos español strikes again"
     },
@@ -310,7 +312,7 @@
             "condition": "1",
             "description": "Полная языковая катастрофа",
             "effects": {
-              "nerves": -2,
+              "nerves": -3,
               "money": 0
             }
           }
@@ -326,7 +328,7 @@
       "description": "Финал чемпионата Испании, вся страна прикована к экранам",
       "effects": {
         "nerves": 1,
-        "money": -5
+        "money": -1
       },
       "global_effects": {
         "work_productivity_down": true
@@ -347,7 +349,7 @@
       },
       "effects": {
         "nerves": -1,
-        "money": -6
+        "money": -3
       },
       "flavor_text": "Calefacción muy cara"
     },
@@ -394,7 +396,7 @@
             "description": "Отличное свидание, планируете встречу",
             "effects": {
               "nerves": 2,
-              "money": -6
+              "money": -3
             }
           },
           "partial": {
@@ -402,15 +404,15 @@
             "description": "Нормальное свидание, может быть продолжение",
             "effects": {
               "nerves": 1,
-              "money": -5
+              "money": -1
             }
           },
           "failure": {
             "condition": "1",
             "description": "Полный провал, языковой барьер",
             "effects": {
-              "nerves": -1,
-              "money": -5
+              "nerves": -3,
+              "money": -1
             }
           }
         }
@@ -441,7 +443,7 @@
       "description": "Знаменитая апрельская ярмарка в Севилье",
       "effects": {
         "nerves": 2,
-        "money": -5
+        "money": -1
       },
       "special_effect": "draw_action_card",
       "flavor_text": "¡Feria! Casetas y sevillanas"
@@ -457,7 +459,7 @@
       },
       "effects": {
         "nerves": 2,
-        "money": -5
+        "money": -1
       },
       "special_effect": "free_document_card",
       "flavor_text": "Dinero solved problems"
@@ -492,7 +494,7 @@
             "condition": "1",
             "description": "Проиграли спор, потеряли respect",
             "effects": {
-              "nerves": -1,
+              "nerves": -3,
               "money": 0
             }
           }
@@ -523,7 +525,7 @@
       "description": "Грандиозный тур по тапас-барам",
       "effects": {
         "nerves": 2,
-        "money": -5
+        "money": -1
       },
       "conditions": {
         "language_level": ">=2"
@@ -537,7 +539,7 @@
       "type": "negative",
       "description": "Сквоттеры заняли соседний дом, район стал беспокойным",
       "effects": {
-        "nerves": -2,
+        "nerves": -1,
         "money": 0
       },
       "duration": "permanent_until_removed",
@@ -610,7 +612,7 @@
       "description": "Неожиданно все документы оформляются быстро и без проблем",
       "conditions": {},
       "effects": {
-        "documents_cards": 6,
+        "documents_cards": 3,
         "nerves": 3,
         "money": 2
       },
@@ -624,7 +626,7 @@
       "type": "positive",
       "description": "Освободилось место на прием к функционарию",
       "effects": {
-        "documents_cards": 4,
+        "documents_cards": 3,
         "nerves": 1
       },
       "flavor_text": "¡Milagro burocrático!"
@@ -636,7 +638,7 @@
       "type": "positive",
       "description": "Кто-то отменил запись, освободилось место",
       "effects": {
-        "documents_cards": 4,
+        "documents_cards": 3,
         "nerves": 1
       },
       "flavor_text": "¡Cancelación = oportunidad!"
@@ -648,7 +650,7 @@
       "type": "positive",
       "description": "Удалось дозвониться и записаться на прием",
       "effects": {
-        "documents_cards": 4,
+        "documents_cards": 3,
         "nerves": 1
       },
       "flavor_text": "¡Teléfono milagroso!"
@@ -660,7 +662,7 @@
       "type": "positive", 
       "description": "Сайт заработал и удалось записаться онлайн",
       "effects": {
-        "documents_cards": 4,
+        "documents_cards": 3,
         "nerves": 1
       },
       "flavor_text": "¡Web funciona = shock!"
@@ -672,7 +674,7 @@
       "type": "positive",
       "description": "Знакомый помог с записью к функционарию",
       "effects": {
-        "documents_cards": 4,
+        "documents_cards": 27,
         "nerves": 1
       },
       "flavor_text": "¡Enchufismo útil!"
@@ -684,7 +686,7 @@
       "type": "positive",
       "description": "Рано утром освободилось место на прием",
       "effects": {
-        "documents_cards": 4,
+        "documents_cards": 3,
         "nerves": 1
       },
       "flavor_text": "¡Madrugadores win!"
@@ -696,7 +698,7 @@
       "type": "positive",
       "description": "В последний момент нашлось свободное время",
       "effects": {
-        "documents_cards": 4,
+        "documents_cards": 3,
         "nerves": 1
       },
       "flavor_text": "¡Timing perfecto!"
@@ -708,7 +710,7 @@
       "type": "positive",
       "description": "Удалось записаться сразу к двум функционарам",
       "effects": {
-        "documents_cards": 6,
+        "documents_cards": 3,
         "nerves": 2
       },
       "flavor_text": "¡Doble milagro!"
@@ -720,7 +722,7 @@
       "type": "positive",
       "description": "Быстрый прием, все документы за один раз",
       "effects": {
-        "documents_cards": 6,
+        "documents_cards": 3,
         "nerves": 2
       },
       "flavor_text": "¡Velocidad española!"
@@ -732,7 +734,7 @@
       "type": "positive",
       "description": "Попался очень компетентный функционар",
       "effects": {
-        "documents_cards": 8,
+        "documents_cards": 3,
         "nerves": 3
       },
       "flavor_text": "¡Funcionario legendario!"
@@ -782,7 +784,7 @@
       "description": "Адвокат помог правильно оформить все документы",
       "effects": {
         "document_level": 1,
-        "money": -5,
+        "money": -1,
         "nerves": 4
       },
       "flavor_text": "¡Profesional expertise!"
@@ -812,24 +814,24 @@
       ],
       "individual_modifiers": {
         "it_specialist": {
-          "money": 8,
-          "nerves": 1,
-          "documents_cards": 0
+          "money": -4,
+          "nerves": -3,
+          "documents_cards": -2
         },
         "entrepreneur": {
           "money": 25,
           "nerves": 5,
-          "documents_cards": 4
+          "documents_cards": 30
         },
         "spanish_spouse": {
-          "money": 8,
-          "nerves": 1,
-          "documents_cards": 1
+          "money": 2,
+          "nerves": -3,
+          "documents_cards": 0
         },
         "waiter": {
           "money": 15,
           "nerves": 3,
-          "documents_cards": 2
+          "documents_cards": 3
         }
       },
       "flavor_text": "¡Tech revolution benefits!"
@@ -847,24 +849,24 @@
       ],
       "individual_modifiers": {
         "entrepreneur": {
-          "money": 30,
+          "money": 15,
           "nerves": 6,
-          "documents_cards": 5
+          "documents_cards": 3
         },
         "it_specialist": {
-          "money": 5,
-          "nerves": 1,
-          "documents_cards": 0
+          "money": -3,
+          "nerves": -3,
+          "documents_cards": -2
         },
         "spanish_spouse": {
-          "money": 5,
-          "nerves": 1,
+          "money": 2,
+          "nerves": -3,
           "documents_cards": 1
         },
         "waiter": {
           "money": 18,
           "nerves": 3,
-          "documents_cards": 2
+          "documents_cards": 3
         }
       },
       "flavor_text": "¡Startup ecosystem boom!"
@@ -882,8 +884,8 @@
       ],
       "individual_modifiers": {
         "student": {
-          "nerves": -1,
-          "money": -2
+          "nerves": 1,
+          "money": 1
         }
       },
       "flavor_text": "¡Exámenes = stress máximo!"
@@ -938,7 +940,7 @@
       "description": "Апелляция одобрена - документ получен мгновенно +1 уровень",
       "effects": {
         "document_level": 1,
-        "money": -5,
+        "money": -1,
         "nerves": 3
       },
       "flavor_text": "¡La justicia española funciona!"
@@ -951,7 +953,7 @@
       "description": "Заплатил за срочность - документ готов сразу +1 уровень",
       "effects": {
         "document_level": 1,
-        "money": -5,
+        "money": -1,
         "nerves": 1
       },
       "flavor_text": "¡Dinero = velocidad burocrática!"
@@ -984,17 +986,17 @@
         "pensioner": {
           "money": 2,
           "nerves": 1,
-          "documents_cards": 1
+          "documents_cards": 3
         },
         "waiter": {
           "money": 12,
           "nerves": 6,
-          "documents_cards": 4
+          "documents_cards": 3
         },
         "spanish_spouse": {
-          "money": 8,
-          "nerves": 2,
-          "documents_cards": 2
+          "money": 4,
+          "nerves": 0,
+          "documents_cards": 1
         }
       },
       "flavor_text": "¡Programa especial para jubilados!"
@@ -1041,11 +1043,11 @@
             "entrepreneur",
             "student"
           ],
-          "money": -6,
+          "money": -3,
           "nerves": 2
         },
         "all_others": {
-          "money": -3,
+          "money": -1,
           "nerves": 0
         }
       },
@@ -1067,18 +1069,18 @@
       },
       "individual_modifiers": {
         "it_specialist": {
-          "nerves": -2,
-          "money": -4,
+          "nerves": -6,
+          "money": -5,
           "language_level": 0
         },
         "entrepreneur": {
           "nerves": -3,
-          "money": -6,
+          "money": -3,
           "language_level": 0
         },
         "freelance_artist": {
-          "nerves": -2,
-          "money": -4,
+          "nerves": 1,
+          "money": 1,
           "language_level": 0
         }
       },
@@ -1098,8 +1100,8 @@
         ]
       },
       "effects": {
-        "money": -20,
-        "nerves": -3
+        "money": -5,
+        "nerves": -1
       },
       "flavor_text": "Bitcoin bajó 50% - HODL не помог",
       "cross_system_interaction": "investment_loss + tech_bubble"
@@ -1119,19 +1121,19 @@
       },
       "individual_modifiers": {
         "freelance_artist": {
-          "money": 22,
-          "nerves": 3,
-          "documents_cards": 4
+          "money": 12,
+          "nerves": 4,
+          "documents_cards": 3
         },
         "student": {
-          "money": 20,
-          "nerves": 4,
-          "documents_cards": 4
+          "money": 25,
+          "nerves": 5,
+          "documents_cards": 3
         },
         "courier": {
           "money": 20,
           "nerves": 4,
-          "documents_cards": 4
+          "documents_cards": 3
         }
       },
       "flavor_text": "¡Subvención para artistas! El arte es vida",
@@ -1154,27 +1156,27 @@
         "courier": {
           "money": 15,
           "nerves": 3,
-          "documents_cards": 2
+          "documents_cards": 3
         },
         "waiter": {
           "money": 25,
           "nerves": 5,
-          "documents_cards": 6
+          "documents_cards": 3
         },
         "student": {
           "money": 15,
           "nerves": 4,
-          "documents_cards": 4
+          "documents_cards": 3
         },
         "spanish_spouse": {
           "money": 5,
           "nerves": 1,
-          "documents_cards": 1
+          "documents_cards": 3
         },
         "entrepreneur": {
           "money": 25,
           "nerves": 5,
-          "documents_cards": 5
+          "documents_cards": 3
         }
       },
       "flavor_text": "¡Más pedidos! Glovo, Uber Eats, Just Eat",
@@ -1195,19 +1197,19 @@
       },
       "individual_modifiers": {
         "pensioner": {
-          "money": 20,
-          "nerves": 5,
+          "money": 15,
+          "nerves": 14,
           "documents_cards": 6
         },
         "student": {
           "money": 15,
-          "nerves": 3,
-          "documents_cards": 4
+          "nerves": 12,
+          "documents_cards": 6
         },
         "waiter": {
-          "money": 10,
-          "nerves": 2,
-          "documents_cards": 2
+          "money": 20,
+          "nerves": 12,
+          "documents_cards": 6
         }
       },
       "flavor_text": "¡Aumento de pensión! La tercera edad importa",
@@ -1229,13 +1231,13 @@
         "freelance_artist": {
           "money": 10,
           "nerves": 3,
-          "documents_cards": 2,
+          "documents_cards": 3,
           "language_level": 1
         },
         "student": {
           "money": 15,
           "nerves": 4,
-          "documents_cards": 4,
+          "documents_cards": 3,
           "language_level": 1
         }
       },
@@ -1265,13 +1267,13 @@
         "freelance_artist": {
           "money": 4,
           "nerves": 1,
-          "documents_cards": 2,
+          "documents_cards": 3,
           "language_level": 0
         },
         "courier": {
           "money": 4,
           "nerves": 2,
-          "documents_cards": 2,
+          "documents_cards": 3,
           "language_level": 0
         }
       },
@@ -1307,7 +1309,7 @@
         "waiter": {
           "money": 5,
           "nerves": 2,
-          "documents_cards": 1,
+          "documents_cards": 3,
           "health_immunity": false
         }
       },
@@ -1397,17 +1399,17 @@
         "entrepreneur": {
           "money": 18,
           "nerves": 2,
-          "documents_cards": 2
+          "documents_cards": 3
         },
         "it_specialist": {
-          "money": 25,
+          "money": 12,
           "nerves": 4,
           "documents_cards": 3
         },
         "freelance_artist": {
           "money": 10,
           "nerves": 1,
-          "documents_cards": 1
+          "documents_cards": 3
         }
       },
       "flavor_text": "¡Startup incubator support!",
@@ -1430,17 +1432,17 @@
         "entrepreneur": {
           "money": 22,
           "nerves": 3,
-          "documents_cards": 1
+          "documents_cards": 3
         },
         "it_specialist": {
-          "money": 30,
+          "money": 15,
           "nerves": 5,
           "documents_cards": 3
         },
         "courier": {
           "money": 15,
           "nerves": 2,
-          "documents_cards": 1
+          "documents_cards": 3
         }
       },
       "flavor_text": "¡Venture capital funding!",
@@ -1463,7 +1465,7 @@
         "entrepreneur": {
           "money": 12,
           "nerves": 1,
-          "documents_cards": 2
+          "documents_cards": 3
         },
         "pensioner": {
           "money": 15,
@@ -1499,13 +1501,13 @@
           "documents_cards": -1
         },
         "freelance_artist": {
-          "money": -10,
-          "nerves": -2,
+          "money": -5,
+          "nerves": -3,
           "documents_cards": -1
         },
         "courier": {
-          "money": -5,
-          "nerves": -1,
+          "money": -1,
+          "nerves": -3,
           "documents_cards": 0
         }
       },
@@ -1527,18 +1529,18 @@
       },
       "individual_modifiers": {
         "student": {
-          "money": -10,
-          "nerves": -2,
+          "money": -5,
+          "nerves": -3,
           "documents_cards": -2
         },
         "freelance_artist": {
-          "money": -8,
-          "nerves": -2,
+          "money": -2,
+          "nerves": -3,
           "documents_cards": -1
         },
         "waiter": {
-          "money": -5,
-          "nerves": -1,
+          "money": -1,
+          "nerves": -3,
           "documents_cards": 0
         }
       },
@@ -1560,7 +1562,7 @@
       },
       "individual_modifiers": {
         "student": {
-          "nerves": -4,
+          "nerves": -3,
           "documents_cards": -3
         },
         "freelance_artist": {
@@ -1568,7 +1570,7 @@
           "documents_cards": -2
         },
         "courier": {
-          "nerves": -2,
+          "nerves": -3,
           "documents_cards": -1
         }
       },
@@ -1595,12 +1597,12 @@
           "language_level": -1
         },
         "waiter": {
-          "nerves": -1,
-          "money": -3
+          "nerves": -3,
+          "money": -1
         },
         "pensioner": {
-          "nerves": -1,
-          "money": -2
+          "nerves": -3,
+          "money": -1
         }
       },
       "flavor_text": "¡Tienes que integrarte! Pressure from Spanish family",
@@ -1622,20 +1624,20 @@
       "individual_modifiers": {
         "freelance_artist": {
           "money": 15,
-          "nerves": 2,
-          "documents_cards": 2,
-          "language_level": 0
+          "nerves": 12,
+          "documents_cards": 6,
+          "language_level": 2
         },
         "courier": {
-          "money": 12,
-          "nerves": 2,
-          "documents_cards": 2,
-          "language_level": 1
+          "money": 20,
+          "nerves": 12,
+          "documents_cards": 6,
+          "language_level": 2
         },
         "student": {
           "money": 15,
-          "nerves": 2,
-          "documents_cards": 2
+          "nerves": 12,
+          "documents_cards": 6
         }
       },
       "flavor_text": "¡Boom creativo! Arte y delivery en alza",
@@ -1656,18 +1658,18 @@
       },
       "individual_modifiers": {
         "spanish_spouse": {
-          "nerves": -2,
-          "money": -5,
+          "nerves": -3,
+          "money": -1,
           "documents_cards": -1
         },
         "pensioner": {
           "nerves": 1,
           "money": 3,
-          "documents_cards": 1
+          "documents_cards": 3
         },
         "entrepreneur": {
-          "nerves": -2,
-          "money": -6
+          "nerves": -3,
+          "money": -3
         }
       },
       "flavor_text": "Familia española requiere mucho tiempo y dinero",
@@ -1690,14 +1692,14 @@
         "spanish_spouse": {
           "nerves": -3,
           "documents_cards": -2,
-          "money": -8
+          "money": -2
         },
         "waiter": {
-          "nerves": -1,
+          "nerves": -3,
           "documents_cards": -1
         },
         "it_specialist": {
-          "nerves": -1,
+          "nerves": -3,
           "documents_cards": -1
         }
       },
@@ -1731,9 +1733,9 @@
           "language_level": 1
         },
         "waiter": {
-          "money": 25,
+          "money": 12,
           "nerves": 4,
-          "documents_cards": 4
+          "documents_cards": 3
         }
       },
       "flavor_text": "¡Apoyo gubernamental para trabajadores esenciales!",
@@ -1762,7 +1764,7 @@
         "freelance_artist": {
           "money": 15,
           "nerves": 2,
-          "documents_cards": 2,
+          "documents_cards": 3,
           "housing_upgrade": false
         },
         "waiter": {
@@ -1789,18 +1791,18 @@
       },
       "individual_modifiers": {
         "spanish_spouse": {
-          "money": -10,
+          "money": -5,
           "nerves": -3,
           "documents_cards": -2
         },
         "it_specialist": {
           "money": -15,
-          "nerves": -3
+          "nerves": -2
         },
         "pensioner": {
           "money": 5,
           "nerves": 2,
-          "documents_cards": 1
+          "documents_cards": 3
         }
       },
       "flavor_text": "Impuestos adicionales para familias",
@@ -1821,17 +1823,17 @@
       },
       "individual_modifiers": {
         "spanish_spouse": {
-          "nerves": -2,
-          "money": -8,
+          "nerves": -3,
+          "money": -2,
           "documents_cards": -1
         },
         "waiter": {
-          "nerves": -1,
-          "money": -2
+          "nerves": -3,
+          "money": -1
         },
         "pensioner": {
-          "nerves": -1,
-          "money": -2
+          "nerves": -3,
+          "money": -1
         }
       },
       "flavor_text": "Crisis familiar requiere atención",
@@ -1887,17 +1889,17 @@
         "freelance_artist": {
           "money": 12,
           "nerves": 1,
-          "documents_cards": 2
+          "documents_cards": 3
         },
         "spanish_spouse": {
-          "money": -8,
-          "nerves": -2,
+          "money": -2,
+          "nerves": -3,
           "documents_cards": -1
         },
         "it_specialist": {
           "money": 12,
           "nerves": 1,
-          "documents_cards": 2
+          "documents_cards": 3
         }
       },
       "flavor_text": "Subvenciones artísticas con burocracia",
@@ -1934,7 +1936,7 @@
       "description": "На блошином рынке купили кучу полезного за копейки",
       "effects": {
         "nerves": 0,
-        "money": -2,
+        "money": -1,
         "personal_items": 4
       },
       "flavor_text": "¡Segunda mano = primera calidad!"

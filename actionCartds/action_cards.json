@@ -24,7 +24,7 @@
         "waiter": {
           "additional_effects": {
             "money": 8,
-            "documents_cards": 6,
+            "documents_cards": 3,
             "housing_upgrade": true,
             "description": "Официант получает профессиональные сертификаты и жилищную поддержку"
           }
@@ -58,7 +58,7 @@
       "individual_modifiers": {
         "student": {
           "additional_effects": {
-            "documents_cards": 6,
+            "documents_cards": 3,
             "housing_search": true,
             "description": "Студент активно участвует в молодежных программах"
           }
@@ -73,7 +73,7 @@
         "freelance_artist": {
           "additional_effects": {
             "money": 4,
-            "documents_cards": 6,
+            "documents_cards": 3,
             "description": "Художник получает поддержку для творческих проектов"
           }
         }
@@ -146,7 +146,7 @@
       },
       "effects": {
         "money": 8,
-        "documents_cards": 4,
+        "documents_cards": 3,
         "nerves": 2,
         "language_level_up": true
       },
@@ -166,7 +166,7 @@
       "effects": {
         "money": 6,
         "nerves": 4,
-        "documents_cards": 4,
+        "documents_cards": 3,
         "language_level_up": true
       },
       "when_to_play": "immediately",
@@ -184,7 +184,7 @@
       },
       "effects": {
         "money": 10,
-        "documents_cards": 4,
+        "documents_cards": 3,
         "nerves": 3
       },
       "when_to_play": "immediately",
@@ -203,7 +203,7 @@
       "effects": {
         "money": 20,
         "nerves": 5,
-        "documents_cards": 4,
+        "documents_cards": 3,
         "language_level_up": true
       },
       "when_to_play": "immediately",
@@ -223,7 +223,7 @@
       "effects": {
         "money": 15,
         "nerves": 5,
-        "documents_cards": 4,
+        "documents_cards": 3,
         "language_level_up": true
       },
       "individual_modifiers": {
@@ -231,7 +231,7 @@
           "additional_effects": {
             "money": 20,
             "nerves": 5,
-            "documents_cards": 6,
+            "documents_cards": 3,
             "housing_upgrade": true,
             "description": "Художник получает максимальную выгоду от творческого прорыва"
           }
@@ -240,7 +240,7 @@
           "additional_effects": {
             "money": 8,
             "nerves": 3,
-            "documents_cards": 6,
+            "documents_cards": 3,
             "description": "Студент развивает творческие навыки"
           }
         },
@@ -269,7 +269,7 @@
       "effects": {
         "money": 18,
         "nerves": 4,
-        "documents_cards": 4,
+        "documents_cards": 3,
         "language_level_up": true
       },
       "when_to_play": "immediately",

@@ -1,28 +1,31 @@
-"""Simulator package for Viva Bureaucracia!.
+"""Board game simulator package."""
 
-Modules:
-- utils: JSON loading and game data loading utilities
-- core: Core game classes (Deck, Board, AI, Player, Game)
-- stats: Statistics aggregation across runs
-- runner: Single game run helper
-- cli: Command-line interface entrypoint
-"""
+from .entities.board import Board
+from .entities.deck import Deck
+from .entities.player import Player
+from .entities.ai import AI
 
-from .utils import load_json_file, load_game_data
-from .core import Deck, Board, AI, Player, Game
-from .stats import Statistics
-from .runner import run_game_simulation
+from .managers.event_manager import InteractiveEvent
+from .managers.interaction_manager import InteractionManager
+from .managers.trade_manager import TradeManager, TradeOffer
+from .managers.elimination_manager import EliminationManager
+
+from .mechanics.effects import EffectManager
+from .mechanics.challenges import ChallengeManager
+
+from .utils.constants import *
+from .utils.helpers import *
 
 __all__ = [
-    "load_json_file",
-    "load_game_data",
-    "Deck",
-    "Board",
-    "AI",
-    "Player",
-    "Game",
-    "Statistics",
-    "run_game_simulation",
+    'Board',
+    'Deck',
+    'Player',
+    'AI',
+    'InteractiveEvent',
+    'InteractionManager',
+    'TradeManager',
+    'TradeOffer',
+    'EliminationManager',
+    'EffectManager',
+    'ChallengeManager'
 ]
-
-

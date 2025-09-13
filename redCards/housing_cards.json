@@ -7,8 +7,8 @@
       "type": "negative",
       "description": "Авария с водопроводом в квартире",
       "effects": {
-        "nerves": -2,
-        "money": -5
+        "nerves": -3,
+        "money": -1
       },
       "flavor_text": "Fontanero стоит дорого"
     },
@@ -19,7 +19,7 @@
       "type": "negative",
       "description": "Вечеринка у соседей до утра",
       "effects": {
-        "nerves": -1,
+        "nerves": -3,
         "money": 0
       },
       "conditions": {
@@ -50,16 +50,16 @@
             "condition": "2-4", 
             "description": "Договорились на небольшое повышение",
             "effects": {
-              "nerves": -1,
-              "money": -5
+              "nerves": -3,
+              "money": -1
             }
           },
           "failure": {
             "condition": "1",
             "description": "Хозяин поднял цену еще больше из вредности",
             "effects": {
-              "nerves": -2,
-              "money": -5
+              "nerves": -3,
+              "money": -1
             }
           }
         }
@@ -73,8 +73,8 @@
       "type": "negative",
       "description": "В разгар лета отказал кондиционер",
       "effects": {
-        "nerves": -2,
-        "money": -6
+        "nerves": -3,
+        "money": -1
       },
       "flavor_text": "40 градусов и нет aire acondicionado"
     },
@@ -87,7 +87,7 @@
       "effects": {
         "nerves": 1,
         "money": 0,
-        "documents_cards": 1
+        "documents_cards": 3
       },
       "flavor_text": "Помог с переводом документов"
     },
@@ -98,8 +98,8 @@
       "type": "negative",
       "description": "Нашествие тараканов в квартире",
       "effects": {
-        "nerves": -2,
-        "money": -5
+        "nerves": -3,
+        "money": -1
       },
       "flavor_text": "Fumigación urgente"
     },
@@ -110,7 +110,7 @@
       "type": "negative",
       "description": "Проблемы с интернетом в доме",
       "effects": {
-        "nerves": -1,
+        "nerves": -3,
         "money": 0
       },
       "flavor_text": "Без интернета как без рук"
@@ -161,8 +161,8 @@
             "condition": "1",
             "description": "Сосед не компенсировал ничего, еще и поругались",
             "effects": {
-              "nerves": -2,
-              "money": -5
+              "nerves": -3,
+              "money": -1
             }
           }
         }
@@ -176,7 +176,7 @@
       "type": "negative",
       "description": "Лифт в доме не работает уже неделю",
       "effects": {
-        "nerves": -1,
+        "nerves": -3,
         "money": 0
       },
       "flavor_text": "5 этаж пешком каждый день"
@@ -204,8 +204,8 @@
       "type": "negative",
       "description": "Проблемы с газоснабжением в районе",
       "effects": {
-        "nerves": -1,
-        "money": -5
+        "nerves": -3,
+        "money": -1
       },
       "flavor_text": "Bocadillos вместо горячей еды"
     },
@@ -228,7 +228,7 @@
       "type": "negative", 
       "description": "Рядом с домом началась стройка",
       "effects": {
-        "nerves": -2,
+        "nerves": -3,
         "money": 0
       },
       "flavor_text": "Obras desde las 8 утра"
@@ -240,8 +240,8 @@
       "type": "negative",
       "description": "Зимой отказала система отопления",
       "effects": {
-        "nerves": -2,
-        "money": -6
+        "nerves": -3,
+        "money": -1
       },
       "flavor_text": "Calefacción rota en enero"
     },
@@ -279,7 +279,7 @@
             "condition": "1",
             "description": "Сосед обиделся и теперь играет еще громче",
             "effects": {
-              "nerves": -2,
+              "nerves": -3,
               "money": 0
             }
           }
@@ -294,8 +294,8 @@
       "type": "negative",
       "description": "Свекровь приехала на месяц без предупреждения",
       "effects": {
-        "nerves": -2,
-        "money": -6
+        "nerves": -3,
+        "money": -1
       },
       "conditions": {
         "character_id": "spanish_spouse"
@@ -321,7 +321,7 @@
       "type": "negative",
       "description": "Местный святой требует фейерверков всю неделю",
       "effects": {
-        "nerves": -2,
+        "nerves": -3,
         "money": 0
       },
       "flavor_text": "San Whatever vs ваш сон"
@@ -368,7 +368,7 @@
             "condition": "1",
             "description": "Почтальон не понял и продолжает носить посылки к вам",
             "effects": {
-              "nerves": -2,
+              "nerves": -3,
               "money": 0
             }
           }
@@ -395,8 +395,8 @@
       "type": "negative",
       "description": "Стая голубей решила, что ваш балкон - их дом",
       "effects": {
-        "nerves": -1,
-        "money": -5
+        "nerves": -3,
+        "money": -1
       },
       "flavor_text": "Palomas sin permiso de residencia"
     },
@@ -434,7 +434,7 @@
             "condition": "2-4",
             "description": "Договорились работать после 9 утра",
             "effects": {
-              "nerves": -1,
+              "nerves": -3,
               "money": 0
             }
           },
@@ -442,7 +442,7 @@
             "condition": "1",
             "description": "Сосед обиделся и теперь работает еще раньше",
             "effects": {
-              "nerves": -2,
+              "nerves": -3,
               "money": 0
             }
           }
@@ -480,8 +480,8 @@
             "condition": "1",
             "description": "Подписали не то, что думали",
             "effects": {
-              "nerves": -2,
-              "money": -6
+              "nerves": -3,
+              "money": -1
             }
           }
         }
@@ -518,8 +518,8 @@
             "condition": "1",
             "description": "Ничего не поняли, остались в темноте",
             "effects": {
-              "nerves": -2,
-              "money": -5
+              "nerves": -3,
+              "money": -1
             }
           }
         }
@@ -537,7 +537,7 @@
       },
       "effects": {
         "nerves": 2,
-        "money": -5
+        "money": -1
       },
       "special_effect": "upgrade_housing",
       "flavor_text": "Когда есть деньги, жизнь прекрасна"
@@ -552,7 +552,7 @@
         "money_range": "<5"
       },
       "effects": {
-        "nerves": -2,
+        "nerves": -3,
         "money": 0
       },
       "special_effect": "downgrade_housing",
@@ -582,7 +582,7 @@
       "description": "Сосед помог найти потерянные документы и поделился секретом бюрократии",
       "effects": {
         "nerves": 1,
-        "documents_cards": 2,
+        "documents_cards": 3,
         "money": 1
       },
       "flavor_text": "¡Vecino = FBI español!",
@@ -625,7 +625,7 @@
       "effects": {
         "nerves": 1,
         "documents_cards": 3,
-        "money": -5
+        "money": -1
       },
       "flavor_text": "Código español = ez pz",
       "cross_system_interaction": "housing + documents"
@@ -667,7 +667,7 @@
       "description": "Обнаружили, что договор аренды неофициальный - проблемы с регистрацией",
       "effects": {
         "nerves": -3,
-        "money": -6,
+        "money": -1,
         "documents_cards": -1
       },
       "flavor_text": "¡Sorpresa! Contract fake = problemas reales",
@@ -684,7 +684,7 @@
       },
       "effects": {
         "nerves": -3,
-        "money": -6,
+        "money": -1,
         "document_level": -1
       },
       "flavor_text": "¡Padrón falso = game over!",
@@ -698,7 +698,7 @@
       "description": "Хозяин внезапно продал квартиру - выселение с минимальным уведомлением",
       "effects": {
         "nerves": -3,
-        "money": -5,
+        "money": -1,
         "housing_search": true
       },
       "special_effect": "downgrade_housing",
@@ -715,8 +715,8 @@
         "character_id": "it_specialist"
       },
       "effects": {
-        "nerves": -2,
-        "money": -5,
+        "nerves": -3,
+        "money": -1,
         "language_level": -1
       },
       "flavor_text": "¡Stack Overflow no tiene answers for España!",
@@ -730,7 +730,7 @@
       "description": "Соседи устроили травлю и жалуются на вас в управляющую компанию",
       "effects": {
         "nerves": -3,
-        "money": -6,
+        "money": -1,
         "documents_cards": -1
       },
       "flavor_text": "¡Vecinos racistas = nightmare español!",
@@ -744,7 +744,7 @@
       "description": "Отдали депозит мошенникам - квартиры не существует",
       "effects": {
         "nerves": -3,
-        "money": -6,
+        "money": -1,
         "housing_search": true
       },
       "flavor_text": "¡Estafa inmobiliaria = classic!",
@@ -760,8 +760,8 @@
         "character_id": "it_specialist"
       },
       "effects": {
-        "nerves": -4,
-        "money": -5
+        "nerves": -3,
+        "money": -1
       },
       "flavor_text": "¡Burnout syndrome = programmer hell!",
       "cross_system_interaction": "character + work + mental_health"
@@ -777,7 +777,7 @@
       },
       "effects": {
         "nerves": -3,
-        "money": -8
+        "money": -2
       },
       "flavor_text": "¡Autónomo taxes = IT nightmare!",
       "cross_system_interaction": "character + taxes + bureaucracy"
@@ -793,7 +793,7 @@
       },
       "effects": {
         "nerves": -3,
-        "money": -6,
+        "money": -1,
         "documents_cards": -1
       },
       "flavor_text": "¡Accidente laboral = delivery danger!",
@@ -809,8 +809,8 @@
         "character_id": "courier"
       },
       "effects": {
-        "nerves": -2,
-        "money": -6
+        "nerves": -3,
+        "money": -1
       },
       "flavor_text": "¡Multa de tráfico = speed kills wallet!",
       "cross_system_interaction": "character + traffic + legal"
@@ -825,21 +825,22 @@
         "character_id": ["it_specialist", "entrepreneur", "spanish_spouse"]
       },
       "effects": {
-        "money": -50,
-        "nerves": -4,
+        "money": -5,
+        "nerves": -3,
         "documents_cards": -2
       },
       "individual_modifiers": {
         "it_specialist": {
           "additional_effects": {
-            "money": -8,
+            "money": -5,
+            "nerves": -5,
             "description": "IT-шник особенно страдает от сложной отчетности"
           }
         },
         "entrepreneur": {
           "additional_effects": {
-            "money": -52,
-            "nerves": -2,
+            "money": -8,
+            "nerves": -3,
             "description": "Предприниматель теряет больше времени и денег"
           }
         }
@@ -857,25 +858,26 @@
         "character_id": ["it_specialist", "entrepreneur", "pensioner"]
       },
       "effects": {
-        "money": -8,
+        "money": -2,
         "nerves": -3
       },
       "individual_modifiers": {
         "it_specialist": {
           "additional_effects": {
-            "nerves": -3,
+            "nerves": -5,
+            "money": -2,
             "description": "IT-шник страдает от выгорания"
           }
         },
         "entrepreneur": {
           "additional_effects": {
-            "money": -6,
+            "money": -1,
             "description": "Предприниматель тратит больше на статус"
           }
         },
         "pensioner": {
           "additional_effects": {
-            "nerves": -2,
+            "nerves": -3,
             "description": "Пенсионер переживает о тратах"
           }
         }
@@ -893,27 +895,28 @@
         "character_id": ["waiter", "courier", "freelance_artist"]
       },
       "effects": {
-        "money": -6,
+        "money": -1,
         "nerves": -3
       },
       "individual_modifiers": {
         "waiter": {
           "additional_effects": {
-            "money": -6,
-            "nerves": -2,
+            "money": -1,
+            "nerves": -3,
             "description": "Официанты особенно страдают от снижения посещаемости"
           }
         },
         "courier": {
           "additional_effects": {
-            "money": -6,
+            "money": -1,
             "description": "Курьеры теряют часть заказов"
           }
         },
         "freelance_artist": {
           "additional_effects": {
-            "nerves": -1,
-            "description": "Художники теряют заказчиков"
+            "nerves": 1,
+            "money": 2,
+            "description": "Художники находят новые возможности"
           }
         }
       },
@@ -930,27 +933,27 @@
         "character_id": ["pensioner", "spanish_spouse", "entrepreneur"]
       },
       "effects": {
-        "money": -6,
-        "nerves": -2,
+        "money": -1,
+        "nerves": -3,
         "documents_cards": -1
       },
       "individual_modifiers": {
         "pensioner": {
           "additional_effects": {
-            "money": -5,
-            "nerves": -2,
+            "money": -1,
+            "nerves": -3,
             "description": "Пенсионеры особенно страдают от бюрократии"
           }
         },
         "spanish_spouse": {
           "additional_effects": {
-            "nerves": -1,
+            "nerves": -3,
             "description": "Супруги сталкиваются с семейными сложностями"
           }
         },
         "entrepreneur": {
           "additional_effects": {
-            "money": -6,
+            "money": -1,
             "description": "Предприниматели теряют время на оформления"
           }
         }
@@ -970,7 +973,7 @@
       "effects": {
         "money": 12,
         "nerves": 3,
-        "documents_cards": 2,
+        "documents_cards": 3,
         "housing_upgrade": true
       },
       "individual_modifiers": {
@@ -992,8 +995,8 @@
         },
         "freelance_artist": {
           "additional_effects": {
-            "money": 5,
-            "nerves": 1,
+            "money": 8,
+            "nerves": 2,
             "description": "Художники получают креативные заказы"
           }
         }
@@ -1009,9 +1012,9 @@
       "description": "Соседи помогают разобраться с бюрократией",
       "conditions": {},
       "effects": {
-        "documents_cards": 2,
+        "documents_cards": 3,
         "nerves": 1,
-        "money": -5
+        "money": -1
       },
       "flavor_text": "¡Vecinos helpful = community support!",
       "cross_system_interaction": "community + bureaucracy + mutual_aid"
@@ -1038,16 +1041,16 @@
             "condition": "3-5",
             "description": "Мелкие нарушения, дали время исправить",
             "effects": {
-              "nerves": -1,
-              "money": -6
+              "nerves": -3,
+              "money": -1
             }
           },
           "failure": {
             "condition": "1-2",
             "description": "Серьезные нарушения, грозят выселением",
             "effects": {
-              "nerves": -4,
-              "money": -5,
+              "nerves": -3,
+              "money": -1,
               "housing_penalty": true
             }
           }
@@ -1117,16 +1120,16 @@
             "condition": "3-5",
             "description": "Служба приехала с задержкой",
             "effects": {
-              "nerves": -1,
-              "money": -5
+              "nerves": -3,
+              "money": -1
             }
           },
           "failure": {
             "condition": "1-2",
             "description": "Не смогли объяснить проблему, паника",
             "effects": {
-              "nerves": -4,
-              "money": -5,
+              "nerves": -3,
+              "money": -1,
               "emergency_penalty": true
             }
           }
@@ -1157,7 +1160,7 @@
             "condition": "3-5",
             "description": "Подписали как есть, надеясь на лучшее",
             "effects": {
-              "nerves": -1,
+              "nerves": -3,
               "money": 0
             }
           },
@@ -1165,8 +1168,8 @@
             "condition": "1-2",
             "description": "Подписали невыгодный договор",
             "effects": {
-              "nerves": -2,
-              "money": -5,
+              "nerves": -3,
+              "money": -1,
               "housing_cost": 1
             }
           }
@@ -1196,7 +1199,7 @@
             "condition": "2-4",
             "description": "Обещали приехать 'завтра'",
             "effects": {
-              "nerves": -1,
+              "nerves": -3,
               "work_penalty": true
             }
           },
@@ -1205,7 +1208,7 @@
             "description": "Не поняли проблему, сказали 'все работает'",
             "effects": {
               "nerves": -3,
-              "money": -6,
+              "money": -1,
               "work_penalty": true
             }
           }
@@ -1244,8 +1247,8 @@
             "condition": "1",
             "description": "Не смогли правильно оформить заявление",
             "effects": {
-              "nerves": -2,
-              "money": -5,
+              "nerves": -3,
+              "money": -1,
               "safety_penalty": true
             }
           }
@@ -1279,7 +1282,7 @@
             "condition": "2-4",
             "description": "Обещали починить 'на следующей неделе'",
             "effects": {
-              "nerves": -1,
+              "nerves": -3,
               "money": 0
             }
           },

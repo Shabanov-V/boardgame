@@ -41,7 +41,7 @@
       "effects": {
         "instant_document_upgrade": true,
         "nerves": 2,
-        "documents_cards": 2
+        "documents_cards": 3
       },
       "flavor_text": "Efficiency? In Spain? ¡Imposible!"
     },
@@ -71,7 +71,7 @@
       },
       "effects": {
         "nerves": 1,
-        "documents_cards": 4,
+        "documents_cards": 3,
         "digital_bonus": true
       },
       "flavor_text": "Bienvenidos al siglo XXI"
@@ -188,8 +188,8 @@
             "description": "Проект выполнен идеально, босс доволен",
             "effects": {
               "nerves": 1,
-              "money": 4,
-              "personal_items": 1
+            "money": 2,
+            "personal_items": 1
             }
           },
           "partial": {
@@ -222,7 +222,7 @@
         "nerves": 1,
         "money": 0,
         "skill_improvement": true,
-        "documents_cards": 2,
+        "documents_cards": 3,
         "personal_items": 1
       },
       "flavor_text": "Empresa invierte en empleados"
@@ -252,7 +252,7 @@
       },
       "effects": {
         "nerves": 2,
-        "money": 3,
+        "money": 2,
         "salary_bonus_permanent": 1
       },
       "flavor_text": "Career advancement español"
@@ -666,7 +666,7 @@
       "exchange_instruction": "Попробуй обменять эту карту на следующий уровень документов за бросок 3+, либо играй как действие на карте. При провале обмена: теряешь одну карту документа как негодную + эта карта в сброс.",
       "effects": {
         "nerves": 2,
-        "documents_cards": 4,
+        "documents_cards": 3,
         "language_level_up": true
       },
       "flavor_text": "¡Amor burocrático = efficiency!",
@@ -681,7 +681,7 @@
       "exchange_instruction": "Попробуй обменять эту карту на следующий уровень документов за бросок 3+, либо играй как действие на карте. При провале обмена: теряешь одну карту документа как негодную + эта карта в сброс.",
       "effects": {
         "nerves": 2,
-        "documents_cards": 4,
+        "documents_cards": 3,
         "money": 1
       },
       "flavor_text": "¡Bug = feature en burocracia!",
@@ -696,7 +696,7 @@
       "effects": {
         "nerves": 2,
         "language_level_up": true,
-        "documents_cards": 4,
+        "documents_cards": 3,
         "money": 1
       },
       "flavor_text": "¡Abuela española > Google!",
@@ -732,7 +732,7 @@
             "description": "Система сдалась, получили все слоты",
             "effects": {
               "nerves": 2,
-              "documents_cards": 4,
+              "documents_cards": 3,
               "money": 0
             }
           },
@@ -741,7 +741,7 @@
             "description": "Получили один slot, но система подозрительна",
             "effects": {
               "nerves": 0,
-              "documents_cards": 4,
+              "documents_cards": 3,
               "money": -1
             }
           },
@@ -868,7 +868,7 @@
         "character_id": "student"
       },
       "effects": {
-        "documents_cards": 4,
+        "documents_cards": 3,
         "nerves": 3
       },
       "flavor_text": "¡Professor mentor = academic advantage!",
@@ -885,7 +885,7 @@
       },
       "effects": {
         "money": 5,
-        "documents_cards": 4,
+        "documents_cards": 3,
         "nerves": 2
       },
       "flavor_text": "¡Connections españolas = networking power!",
@@ -901,9 +901,9 @@
         "character_id": "waiter"
       },
       "effects": {
-        "money": 15,
-        "nerves": 4,
-        "documents_cards": 4,
+            "money": 8,
+            "nerves": 4,
+            "documents_cards": 3,
         "language_level_up": true
       },
       "flavor_text": "¡Temporada alta = dinero flowing!",
@@ -921,7 +921,7 @@
       "effects": {
         "money": 12,
         "nerves": 4,
-        "documents_cards": 4,
+        "documents_cards": 3,
         "language_level_up": true
       },
       "individual_modifiers": {
@@ -929,7 +929,7 @@
           "additional_effects": {
             "money": 13,
             "nerves": 4,
-            "documents_cards": 4,
+            "documents_cards": 3,
             "housing_upgrade": true,
             "description": "Художник получает максимальную поддержку как творческий работник"
           }
@@ -938,15 +938,15 @@
           "additional_effects": {
             "money": 6,
             "nerves": 2,
-            "documents_cards": 4,
+            "documents_cards": 3,
             "description": "Официант участвует в культурных программах"
           }
         },
         "student": {
           "additional_effects": {
-            "money": 8,
-            "nerves": 3,
-            "documents_cards": 4,
+            "money": 10,
+            "nerves": 4,
+            "documents_cards": 3,
             "description": "Студент получает образовательную поддержку"
           }
         }
@@ -964,9 +964,9 @@
         "character_id": ["waiter", "freelance_artist", "student"]
       },
       "effects": {
-        "money": 10,
-        "nerves": 3,
-        "documents_cards": 3
+            "money": 5,
+            "nerves": 3,
+            "documents_cards": 3
       },
       "individual_modifiers": {
         "waiter": {
@@ -985,8 +985,9 @@
         },
         "student": {
           "additional_effects": {
-            "documents_cards": 4,
-            "nerves": 2,
+            "documents_cards": 3,
+            "nerves": 3,
+            "money": 2,
             "description": "Студенты получают помощь с документами через университет"
           }
         }
@@ -1006,27 +1007,29 @@
       "effects": {
         "money": 8,
         "nerves": 3,
-        "documents_cards": 4,
+        "documents_cards": 3,
         "language_level_up": true
       },
       "individual_modifiers": {
         "student": {
           "additional_effects": {
-            "money": 6,
-            "documents_cards": 4,
+            "money": 8,
+            "documents_cards": 3,
+            "nerves": 2,
             "description": "Студенты получают образовательные гранты"
           }
         },
         "courier": {
           "additional_effects": {
-            "money": 4,
-            "nerves": 2,
+            "money": 8,
+            "nerves": 4,
+            "documents_cards": 2,
             "description": "Курьеры получают поддержку для трудоустройства"
           }
         },
         "spanish_spouse": {
           "additional_effects": {
-            "documents_cards": 4,
+            "documents_cards": 3,
             "nerves": 2,
             "description": "Супруги получают семейную поддержку"
           }
@@ -1067,7 +1070,7 @@
         "entrepreneur": {
           "additional_effects": {
             "money": 3,
-            "documents_cards": 4,
+            "documents_cards": 3,
             "description": "Предприниматели получают бизнес-поддержку"
           }
         }
@@ -1087,15 +1090,15 @@
       "effects": {
         "money": 8,
         "nerves": 3,
-        "documents_cards": 4,
+        "documents_cards": 3,
         "language_level_up": true
       },
       "individual_modifiers": {
         "courier": {
           "additional_effects": {
-            "money": 8,
-            "nerves": 4,
-            "documents_cards": 4,
+            "money": 6,
+            "nerves": 6,
+            "documents_cards": 3,
             "housing_upgrade": true,
             "description": "Курьеры получают максимальные льготы за мобильность"
           }
@@ -1110,7 +1113,7 @@
         "student": {
           "additional_effects": {
             "money": 5,
-            "documents_cards": 4,
+            "documents_cards": 3,
             "description": "Студенты получают молодежную поддержку"
           }
         }
@@ -1148,8 +1151,9 @@
         },
         "courier": {
           "additional_effects": {
-            "nerves": -1,
-            "description": "Курьеры испытывают дополнительное давление"
+            "nerves": 2,
+            "money": 3,
+            "description": "Курьеры получают поддержку в образовании"
           }
         }
       },
@@ -1164,7 +1168,7 @@
       "description": "Современные технологии ускоряют получение документов",
       "conditions": {},
       "effects": {
-        "documents_cards": 6,
+        "documents_cards": 3,
         "money": 5,
         "nerves": 2
       },
@@ -1179,7 +1183,7 @@
       "description": "Квалифицированная помощь в оформлении документов",
       "conditions": {},
       "effects": {
-        "documents_cards": 6,
+        "documents_cards": 3,
         "money": -3,
         "nerves": 3,
         "language_level_up": true

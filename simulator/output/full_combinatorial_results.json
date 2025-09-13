@@ -1,35 +1,35 @@
 {
   "character_statistics": {
     "it_specialist": {
-      "wins": 872,
+      "wins": 448,
       "games": 2380
     },
     "student": {
-      "wins": 483,
+      "wins": 679,
       "games": 2380
     },
     "courier": {
-      "wins": 1279,
+      "wins": 851,
       "games": 2380
     },
     "spanish_spouse": {
-      "wins": 27,
+      "wins": 23,
       "games": 2380
     },
     "freelance_artist": {
-      "wins": 532,
+      "wins": 259,
       "games": 2380
     },
     "waiter": {
-      "wins": 239,
+      "wins": 890,
       "games": 2380
     },
     "pensioner": {
-      "wins": 1073,
+      "wins": 977,
       "games": 2380
     },
     "entrepreneur": {
-      "wins": 255,
+      "wins": 633,
       "games": 2380
     }
   },
@@ -41,8 +41,8 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 14,
-        "student": 6
+        "it_specialist": 7,
+        "student": 13
       }
     },
     "2_players_courier_it_specialist": {
@@ -52,8 +52,8 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 7,
-        "courier": 13
+        "it_specialist": 4,
+        "courier": 16
       }
     },
     "2_players_it_specialist_spanish_spouse": {
@@ -63,8 +63,8 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 19,
-        "spanish_spouse": 1
+        "it_specialist": 11,
+        "spanish_spouse": 9
       }
     },
     "2_players_freelance_artist_it_specialist": {
@@ -74,8 +74,8 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 13,
-        "freelance_artist": 7
+        "it_specialist": 10,
+        "freelance_artist": 10
       }
     },
     "2_players_it_specialist_waiter": {
@@ -85,8 +85,8 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 13,
-        "waiter": 7
+        "it_specialist": 7,
+        "waiter": 13
       }
     },
     "2_players_it_specialist_pensioner": {
@@ -107,8 +107,8 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 18,
-        "entrepreneur": 2
+        "it_specialist": 4,
+        "entrepreneur": 16
       }
     },
     "2_players_courier_student": {
@@ -118,8 +118,8 @@
       ],
       "games": 20,
       "wins": {
-        "student": 6,
-        "courier": 14
+        "student": 13,
+        "courier": 7
       }
     },
     "2_players_spanish_spouse_student": {
@@ -129,8 +129,8 @@
       ],
       "games": 20,
       "wins": {
-        "student": 18,
-        "spanish_spouse": 2
+        "student": 20,
+        "spanish_spouse": 0
       }
     },
     "2_players_freelance_artist_student": {
@@ -140,8 +140,8 @@
       ],
       "games": 20,
       "wins": {
-        "student": 5,
-        "freelance_artist": 15
+        "student": 16,
+        "freelance_artist": 4
       }
     },
     "2_players_student_waiter": {
@@ -151,8 +151,8 @@
       ],
       "games": 20,
       "wins": {
-        "student": 9,
-        "waiter": 11
+        "student": 6,
+        "waiter": 14
       }
     },
     "2_players_pensioner_student": {
@@ -162,8 +162,8 @@
       ],
       "games": 20,
       "wins": {
-        "student": 3,
-        "pensioner": 17
+        "student": 11,
+        "pensioner": 9
       }
     },
     "2_players_entrepreneur_student": {
@@ -173,8 +173,8 @@
       ],
       "games": 20,
       "wins": {
-        "student": 17,
-        "entrepreneur": 3
+        "student": 12,
+        "entrepreneur": 8
       }
     },
     "2_players_courier_spanish_spouse": {
@@ -184,8 +184,8 @@
       ],
       "games": 20,
       "wins": {
-        "courier": 20,
-        "spanish_spouse": 0
+        "courier": 19,
+        "spanish_spouse": 1
       }
     },
     "2_players_courier_freelance_artist": {
@@ -195,8 +195,8 @@
       ],
       "games": 20,
       "wins": {
-        "courier": 20,
-        "freelance_artist": 0
+        "courier": 19,
+        "freelance_artist": 1
       }
     },
     "2_players_courier_waiter": {
@@ -206,8 +206,8 @@
       ],
       "games": 20,
       "wins": {
-        "courier": 19,
-        "waiter": 1
+        "courier": 11,
+        "waiter": 9
       }
     },
     "2_players_courier_pensioner": {
@@ -217,8 +217,8 @@
       ],
       "games": 20,
       "wins": {
-        "courier": 7,
-        "pensioner": 13
+        "courier": 11,
+        "pensioner": 9
       }
     },
     "2_players_courier_entrepreneur": {
@@ -228,8 +228,8 @@
       ],
       "games": 20,
       "wins": {
-        "courier": 17,
-        "entrepreneur": 3
+        "courier": 10,
+        "entrepreneur": 10
       }
     },
     "2_players_freelance_artist_spanish_spouse": {
@@ -261,8 +261,8 @@
       ],
       "games": 20,
       "wins": {
-        "spanish_spouse": 1,
-        "pensioner": 19
+        "spanish_spouse": 0,
+        "pensioner": 20
       }
     },
     "2_players_entrepreneur_spanish_spouse": {
@@ -272,8 +272,8 @@
       ],
       "games": 20,
       "wins": {
-        "spanish_spouse": 5,
-        "entrepreneur": 15
+        "spanish_spouse": 2,
+        "entrepreneur": 18
       }
     },
     "2_players_freelance_artist_waiter": {
@@ -283,8 +283,8 @@
       ],
       "games": 20,
       "wins": {
-        "freelance_artist": 15,
-        "waiter": 5
+        "freelance_artist": 7,
+        "waiter": 13
       }
     },
     "2_players_freelance_artist_pensioner": {
@@ -294,8 +294,8 @@
       ],
       "games": 20,
       "wins": {
-        "freelance_artist": 5,
-        "pensioner": 15
+        "freelance_artist": 9,
+        "pensioner": 11
       }
     },
     "2_players_entrepreneur_freelance_artist": {
@@ -305,8 +305,8 @@
       ],
       "games": 20,
       "wins": {
-        "freelance_artist": 12,
-        "entrepreneur": 8
+        "freelance_artist": 7,
+        "entrepreneur": 13
       }
     },
     "2_players_pensioner_waiter": {
@@ -316,8 +316,8 @@
       ],
       "games": 20,
       "wins": {
-        "waiter": 9,
-        "pensioner": 11
+        "waiter": 11,
+        "pensioner": 9
       }
     },
     "2_players_entrepreneur_waiter": {
@@ -327,8 +327,8 @@
       ],
       "games": 20,
       "wins": {
-        "waiter": 12,
-        "entrepreneur": 8
+        "waiter": 10,
+        "entrepreneur": 10
       }
     },
     "2_players_entrepreneur_pensioner": {
@@ -338,8 +338,8 @@
       ],
       "games": 20,
       "wins": {
-        "pensioner": 19,
-        "entrepreneur": 1
+        "pensioner": 11,
+        "entrepreneur": 9
       }
     },
     "3_players_courier_it_specialist_student": {
@@ -350,9 +350,9 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 5,
-        "student": 3,
-        "courier": 12
+        "it_specialist": 8,
+        "student": 7,
+        "courier": 5
       }
     },
     "3_players_it_specialist_spanish_spouse_student": {
@@ -363,8 +363,8 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 12,
-        "student": 8,
+        "it_specialist": 5,
+        "student": 15,
         "spanish_spouse": 0
       }
     },
@@ -376,9 +376,9 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 9,
-        "student": 4,
-        "freelance_artist": 7
+        "it_specialist": 5,
+        "student": 13,
+        "freelance_artist": 2
       }
     },
     "3_players_it_specialist_student_waiter": {
@@ -389,9 +389,9 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 8,
-        "student": 5,
-        "waiter": 7
+        "it_specialist": 4,
+        "student": 8,
+        "waiter": 8
       }
     },
     "3_players_it_specialist_pensioner_student": {
@@ -402,9 +402,9 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 5,
-        "student": 4,
-        "pensioner": 11
+        "it_specialist": 3,
+        "student": 7,
+        "pensioner": 10
       }
     },
     "3_players_entrepreneur_it_specialist_student": {
@@ -415,9 +415,9 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 13,
-        "student": 7,
-        "entrepreneur": 0
+        "it_specialist": 7,
+        "student": 6,
+        "entrepreneur": 7
       }
     },
     "3_players_courier_it_specialist_spanish_spouse": {
@@ -428,8 +428,8 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 10,
-        "courier": 10,
+        "it_specialist": 6,
+        "courier": 14,
         "spanish_spouse": 0
       }
     },
@@ -441,9 +441,9 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 7,
+        "it_specialist": 6,
         "courier": 13,
-        "freelance_artist": 0
+        "freelance_artist": 1
       }
     },
     "3_players_courier_it_specialist_waiter": {
@@ -454,9 +454,9 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 10,
+        "it_specialist": 6,
         "courier": 10,
-        "waiter": 0
+        "waiter": 4
       }
     },
     "3_players_courier_it_specialist_pensioner": {
@@ -467,9 +467,9 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 4,
-        "courier": 9,
-        "pensioner": 7
+        "it_specialist": 2,
+        "courier": 8,
+        "pensioner": 10
       }
     },
     "3_players_courier_entrepreneur_it_specialist": {
@@ -480,9 +480,9 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 6,
-        "courier": 14,
-        "entrepreneur": 0
+        "it_specialist": 7,
+        "courier": 6,
+        "entrepreneur": 7
       }
     },
     "3_players_freelance_artist_it_specialist_spanish_spouse": {
@@ -493,8 +493,8 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 13,
-        "spanish_spouse": 0,
+        "it_specialist": 12,
+        "spanish_spouse": 1,
         "freelance_artist": 7
       }
     },
@@ -506,9 +506,9 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 12,
-        "spanish_spouse": 1,
-        "waiter": 7
+        "it_specialist": 8,
+        "spanish_spouse": 0,
+        "waiter": 12
       }
     },
     "3_players_it_specialist_pensioner_spanish_spouse": {
@@ -519,9 +519,9 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 9,
-        "spanish_spouse": 2,
-        "pensioner": 9
+        "it_specialist": 6,
+        "spanish_spouse": 0,
+        "pensioner": 14
       }
     },
     "3_players_entrepreneur_it_specialist_spanish_spouse": {
@@ -532,9 +532,9 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 17,
-        "spanish_spouse": 0,
-        "entrepreneur": 3
+        "it_specialist": 9,
+        "spanish_spouse": 1,
+        "entrepreneur": 10
       }
     },
     "3_players_freelance_artist_it_specialist_waiter": {
@@ -545,9 +545,9 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 7,
-        "freelance_artist": 10,
-        "waiter": 3
+        "it_specialist": 4,
+        "freelance_artist": 6,
+        "waiter": 10
       }
     },
     "3_players_freelance_artist_it_specialist_pensioner": {
@@ -558,9 +558,9 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 6,
-        "freelance_artist": 4,
-        "pensioner": 10
+        "it_specialist": 8,
+        "freelance_artist": 3,
+        "pensioner": 9
       }
     },
     "3_players_entrepreneur_freelance_artist_it_specialist": {
@@ -571,9 +571,9 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 8,
-        "freelance_artist": 12,
-        "entrepreneur": 0
+        "it_specialist": 7,
+        "freelance_artist": 2,
+        "entrepreneur": 11
       }
     },
     "3_players_it_specialist_pensioner_waiter": {
@@ -584,9 +584,9 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 4,
-        "waiter": 8,
-        "pensioner": 8
+        "it_specialist": 1,
+        "waiter": 15,
+        "pensioner": 4
       }
     },
     "3_players_entrepreneur_it_specialist_waiter": {
@@ -597,9 +597,9 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 12,
-        "waiter": 8,
-        "entrepreneur": 0
+        "it_specialist": 5,
+        "waiter": 12,
+        "entrepreneur": 3
       }
     },
     "3_players_entrepreneur_it_specialist_pensioner": {
@@ -610,9 +610,9 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 7,
-        "pensioner": 13,
-        "entrepreneur": 0
+        "it_specialist": 3,
+        "pensioner": 7,
+        "entrepreneur": 10
       }
     },
     "3_players_courier_spanish_spouse_student": {
@@ -623,8 +623,8 @@
       ],
       "games": 20,
       "wins": {
-        "student": 4,
-        "courier": 15,
+        "student": 8,
+        "courier": 11,
         "spanish_spouse": 1
       }
     },
@@ -636,9 +636,9 @@
       ],
       "games": 20,
       "wins": {
-        "student": 7,
-        "courier": 10,
-        "freelance_artist": 3
+        "student": 9,
+        "courier": 11,
+        "freelance_artist": 0
       }
     },
     "3_players_courier_student_waiter": {
@@ -649,9 +649,9 @@
       ],
       "games": 20,
       "wins": {
-        "student": 5,
-        "courier": 15,
-        "waiter": 0
+        "student": 6,
+        "courier": 6,
+        "waiter": 8
       }
     },
     "3_players_courier_pensioner_student": {
@@ -662,9 +662,9 @@
       ],
       "games": 20,
       "wins": {
-        "student": 1,
-        "courier": 11,
-        "pensioner": 8
+        "student": 8,
+        "courier": 2,
+        "pensioner": 10
       }
     },
     "3_players_courier_entrepreneur_student": {
@@ -675,9 +675,9 @@
       ],
       "games": 20,
       "wins": {
-        "student": 3,
-        "courier": 12,
-        "entrepreneur": 5
+        "student": 4,
+        "courier": 5,
+        "entrepreneur": 11
       }
     },
     "3_players_freelance_artist_spanish_spouse_student": {
@@ -688,9 +688,9 @@
       ],
       "games": 20,
       "wins": {
-        "student": 4,
+        "student": 12,
         "spanish_spouse": 0,
-        "freelance_artist": 16
+        "freelance_artist": 8
       }
     },
     "3_players_spanish_spouse_student_waiter": {
@@ -701,9 +701,9 @@
       ],
       "games": 20,
       "wins": {
-        "student": 11,
+        "student": 6,
         "spanish_spouse": 0,
-        "waiter": 9
+        "waiter": 14
       }
     },
     "3_players_pensioner_spanish_spouse_student": {
@@ -714,9 +714,9 @@
       ],
       "games": 20,
       "wins": {
-        "student": 6,
+        "student": 8,
         "spanish_spouse": 0,
-        "pensioner": 14
+        "pensioner": 12
       }
     },
     "3_players_entrepreneur_spanish_spouse_student": {
@@ -727,9 +727,9 @@
       ],
       "games": 20,
       "wins": {
-        "student": 11,
+        "student": 10,
         "spanish_spouse": 1,
-        "entrepreneur": 8
+        "entrepreneur": 9
       }
     },
     "3_players_freelance_artist_student_waiter": {
@@ -740,9 +740,9 @@
       ],
       "games": 20,
       "wins": {
-        "student": 3,
-        "freelance_artist": 17,
-        "waiter": 0
+        "student": 7,
+        "freelance_artist": 1,
+        "waiter": 12
       }
     },
     "3_players_freelance_artist_pensioner_student": {
@@ -753,8 +753,8 @@
       ],
       "games": 20,
       "wins": {
-        "student": 6,
-        "freelance_artist": 5,
+        "student": 7,
+        "freelance_artist": 4,
         "pensioner": 9
       }
     },
@@ -766,9 +766,9 @@
       ],
       "games": 20,
       "wins": {
-        "student": 9,
-        "freelance_artist": 10,
-        "entrepreneur": 1
+        "student": 10,
+        "freelance_artist": 2,
+        "entrepreneur": 8
       }
     },
     "3_players_pensioner_student_waiter": {
@@ -779,9 +779,9 @@
       ],
       "games": 20,
       "wins": {
-        "student": 7,
-        "waiter": 4,
-        "pensioner": 9
+        "student": 4,
+        "waiter": 8,
+        "pensioner": 8
       }
     },
     "3_players_entrepreneur_student_waiter": {
@@ -792,9 +792,9 @@
       ],
       "games": 20,
       "wins": {
-        "student": 13,
-        "waiter": 6,
-        "entrepreneur": 1
+        "student": 7,
+        "waiter": 10,
+        "entrepreneur": 3
       }
     },
     "3_players_entrepreneur_pensioner_student": {
@@ -805,9 +805,9 @@
       ],
       "games": 20,
       "wins": {
-        "student": 5,
-        "pensioner": 11,
-        "entrepreneur": 4
+        "student": 1,
+        "pensioner": 13,
+        "entrepreneur": 6
       }
     },
     "3_players_courier_freelance_artist_spanish_spouse": {
@@ -818,9 +818,9 @@
       ],
       "games": 20,
       "wins": {
-        "courier": 18,
-        "spanish_spouse": 1,
-        "freelance_artist": 1
+        "courier": 17,
+        "spanish_spouse": 0,
+        "freelance_artist": 3
       }
     },
     "3_players_courier_spanish_spouse_waiter": {
@@ -831,9 +831,9 @@
       ],
       "games": 20,
       "wins": {
-        "courier": 19,
-        "spanish_spouse": 1,
-        "waiter": 0
+        "courier": 11,
+        "spanish_spouse": 0,
+        "waiter": 9
       }
     },
     "3_players_courier_pensioner_spanish_spouse": {
@@ -844,9 +844,9 @@
       ],
       "games": 20,
       "wins": {
-        "courier": 12,
+        "courier": 9,
         "spanish_spouse": 0,
-        "pensioner": 8
+        "pensioner": 11
       }
     },
     "3_players_courier_entrepreneur_spanish_spouse": {
@@ -857,9 +857,9 @@
       ],
       "games": 20,
       "wins": {
-        "courier": 16,
+        "courier": 4,
         "spanish_spouse": 0,
-        "entrepreneur": 4
+        "entrepreneur": 16
       }
     },
     "3_players_courier_freelance_artist_waiter": {
@@ -870,9 +870,9 @@
       ],
       "games": 20,
       "wins": {
-        "courier": 18,
-        "freelance_artist": 2,
-        "waiter": 0
+        "courier": 9,
+        "freelance_artist": 1,
+        "waiter": 10
       }
     },
     "3_players_courier_freelance_artist_pensioner": {
@@ -883,9 +883,9 @@
       ],
       "games": 20,
       "wins": {
-        "courier": 13,
-        "freelance_artist": 1,
-        "pensioner": 6
+        "courier": 8,
+        "freelance_artist": 0,
+        "pensioner": 12
       }
     },
     "3_players_courier_entrepreneur_freelance_artist": {
@@ -896,9 +896,9 @@
       ],
       "games": 20,
       "wins": {
-        "courier": 16,
-        "freelance_artist": 0,
-        "entrepreneur": 4
+        "courier": 12,
+        "freelance_artist": 1,
+        "entrepreneur": 7
       }
     },
     "3_players_courier_pensioner_waiter": {
@@ -909,8 +909,8 @@
       ],
       "games": 20,
       "wins": {
-        "courier": 11,
-        "waiter": 0,
+        "courier": 3,
+        "waiter": 8,
         "pensioner": 9
       }
     },
@@ -922,8 +922,8 @@
       ],
       "games": 20,
       "wins": {
-        "courier": 14,
-        "waiter": 0,
+        "courier": 10,
+        "waiter": 4,
         "entrepreneur": 6
       }
     },
@@ -935,9 +935,9 @@
       ],
       "games": 20,
       "wins": {
-        "courier": 12,
-        "pensioner": 7,
-        "entrepreneur": 1
+        "courier": 13,
+        "pensioner": 4,
+        "entrepreneur": 3
       }
     },
     "3_players_freelance_artist_spanish_spouse_waiter": {
@@ -948,9 +948,9 @@
       ],
       "games": 20,
       "wins": {
-        "spanish_spouse": 1,
-        "freelance_artist": 16,
-        "waiter": 3
+        "spanish_spouse": 0,
+        "freelance_artist": 7,
+        "waiter": 13
       }
     },
     "3_players_freelance_artist_pensioner_spanish_spouse": {
@@ -962,8 +962,8 @@
       "games": 20,
       "wins": {
         "spanish_spouse": 0,
-        "freelance_artist": 10,
-        "pensioner": 10
+        "freelance_artist": 4,
+        "pensioner": 16
       }
     },
     "3_players_entrepreneur_freelance_artist_spanish_spouse": {
@@ -974,9 +974,9 @@
       ],
       "games": 20,
       "wins": {
-        "spanish_spouse": 1,
-        "freelance_artist": 11,
-        "entrepreneur": 8
+        "spanish_spouse": 0,
+        "freelance_artist": 6,
+        "entrepreneur": 14
       }
     },
     "3_players_pensioner_spanish_spouse_waiter": {
@@ -987,9 +987,9 @@
       ],
       "games": 20,
       "wins": {
-        "spanish_spouse": 1,
-        "waiter": 3,
-        "pensioner": 16
+        "spanish_spouse": 0,
+        "waiter": 8,
+        "pensioner": 12
       }
     },
     "3_players_entrepreneur_spanish_spouse_waiter": {
@@ -1001,8 +1001,8 @@
       "games": 20,
       "wins": {
         "spanish_spouse": 0,
-        "waiter": 17,
-        "entrepreneur": 3
+        "waiter": 14,
+        "entrepreneur": 6
       }
     },
     "3_players_entrepreneur_pensioner_spanish_spouse": {
@@ -1014,8 +1014,8 @@
       "games": 20,
       "wins": {
         "spanish_spouse": 0,
-        "pensioner": 15,
-        "entrepreneur": 5
+        "pensioner": 11,
+        "entrepreneur": 9
       }
     },
     "3_players_freelance_artist_pensioner_waiter": {
@@ -1026,9 +1026,9 @@
       ],
       "games": 20,
       "wins": {
-        "freelance_artist": 7,
-        "waiter": 0,
-        "pensioner": 13
+        "freelance_artist": 1,
+        "waiter": 7,
+        "pensioner": 12
       }
     },
     "3_players_entrepreneur_freelance_artist_waiter": {
@@ -1039,9 +1039,9 @@
       ],
       "games": 20,
       "wins": {
-        "freelance_artist": 10,
-        "waiter": 2,
-        "entrepreneur": 8
+        "freelance_artist": 4,
+        "waiter": 11,
+        "entrepreneur": 5
       }
     },
     "3_players_entrepreneur_freelance_artist_pensioner": {
@@ -1052,9 +1052,9 @@
       ],
       "games": 20,
       "wins": {
-        "freelance_artist": 5,
-        "pensioner": 11,
-        "entrepreneur": 4
+        "freelance_artist": 2,
+        "pensioner": 13,
+        "entrepreneur": 5
       }
     },
     "3_players_entrepreneur_pensioner_waiter": {
@@ -1065,9 +1065,9 @@
       ],
       "games": 20,
       "wins": {
-        "waiter": 2,
-        "pensioner": 11,
-        "entrepreneur": 7
+        "waiter": 9,
+        "pensioner": 9,
+        "entrepreneur": 2
       }
     },
     "4_players_courier_it_specialist_spanish_spouse_student": {
@@ -1079,8 +1079,8 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 12,
-        "student": 3,
+        "it_specialist": 7,
+        "student": 8,
         "courier": 5,
         "spanish_spouse": 0
       }
@@ -1094,10 +1094,10 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 6,
-        "student": 6,
-        "courier": 7,
-        "freelance_artist": 1
+        "it_specialist": 4,
+        "student": 8,
+        "courier": 5,
+        "freelance_artist": 3
       }
     },
     "4_players_courier_it_specialist_student_waiter": {
@@ -1109,10 +1109,10 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 7,
+        "it_specialist": 4,
         "student": 2,
-        "courier": 11,
-        "waiter": 0
+        "courier": 8,
+        "waiter": 6
       }
     },
     "4_players_courier_it_specialist_pensioner_student": {
@@ -1124,10 +1124,10 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 10,
-        "student": 3,
+        "it_specialist": 1,
+        "student": 7,
         "courier": 5,
-        "pensioner": 2
+        "pensioner": 7
       }
     },
     "4_players_courier_entrepreneur_it_specialist_student": {
@@ -1139,10 +1139,10 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 8,
-        "student": 1,
-        "courier": 11,
-        "entrepreneur": 0
+        "it_specialist": 1,
+        "student": 4,
+        "courier": 9,
+        "entrepreneur": 6
       }
     },
     "4_players_freelance_artist_it_specialist_spanish_spouse_student": {
@@ -1154,10 +1154,10 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 11,
-        "student": 2,
+        "it_specialist": 4,
+        "student": 13,
         "spanish_spouse": 0,
-        "freelance_artist": 7
+        "freelance_artist": 3
       }
     },
     "4_players_it_specialist_spanish_spouse_student_waiter": {
@@ -1169,10 +1169,10 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 9,
-        "student": 5,
+        "it_specialist": 1,
+        "student": 6,
         "spanish_spouse": 0,
-        "waiter": 6
+        "waiter": 13
       }
     },
     "4_players_it_specialist_pensioner_spanish_spouse_student": {
@@ -1184,10 +1184,10 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 10,
-        "student": 1,
+        "it_specialist": 3,
+        "student": 6,
         "spanish_spouse": 0,
-        "pensioner": 9
+        "pensioner": 11
       }
     },
     "4_players_entrepreneur_it_specialist_spanish_spouse_student": {
@@ -1199,10 +1199,10 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 11,
+        "it_specialist": 2,
         "student": 9,
         "spanish_spouse": 0,
-        "entrepreneur": 0
+        "entrepreneur": 9
       }
     },
     "4_players_freelance_artist_it_specialist_student_waiter": {
@@ -1214,10 +1214,10 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 11,
-        "student": 4,
-        "freelance_artist": 4,
-        "waiter": 1
+        "it_specialist": 4,
+        "student": 2,
+        "freelance_artist": 2,
+        "waiter": 12
       }
     },
     "4_players_freelance_artist_it_specialist_pensioner_student": {
@@ -1230,9 +1230,9 @@
       "games": 20,
       "wins": {
         "it_specialist": 4,
-        "student": 3,
+        "student": 4,
         "freelance_artist": 3,
-        "pensioner": 10
+        "pensioner": 9
       }
     },
     "4_players_entrepreneur_freelance_artist_it_specialist_student": {
@@ -1244,10 +1244,10 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 7,
-        "student": 2,
-        "freelance_artist": 10,
-        "entrepreneur": 1
+        "it_specialist": 5,
+        "student": 8,
+        "freelance_artist": 3,
+        "entrepreneur": 4
       }
     },
     "4_players_it_specialist_pensioner_student_waiter": {
@@ -1259,10 +1259,10 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 4,
-        "student": 3,
-        "waiter": 3,
-        "pensioner": 10
+        "it_specialist": 2,
+        "student": 4,
+        "waiter": 7,
+        "pensioner": 7
       }
     },
     "4_players_entrepreneur_it_specialist_student_waiter": {
@@ -1274,9 +1274,9 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 8,
-        "student": 7,
-        "waiter": 5,
+        "it_specialist": 3,
+        "student": 11,
+        "waiter": 6,
         "entrepreneur": 0
       }
     },
@@ -1289,10 +1289,10 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 3,
-        "student": 4,
-        "pensioner": 13,
-        "entrepreneur": 0
+        "it_specialist": 1,
+        "student": 3,
+        "pensioner": 11,
+        "entrepreneur": 5
       }
     },
     "4_players_courier_freelance_artist_it_specialist_spanish_spouse": {
@@ -1304,10 +1304,10 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 7,
-        "courier": 13,
+        "it_specialist": 3,
+        "courier": 16,
         "spanish_spouse": 0,
-        "freelance_artist": 0
+        "freelance_artist": 1
       }
     },
     "4_players_courier_it_specialist_spanish_spouse_waiter": {
@@ -1319,10 +1319,10 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 8,
-        "courier": 12,
+        "it_specialist": 5,
+        "courier": 5,
         "spanish_spouse": 0,
-        "waiter": 0
+        "waiter": 10
       }
     },
     "4_players_courier_it_specialist_pensioner_spanish_spouse": {
@@ -1334,10 +1334,10 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 3,
-        "courier": 13,
+        "it_specialist": 4,
+        "courier": 7,
         "spanish_spouse": 0,
-        "pensioner": 4
+        "pensioner": 9
       }
     },
     "4_players_courier_entrepreneur_it_specialist_spanish_spouse": {
@@ -1349,10 +1349,10 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 8,
-        "courier": 11,
+        "it_specialist": 6,
+        "courier": 6,
         "spanish_spouse": 0,
-        "entrepreneur": 1
+        "entrepreneur": 8
       }
     },
     "4_players_courier_freelance_artist_it_specialist_waiter": {
@@ -1364,10 +1364,10 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 9,
+        "it_specialist": 3,
         "courier": 10,
-        "freelance_artist": 1,
-        "waiter": 0
+        "freelance_artist": 3,
+        "waiter": 4
       }
     },
     "4_players_courier_freelance_artist_it_specialist_pensioner": {
@@ -1379,10 +1379,10 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 8,
-        "courier": 6,
+        "it_specialist": 4,
+        "courier": 7,
         "freelance_artist": 0,
-        "pensioner": 6
+        "pensioner": 9
       }
     },
     "4_players_courier_entrepreneur_freelance_artist_it_specialist": {
@@ -1394,10 +1394,10 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 5,
-        "courier": 15,
+        "it_specialist": 1,
+        "courier": 12,
         "freelance_artist": 0,
-        "entrepreneur": 0
+        "entrepreneur": 7
       }
     },
     "4_players_courier_it_specialist_pensioner_waiter": {
@@ -1409,9 +1409,9 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 6,
-        "courier": 7,
-        "waiter": 0,
+        "it_specialist": 3,
+        "courier": 4,
+        "waiter": 6,
         "pensioner": 7
       }
     },
@@ -1424,10 +1424,10 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 6,
-        "courier": 13,
-        "waiter": 1,
-        "entrepreneur": 0
+        "it_specialist": 0,
+        "courier": 7,
+        "waiter": 11,
+        "entrepreneur": 2
       }
     },
     "4_players_courier_entrepreneur_it_specialist_pensioner": {
@@ -1439,10 +1439,10 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 7,
-        "courier": 10,
-        "pensioner": 3,
-        "entrepreneur": 0
+        "it_specialist": 4,
+        "courier": 9,
+        "pensioner": 5,
+        "entrepreneur": 2
       }
     },
     "4_players_freelance_artist_it_specialist_spanish_spouse_waiter": {
@@ -1454,10 +1454,10 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 10,
-        "spanish_spouse": 0,
-        "freelance_artist": 9,
-        "waiter": 1
+        "it_specialist": 5,
+        "spanish_spouse": 1,
+        "freelance_artist": 7,
+        "waiter": 7
       }
     },
     "4_players_freelance_artist_it_specialist_pensioner_spanish_spouse": {
@@ -1469,9 +1469,9 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 7,
+        "it_specialist": 4,
         "spanish_spouse": 0,
-        "freelance_artist": 3,
+        "freelance_artist": 6,
         "pensioner": 10
       }
     },
@@ -1484,10 +1484,10 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 8,
+        "it_specialist": 3,
         "spanish_spouse": 0,
-        "freelance_artist": 11,
-        "entrepreneur": 1
+        "freelance_artist": 5,
+        "entrepreneur": 12
       }
     },
     "4_players_it_specialist_pensioner_spanish_spouse_waiter": {
@@ -1499,10 +1499,10 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 4,
+        "it_specialist": 6,
         "spanish_spouse": 0,
-        "waiter": 4,
-        "pensioner": 12
+        "waiter": 9,
+        "pensioner": 5
       }
     },
     "4_players_entrepreneur_it_specialist_spanish_spouse_waiter": {
@@ -1514,10 +1514,10 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 14,
+        "it_specialist": 5,
         "spanish_spouse": 0,
-        "waiter": 6,
-        "entrepreneur": 0
+        "waiter": 7,
+        "entrepreneur": 8
       }
     },
     "4_players_entrepreneur_it_specialist_pensioner_spanish_spouse": {
@@ -1530,9 +1530,9 @@
       "games": 20,
       "wins": {
         "it_specialist": 7,
-        "spanish_spouse": 0,
-        "pensioner": 13,
-        "entrepreneur": 0
+        "spanish_spouse": 1,
+        "pensioner": 8,
+        "entrepreneur": 4
       }
     },
     "4_players_freelance_artist_it_specialist_pensioner_waiter": {
@@ -1544,10 +1544,10 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 5,
-        "freelance_artist": 5,
-        "waiter": 0,
-        "pensioner": 10
+        "it_specialist": 2,
+        "freelance_artist": 1,
+        "waiter": 10,
+        "pensioner": 7
       }
     },
     "4_players_entrepreneur_freelance_artist_it_specialist_waiter": {
@@ -1559,10 +1559,10 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 12,
-        "freelance_artist": 5,
-        "waiter": 2,
-        "entrepreneur": 1
+        "it_specialist": 3,
+        "freelance_artist": 3,
+        "waiter": 10,
+        "entrepreneur": 4
       }
     },
     "4_players_entrepreneur_freelance_artist_it_specialist_pensioner": {
@@ -1574,10 +1574,10 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 3,
-        "freelance_artist": 5,
-        "pensioner": 12,
-        "entrepreneur": 0
+        "it_specialist": 2,
+        "freelance_artist": 1,
+        "pensioner": 10,
+        "entrepreneur": 7
       }
     },
     "4_players_entrepreneur_it_specialist_pensioner_waiter": {
@@ -1589,9 +1589,9 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 3,
-        "waiter": 5,
-        "pensioner": 12,
+        "it_specialist": 4,
+        "waiter": 9,
+        "pensioner": 7,
         "entrepreneur": 0
       }
     },
@@ -1605,9 +1605,9 @@
       "games": 20,
       "wins": {
         "student": 8,
-        "courier": 11,
+        "courier": 12,
         "spanish_spouse": 0,
-        "freelance_artist": 1
+        "freelance_artist": 0
       }
     },
     "4_players_courier_spanish_spouse_student_waiter": {
@@ -1619,10 +1619,10 @@
       ],
       "games": 20,
       "wins": {
-        "student": 7,
-        "courier": 13,
+        "student": 3,
+        "courier": 6,
         "spanish_spouse": 0,
-        "waiter": 0
+        "waiter": 11
       }
     },
     "4_players_courier_pensioner_spanish_spouse_student": {
@@ -1634,10 +1634,10 @@
       ],
       "games": 20,
       "wins": {
-        "student": 3,
-        "courier": 9,
+        "student": 6,
+        "courier": 8,
         "spanish_spouse": 0,
-        "pensioner": 8
+        "pensioner": 6
       }
     },
     "4_players_courier_entrepreneur_spanish_spouse_student": {
@@ -1649,10 +1649,10 @@
       ],
       "games": 20,
       "wins": {
-        "student": 2,
-        "courier": 12,
-        "spanish_spouse": 0,
-        "entrepreneur": 6
+        "student": 7,
+        "courier": 5,
+        "spanish_spouse": 1,
+        "entrepreneur": 7
       }
     },
     "4_players_courier_freelance_artist_student_waiter": {
@@ -1664,10 +1664,10 @@
       ],
       "games": 20,
       "wins": {
-        "student": 9,
-        "courier": 11,
-        "freelance_artist": 0,
-        "waiter": 0
+        "student": 8,
+        "courier": 4,
+        "freelance_artist": 1,
+        "waiter": 7
       }
     },
     "4_players_courier_freelance_artist_pensioner_student": {
@@ -1679,10 +1679,10 @@
       ],
       "games": 20,
       "wins": {
-        "student": 2,
-        "courier": 9,
-        "freelance_artist": 0,
-        "pensioner": 9
+        "student": 4,
+        "courier": 5,
+        "freelance_artist": 1,
+        "pensioner": 10
       }
     },
     "4_players_courier_entrepreneur_freelance_artist_student": {
@@ -1694,10 +1694,10 @@
       ],
       "games": 20,
       "wins": {
-        "student": 2,
-        "courier": 11,
-        "freelance_artist": 1,
-        "entrepreneur": 6
+        "student": 5,
+        "courier": 5,
+        "freelance_artist": 2,
+        "entrepreneur": 8
       }
     },
     "4_players_courier_pensioner_student_waiter": {
@@ -1709,9 +1709,9 @@
       ],
       "games": 20,
       "wins": {
-        "student": 1,
-        "courier": 15,
-        "waiter": 0,
+        "student": 4,
+        "courier": 4,
+        "waiter": 8,
         "pensioner": 4
       }
     },
@@ -1724,9 +1724,9 @@
       ],
       "games": 20,
       "wins": {
-        "student": 5,
-        "courier": 13,
-        "waiter": 0,
+        "student": 2,
+        "courier": 10,
+        "waiter": 6,
         "entrepreneur": 2
       }
     },
@@ -1739,10 +1739,10 @@
       ],
       "games": 20,
       "wins": {
-        "student": 1,
-        "courier": 11,
-        "pensioner": 6,
-        "entrepreneur": 2
+        "student": 3,
+        "courier": 1,
+        "pensioner": 12,
+        "entrepreneur": 4
       }
     },
     "4_players_freelance_artist_spanish_spouse_student_waiter": {
@@ -1754,10 +1754,10 @@
       ],
       "games": 20,
       "wins": {
-        "student": 12,
+        "student": 7,
         "spanish_spouse": 0,
-        "freelance_artist": 8,
-        "waiter": 0
+        "freelance_artist": 3,
+        "waiter": 10
       }
     },
     "4_players_freelance_artist_pensioner_spanish_spouse_student": {
@@ -1769,9 +1769,9 @@
       ],
       "games": 20,
       "wins": {
-        "student": 3,
+        "student": 7,
         "spanish_spouse": 0,
-        "freelance_artist": 6,
+        "freelance_artist": 2,
         "pensioner": 11
       }
     },
@@ -1786,8 +1786,8 @@
       "wins": {
         "student": 6,
         "spanish_spouse": 0,
-        "freelance_artist": 10,
-        "entrepreneur": 4
+        "freelance_artist": 3,
+        "entrepreneur": 11
       }
     },
     "4_players_pensioner_spanish_spouse_student_waiter": {
@@ -1799,10 +1799,10 @@
       ],
       "games": 20,
       "wins": {
-        "student": 6,
+        "student": 3,
         "spanish_spouse": 0,
         "waiter": 7,
-        "pensioner": 7
+        "pensioner": 10
       }
     },
     "4_players_entrepreneur_spanish_spouse_student_waiter": {
@@ -1816,8 +1816,8 @@
       "wins": {
         "student": 7,
         "spanish_spouse": 0,
-        "waiter": 4,
-        "entrepreneur": 9
+        "waiter": 8,
+        "entrepreneur": 5
       }
     },
     "4_players_entrepreneur_pensioner_spanish_spouse_student": {
@@ -1829,10 +1829,10 @@
       ],
       "games": 20,
       "wins": {
-        "student": 4,
+        "student": 2,
         "spanish_spouse": 0,
-        "pensioner": 13,
-        "entrepreneur": 3
+        "pensioner": 9,
+        "entrepreneur": 9
       }
     },
     "4_players_freelance_artist_pensioner_student_waiter": {
@@ -1844,10 +1844,10 @@
       ],
       "games": 20,
       "wins": {
-        "student": 5,
-        "freelance_artist": 8,
-        "waiter": 0,
-        "pensioner": 7
+        "student": 4,
+        "freelance_artist": 3,
+        "waiter": 4,
+        "pensioner": 9
       }
     },
     "4_players_entrepreneur_freelance_artist_student_waiter": {
@@ -1859,9 +1859,9 @@
       ],
       "games": 20,
       "wins": {
-        "student": 4,
-        "freelance_artist": 11,
-        "waiter": 1,
+        "student": 9,
+        "freelance_artist": 1,
+        "waiter": 6,
         "entrepreneur": 4
       }
     },
@@ -1874,10 +1874,10 @@
       ],
       "games": 20,
       "wins": {
-        "student": 2,
-        "freelance_artist": 5,
+        "student": 3,
+        "freelance_artist": 1,
         "pensioner": 11,
-        "entrepreneur": 2
+        "entrepreneur": 5
       }
     },
     "4_players_entrepreneur_pensioner_student_waiter": {
@@ -1889,9 +1889,9 @@
       ],
       "games": 20,
       "wins": {
-        "student": 4,
-        "waiter": 4,
-        "pensioner": 8,
+        "student": 6,
+        "waiter": 6,
+        "pensioner": 4,
         "entrepreneur": 4
       }
     },
@@ -1904,10 +1904,10 @@
       ],
       "games": 20,
       "wins": {
-        "courier": 15,
-        "spanish_spouse": 1,
-        "freelance_artist": 4,
-        "waiter": 0
+        "courier": 13,
+        "spanish_spouse": 0,
+        "freelance_artist": 3,
+        "waiter": 4
       }
     },
     "4_players_courier_freelance_artist_pensioner_spanish_spouse": {
@@ -1920,9 +1920,9 @@
       "games": 20,
       "wins": {
         "courier": 11,
-        "spanish_spouse": 0,
+        "spanish_spouse": 1,
         "freelance_artist": 0,
-        "pensioner": 9
+        "pensioner": 8
       }
     },
     "4_players_courier_entrepreneur_freelance_artist_spanish_spouse": {
@@ -1934,10 +1934,10 @@
       ],
       "games": 20,
       "wins": {
-        "courier": 13,
-        "spanish_spouse": 0,
-        "freelance_artist": 2,
-        "entrepreneur": 5
+        "courier": 12,
+        "spanish_spouse": 1,
+        "freelance_artist": 0,
+        "entrepreneur": 7
       }
     },
     "4_players_courier_pensioner_spanish_spouse_waiter": {
@@ -1949,10 +1949,10 @@
       ],
       "games": 20,
       "wins": {
-        "courier": 11,
+        "courier": 7,
         "spanish_spouse": 0,
-        "waiter": 0,
-        "pensioner": 9
+        "waiter": 5,
+        "pensioner": 8
       }
     },
     "4_players_courier_entrepreneur_spanish_spouse_waiter": {
@@ -1964,9 +1964,9 @@
       ],
       "games": 20,
       "wins": {
-        "courier": 12,
+        "courier": 4,
         "spanish_spouse": 0,
-        "waiter": 1,
+        "waiter": 9,
         "entrepreneur": 7
       }
     },
@@ -1979,10 +1979,10 @@
       ],
       "games": 20,
       "wins": {
-        "courier": 12,
+        "courier": 8,
         "spanish_spouse": 0,
-        "pensioner": 6,
-        "entrepreneur": 2
+        "pensioner": 7,
+        "entrepreneur": 5
       }
     },
     "4_players_courier_freelance_artist_pensioner_waiter": {
@@ -1994,9 +1994,9 @@
       ],
       "games": 20,
       "wins": {
-        "courier": 13,
-        "freelance_artist": 0,
-        "waiter": 0,
+        "courier": 9,
+        "freelance_artist": 3,
+        "waiter": 1,
         "pensioner": 7
       }
     },
@@ -2009,10 +2009,10 @@
       ],
       "games": 20,
       "wins": {
-        "courier": 13,
-        "freelance_artist": 2,
-        "waiter": 0,
-        "entrepreneur": 5
+        "courier": 10,
+        "freelance_artist": 0,
+        "waiter": 7,
+        "entrepreneur": 3
       }
     },
     "4_players_courier_entrepreneur_freelance_artist_pensioner": {
@@ -2024,10 +2024,10 @@
       ],
       "games": 20,
       "wins": {
-        "courier": 10,
-        "freelance_artist": 1,
-        "pensioner": 6,
-        "entrepreneur": 3
+        "courier": 7,
+        "freelance_artist": 0,
+        "pensioner": 8,
+        "entrepreneur": 5
       }
     },
     "4_players_courier_entrepreneur_pensioner_waiter": {
@@ -2039,10 +2039,10 @@
       ],
       "games": 20,
       "wins": {
-        "courier": 10,
-        "waiter": 0,
+        "courier": 9,
+        "waiter": 4,
         "pensioner": 7,
-        "entrepreneur": 3
+        "entrepreneur": 0
       }
     },
     "4_players_freelance_artist_pensioner_spanish_spouse_waiter": {
@@ -2055,9 +2055,9 @@
       "games": 20,
       "wins": {
         "spanish_spouse": 0,
-        "freelance_artist": 8,
-        "waiter": 1,
-        "pensioner": 11
+        "freelance_artist": 7,
+        "waiter": 6,
+        "pensioner": 7
       }
     },
     "4_players_entrepreneur_freelance_artist_spanish_spouse_waiter": {
@@ -2070,9 +2070,9 @@
       "games": 20,
       "wins": {
         "spanish_spouse": 0,
-        "freelance_artist": 9,
-        "waiter": 5,
-        "entrepreneur": 6
+        "freelance_artist": 5,
+        "waiter": 10,
+        "entrepreneur": 5
       }
     },
     "4_players_entrepreneur_freelance_artist_pensioner_spanish_spouse": {
@@ -2085,9 +2085,9 @@
       "games": 20,
       "wins": {
         "spanish_spouse": 0,
-        "freelance_artist": 6,
-        "pensioner": 11,
-        "entrepreneur": 3
+        "freelance_artist": 4,
+        "pensioner": 12,
+        "entrepreneur": 4
       }
     },
     "4_players_entrepreneur_pensioner_spanish_spouse_waiter": {
@@ -2100,9 +2100,9 @@
       "games": 20,
       "wins": {
         "spanish_spouse": 0,
-        "waiter": 4,
-        "pensioner": 15,
-        "entrepreneur": 1
+        "waiter": 7,
+        "pensioner": 8,
+        "entrepreneur": 5
       }
     },
     "4_players_entrepreneur_freelance_artist_pensioner_waiter": {
@@ -2114,10 +2114,10 @@
       ],
       "games": 20,
       "wins": {
-        "freelance_artist": 4,
-        "waiter": 0,
-        "pensioner": 12,
-        "entrepreneur": 4
+        "freelance_artist": 1,
+        "waiter": 7,
+        "pensioner": 11,
+        "entrepreneur": 1
       }
     },
     "5_players_courier_freelance_artist_it_specialist_spanish_spouse_student": {
@@ -2130,11 +2130,11 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 4,
-        "student": 2,
-        "courier": 12,
-        "spanish_spouse": 1,
-        "freelance_artist": 1
+        "it_specialist": 7,
+        "student": 10,
+        "courier": 3,
+        "spanish_spouse": 0,
+        "freelance_artist": 0
       }
     },
     "5_players_courier_it_specialist_spanish_spouse_student_waiter": {
@@ -2147,11 +2147,11 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 11,
-        "student": 4,
-        "courier": 5,
+        "it_specialist": 5,
+        "student": 6,
+        "courier": 3,
         "spanish_spouse": 0,
-        "waiter": 0
+        "waiter": 6
       }
     },
     "5_players_courier_it_specialist_pensioner_spanish_spouse_student": {
@@ -2165,10 +2165,10 @@
       "games": 20,
       "wins": {
         "it_specialist": 4,
-        "student": 1,
-        "courier": 8,
+        "student": 6,
+        "courier": 2,
         "spanish_spouse": 0,
-        "pensioner": 7
+        "pensioner": 8
       }
     },
     "5_players_courier_entrepreneur_it_specialist_spanish_spouse_student": {
@@ -2181,11 +2181,11 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 11,
-        "student": 1,
-        "courier": 8,
+        "it_specialist": 3,
+        "student": 4,
+        "courier": 9,
         "spanish_spouse": 0,
-        "entrepreneur": 0
+        "entrepreneur": 4
       }
     },
     "5_players_courier_freelance_artist_it_specialist_student_waiter": {
@@ -2198,11 +2198,11 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 5,
-        "student": 7,
-        "courier": 8,
-        "freelance_artist": 0,
-        "waiter": 0
+        "it_specialist": 2,
+        "student": 5,
+        "courier": 7,
+        "freelance_artist": 1,
+        "waiter": 5
       }
     },
     "5_players_courier_freelance_artist_it_specialist_pensioner_student": {
@@ -2215,11 +2215,11 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 7,
-        "student": 2,
-        "courier": 6,
-        "freelance_artist": 0,
-        "pensioner": 5
+        "it_specialist": 0,
+        "student": 3,
+        "courier": 7,
+        "freelance_artist": 1,
+        "pensioner": 9
       }
     },
     "5_players_courier_entrepreneur_freelance_artist_it_specialist_student": {
@@ -2232,11 +2232,11 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 4,
-        "student": 3,
-        "courier": 13,
+        "it_specialist": 2,
+        "student": 5,
+        "courier": 7,
         "freelance_artist": 0,
-        "entrepreneur": 0
+        "entrepreneur": 6
       }
     },
     "5_players_courier_it_specialist_pensioner_student_waiter": {
@@ -2249,11 +2249,11 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 6,
+        "it_specialist": 3,
         "student": 2,
         "courier": 6,
-        "waiter": 0,
-        "pensioner": 6
+        "waiter": 6,
+        "pensioner": 3
       }
     },
     "5_players_courier_entrepreneur_it_specialist_student_waiter": {
@@ -2266,11 +2266,11 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 10,
-        "student": 2,
-        "courier": 8,
-        "waiter": 0,
-        "entrepreneur": 0
+        "it_specialist": 5,
+        "student": 3,
+        "courier": 4,
+        "waiter": 6,
+        "entrepreneur": 2
       }
     },
     "5_players_courier_entrepreneur_it_specialist_pensioner_student": {
@@ -2283,11 +2283,11 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 3,
-        "student": 3,
-        "courier": 6,
-        "pensioner": 8,
-        "entrepreneur": 0
+        "it_specialist": 6,
+        "student": 1,
+        "courier": 4,
+        "pensioner": 4,
+        "entrepreneur": 5
       }
     },
     "5_players_freelance_artist_it_specialist_spanish_spouse_student_waiter": {
@@ -2300,11 +2300,11 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 7,
-        "student": 5,
+        "it_specialist": 0,
+        "student": 8,
         "spanish_spouse": 0,
-        "freelance_artist": 6,
-        "waiter": 2
+        "freelance_artist": 0,
+        "waiter": 12
       }
     },
     "5_players_freelance_artist_it_specialist_pensioner_spanish_spouse_student": {
@@ -2317,10 +2317,10 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 5,
-        "student": 1,
+        "it_specialist": 6,
+        "student": 4,
         "spanish_spouse": 0,
-        "freelance_artist": 7,
+        "freelance_artist": 3,
         "pensioner": 7
       }
     },
@@ -2334,11 +2334,11 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 12,
-        "student": 5,
-        "spanish_spouse": 0,
+        "it_specialist": 2,
+        "student": 7,
+        "spanish_spouse": 1,
         "freelance_artist": 3,
-        "entrepreneur": 0
+        "entrepreneur": 7
       }
     },
     "5_players_it_specialist_pensioner_spanish_spouse_student_waiter": {
@@ -2351,11 +2351,11 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 10,
-        "student": 0,
+        "it_specialist": 4,
+        "student": 3,
         "spanish_spouse": 0,
-        "waiter": 2,
-        "pensioner": 8
+        "waiter": 3,
+        "pensioner": 10
       }
     },
     "5_players_entrepreneur_it_specialist_spanish_spouse_student_waiter": {
@@ -2368,11 +2368,11 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 7,
-        "student": 10,
+        "it_specialist": 2,
+        "student": 5,
         "spanish_spouse": 0,
-        "waiter": 3,
-        "entrepreneur": 0
+        "waiter": 10,
+        "entrepreneur": 3
       }
     },
     "5_players_entrepreneur_it_specialist_pensioner_spanish_spouse_student": {
@@ -2385,11 +2385,11 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 6,
-        "student": 0,
-        "spanish_spouse": 2,
-        "pensioner": 12,
-        "entrepreneur": 0
+        "it_specialist": 4,
+        "student": 5,
+        "spanish_spouse": 0,
+        "pensioner": 5,
+        "entrepreneur": 6
       }
     },
     "5_players_freelance_artist_it_specialist_pensioner_student_waiter": {
@@ -2402,11 +2402,11 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 6,
-        "student": 1,
-        "freelance_artist": 5,
-        "waiter": 0,
-        "pensioner": 8
+        "it_specialist": 5,
+        "student": 5,
+        "freelance_artist": 1,
+        "waiter": 5,
+        "pensioner": 4
       }
     },
     "5_players_entrepreneur_freelance_artist_it_specialist_student_waiter": {
@@ -2419,11 +2419,11 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 9,
-        "student": 4,
-        "freelance_artist": 7,
-        "waiter": 0,
-        "entrepreneur": 0
+        "it_specialist": 3,
+        "student": 3,
+        "freelance_artist": 1,
+        "waiter": 9,
+        "entrepreneur": 4
       }
     },
     "5_players_entrepreneur_freelance_artist_it_specialist_pensioner_student": {
@@ -2436,11 +2436,11 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 3,
-        "student": 1,
-        "freelance_artist": 7,
-        "pensioner": 9,
-        "entrepreneur": 0
+        "it_specialist": 0,
+        "student": 4,
+        "freelance_artist": 2,
+        "pensioner": 10,
+        "entrepreneur": 4
       }
     },
     "5_players_entrepreneur_it_specialist_pensioner_student_waiter": {
@@ -2453,11 +2453,11 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 7,
-        "student": 3,
+        "it_specialist": 4,
+        "student": 4,
         "waiter": 5,
         "pensioner": 5,
-        "entrepreneur": 0
+        "entrepreneur": 2
       }
     },
     "5_players_courier_freelance_artist_it_specialist_spanish_spouse_waiter": {
@@ -2470,11 +2470,11 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 4,
-        "courier": 15,
+        "it_specialist": 2,
+        "courier": 8,
         "spanish_spouse": 0,
-        "freelance_artist": 1,
-        "waiter": 0
+        "freelance_artist": 2,
+        "waiter": 8
       }
     },
     "5_players_courier_freelance_artist_it_specialist_pensioner_spanish_spouse": {
@@ -2487,11 +2487,11 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 5,
-        "courier": 5,
-        "spanish_spouse": 1,
+        "it_specialist": 1,
+        "courier": 8,
+        "spanish_spouse": 0,
         "freelance_artist": 1,
-        "pensioner": 8
+        "pensioner": 10
       }
     },
     "5_players_courier_entrepreneur_freelance_artist_it_specialist_spanish_spouse": {
@@ -2504,11 +2504,11 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 6,
-        "courier": 13,
+        "it_specialist": 4,
+        "courier": 8,
         "spanish_spouse": 0,
         "freelance_artist": 1,
-        "entrepreneur": 0
+        "entrepreneur": 7
       }
     },
     "5_players_courier_it_specialist_pensioner_spanish_spouse_waiter": {
@@ -2521,11 +2521,11 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 4,
+        "it_specialist": 1,
         "courier": 8,
         "spanish_spouse": 0,
-        "waiter": 0,
-        "pensioner": 8
+        "waiter": 4,
+        "pensioner": 7
       }
     },
     "5_players_courier_entrepreneur_it_specialist_spanish_spouse_waiter": {
@@ -2538,11 +2538,11 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 11,
-        "courier": 9,
+        "it_specialist": 2,
+        "courier": 12,
         "spanish_spouse": 0,
-        "waiter": 0,
-        "entrepreneur": 0
+        "waiter": 5,
+        "entrepreneur": 1
       }
     },
     "5_players_courier_entrepreneur_it_specialist_pensioner_spanish_spouse": {
@@ -2555,11 +2555,11 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 5,
-        "courier": 6,
+        "it_specialist": 2,
+        "courier": 7,
         "spanish_spouse": 0,
-        "pensioner": 9,
-        "entrepreneur": 0
+        "pensioner": 8,
+        "entrepreneur": 3
       }
     },
     "5_players_courier_freelance_artist_it_specialist_pensioner_waiter": {
@@ -2572,11 +2572,11 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 6,
-        "courier": 7,
+        "it_specialist": 1,
+        "courier": 6,
         "freelance_artist": 0,
-        "waiter": 0,
-        "pensioner": 7
+        "waiter": 4,
+        "pensioner": 9
       }
     },
     "5_players_courier_entrepreneur_freelance_artist_it_specialist_waiter": {
@@ -2589,11 +2589,11 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 7,
-        "courier": 12,
-        "freelance_artist": 0,
-        "waiter": 0,
-        "entrepreneur": 1
+        "it_specialist": 4,
+        "courier": 5,
+        "freelance_artist": 2,
+        "waiter": 7,
+        "entrepreneur": 2
       }
     },
     "5_players_courier_entrepreneur_freelance_artist_it_specialist_pensioner": {
@@ -2606,11 +2606,11 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 5,
-        "courier": 6,
+        "it_specialist": 3,
+        "courier": 3,
         "freelance_artist": 1,
-        "pensioner": 8,
-        "entrepreneur": 0
+        "pensioner": 9,
+        "entrepreneur": 4
       }
     },
     "5_players_courier_entrepreneur_it_specialist_pensioner_waiter": {
@@ -2623,9 +2623,9 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 5,
-        "courier": 9,
-        "waiter": 0,
+        "it_specialist": 2,
+        "courier": 8,
+        "waiter": 4,
         "pensioner": 6,
         "entrepreneur": 0
       }
@@ -2640,11 +2640,11 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 8,
+        "it_specialist": 2,
         "spanish_spouse": 0,
-        "freelance_artist": 6,
-        "waiter": 2,
-        "pensioner": 4
+        "freelance_artist": 1,
+        "waiter": 11,
+        "pensioner": 6
       }
     },
     "5_players_entrepreneur_freelance_artist_it_specialist_spanish_spouse_waiter": {
@@ -2657,11 +2657,11 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 10,
+        "it_specialist": 1,
         "spanish_spouse": 0,
-        "freelance_artist": 10,
-        "waiter": 0,
-        "entrepreneur": 0
+        "freelance_artist": 5,
+        "waiter": 11,
+        "entrepreneur": 3
       }
     },
     "5_players_entrepreneur_freelance_artist_it_specialist_pensioner_spanish_spouse": {
@@ -2674,11 +2674,11 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 4,
+        "it_specialist": 3,
         "spanish_spouse": 0,
-        "freelance_artist": 7,
-        "pensioner": 9,
-        "entrepreneur": 0
+        "freelance_artist": 1,
+        "pensioner": 11,
+        "entrepreneur": 5
       }
     },
     "5_players_entrepreneur_it_specialist_pensioner_spanish_spouse_waiter": {
@@ -2691,11 +2691,11 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 5,
+        "it_specialist": 3,
         "spanish_spouse": 0,
         "waiter": 4,
-        "pensioner": 11,
-        "entrepreneur": 0
+        "pensioner": 10,
+        "entrepreneur": 3
       }
     },
     "5_players_entrepreneur_freelance_artist_it_specialist_pensioner_waiter": {
@@ -2708,10 +2708,10 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 5,
-        "freelance_artist": 5,
-        "waiter": 1,
-        "pensioner": 9,
+        "it_specialist": 0,
+        "freelance_artist": 3,
+        "waiter": 12,
+        "pensioner": 5,
         "entrepreneur": 0
       }
     },
@@ -2725,11 +2725,11 @@
       ],
       "games": 20,
       "wins": {
-        "student": 4,
-        "courier": 15,
+        "student": 6,
+        "courier": 3,
         "spanish_spouse": 0,
-        "freelance_artist": 1,
-        "waiter": 0
+        "freelance_artist": 0,
+        "waiter": 11
       }
     },
     "5_players_courier_freelance_artist_pensioner_spanish_spouse_student": {
@@ -2742,11 +2742,11 @@
       ],
       "games": 20,
       "wins": {
-        "student": 2,
-        "courier": 8,
+        "student": 4,
+        "courier": 5,
         "spanish_spouse": 0,
-        "freelance_artist": 2,
-        "pensioner": 8
+        "freelance_artist": 0,
+        "pensioner": 11
       }
     },
     "5_players_courier_entrepreneur_freelance_artist_spanish_spouse_student": {
@@ -2760,10 +2760,10 @@
       "games": 20,
       "wins": {
         "student": 4,
-        "courier": 11,
+        "courier": 2,
         "spanish_spouse": 0,
-        "freelance_artist": 2,
-        "entrepreneur": 3
+        "freelance_artist": 1,
+        "entrepreneur": 13
       }
     },
     "5_players_courier_pensioner_spanish_spouse_student_waiter": {
@@ -2776,11 +2776,11 @@
       ],
       "games": 20,
       "wins": {
-        "student": 4,
-        "courier": 9,
+        "student": 2,
+        "courier": 3,
         "spanish_spouse": 0,
-        "waiter": 0,
-        "pensioner": 7
+        "waiter": 9,
+        "pensioner": 6
       }
     },
     "5_players_courier_entrepreneur_spanish_spouse_student_waiter": {
@@ -2794,10 +2794,10 @@
       "games": 20,
       "wins": {
         "student": 4,
-        "courier": 11,
+        "courier": 6,
         "spanish_spouse": 0,
-        "waiter": 0,
-        "entrepreneur": 5
+        "waiter": 7,
+        "entrepreneur": 3
       }
     },
     "5_players_courier_entrepreneur_pensioner_spanish_spouse_student": {
@@ -2811,10 +2811,10 @@
       "games": 20,
       "wins": {
         "student": 3,
-        "courier": 10,
+        "courier": 6,
         "spanish_spouse": 0,
-        "pensioner": 6,
-        "entrepreneur": 1
+        "pensioner": 7,
+        "entrepreneur": 4
       }
     },
     "5_players_courier_freelance_artist_pensioner_student_waiter": {
@@ -2827,11 +2827,11 @@
       ],
       "games": 20,
       "wins": {
-        "student": 1,
-        "courier": 10,
+        "student": 3,
+        "courier": 5,
         "freelance_artist": 0,
-        "waiter": 0,
-        "pensioner": 9
+        "waiter": 8,
+        "pensioner": 4
       }
     },
     "5_players_courier_entrepreneur_freelance_artist_student_waiter": {
@@ -2844,11 +2844,11 @@
       ],
       "games": 20,
       "wins": {
-        "student": 2,
-        "courier": 10,
-        "freelance_artist": 3,
-        "waiter": 0,
-        "entrepreneur": 5
+        "student": 5,
+        "courier": 7,
+        "freelance_artist": 0,
+        "waiter": 2,
+        "entrepreneur": 6
       }
     },
     "5_players_courier_entrepreneur_freelance_artist_pensioner_student": {
@@ -2861,11 +2861,11 @@
       ],
       "games": 20,
       "wins": {
-        "student": 0,
+        "student": 1,
         "courier": 9,
         "freelance_artist": 0,
-        "pensioner": 11,
-        "entrepreneur": 0
+        "pensioner": 6,
+        "entrepreneur": 4
       }
     },
     "5_players_courier_entrepreneur_pensioner_student_waiter": {
@@ -2878,11 +2878,11 @@
       ],
       "games": 20,
       "wins": {
-        "student": 1,
-        "courier": 11,
-        "waiter": 0,
-        "pensioner": 5,
-        "entrepreneur": 3
+        "student": 5,
+        "courier": 8,
+        "waiter": 3,
+        "pensioner": 2,
+        "entrepreneur": 2
       }
     },
     "5_players_freelance_artist_pensioner_spanish_spouse_student_waiter": {
@@ -2897,9 +2897,9 @@
       "wins": {
         "student": 4,
         "spanish_spouse": 0,
-        "freelance_artist": 6,
-        "waiter": 0,
-        "pensioner": 10
+        "freelance_artist": 3,
+        "waiter": 7,
+        "pensioner": 6
       }
     },
     "5_players_entrepreneur_freelance_artist_spanish_spouse_student_waiter": {
@@ -2914,9 +2914,9 @@
       "wins": {
         "student": 5,
         "spanish_spouse": 0,
-        "freelance_artist": 11,
-        "waiter": 2,
-        "entrepreneur": 2
+        "freelance_artist": 2,
+        "waiter": 7,
+        "entrepreneur": 6
       }
     },
     "5_players_entrepreneur_freelance_artist_pensioner_spanish_spouse_student": {
@@ -2929,11 +2929,11 @@
       ],
       "games": 20,
       "wins": {
-        "student": 1,
+        "student": 5,
         "spanish_spouse": 0,
-        "freelance_artist": 7,
-        "pensioner": 10,
-        "entrepreneur": 2
+        "freelance_artist": 2,
+        "pensioner": 5,
+        "entrepreneur": 8
       }
     },
     "5_players_entrepreneur_pensioner_spanish_spouse_student_waiter": {
@@ -2946,11 +2946,11 @@
       ],
       "games": 20,
       "wins": {
-        "student": 9,
+        "student": 4,
         "spanish_spouse": 0,
-        "waiter": 3,
-        "pensioner": 7,
-        "entrepreneur": 1
+        "waiter": 9,
+        "pensioner": 4,
+        "entrepreneur": 3
       }
     },
     "5_players_entrepreneur_freelance_artist_pensioner_student_waiter": {
@@ -2963,11 +2963,11 @@
       ],
       "games": 20,
       "wins": {
-        "student": 0,
-        "freelance_artist": 5,
-        "waiter": 1,
-        "pensioner": 9,
-        "entrepreneur": 5
+        "student": 4,
+        "freelance_artist": 1,
+        "waiter": 5,
+        "pensioner": 7,
+        "entrepreneur": 3
       }
     },
     "5_players_courier_freelance_artist_pensioner_spanish_spouse_waiter": {
@@ -2980,11 +2980,11 @@
       ],
       "games": 20,
       "wins": {
-        "courier": 13,
+        "courier": 5,
         "spanish_spouse": 0,
-        "freelance_artist": 2,
-        "waiter": 0,
-        "pensioner": 5
+        "freelance_artist": 0,
+        "waiter": 7,
+        "pensioner": 8
       }
     },
     "5_players_courier_entrepreneur_freelance_artist_spanish_spouse_waiter": {
@@ -2997,11 +2997,11 @@
       ],
       "games": 20,
       "wins": {
-        "courier": 9,
-        "spanish_spouse": 1,
-        "freelance_artist": 3,
-        "waiter": 0,
-        "entrepreneur": 7
+        "courier": 11,
+        "spanish_spouse": 0,
+        "freelance_artist": 1,
+        "waiter": 7,
+        "entrepreneur": 1
       }
     },
     "5_players_courier_entrepreneur_freelance_artist_pensioner_spanish_spouse": {
@@ -3014,11 +3014,11 @@
       ],
       "games": 20,
       "wins": {
-        "courier": 8,
+        "courier": 5,
         "spanish_spouse": 0,
         "freelance_artist": 0,
-        "pensioner": 11,
-        "entrepreneur": 1
+        "pensioner": 7,
+        "entrepreneur": 8
       }
     },
     "5_players_courier_entrepreneur_pensioner_spanish_spouse_waiter": {
@@ -3031,10 +3031,10 @@
       ],
       "games": 20,
       "wins": {
-        "courier": 12,
+        "courier": 8,
         "spanish_spouse": 0,
-        "waiter": 0,
-        "pensioner": 6,
+        "waiter": 3,
+        "pensioner": 7,
         "entrepreneur": 2
       }
     },
@@ -3048,11 +3048,11 @@
       ],
       "games": 20,
       "wins": {
-        "courier": 6,
-        "freelance_artist": 0,
-        "waiter": 0,
-        "pensioner": 11,
-        "entrepreneur": 3
+        "courier": 2,
+        "freelance_artist": 3,
+        "waiter": 4,
+        "pensioner": 9,
+        "entrepreneur": 2
       }
     },
     "5_players_entrepreneur_freelance_artist_pensioner_spanish_spouse_waiter": {
@@ -3066,10 +3066,10 @@
       "games": 20,
       "wins": {
         "spanish_spouse": 0,
-        "freelance_artist": 7,
-        "waiter": 0,
-        "pensioner": 11,
-        "entrepreneur": 2
+        "freelance_artist": 3,
+        "waiter": 8,
+        "pensioner": 8,
+        "entrepreneur": 1
       }
     },
     "6_players_courier_freelance_artist_it_specialist_spanish_spouse_student_waiter": {
@@ -3083,12 +3083,12 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 8,
-        "student": 4,
-        "courier": 8,
+        "it_specialist": 4,
+        "student": 3,
+        "courier": 7,
         "spanish_spouse": 0,
-        "freelance_artist": 0,
-        "waiter": 0
+        "freelance_artist": 2,
+        "waiter": 4
       }
     },
     "6_players_courier_freelance_artist_it_specialist_pensioner_spanish_spouse_student": {
@@ -3102,12 +3102,12 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 2,
-        "student": 1,
-        "courier": 8,
+        "it_specialist": 3,
+        "student": 2,
+        "courier": 7,
         "spanish_spouse": 0,
         "freelance_artist": 0,
-        "pensioner": 9
+        "pensioner": 8
       }
     },
     "6_players_courier_entrepreneur_freelance_artist_it_specialist_spanish_spouse_student": {
@@ -3121,12 +3121,12 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 5,
-        "student": 2,
-        "courier": 13,
+        "it_specialist": 6,
+        "student": 6,
+        "courier": 2,
         "spanish_spouse": 0,
         "freelance_artist": 0,
-        "entrepreneur": 0
+        "entrepreneur": 6
       }
     },
     "6_players_courier_it_specialist_pensioner_spanish_spouse_student_waiter": {
@@ -3140,12 +3140,12 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 4,
-        "student": 0,
-        "courier": 7,
+        "it_specialist": 2,
+        "student": 3,
+        "courier": 3,
         "spanish_spouse": 0,
-        "waiter": 0,
-        "pensioner": 9
+        "waiter": 5,
+        "pensioner": 7
       }
     },
     "6_players_courier_entrepreneur_it_specialist_spanish_spouse_student_waiter": {
@@ -3159,12 +3159,12 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 10,
-        "student": 1,
-        "courier": 8,
+        "it_specialist": 3,
+        "student": 6,
+        "courier": 2,
         "spanish_spouse": 0,
-        "waiter": 0,
-        "entrepreneur": 1
+        "waiter": 6,
+        "entrepreneur": 3
       }
     },
     "6_players_courier_entrepreneur_it_specialist_pensioner_spanish_spouse_student": {
@@ -3178,12 +3178,12 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 5,
-        "student": 0,
-        "courier": 9,
+        "it_specialist": 1,
+        "student": 3,
+        "courier": 3,
         "spanish_spouse": 0,
-        "pensioner": 6,
-        "entrepreneur": 0
+        "pensioner": 4,
+        "entrepreneur": 9
       }
     },
     "6_players_courier_freelance_artist_it_specialist_pensioner_student_waiter": {
@@ -3197,12 +3197,12 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 6,
-        "student": 0,
+        "it_specialist": 5,
+        "student": 3,
         "courier": 8,
-        "freelance_artist": 0,
-        "waiter": 0,
-        "pensioner": 6
+        "freelance_artist": 1,
+        "waiter": 1,
+        "pensioner": 2
       }
     },
     "6_players_courier_entrepreneur_freelance_artist_it_specialist_student_waiter": {
@@ -3216,12 +3216,12 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 8,
-        "student": 4,
-        "courier": 7,
+        "it_specialist": 1,
+        "student": 2,
+        "courier": 6,
         "freelance_artist": 0,
-        "waiter": 0,
-        "entrepreneur": 1
+        "waiter": 6,
+        "entrepreneur": 5
       }
     },
     "6_players_courier_entrepreneur_freelance_artist_it_specialist_pensioner_student": {
@@ -3235,12 +3235,12 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 4,
+        "it_specialist": 3,
         "student": 4,
-        "courier": 6,
-        "freelance_artist": 1,
+        "courier": 3,
+        "freelance_artist": 0,
         "pensioner": 5,
-        "entrepreneur": 0
+        "entrepreneur": 5
       }
     },
     "6_players_courier_entrepreneur_it_specialist_pensioner_student_waiter": {
@@ -3254,12 +3254,12 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 2,
+        "it_specialist": 4,
         "student": 1,
-        "courier": 8,
-        "waiter": 0,
-        "pensioner": 9,
-        "entrepreneur": 0
+        "courier": 3,
+        "waiter": 3,
+        "pensioner": 5,
+        "entrepreneur": 4
       }
     },
     "6_players_freelance_artist_it_specialist_pensioner_spanish_spouse_student_waiter": {
@@ -3273,12 +3273,12 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 7,
-        "student": 2,
+        "it_specialist": 1,
+        "student": 3,
         "spanish_spouse": 0,
-        "freelance_artist": 3,
-        "waiter": 3,
-        "pensioner": 5
+        "freelance_artist": 0,
+        "waiter": 7,
+        "pensioner": 9
       }
     },
     "6_players_entrepreneur_freelance_artist_it_specialist_spanish_spouse_student_waiter": {
@@ -3292,12 +3292,12 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 7,
-        "student": 4,
+        "it_specialist": 2,
+        "student": 9,
         "spanish_spouse": 0,
-        "freelance_artist": 8,
-        "waiter": 1,
-        "entrepreneur": 0
+        "freelance_artist": 0,
+        "waiter": 6,
+        "entrepreneur": 3
       }
     },
     "6_players_entrepreneur_freelance_artist_it_specialist_pensioner_spanish_spouse_student": {
@@ -3312,11 +3312,11 @@
       "games": 20,
       "wins": {
         "it_specialist": 3,
-        "student": 2,
+        "student": 4,
         "spanish_spouse": 0,
-        "freelance_artist": 3,
-        "pensioner": 12,
-        "entrepreneur": 0
+        "freelance_artist": 0,
+        "pensioner": 8,
+        "entrepreneur": 5
       }
     },
     "6_players_entrepreneur_it_specialist_pensioner_spanish_spouse_student_waiter": {
@@ -3331,11 +3331,11 @@
       "games": 20,
       "wins": {
         "it_specialist": 2,
-        "student": 3,
+        "student": 1,
         "spanish_spouse": 0,
-        "waiter": 4,
-        "pensioner": 11,
-        "entrepreneur": 0
+        "waiter": 9,
+        "pensioner": 7,
+        "entrepreneur": 1
       }
     },
     "6_players_entrepreneur_freelance_artist_it_specialist_pensioner_student_waiter": {
@@ -3349,11 +3349,11 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 5,
-        "student": 2,
-        "freelance_artist": 3,
-        "waiter": 1,
-        "pensioner": 9,
+        "it_specialist": 4,
+        "student": 3,
+        "freelance_artist": 2,
+        "waiter": 5,
+        "pensioner": 6,
         "entrepreneur": 0
       }
     },
@@ -3368,12 +3368,12 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 9,
-        "courier": 7,
+        "it_specialist": 0,
+        "courier": 5,
         "spanish_spouse": 0,
-        "freelance_artist": 1,
-        "waiter": 0,
-        "pensioner": 3
+        "freelance_artist": 0,
+        "waiter": 6,
+        "pensioner": 9
       }
     },
     "6_players_courier_entrepreneur_freelance_artist_it_specialist_spanish_spouse_waiter": {
@@ -3387,12 +3387,12 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 8,
-        "courier": 10,
+        "it_specialist": 5,
+        "courier": 4,
         "spanish_spouse": 0,
-        "freelance_artist": 1,
-        "waiter": 0,
-        "entrepreneur": 1
+        "freelance_artist": 0,
+        "waiter": 8,
+        "entrepreneur": 3
       }
     },
     "6_players_courier_entrepreneur_freelance_artist_it_specialist_pensioner_spanish_spouse": {
@@ -3406,12 +3406,12 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 6,
-        "courier": 9,
+        "it_specialist": 2,
+        "courier": 3,
         "spanish_spouse": 0,
-        "freelance_artist": 0,
-        "pensioner": 5,
-        "entrepreneur": 0
+        "freelance_artist": 1,
+        "pensioner": 10,
+        "entrepreneur": 4
       }
     },
     "6_players_courier_entrepreneur_it_specialist_pensioner_spanish_spouse_waiter": {
@@ -3426,11 +3426,11 @@
       "games": 20,
       "wins": {
         "it_specialist": 3,
-        "courier": 10,
+        "courier": 9,
         "spanish_spouse": 0,
-        "waiter": 0,
-        "pensioner": 7,
-        "entrepreneur": 0
+        "waiter": 1,
+        "pensioner": 6,
+        "entrepreneur": 1
       }
     },
     "6_players_courier_entrepreneur_freelance_artist_it_specialist_pensioner_waiter": {
@@ -3444,12 +3444,12 @@
       ],
       "games": 20,
       "wins": {
-        "it_specialist": 4,
-        "courier": 10,
-        "freelance_artist": 0,
-        "waiter": 0,
+        "it_specialist": 3,
+        "courier": 2,
+        "freelance_artist": 1,
+        "waiter": 5,
         "pensioner": 6,
-        "entrepreneur": 0
+        "entrepreneur": 3
       }
     },
     "6_players_entrepreneur_freelance_artist_it_specialist_pensioner_spanish_spouse_waiter": {
@@ -3465,10 +3465,10 @@
       "wins": {
         "it_specialist": 3,
         "spanish_spouse": 0,
-        "freelance_artist": 9,
-        "waiter": 0,
-        "pensioner": 8,
-        "entrepreneur": 0
+        "freelance_artist": 2,
+        "waiter": 8,
+        "pensioner": 5,
+        "entrepreneur": 2
       }
     },
     "6_players_courier_freelance_artist_pensioner_spanish_spouse_student_waiter": {
@@ -3482,12 +3482,12 @@
       ],
       "games": 20,
       "wins": {
-        "student": 3,
-        "courier": 9,
+        "student": 4,
+        "courier": 4,
         "spanish_spouse": 0,
-        "freelance_artist": 0,
-        "waiter": 0,
-        "pensioner": 8
+        "freelance_artist": 1,
+        "waiter": 5,
+        "pensioner": 6
       }
     },
     "6_players_courier_entrepreneur_freelance_artist_spanish_spouse_student_waiter": {
@@ -3501,12 +3501,12 @@
       ],
       "games": 20,
       "wins": {
-        "student": 4,
-        "courier": 13,
+        "student": 6,
+        "courier": 2,
         "spanish_spouse": 0,
-        "freelance_artist": 0,
-        "waiter": 0,
-        "entrepreneur": 3
+        "freelance_artist": 1,
+        "waiter": 6,
+        "entrepreneur": 5
       }
     },
     "6_players_courier_entrepreneur_freelance_artist_pensioner_spanish_spouse_student": {
@@ -3520,12 +3520,12 @@
       ],
       "games": 20,
       "wins": {
-        "student": 1,
+        "student": 3,
         "courier": 5,
         "spanish_spouse": 0,
-        "freelance_artist": 2,
-        "pensioner": 9,
-        "entrepreneur": 3
+        "freelance_artist": 0,
+        "pensioner": 6,
+        "entrepreneur": 6
       }
     },
     "6_players_courier_entrepreneur_pensioner_spanish_spouse_student_waiter": {
@@ -3539,12 +3539,12 @@
       ],
       "games": 20,
       "wins": {
-        "student": 2,
-        "courier": 9,
-        "spanish_spouse": 1,
-        "waiter": 0,
+        "student": 4,
+        "courier": 5,
+        "spanish_spouse": 0,
+        "waiter": 1,
         "pensioner": 7,
-        "entrepreneur": 1
+        "entrepreneur": 3
       }
     },
     "6_players_courier_entrepreneur_freelance_artist_pensioner_student_waiter": {
@@ -3558,12 +3558,12 @@
       ],
       "games": 20,
       "wins": {
-        "student": 2,
-        "courier": 11,
+        "student": 1,
+        "courier": 7,
         "freelance_artist": 0,
-        "waiter": 0,
-        "pensioner": 6,
-        "entrepreneur": 1
+        "waiter": 1,
+        "pensioner": 11,
+        "entrepreneur": 0
       }
     },
     "6_players_entrepreneur_freelance_artist_pensioner_spanish_spouse_student_waiter": {
@@ -3577,12 +3577,12 @@
       ],
       "games": 20,
       "wins": {
-        "student": 2,
+        "student": 3,
         "spanish_spouse": 0,
-        "freelance_artist": 7,
-        "waiter": 0,
+        "freelance_artist": 0,
+        "waiter": 5,
         "pensioner": 10,
-        "entrepreneur": 1
+        "entrepreneur": 2
       }
     },
     "6_players_courier_entrepreneur_freelance_artist_pensioner_spanish_spouse_waiter": {
@@ -3596,20 +3596,20 @@
       ],
       "games": 20,
       "wins": {
-        "courier": 8,
+        "courier": 6,
         "spanish_spouse": 0,
         "freelance_artist": 0,
-        "waiter": 0,
-        "pensioner": 9,
-        "entrepreneur": 3
+        "waiter": 2,
+        "pensioner": 7,
+        "entrepreneur": 5
       }
     }
   },
   "summary": {
     "total_games": 4760,
     "total_combinations": 238,
-    "win_rate_spread": 52.60504201680672,
+    "win_rate_spread": 40.08403361344538,
     "average_win_rate": 25.0,
-    "testing_time_seconds": 0.09940004348754883
+    "testing_time_seconds": 0.13082075119018555
   }
 }

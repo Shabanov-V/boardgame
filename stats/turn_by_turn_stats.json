@@ -1,0 +1,83 @@
+{
+  "turns": {
+    "0": {
+      "turn_number": 0,
+      "characters": {
+        "pensioner": {
+          "money": 153.04,
+          "nerves": 6.23,
+          "items": 0.0,
+          "documents": 2.52,
+          "language": 1.82,
+          "goal_progress": 0.9355555555555556
+        },
+        "student": {
+          "money": 135.88,
+          "nerves": 6.53,
+          "items": 0.0,
+          "documents": 2.75,
+          "language": 2.58,
+          "goal_progress": 0.8792592592592593
+        },
+        "entrepreneur": {
+          "money": 117.34,
+          "nerves": 5.58,
+          "items": 0.0,
+          "documents": 2.4,
+          "language": 2.51,
+          "goal_progress": 0.8920634920634921
+        },
+        "freelance_artist": {
+          "money": 161.51,
+          "nerves": 5.72,
+          "items": 0.0,
+          "documents": 2.86,
+          "language": 1.97,
+          "goal_progress": 0.9052287581699346
+        },
+        "courier": {
+          "money": 159.89,
+          "nerves": 6.05,
+          "items": 0.0,
+          "documents": 2.74,
+          "language": 2.03,
+          "goal_progress": 0.8292929292929293
+        },
+        "spanish_spouse": {
+          "money": 165.53,
+          "nerves": 6.23,
+          "items": 0.0,
+          "documents": 2.41,
+          "language": 2.79,
+          "goal_progress": 0.9060606060606061
+        },
+        "it_specialist": {
+          "money": 159.31,
+          "nerves": 6.63,
+          "items": 0.0,
+          "documents": 2.7,
+          "language": 2.62,
+          "goal_progress": 0.85
+        },
+        "waiter": {
+          "money": 144.95,
+          "nerves": 6.37,
+          "items": 0.0,
+          "documents": 2.74,
+          "language": 2.58,
+          "goal_progress": 0.8567460317460317
+        }
+      }
+    }
+  },
+  "characters": [
+    "pensioner",
+    "student",
+    "entrepreneur",
+    "freelance_artist",
+    "courier",
+    "spanish_spouse",
+    "it_specialist",
+    "waiter"
+  ]
+}

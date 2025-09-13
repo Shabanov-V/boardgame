@@ -233,7 +233,7 @@
       },
       "effects": {
         "language_dice_advantage": true,
-        "documents_cards": 2
+        "documents_cards": 3
       },
       "when_to_play": "during_language_challenge",
       "flavor_text": "¡Sí sí sí = universal response!"
@@ -248,7 +248,7 @@
         "nerves": 2
       },
       "effects": {
-        "documents_cards": 4,
+        "documents_cards": 3,
         "money": 1,
         "nerves": 2
       },
@@ -844,6 +844,54 @@
       },
       "when_to_play": "when_utility_problem",
       "flavor_text": "Preparación = supervivencia urbana"
+    },
+    {
+      "id": "documents_helper_01",
+      "name": "Abogado de confianza",
+      "category": "legal",
+      "type": "utility",
+      "description": "Доверенный юрист помогает с документами",
+      "cost": {
+        "money": 3
+      },
+      "effects": {
+        "documents_cards": 3,
+        "nerves": 1
+      },
+      "when_to_play": "anytime",
+      "flavor_text": "¡Abogado que conoce el sistema!"
+    },
+    {
+      "id": "documents_helper_02", 
+      "name": "Gestoría express",
+      "category": "bureaucracy",
+      "type": "utility",
+      "description": "Быстрая обработка документов через знакомую контору",
+      "cost": {
+        "money": 2
+      },
+      "effects": {
+        "documents_cards": 3,
+        "money": 1
+      },
+      "when_to_play": "anytime",
+      "flavor_text": "¡Gestoría con enchufe!"
+    },
+    {
+      "id": "documents_helper_03",
+      "name": "Traductor oficial",
+      "category": "translation",
+      "type": "utility", 
+      "description": "Официальный переводчик помогает с документами",
+      "cost": {
+        "money": 4
+      },
+      "effects": {
+        "documents_cards": 3,
+        "language_level": 1
+      },
+      "when_to_play": "anytime",
+      "flavor_text": "¡Traductor que entiende la burocracia!"
     }
   ]
 }

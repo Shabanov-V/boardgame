@@ -36,16 +36,16 @@
         },
         "it_specialist": {
           "nerves": -12,
-          "money": -12,
+          "money_percent": -25,
           "documents_cards": -4
         },
         "entrepreneur": {
           "nerves": -4,
-          "money": -4
+          "money_percent": -20
         },
         "spanish_spouse": {
           "nerves": -10,
-          "money": -10,
+          "money_percent": -25,
           "documents_cards": -4
         }
       },
@@ -349,7 +349,7 @@
       },
       "effects": {
         "nerves": -1,
-        "money": -3
+        "money_percent": -15
       },
       "flavor_text": "Calefacción muy cara"
     },
@@ -1033,7 +1033,7 @@
         ]
       },
       "effects": {
-        "money": -15,
+        "money_percent": -30,
         "nerves": 2
       },
       "additional_effects": {
@@ -1043,11 +1043,11 @@
             "entrepreneur",
             "student"
           ],
-          "money": -3,
+          "money_percent": -15,
           "nerves": 2
         },
         "all_others": {
-          "money": -1,
+          "money_percent": -5,
           "nerves": 0
         }
       },
@@ -1070,17 +1070,17 @@
       "individual_modifiers": {
         "it_specialist": {
           "nerves": -6,
-          "money": -5,
+          "money_percent": -20,
           "language_level": 0
         },
         "entrepreneur": {
           "nerves": -3,
-          "money": -3,
+          "money_percent": -15,
           "language_level": 0
         },
         "freelance_artist": {
           "nerves": 1,
-          "money": 1,
+          "money_percent": 5,
           "language_level": 0
         }
       },
@@ -1100,7 +1100,7 @@
         ]
       },
       "effects": {
-        "money": -5,
+        "money_percent": -25,
         "nerves": -1
       },
       "flavor_text": "Bitcoin bajó 50% - HODL не помог",
@@ -1593,16 +1593,16 @@
       "individual_modifiers": {
         "spanish_spouse": {
           "nerves": -3,
-          "money": -12,
+          "money_percent": -25,
           "language_level": -1
         },
         "waiter": {
           "nerves": -3,
-          "money": -1
+          "money_percent": -10
         },
         "pensioner": {
           "nerves": -3,
-          "money": -1
+          "money_percent": -10
         }
       },
       "flavor_text": "¡Tienes que integrarte! Pressure from Spanish family",
@@ -1791,16 +1791,16 @@
       },
       "individual_modifiers": {
         "spanish_spouse": {
-          "money": -5,
+          "money_percent": -20,
           "nerves": -3,
           "documents_cards": -2
         },
         "it_specialist": {
-          "money": -15,
+          "money_percent": -25,
           "nerves": -2
         },
         "pensioner": {
-          "money": 5,
+          "money_percent": 10,
           "nerves": 2,
           "documents_cards": 3
         }
@@ -1964,23 +1964,281 @@
         "personal_items": 2
       },
       "flavor_text": "¡Compañeros = familia!"
+    },
+    {
+      "id": "accident_01",
+      "name": "ДТП",
+      "category": "accident",
+      "type": "negative",
+      "description": "Авария без пострадавших, но с большим ущербом",
+      "effects": {
+        "money_percent": -33,
+        "nerves": -3
+      },
+      "flavor_text": "Accidente de tráfico"
+    },
+    {
+      "id": "accident_02",
+      "name": "Затопление квартиры",
+      "category": "accident",
+      "type": "negative",
+      "description": "Прорвало трубу, затопило соседей",
+      "effects": {
+        "money_percent": -33,
+        "nerves": -3
+      },
+      "flavor_text": "Inundación del piso"
+    },
+    {
+      "id": "accident_03",
+      "name": "Кража",
+      "category": "accident",
+      "type": "negative",
+      "description": "Украли ценные вещи",
+      "effects": {
+        "money_percent": -33,
+        "nerves": -3
+      },
+      "flavor_text": "Robo en casa"
+    },
+    {
+      "id": "accident_04",
+      "name": "Потеря техники",
+      "category": "accident",
+      "type": "negative",
+      "description": "Разбился ноутбук и телефон",
+      "effects": {
+        "money_percent": -33,
+        "nerves": -3
+      },
+      "flavor_text": "Pérdida de dispositivos"
+    },
+    {
+      "id": "accident_05",
+      "name": "Штраф за парковку",
+      "category": "accident",
+      "type": "negative",
+      "description": "Эвакуировали машину + большой штраф",
+      "effects": {
+        "money_percent": -33,
+        "nerves": -3
+      },
+      "flavor_text": "Multa de aparcamiento"
+    },
+    {
+      "id": "quiz_01",
+      "name": "Pub Quiz",
+      "category": "social",
+      "type": "positive",
+      "description": "Веселый вечер на викторине с друзьями",
+      "effects": {
+        "nerves": 2,
+        "money": -1
+      },
+      "flavor_text": "¡Noche de quiz!"
+    },
+    {
+      "id": "quiz_02",
+      "name": "Квиз на испанском",
+      "category": "social",
+      "type": "positive",
+      "description": "Викторина помогает учить язык",
+      "effects": {
+        "nerves": 2,
+        "money": -1,
+        "language_bonus": true
+      },
+      "flavor_text": "Quiz en español"
+    },
+    {
+      "id": "quiz_03",
+      "name": "Победа в квизе",
+      "category": "social",
+      "type": "positive",
+      "description": "Ваша команда выиграла главный приз",
+      "effects": {
+        "nerves": 2,
+        "money": 2
+      },
+      "flavor_text": "¡Campeones del quiz!"
+    },
+    {
+      "id": "quiz_04",
+      "name": "Квиз о культуре",
+      "category": "social",
+      "type": "positive",
+      "description": "Викторина об испанской культуре",
+      "effects": {
+        "nerves": 2,
+        "money": -1,
+        "cultural_bonus": true
+      },
+      "flavor_text": "Quiz cultural"
+    },
+    {
+      "id": "quiz_05",
+      "name": "Тематический квиз",
+      "category": "social",
+      "type": "positive",
+      "description": "Викторина по любимой теме",
+      "effects": {
+        "nerves": 2,
+        "money": -1
+      },
+      "flavor_text": "Quiz temático"
+    },
+    {
+      "id": "quiz_06",
+      "name": "Музыкальный квиз",
+      "category": "social",
+      "type": "positive",
+      "description": "Викторина о музыке всего мира",
+      "effects": {
+        "nerves": 2,
+        "money": -1
+      },
+      "flavor_text": "Quiz musical"
+    },
+    {
+      "id": "quiz_07",
+      "name": "Квиз о кино",
+      "category": "social",
+      "type": "positive",
+      "description": "Викторина о испанском кинематографе",
+      "effects": {
+        "nerves": 2,
+        "money": -1,
+        "cultural_bonus": true
+      },
+      "flavor_text": "Quiz de cine"
+    },
+    {
+      "id":     "quiz_08",
+      "name": "Спортивный квиз",
+      "category": "social",
+      "type": "positive",
+      "description": "Викторина о спорте",
+      "effects": {
+        "nerves": 2,
+        "money": -1
+      },
+      "flavor_text": "Quiz deportivo"
+    },
+    {
+      "id": "relax_01",
+      "name": "Вечер настольных игр",
+      "category": "social",
+      "type": "positive",
+      "description": "Веселый вечер за настольными играми с друзьями",
+      "effects": {
+        "nerves": 2,
+        "money": -1
+      },
+      "flavor_text": "¡Juegos de mesa!"
+    },
+    {
+      "id": "relax_02",
+      "name": "Пикник в парке",
+      "category": "social",
+      "type": "positive",
+      "description": "Отдых на природе с друзьями",
+      "effects": {
+        "nerves": 2,
+        "money": -1
+      },
+      "flavor_text": "¡Picnic en el parque!"
+    },
+    {
+      "id": "relax_03",
+      "name": "Кинопросмотр",
+      "category": "social",
+      "type": "positive",
+      "description": "Вечер испанского кино с друзьями",
+      "effects": {
+        "nerves": 2,
+        "money": -1,
+        "language_bonus": true
+      },
+      "flavor_text": "¡Noche de cine español!"
+    },
+    {
+      "id": "relax_04",
+      "name": "Караоке-вечер",
+      "category": "social",
+      "type": "positive",
+      "description": "Пение испанских песен в караоке",
+      "effects": {
+        "nerves": 2,
+        "money": -1,
+        "language_bonus": true
+      },
+      "flavor_text": "¡Karaoke español!"
+    },
+    {
+      "id": "relax_05",
+      "name": "Пляжный день",
+      "category": "social",
+      "type": "positive",
+      "description": "Отдых на пляже с друзьями",
+      "effects": {
+        "nerves": 2,
+        "money": -1
+      },
+      "flavor_text": "¡Día de playa!"
+    },
+    {
+      "id": "relax_06",
+      "name": "Футбольный матч",
+      "category": "social",
+      "type": "positive",
+      "description": "Просмотр футбола в баре с друзьями",
+      "effects": {
+        "nerves": 2,
+        "money": -1
+      },
+      "flavor_text": "¡Fútbol con amigos!"
+    },
+    {
+      "id": "relax_07",
+      "name": "Вечеринка у друзей",
+      "category": "social",
+      "type": "positive",
+      "description": "Веселая вечеринка в испанском стиле",
+      "effects": {
+        "nerves": 2,
+        "money": -1
+      },
+      "flavor_text": "¡Fiesta en casa!"
+    },
+    {
+      "id": "relax_08",
+      "name": "Танцевальный вечер",
+      "category": "social",
+      "type": "positive",
+      "description": "Вечер латиноамериканских танцев",
+      "effects": {
+        "nerves": 2,
+        "money": -1
+      },
+      "flavor_text": "¡Baile latino!"
     }
   ],
   "card_stats": {
     "global_positive": 8,
     "global_negative": 8,
-    "positive": 38,
-    "negative": 8,
+    "positive": 54,
+    "negative": 13,
     "dice_challenges": 6,
     "seasonal": 4,
     "cultural": 9,
-    "social": 11,
+    "social": 27,
     "bureaucracy": 28,
     "consumer": 1,
     "health": 1,
     "financial": 2,
     "economic": 2,
     "educational": 3,
-    "total": 73
+    "accident": 5,
+    "total": 94
   }
 }

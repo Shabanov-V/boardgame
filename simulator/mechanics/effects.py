@@ -21,6 +21,38 @@ class EffectManager:
                         player.money = max(0, player.money + final_value)
                 else:
                     player.money = max(0, player.money + value)
+            elif key == 'money_percent':
+                # Handle percentage-based money changes
+                change = int(player.money * (value / 100))
+                if change != 0:
+                    if event_manager:
+                        event = event_manager.create_event(
+                            "money_percent_change",
+                            player,
+                            {"money": change},
+                            f"{player.name} {'gains' if change > 0 else 'loses'} {abs(change)} money ({value}% of current money)"
+                        )
+                        if not event.is_blocked:
+                            final_change = event.effects.get("money", change)
+                            player.money = max(0, player.money + final_change)
+                    else:
+                        player.money = max(0, player.money + change)
+            elif key == 'money_divide':
+                # Handle dividing money by a value (e.g. divide by 2 = lose half)
+                change = -int(player.money * ((value - 1) / value))
+                if change != 0:
+                    if event_manager:
+                        event = event_manager.create_event(
+                            "money_divide",
+                            player,
+                            {"money": change},
+                            f"{player.name} loses {abs(change)} money (divided by {value})"
+                        )
+                        if not event.is_blocked:
+                            final_change = event.effects.get("money", change)
+                            player.money = max(0, player.money + final_change)
+                    else:
+                        player.money = max(0, player.money + change)
             elif key == 'documents_cards':
                 player.document_cards = max(0, player.document_cards + value)
             elif key == 'language_level_up' and value:

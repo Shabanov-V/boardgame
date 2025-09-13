@@ -43,7 +43,7 @@
       "type": "negative", 
       "description": "Весенняя аллергия атакует",
       "effects": {
-        "nerves": -3,
+        "nerves": -2,
         "money": -1
       },
       "flavor_text": "Антигистаминные в аптеке"
@@ -91,7 +91,7 @@
             "condition": "1",
             "description": "Без документов отправили в частную клинику",
             "effects": {
-              "nerves": -3,
+              "nerves": -2,
               "money": -1
             }
           }
@@ -118,7 +118,7 @@
       "type": "negative",
       "description": "Небольшая травма, нужна перевязка",
       "effects": {
-        "nerves": -3,
+        "nerves": -2,
         "money": -1
       },
       "flavor_text": "Accidente laboral menor"
@@ -142,7 +142,7 @@
       "type": "negative",
       "description": "Что-то не то съели, плохо себя чувствуете",
       "effects": {
-        "nerves": -3,
+        "nerves": -2,
         "money": -1
       },
       "flavor_text": "Tortilla española подозрительная была"
@@ -178,7 +178,7 @@
       "type": "negative",
       "description": "Срочный визит к стоматологу",
       "effects": {
-        "nerves": -3,
+        "nerves": -2,
         "money": -1
       },
       "flavor_text": "Emergencia dental"
@@ -250,7 +250,7 @@
             "condition": "1",
             "description": "Без документов в аптеку не пустили",
             "effects": {
-              "nerves": -3,
+              "nerves": -2,
               "money": 0
             }
           }
@@ -277,7 +277,7 @@
       "type": "negative",
       "description": "Недооценили испанское солнце",
       "effects": {
-        "nerves": -3,
+        "nerves": -2,
         "money": -1
       },
       "flavor_text": "Сиеста существует не просто так"
@@ -324,7 +324,7 @@
             "condition": "1",
             "description": "Отправили в частную клинику",
             "effects": {
-              "nerves": -3,
+              "nerves": -2,
               "money": -1
             }
           }
@@ -363,7 +363,7 @@
             "condition": "1",
             "description": "Языковой барьер мешает терапии",
             "effects": {
-              "nerves": -3,
+              "nerves": -2,
               "money": -1
             }
           }
@@ -402,7 +402,7 @@
             "condition": "1-2",
             "description": "Заблудились, пришлось идти в частную клинику",
             "effects": {
-              "nerves": -3,
+              "nerves": -2,
               "money": -1
             }
           }
@@ -432,7 +432,7 @@
             "condition": "2-4",
             "description": "Купили лекарства, но не совсем те",
             "effects": {
-              "nerves": -3,
+              "nerves": -2,
               "money": -1
             }
           },
@@ -440,7 +440,7 @@
             "condition": "1",
             "description": "Фармацевт ничего не понял, отправил к врачу",
             "effects": {
-              "nerves": -3,
+              "nerves": -2,
               "money": -1
             }
           }
@@ -471,7 +471,7 @@
             "condition": "3-5",
             "description": "Скорая приехала, но с задержкой",
             "effects": {
-              "nerves": -3,
+              "nerves": -2,
               "money": 0
             }
           },
@@ -479,7 +479,7 @@
             "condition": "1-2",
             "description": "Не смогли объяснить, пришлось бежать в больницу",
             "effects": {
-              "nerves": -3,
+              "nerves": -2,
               "money": -1
             }
           }
@@ -517,7 +517,7 @@
             "condition": "1-2",
             "description": "Отказали в выплате, платите сами",
             "effects": {
-              "nerves": -3,
+              "nerves": -2,
               "money": -1
             }
           }
@@ -547,7 +547,7 @@
             "condition": "2-4",
             "description": "Направление дали, но не к тому специалисту",
             "effects": {
-              "nerves": -3,
+              "nerves": -2,
               "money": -1
             }
           },
@@ -555,7 +555,7 @@
             "condition": "1",
             "description": "Врач не понял проблему, отказал в направлении",
             "effects": {
-              "nerves": -3,
+              "nerves": -2,
               "money": -1
             }
           }
@@ -585,7 +585,7 @@
             "condition": "2-4",
             "description": "Купили что-то, помогло частично",
             "effects": {
-              "nerves": -3,
+              "nerves": -2,
               "money": -1
             }
           },
@@ -593,7 +593,7 @@
             "condition": "1",
             "description": "Не поняли друг друга, пришлось в больницу",
             "effects": {
-              "nerves": -3,
+              "nerves": -2,
               "money": -1
             }
           }
@@ -623,7 +623,7 @@
             "condition": "3-5",
             "description": "Пройдено частично, нужны доп. справки",
             "effects": {
-              "nerves": -3,
+              "nerves": -2,
               "money": -1
             }
           },
@@ -631,7 +631,7 @@
             "condition": "1-2",
             "description": "Не хватает документов, комиссия провалена",
             "effects": {
-              "nerves": -3,
+              "nerves": -2,
               "money": -1,
               "document_penalty": true
             }
@@ -670,20 +670,124 @@
             "condition": "1",
             "description": "Не смогли объяснить, дали только обезболивающее",
             "effects": {
-              "nerves": -3,
+              "nerves": -2,
               "money": -1
             }
           }
         }
       },
       "flavor_text": "Dolor dental = emergencia universal"
+    },
+    {
+      "id": "health_31",
+      "name": "Развод",
+      "category": "health",
+      "type": "negative",
+      "description": "Тяжелый развод отнимает силы и деньги",
+      "effects": {
+        "nerves_divide": 2,
+        "money_divide": 2,
+        "documents_cards": 2
+      },
+      "flavor_text": "Divorcio = crisis total"
+    },
+    {
+      "id": "health_32",
+      "name": "Расставание",
+      "category": "health",
+      "type": "negative",
+      "description": "Болезненное расставание бьет по всем фронтам",
+      "effects": {
+        "nerves_divide": 2,
+        "money_divide": 2,
+        "documents_cards": 2
+      },
+      "flavor_text": "Ruptura emocional"
+    },
+    {
+      "id": "health_33",
+      "name": "Семейный кризис",
+      "category": "health",
+      "type": "negative",
+      "description": "Кризис в отношениях требует много сил",
+      "effects": {
+        "nerves_divide": 2,
+        "money_divide": 2,
+        "documents_cards": 2
+      },
+      "flavor_text": "Crisis familiar"
+    },
+    {
+      "id": "health_34",
+      "name": "Раздел имущества",
+      "category": "health",
+      "type": "negative",
+      "description": "Тяжелый процесс раздела имущества",
+      "effects": {
+        "nerves_divide": 2,
+        "money_divide": 2,
+        "documents_cards": 2
+      },
+      "flavor_text": "División de bienes"
+    },
+    {
+      "id": "health_35",
+      "name": "Судебные тяжбы",
+      "category": "health",
+      "type": "negative",
+      "description": "Суды по разводу отнимают все силы",
+      "effects": {
+        "nerves_divide": 2,
+        "money_divide": 2,
+        "documents_cards": 2
+      },
+      "flavor_text": "Batallas legales"
+    },
+    {
+      "id": "health_36",
+      "name": "Разрыв отношений",
+      "category": "health",
+      "type": "negative",
+      "description": "Тяжелый разрыв длительных отношений",
+      "effects": {
+        "nerves_divide": 2,
+        "money_divide": 2,
+        "documents_cards": 2
+      },
+      "flavor_text": "Fin del amor"
+    },
+    {
+      "id": "health_37",
+      "name": "Развод с испанцем",
+      "category": "health",
+      "type": "negative",
+      "description": "Особенно сложный развод с гражданином Испании",
+      "effects": {
+        "nerves_divide": 2,
+        "money_divide": 2,
+        "documents_cards": 2
+      },
+      "flavor_text": "Divorcio internacional"
+    },
+    {
+      "id": "health_38",
+      "name": "Бракоразводный процесс",
+      "category": "health",
+      "type": "negative",
+      "description": "Длительный и сложный процесс развода",
+      "effects": {
+        "nerves_divide": 2,
+        "money_divide": 2,
+        "documents_cards": 2
+      },
+      "flavor_text": "Proceso de divorcio"
     }
   ],
   "card_stats": {
     "positive": 12,
-    "negative": 7,
+    "negative": 15,
     "neutral": 1,
     "dice_challenges": 12,
-    "total": 30
+    "total": 38
   }
 }

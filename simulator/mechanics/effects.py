@@ -62,6 +62,9 @@ class EffectManager:
                 player.document_level = max(0, player.document_level + value)
             elif key == 'language_level':
                 player.language_level = max(1, min(3, player.language_level + value))
+            elif key == 'housing_cost_modifier':
+                if isinstance(value, dict) and 'amount' in value and 'description' in value:
+                    player.add_housing_cost_modifier(value['amount'], value['description'])
 
     @staticmethod
     def apply_bonus(player, bonus_type, value):
@@ -90,20 +93,20 @@ class EffectManager:
             if player.housing == 'room':
                 player.housing = 'apartment'
                 player.housing_level = 2
-                player.housing_cost = 3
             elif player.housing == 'apartment':
                 player.housing = 'mortgage'
                 player.housing_level = 3
-                player.housing_cost = 5
             print(f"System: {player.name} upgraded housing from {old_housing} to {player.housing}!")
         else:
             if player.housing == 'mortgage':
                 player.housing = 'apartment'
                 player.housing_level = 2
-                player.housing_cost = 3
             elif player.housing == 'apartment':
                 player.housing = 'room'
                 player.housing_level = 1
-                player.housing_cost = 1
             print(f"System: {player.name} downgraded housing from {old_housing} to {player.housing}.")
+        
+        # Update base housing cost based on new housing type
+        housing_rent = player.config['costs']['housing_rent']
+        player.base_housing_cost = housing_rent.get(player.housing, 0)
 

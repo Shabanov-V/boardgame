@@ -680,7 +680,19 @@ class AI:
         print(f"🎯 {self.player.name} trust in {other_player.name}: {self.trust_levels[other_player.name]:.1f}")
         
     def decide_on_green_space(self):
-        """Decide whether to draw a green card or a personal item."""
+        """Decide whether to draw a green card, buy document level, or get a personal item."""
+        # If we can buy a document level and need it, do it
+        if self.player.can_buy_document_level():
+            if not self.player.win_condition:
+                # No goal yet, always good to get document levels
+                print(f"AI ({self.player.name}): Buying document level to reach goal selection.")
+                return 'buy_document_level'
+            elif 'document_level' in self.goal_requirements:
+                required_level = int(self.goal_requirements['document_level'])
+                if self.player.document_level < required_level:
+                    print(f"AI ({self.player.name}): Buying document level for goal.")
+                    return 'buy_document_level'
+
         # If personal items hand is full, must draw green
         if len(self.player.personal_items_hand) >= self.player.max_personal_items_hand:
             print(f"AI ({self.player.name}): Personal items hand is full, must draw green card.")

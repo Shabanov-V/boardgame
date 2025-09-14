@@ -35,7 +35,7 @@ class Game:
         # Initialize managers
         self.interaction_manager = InteractionManager(self.players)
         self.trade_manager = TradeManager(self.players)
-        self.elimination_manager = EliminationManager(game_data)
+        self.elimination_manager = EliminationManager(game_data, self.players)
         self.effect_manager = EffectManager()
         self.challenge_manager = ChallengeManager()
         
@@ -63,11 +63,16 @@ class Game:
         """Initialize all players."""
         self.players = []
         num_players = self.config['game_parameters']['number_of_players']
-        profiles = random.sample(self.config['character_profiles'], num_players)
+        
+        # Load character profiles from character_config.json
+        with open(self.config['character_profiles']) as f:
+            import json
+            character_config = json.load(f)
+            profiles = random.sample(character_config['character_profiles'], num_players)
 
         for profile in profiles:
             # Players start without a goal - will choose at document level 5
-            player = Player(profile, None, self.config, self.game_data['game_constants'])
+            player = Player(profile, None, self.config, self.game_data)
 
             # Give starting action cards (3 per player)
             if 'item' in self.decks:
@@ -113,17 +118,8 @@ class Game:
             max_turns = len(self.players) * 15  # 15 turns per player
             if self.turn >= max_turns:
                 self.game_over = True
-                if not self.winner:
-                    self.end_reason = 'time_limit'
-                    # Find player closest to winning
-                    best_player = None
-                    best_progress = 0
-                    for player in active_players:
-                        progress = calculate_win_progress(player)
-                        if progress > best_progress:
-                            best_progress = progress
-                            best_player = player
-                    self.winner = best_player
+                self.end_reason = 'time_limit'
+                self.winner = None
         
         # End game analytics
         self.analytics.end_game(self.winner, self.end_reason)
@@ -277,7 +273,25 @@ class Game:
         
         if cell_type == 'green':
             decision = player.ai.decide_on_green_space()
-            if decision == 'draw_green':
+            if decision == 'buy_document_level':
+                # Try to buy document level
+                if player.buy_document_level():
+                    # Create document level up event
+                    level_up_event = InteractiveEvent(
+                        "document_level_up",
+                        player,
+                        {"document_level": 1},
+                        f"{player.name} attempts to buy document level"
+                    )
+                    level_up_event = self.interaction_manager.announce_event(level_up_event)
+                    
+                    if level_up_event.is_blocked:
+                        print(f"🚫 {player.name}'s document level up was blocked!")
+                        # Refund the money
+                        cost = (player.document_level + 1) * 3
+                        player.money += cost
+                        player.document_level -= 1
+            elif decision == 'draw_green':
                 card = self.decks['green'].draw()
                 if card:
                     use_decision = 'event'  # Default for non-exchange cards
@@ -398,28 +412,28 @@ class Game:
         """Handle events that occur when players complete a lap."""
         for player in self.players:
             if not player.is_eliminated:
-                # Handle salary
+                # Pay housing costs first
+                housing_cost = player.housing_cost
+                old_money = player.money
+                player.money -= housing_cost
+                
+                # Analytics: Track housing cost
+                self.analytics.track_resource_change(player, 'money', -housing_cost, 'housing_cost')
+                
+                # Then handle salary
                 if player.salary_type == 'dice':
                     salary = random.randint(1, 6) + player.salary_base
                 else:
                     salary = player.salary
                 
-                old_money = player.money
                 player.money += salary
                 
                 # Analytics: Track salary
                 self.analytics.track_resource_change(player, 'money', salary, 'salary')
                 
-                # Give document cards
-                player.document_cards += 2
-                self.analytics.track_resource_change(player, 'document_cards', 2, 'round_income')
-                
-                # Pay housing costs
-                housing_cost = player.housing_cost
-                player.money -= housing_cost
-                
-                # Analytics: Track housing cost
-                self.analytics.track_resource_change(player, 'money', -housing_cost, 'housing_cost')
+                # Give document card
+                player.document_cards += 1
+                self.analytics.track_resource_change(player, 'document_cards', 1, 'round_income')
                 
                 print(f"End of round: {player.name} +{salary} salary -{housing_cost} rent = {player.money - old_money} net")
                 

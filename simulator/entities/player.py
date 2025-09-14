@@ -21,14 +21,19 @@ class Player:
         self.salary = profile.get('salary', 0)
         self.salary_type = profile.get('salary_type', 'fixed')
         self.salary_base = profile.get('salary_base', 0)
-        self.housing_cost = profile.get('housing_cost', 0)
+        # Housing cost is determined by housing type from game_constants
+        housing_rent = config['costs']['housing_rent']
+        self.base_housing_cost = housing_rent.get(self.housing, 0)
+        self.housing_cost_modifiers = []  # List of {amount: int, description: str} dicts
 
         self.position = 0
         self._document_level = int(0)
         self.action_cards = []
-        self.max_action_cards = game_constants['game_constants']['max_action_cards']
+        self.game_constants = game_constants
+        self.config = config
+        self.max_action_cards = config['simulation_parameters']['max_action_cards']
         self.personal_items_hand = []
-        self.max_personal_items_hand = game_constants['game_constants']['max_personal_items_hand']
+        self.max_personal_items_hand = config['simulation_parameters']['max_personal_items_hand']
         self.document_cards = 1  # Number of collected document cards
         self.housing_search = False  # Whether player is actively searching for housing
         
@@ -168,6 +173,12 @@ class Player:
             elif resource == 'document_cards':
                 self.document_cards = max(0, self.document_cards - amount)
         
+        # Handle special effects
+        effects = item.get('effects', {})
+        for effect_type, effect_value in effects.items():
+            if effect_type == 'remove_housing_cost_modifier':
+                self.remove_housing_cost_modifier(effect_value)
+
         # Remove item from hand
         self.personal_items_hand.remove(item)
         
@@ -207,3 +218,41 @@ class Player:
             if self.temporary_bonuses[bonus_type] > 0:
                 print(f"System: {self.name} lost {self.temporary_bonuses[bonus_type]} {bonus_type} bonus")
                 self.temporary_bonuses[bonus_type] = 0
+
+    @property
+    def housing_cost(self):
+        """Calculate total housing cost with all modifiers."""
+        total_cost = self.base_housing_cost
+        for modifier in self.housing_cost_modifiers:
+            total_cost += modifier['amount']
+        return total_cost
+
+    def add_housing_cost_modifier(self, amount, description):
+        """Add a housing cost modifier."""
+        modifier = {'amount': amount, 'description': description}
+        self.housing_cost_modifiers.append(modifier)
+        print(f"🏠 {self.name}: {description} (+{amount} к стоимости жилья)")
+
+    def remove_housing_cost_modifier(self, description):
+        """Remove a housing cost modifier by description."""
+        for modifier in self.housing_cost_modifiers[:]:
+            if modifier['description'] == description:
+                self.housing_cost_modifiers.remove(modifier)
+                print(f"🏠 {self.name}: {description} больше не действует")
+
+    def can_buy_document_level(self):
+        """Check if player can buy a document level."""
+        target_level = self.document_level + 1
+        cost = target_level * 3
+        return self.money >= cost
+
+    def buy_document_level(self):
+        """Buy a document level for money."""
+        target_level = self.document_level + 1
+        cost = target_level * 3
+        if self.money >= cost:
+            self.money -= cost
+            self.document_level += 1
+            print(f"📄 {self.name} купил {target_level} уровень документов за {cost} монет")
+            return True
+        return False

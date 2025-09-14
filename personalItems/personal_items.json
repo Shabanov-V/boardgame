@@ -1,0 +1,43 @@
+{
+  "personal_items": [
+    {
+      "id": "lawyer_help_01",
+      "name": "Помощь юриста",
+      "type": "defensive",
+      "description": "Юрист помогает оспорить повышение аренды",
+      "cost": {
+        "money": 2
+      },
+      "effects": {
+        "remove_housing_cost_modifier": "Повышение арендной платы"
+      },
+      "flavor_text": "¡Abogado al rescate!"
+    },
+    {
+      "id": "lawyer_help_02",
+      "name": "Консультация юриста",
+      "type": "defensive",
+      "description": "Юрист помогает оспорить инфляцию на рынке жилья",
+      "cost": {
+        "money": 2
+      },
+      "effects": {
+        "remove_housing_cost_modifier": "Инфляция на рынке жилья"
+      },
+      "flavor_text": "¡Defensa legal!"
+    },
+    {
+      "id": "lawyer_help_03",
+      "name": "Жалоба в суд",
+      "type": "defensive",
+      "description": "Юрист помогает оспорить повышение из-за ремонта",
+      "cost": {
+        "money": 2
+      },
+      "effects": {
+        "remove_housing_cost_modifier": "Повышение из-за ремонта"
+      },
+      "flavor_text": "¡Justicia española!"
+    }
+  ]
+}

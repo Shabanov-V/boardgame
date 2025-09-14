@@ -7,7 +7,20 @@ class ChallengeManager:
     @staticmethod
     def handle_challenge(player, challenge, event_manager=None):
         """Execute a dice challenge for a player."""
-        roll = random.randint(1, 6)
+        # Roll based on language level
+        if player.language_level == 1:
+            # Level 1: Roll 2 dice, take lowest
+            roll1 = random.randint(1, 6)
+            roll2 = random.randint(1, 6)
+            roll = min(roll1, roll2)
+        elif player.language_level == 2:
+            # Level 2: Roll 1 die
+            roll = random.randint(1, 6)
+        else:
+            # Level 3: Roll 2 dice, take highest
+            roll1 = random.randint(1, 6)
+            roll2 = random.randint(1, 6)
+            roll = max(roll1, roll2)
         print(f"🎲 {player.name} rolls {roll} for {challenge.get('description', 'challenge')}")
 
         # Find the appropriate outcome based on roll

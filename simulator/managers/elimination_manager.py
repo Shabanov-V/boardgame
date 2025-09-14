@@ -1,8 +1,9 @@
 class EliminationManager:
     """Manages player elimination conditions and processes."""
     
-    def __init__(self, game_data):
+    def __init__(self, game_data, players=None):
         self.elimination_threshold = game_data['game_constants']['game_constants'].get('elimination_threshold', -1)
+        self.players = players
     
     def check_elimination(self, player, current_turn):
         """Check if a player should be eliminated."""
@@ -11,16 +12,10 @@ class EliminationManager:
             self._eliminate_player(player, current_turn, "низких нервов")
             return True
             
-        # Check money - try to sell cards if negative
+        # Check money after salary and rent
         elif player.money < 0:
-            # Emergency card sale when bankrupt
-            emergency_money = self.emergency_sell_cards(player)
-            if player.money >= 0:
-                print(f"💰 {player.name} избежал банкротства, продав карты за {emergency_money} денег")
-                return False
-            else:
-                self._eliminate_player(player, current_turn, "долгов")
-                return True
+            self._eliminate_player(player, current_turn, "долгов")
+            return True
                 
         return False
     

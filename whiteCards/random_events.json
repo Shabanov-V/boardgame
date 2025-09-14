@@ -1,6 +1,51 @@
 {
   "random_events": [
     {
+      "id": "rent_increase_01",
+      "name": "Повышение аренды",
+      "category": "housing",
+      "type": "negative",
+      "description": "Хозяин квартиры поднял стоимость аренды",
+      "effects": {
+        "housing_cost_modifier": {
+          "amount": 2,
+          "description": "Повышение арендной платы"
+        }
+      },
+      "duration": "permanent_until_removed",
+      "flavor_text": "¡El alquiler sube otra vez!"
+    },
+    {
+      "id": "rent_increase_02",
+      "name": "Инфляция жилья",
+      "category": "housing",
+      "type": "negative",
+      "description": "Общий рост цен на жилье в районе",
+      "effects": {
+        "housing_cost_modifier": {
+          "amount": 3,
+          "description": "Инфляция на рынке жилья"
+        }
+      },
+      "duration": "permanent_until_removed",
+      "flavor_text": "¡Los precios suben en todo el barrio!"
+    },
+    {
+      "id": "rent_increase_03",
+      "name": "Ремонт дома",
+      "category": "housing",
+      "type": "negative",
+      "description": "Хозяин сделал ремонт и поднял цену",
+      "effects": {
+        "housing_cost_modifier": {
+          "amount": 4,
+          "description": "Повышение из-за ремонта"
+        }
+      },
+      "duration": "permanent_until_removed",
+      "flavor_text": "¡Reformas = alquiler más caro!"
+    },
+    {
       "id": "event_01",
       "name": "Agosto",
       "category": "seasonal",
@@ -36,7 +81,7 @@
         },
         "it_specialist": {
           "nerves": -12,
-          "money_percent": -25,
+          "money_percent": -55,
           "documents_cards": -4
         },
         "entrepreneur": {
@@ -45,7 +90,7 @@
         },
         "spanish_spouse": {
           "nerves": -10,
-          "money_percent": -25,
+          "money_percent": -55,
           "documents_cards": -4
         }
       },
@@ -86,7 +131,7 @@
         },
         "student": {
           "nerves": 2,
-          "money": 2,
+          "money": 1,
           "documents_cards": 2
         }
       },
@@ -819,17 +864,17 @@
           "documents_cards": -2
         },
         "entrepreneur": {
-          "money": 25,
+          "money": 1,
           "nerves": 5,
           "documents_cards": 30
         },
         "spanish_spouse": {
-          "money": 2,
+          "money": 1,
           "nerves": -3,
           "documents_cards": 0
         },
         "waiter": {
-          "money": 15,
+          "money": 1,
           "nerves": 3,
           "documents_cards": 3
         }
@@ -849,22 +894,22 @@
       ],
       "individual_modifiers": {
         "entrepreneur": {
-          "money": 15,
+          "money": 1,
           "nerves": 6,
           "documents_cards": 3
         },
         "it_specialist": {
-          "money": -3,
+          "money": -4,
           "nerves": -3,
           "documents_cards": -2
         },
         "spanish_spouse": {
-          "money": 2,
+          "money": 1,
           "nerves": -3,
           "documents_cards": 1
         },
         "waiter": {
-          "money": 18,
+          "money": 1,
           "nerves": 3,
           "documents_cards": 3
         }
@@ -984,17 +1029,17 @@
       ],
       "individual_modifiers": {
         "pensioner": {
-          "money": 2,
+          "money": 1,
           "nerves": 1,
           "documents_cards": 3
         },
         "waiter": {
-          "money": 12,
+          "money": 1,
           "nerves": 6,
           "documents_cards": 3
         },
         "spanish_spouse": {
-          "money": 4,
+          "money": 1,
           "nerves": 0,
           "documents_cards": 1
         }
@@ -1014,7 +1059,7 @@
       ],
       "individual_modifiers": {
         "pensioner": {
-          "money": 12,
+          "money": 1,
           "nerves": 6,
           "document_level": 2
         }
@@ -1033,7 +1078,7 @@
         ]
       },
       "effects": {
-        "money_percent": -30,
+          "money_percent": -60,
         "nerves": 2
       },
       "additional_effects": {
@@ -1043,11 +1088,11 @@
             "entrepreneur",
             "student"
           ],
-          "money_percent": -15,
+          "money_percent": -50,
           "nerves": 2
         },
         "all_others": {
-          "money_percent": -5,
+          "money_percent": -50,
           "nerves": 0
         }
       },
@@ -1070,12 +1115,12 @@
       "individual_modifiers": {
         "it_specialist": {
           "nerves": -6,
-          "money_percent": -20,
+          "money_percent": -50,
           "language_level": 0
         },
         "entrepreneur": {
           "nerves": -3,
-          "money_percent": -15,
+          "money_percent": -50,
           "language_level": 0
         },
         "freelance_artist": {
@@ -1100,7 +1145,7 @@
         ]
       },
       "effects": {
-        "money_percent": -25,
+          "money_percent": -50,
         "nerves": -1
       },
       "flavor_text": "Bitcoin bajó 50% - HODL не помог",
@@ -1121,17 +1166,17 @@
       },
       "individual_modifiers": {
         "freelance_artist": {
-          "money": 12,
+          "money": 1,
           "nerves": 4,
           "documents_cards": 3
         },
         "student": {
-          "money": 25,
+          "money": 1,
           "nerves": 5,
           "documents_cards": 3
         },
         "courier": {
-          "money": 20,
+          "money": 1,
           "nerves": 4,
           "documents_cards": 3
         }
@@ -1154,27 +1199,27 @@
       },
       "individual_modifiers": {
         "courier": {
-          "money": 15,
+          "money": 1,
           "nerves": 3,
           "documents_cards": 3
         },
         "waiter": {
-          "money": 25,
+          "money": 1,
           "nerves": 5,
           "documents_cards": 3
         },
         "student": {
-          "money": 15,
+          "money": 1,
           "nerves": 4,
           "documents_cards": 3
         },
         "spanish_spouse": {
-          "money": 5,
+          "money": 1,
           "nerves": 1,
           "documents_cards": 3
         },
         "entrepreneur": {
-          "money": 25,
+          "money": 1,
           "nerves": 5,
           "documents_cards": 3
         }
@@ -1197,17 +1242,17 @@
       },
       "individual_modifiers": {
         "pensioner": {
-          "money": 15,
+          "money": 1,
           "nerves": 14,
           "documents_cards": 6
         },
         "student": {
-          "money": 15,
+          "money": 1,
           "nerves": 12,
           "documents_cards": 6
         },
         "waiter": {
-          "money": 20,
+          "money": 1,
           "nerves": 12,
           "documents_cards": 6
         }
@@ -1229,13 +1274,13 @@
       },
       "individual_modifiers": {
         "freelance_artist": {
-          "money": 10,
+          "money": 1,
           "nerves": 3,
           "documents_cards": 3,
           "language_level": 1
         },
         "student": {
-          "money": 15,
+          "money": 1,
           "nerves": 4,
           "documents_cards": 3,
           "language_level": 1
@@ -1259,19 +1304,19 @@
       },
       "individual_modifiers": {
         "student": {
-          "money": 6,
+          "money": 1,
           "nerves": 2,
           "documents_cards": 3,
           "language_level": 1
         },
         "freelance_artist": {
-          "money": 4,
+          "money": 1,
           "nerves": 1,
           "documents_cards": 3,
           "language_level": 0
         },
         "courier": {
-          "money": 4,
+          "money": 1,
           "nerves": 2,
           "documents_cards": 3,
           "language_level": 0
@@ -1295,19 +1340,19 @@
       },
       "individual_modifiers": {
         "pensioner": {
-          "money": 10,
+          "money": 1,
           "nerves": 4,
           "documents_cards": 3,
           "health_immunity": true
         },
         "student": {
-          "money": 8,
+          "money": 1,
           "nerves": 3,
           "documents_cards": 3,
           "health_immunity": false
         },
         "waiter": {
-          "money": 5,
+          "money": 1,
           "nerves": 2,
           "documents_cards": 3,
           "health_immunity": false
@@ -1331,12 +1376,12 @@
       },
       "individual_modifiers": {
         "student": {
-          "money": 8,
+          "money": 1,
           "nerves": 3,
           "mobility_bonus": true
         },
         "courier": {
-          "money": 5,
+          "money": 1,
           "nerves": 2,
           "mobility_bonus": true
         },
@@ -1364,17 +1409,17 @@
       },
       "individual_modifiers": {
         "pensioner": {
-          "money": 12,
+          "money": 1,
           "nerves": 3,
           "tax_immunity": true
         },
         "student": {
-          "money": 15,
+          "money": 1,
           "nerves": 4,
           "tax_immunity": false
         },
         "waiter": {
-          "money": 6,
+          "money": 1,
           "nerves": 1,
           "tax_immunity": false
         }
@@ -1397,17 +1442,17 @@
       },
       "individual_modifiers": {
         "entrepreneur": {
-          "money": 18,
+          "money": 1,
           "nerves": 2,
           "documents_cards": 3
         },
         "it_specialist": {
-          "money": 12,
+          "money": 1,
           "nerves": 4,
           "documents_cards": 3
         },
         "freelance_artist": {
-          "money": 10,
+          "money": 1,
           "nerves": 1,
           "documents_cards": 3
         }
@@ -1430,17 +1475,17 @@
       },
       "individual_modifiers": {
         "entrepreneur": {
-          "money": 22,
+          "money": 5,
           "nerves": 3,
           "documents_cards": 3
         },
         "it_specialist": {
-          "money": 15,
+          "money": 1,
           "nerves": 5,
           "documents_cards": 3
         },
         "courier": {
-          "money": 15,
+          "money": 1,
           "nerves": 2,
           "documents_cards": 3
         }
@@ -1463,17 +1508,17 @@
       },
       "individual_modifiers": {
         "entrepreneur": {
-          "money": 12,
+          "money": 1,
           "nerves": 1,
           "documents_cards": 3
         },
         "pensioner": {
-          "money": 15,
+          "money": 1,
           "nerves": 2,
           "documents_cards": 3
         },
         "student": {
-          "money": 10,
+          "money": 1,
           "nerves": 2,
           "documents_cards": 3
         }
@@ -1506,7 +1551,7 @@
           "documents_cards": -1
         },
         "courier": {
-          "money": -1,
+          "money": -4,
           "nerves": -3,
           "documents_cards": 0
         }
@@ -1534,12 +1579,12 @@
           "documents_cards": -2
         },
         "freelance_artist": {
-          "money": -2,
+          "money": -4,
           "nerves": -3,
           "documents_cards": -1
         },
         "waiter": {
-          "money": -1,
+          "money": -4,
           "nerves": -3,
           "documents_cards": 0
         }
@@ -1593,7 +1638,7 @@
       "individual_modifiers": {
         "spanish_spouse": {
           "nerves": -3,
-          "money_percent": -25,
+          "money_percent": -55,
           "language_level": -1
         },
         "waiter": {
@@ -1623,19 +1668,19 @@
       },
       "individual_modifiers": {
         "freelance_artist": {
-          "money": 15,
+          "money": 1,
           "nerves": 12,
           "documents_cards": 6,
           "language_level": 2
         },
         "courier": {
-          "money": 20,
+          "money": 1,
           "nerves": 12,
           "documents_cards": 6,
           "language_level": 2
         },
         "student": {
-          "money": 15,
+          "money": 1,
           "nerves": 12,
           "documents_cards": 6
         }
@@ -1659,12 +1704,12 @@
       "individual_modifiers": {
         "spanish_spouse": {
           "nerves": -3,
-          "money": -1,
+          "money": -4,
           "documents_cards": -1
         },
         "pensioner": {
           "nerves": 1,
-          "money": 3,
+          "money": 1,
           "documents_cards": 3
         },
         "entrepreneur": {
@@ -1721,19 +1766,19 @@
       },
       "individual_modifiers": {
         "freelance_artist": {
-          "money": 18,
+          "money": 1,
           "nerves": 3,
           "documents_cards": 3,
           "language_level": 0
         },
         "courier": {
-          "money": 15,
+          "money": 1,
           "nerves": 3,
           "documents_cards": 3,
           "language_level": 1
         },
         "waiter": {
-          "money": 12,
+          "money": 1,
           "nerves": 4,
           "documents_cards": 3
         }
@@ -1756,19 +1801,19 @@
       },
       "individual_modifiers": {
         "courier": {
-          "money": 18,
+          "money": 1,
           "nerves": 3,
           "documents_cards": 3,
           "housing_upgrade": true
         },
         "freelance_artist": {
-          "money": 15,
+          "money": 1,
           "nerves": 2,
           "documents_cards": 3,
           "housing_upgrade": false
         },
         "waiter": {
-          "money": 25,
+          "money": 1,
           "nerves": 3,
           "documents_cards": 3
         }
@@ -1791,12 +1836,12 @@
       },
       "individual_modifiers": {
         "spanish_spouse": {
-          "money_percent": -20,
+          "money_percent": -60,
           "nerves": -3,
           "documents_cards": -2
         },
         "it_specialist": {
-          "money_percent": -25,
+          "money_percent": -55,
           "nerves": -2
         },
         "pensioner": {
@@ -1824,7 +1869,7 @@
       "individual_modifiers": {
         "spanish_spouse": {
           "nerves": -3,
-          "money": -2,
+          "money": -4,
           "documents_cards": -1
         },
         "waiter": {
@@ -1854,17 +1899,17 @@
       },
       "individual_modifiers": {
         "courier": {
-          "money": 15,
+          "money": 1,
           "nerves": 3,
           "documents_cards": 3
         },
         "pensioner": {
-          "money": 3,
+          "money": 1,
           "nerves": 1,
           "documents_cards": 0
         },
         "waiter": {
-          "money": 15,
+          "money": 1,
           "nerves": 3,
           "documents_cards": 3
         }
@@ -1887,17 +1932,17 @@
       },
       "individual_modifiers": {
         "freelance_artist": {
-          "money": 12,
+          "money": 1,
           "nerves": 1,
           "documents_cards": 3
         },
         "spanish_spouse": {
-          "money": -2,
+          "money": -4,
           "nerves": -3,
           "documents_cards": -1
         },
         "it_specialist": {
-          "money": 12,
+          "money": 1,
           "nerves": 1,
           "documents_cards": 3
         }
@@ -2225,9 +2270,9 @@
   ],
   "card_stats": {
     "global_positive": 8,
-    "global_negative": 8,
+    "global_negative": 12,
     "positive": 54,
-    "negative": 13,
+    "negative": 18,
     "dice_challenges": 6,
     "seasonal": 4,
     "cultural": 9,
@@ -2235,10 +2280,10 @@
     "bureaucracy": 28,
     "consumer": 1,
     "health": 1,
-    "financial": 2,
-    "economic": 2,
+    "financial": 4,
+    "economic": 4,
     "educational": 3,
-    "accident": 5,
-    "total": 94
+    "accident": 8,
+    "total": 103
   }
 }

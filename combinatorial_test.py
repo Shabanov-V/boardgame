@@ -7,7 +7,7 @@ from simulator.game import Game
 
 def load_config():
     """Load game configuration."""
-    with open('boardgame/simulator/config.json', 'r', encoding='utf-8') as f:
+    with open('simulator/config.json', 'r', encoding='utf-8') as f:
         return json.load(f)
 
 def load_game_data():
@@ -23,28 +23,28 @@ def load_game_data():
     }
     
     # Load action cards
-    with open('boardgame/actionCartds/action_cards.json', 'r', encoding='utf-8') as f:
+    with open('actionCartds/action_cards.json', 'r', encoding='utf-8') as f:
         action_cards = json.load(f)
         game_data['action_cards'] = {'additional_action_cards': action_cards['action_cards']}
     
     # Load green cards
-    with open('boardgame/greenCards/documents_work_cards.json', 'r', encoding='utf-8') as f:
+    with open('greenCards/documents_work_cards.json', 'r', encoding='utf-8') as f:
         game_data['green_cards'] = json.load(f)
     
     # Load red cards
-    with open('boardgame/redCards/health_cards.json', 'r', encoding='utf-8') as f:
+    with open('redCards/health_cards.json', 'r', encoding='utf-8') as f:
         game_data['health_cards'] = json.load(f)
-    with open('boardgame/redCards/housing_cards.json', 'r', encoding='utf-8') as f:
+    with open('redCards/housing_cards.json', 'r', encoding='utf-8') as f:
         game_data['housing_cards'] = json.load(f)
     
     # Load white cards
-    with open('boardgame/whiteCards/random_events.json', 'r', encoding='utf-8') as f:
+    with open('whiteCards/random_events.json', 'r', encoding='utf-8') as f:
         game_data['white_cards'] = json.load(f)
     
     # Load personal items
-    with open('boardgame/itemCards/utility_items.json', 'r', encoding='utf-8') as f:
+    with open('itemCards/utility_items.json', 'r', encoding='utf-8') as f:
         utility_items = json.load(f)
-    with open('boardgame/itemCards/steal_effect_items.json', 'r', encoding='utf-8') as f:
+    with open('itemCards/steal_effect_items.json', 'r', encoding='utf-8') as f:
         steal_items = json.load(f)
     game_data['personal_items'] = {
         'personal_items': utility_items['utility_items'],
@@ -244,10 +244,10 @@ def run_combinatorial_test(num_games=1000):
             stats_by_turn['turns'][str(turn)] = turn_data
     
     # Save to JSON file
-    with open('boardgame/stats/turn_by_turn_stats.json', 'w', encoding='utf-8') as f:
+    with open('stats/turn_by_turn_stats.json', 'w', encoding='utf-8') as f:
         json.dump(stats_by_turn, f, indent=2, ensure_ascii=False)
     
-    print("Статистика сохранена в boardgame/stats/turn_by_turn_stats.json")
+    print("Статистика сохранена в stats/turn_by_turn_stats.json")
     
     # Print balance metrics
     print("\n=== BALANCE METRICS ===")

@@ -70,5 +70,5 @@
     "max_action_cards": 10,
     "max_personal_items_hand": 5
   },
-  "character_profiles": "/Users/iosnick/Documents/BOARDGAME/boardgame/simulator/character_config.json"
+  "character_profiles": "simulator/character_config.json"
 }

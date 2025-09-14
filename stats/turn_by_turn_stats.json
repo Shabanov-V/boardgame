@@ -3,71 +3,72 @@
     "0": {
       "turn_number": 0,
       "characters": {
-        "waiter": {
-          "money": 4.63013698630137,
-          "nerves": 8.123287671232877,
-          "items": 0.0,
-          "documents": 4.287671232876712,
-          "language": 2.643835616438356,
-          "goal_progress": 0.7854767267267266
-        },
         "it_specialist": {
-          "money": 5.869047619047619,
-          "nerves": 7.261904761904762,
+          "money": 8.602409638554217,
+          "nerves": 7.771084337349397,
           "items": 0.0,
-          "documents": 4.7023809523809526,
-          "language": 2.619047619047619,
-          "goal_progress": 0.7594974747474748
+          "documents": 5.301204819277109,
+          "language": 2.6626506024096384,
+          "goal_progress": 0.8288472222222223
         },
         "freelance_artist": {
-          "money": 13.460674157303371,
+          "money": 12.895348837209303,
+          "nerves": 7.8604651162790695,
+          "items": 0.0,
+          "documents": 5.174418604651163,
+          "language": 2.5697674418604652,
+          "goal_progress": 0.8224294171220401
+        },
+        "waiter": {
+          "money": 3.710526315789474,
+          "nerves": 7.921052631578948,
+          "items": 0.0,
+          "documents": 4.394736842105263,
+          "language": 2.763157894736842,
+          "goal_progress": 0.7652430555555555
+        },
+        "courier": {
+          "money": 0.8333333333333334,
           "nerves": 8.0,
           "items": 0.0,
-          "documents": 4.808988764044944,
-          "language": 2.662921348314607,
-          "goal_progress": 0.8602348484848484
-        },
-        "student": {
-          "money": 1.0,
-          "nerves": 8.2,
-          "items": 0.0,
-          "documents": 4.4,
-          "language": 2.8,
+          "documents": 2.0,
+          "language": 1.3333333333333333,
           "goal_progress": 1.0
         },
         "entrepreneur": {
-          "money": 4.32258064516129,
-          "nerves": 7.67741935483871,
+          "money": 4.190476190476191,
+          "nerves": 7.761904761904762,
           "items": 0.0,
-          "documents": 4.096774193548387,
-          "language": 2.7419354838709675,
-          "goal_progress": 0.8443576388888889
+          "documents": 4.142857142857143,
+          "language": 2.761904761904762,
+          "goal_progress": 0.9430902777777778
+        },
+        "student": {
+          "money": 4.2,
+          "nerves": 9.4,
+          "items": 0.0,
+          "documents": 3.2,
+          "language": 2.6,
+          "goal_progress": 1.0
         },
         "spanish_spouse": {
-          "money": 7.0,
-          "nerves": 8.722222222222221,
+          "money": 3.3333333333333335,
+          "nerves": 8.666666666666666,
           "items": 0.0,
-          "documents": 3.8333333333333335,
-          "language": 2.888888888888889,
-          "goal_progress": 0.938125
-        },
-        "courier": {
-          "money": 3.0,
-          "nerves": 8.4,
-          "items": 0.0,
-          "documents": 2.4,
-          "language": 2.2
+          "documents": 3.2222222222222223,
+          "language": 3.0,
+          "goal_progress": 1.0
         }
       }
     }
   },
   "characters": [
-    "waiter",
     "it_specialist",
     "freelance_artist",
-    "student",
+    "waiter",
+    "courier",
     "entrepreneur",
-    "spanish_spouse",
-    "courier"
+    "student",
+    "spanish_spouse"
   ]
 }

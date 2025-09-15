@@ -1,8 +1,12 @@
+from simulator.analytics import GameAnalytics
+
 class EffectManager:
     """Manages application of card effects to players."""
     
-    @staticmethod
-    def apply_effects(player, effects, event_manager=None):
+    def __init__(self, analytics: GameAnalytics):
+        self.analytics = analytics
+
+    def apply_effects(self, player, effects, event_manager=None):
         """Apply a dictionary of effects to a player."""
         for key, value in effects.items():
             if key == 'nerves':
@@ -57,6 +61,7 @@ class EffectManager:
                 player.document_cards = max(0, player.document_cards + value)
             elif key == 'language_level_up' and value:
                 if player.language_level < 3:
+                    self.analytics.track_language_upgrade(player.language_level)
                     player.language_level += 1
             elif key == 'document_level':
                 player.document_level = max(0, player.document_level + value)

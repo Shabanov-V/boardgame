@@ -37,7 +37,8 @@ class GameAnalytics:
             'health_cards': defaultdict(int),
             'housing_cards': defaultdict(int),
             'green_cards': defaultdict(int),
-            'white_cards': defaultdict(int)
+            'white_cards': defaultdict(int),
+            'red_cards': defaultdict(int)
         }
         
         # Mechanics tracking
@@ -143,9 +144,16 @@ class GameAnalytics:
             self.mechanics_stats['document_exchanges']['successes'] += 1
         else:
             self.mechanics_stats['document_exchanges']['failures'] += 1
-        
-        self.track_card_played(card_used, 'green_cards', player)
     
+    def track_language_upgrade(self, current_lvl: int):
+        """Track language challenge attempts"""
+        self.mechanics_stats['language_challenges']['attempts'] += 1
+        self.mechanics_stats['language_challenges']['successes'] += 1
+        if current_lvl == 1:
+            self.mechanics_stats['language_upgrades']['basic_to_b1'] += 1
+        else:
+            self.mechanics_stats['language_upgrades']['b1_to_c1'] += 1
+
     def track_dice_challenge(self, player: Any, challenge_type: str, card: Dict, 
                            roll_result: int, outcome: str):
         """Track dice challenge results"""

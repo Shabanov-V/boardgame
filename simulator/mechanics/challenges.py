@@ -1,11 +1,13 @@
 import random
-from ..mechanics.effects import EffectManager
+from simulator.mechanics.effects import EffectManager
 
 class ChallengeManager:
     """Manages dice roll challenges and their outcomes."""
     
-    @staticmethod
-    def handle_challenge(logger, player, challenge, event_manager=None):
+    def __init__(self, effect_manager: EffectManager):
+        self.effect_manager = effect_manager
+
+    def handle_challenge(self, logger, player, challenge, event_manager=None):
         """Execute a dice challenge for a player."""
         # Roll based on language level
         if player.language_level == 1:
@@ -30,7 +32,7 @@ class ChallengeManager:
         # Apply the outcome effects
         if 'effects' in chosen_outcome:
             logger(f"Outcome: {chosen_outcome['description']}")
-            EffectManager.apply_effects(player, chosen_outcome['effects'], event_manager)
+            self.effect_manager.apply_effects(player, chosen_outcome['effects'], event_manager)
             return True
         return False
 

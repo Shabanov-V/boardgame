@@ -92,6 +92,7 @@ class AdvancedGameRunner:
                 
                 except Exception as e:
                     print(f"❌ Error in game {game_num + 1}: {e}")
+                    raise e
                     continue
             
             batch_time = time.time() - batch_start_time
@@ -314,7 +315,7 @@ def main():
     runner = AdvancedGameRunner()
     
     # Run 1000 games
-    results = runner.run_simulation_batch(1000, batch_size=50, save_interval=200)
+    results = runner.run_simulation_batch(1000, batch_size=50, save_interval=2000)
     
     # Save comprehensive report
     report_path = runner.save_full_report()

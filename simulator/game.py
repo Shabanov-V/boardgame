@@ -36,12 +36,12 @@ class Game:
         self.interaction_manager = InteractionManager(self.players)
         self.trade_manager = TradeManager(self.players, self.config['quiet_mode'])
         self.elimination_manager = EliminationManager(game_data, self.players, self.config['quiet_mode'])
-        self.effect_manager = EffectManager()
-        self.challenge_manager = ChallengeManager()
         
         # Initialize analytics
         self.analytics = GameAnalytics()
         self.analytics.start_game(self.players)
+        self.effect_manager = EffectManager(self.analytics)
+        self.challenge_manager = ChallengeManager(self.effect_manager)
 
     def setup_decks(self):
         """Initialize all card decks."""
@@ -175,6 +175,7 @@ class Game:
                 _, item_to_use = decision
                 if player.use_personal_item(item_to_use):
                     self.effect_manager.apply_effects(player, item_to_use.get('effects', {}))
+                    self.analytics.track_card_played(item_to_use, 'personal_items', player)
             else:
                 # Handle action cards
                 cards_to_play = decision if isinstance(decision, list) else [decision]
@@ -190,6 +191,7 @@ class Game:
                     
                     if not event.is_blocked:
                         self.effect_manager.apply_effects(player, event.effects)
+                        self.analytics.track_card_played(card_to_play, 'action_cards', player)
                     player.action_cards.remove(card_to_play)
                     self.decks['action'].discard(card_to_play)
 
@@ -290,6 +292,7 @@ class Game:
             elif decision == 'draw_green':
                 card = self.decks['green'].draw()
                 if card:
+                    self.analytics.track_card_played(card, 'green_cards', player)
                     use_decision = 'event'  # Default for non-exchange cards
                     if card.get('exchange_instruction'):
                         use_decision = player.ai.decide_green_card_use(card)
@@ -306,8 +309,12 @@ class Game:
                             
                             if not exchange_event.is_blocked:
                                 self.effect_manager.apply_effects(player, exchange_event.effects)
+                                # Track successful document exchange
+                                self.analytics.track_document_exchange(player, True, card)
                             else:
                                 self.log(f"🚫 {player.name}'s document exchange was blocked!")
+                                # Track failed document exchange
+                                self.analytics.track_document_exchange(player, False, card)
                         else:
                             self.effect_manager.apply_effects(player, card.get('effects', {}))
                     else:
@@ -319,6 +326,8 @@ class Game:
         elif cell_type in ['red', 'white']:
             card = self.decks[cell_type].draw()
             if card:
+                # Track card usage
+                self.analytics.track_card_played(card, f"{cell_type}_cards", player)
                 # Create challenge/event card event
                 challenge_event = InteractiveEvent(
                     "challenge_event",

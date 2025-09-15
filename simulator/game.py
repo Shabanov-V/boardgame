@@ -86,20 +86,10 @@ class Game:
     def run(self):
         """Main game loop."""
         print(f"Starting game with {len(self.players)} players")
-        
         while not self.game_over:
             self.turn += 1
-            
-            # Handle lap completion (every 4-5 turns for slower game)
-            num_players = len(self.players)
-            lap_frequency = max(4, min(6, self.board.size // (num_players * 2))) if num_players > 0 else 5
-            if self.turn > 1 and self.turn % lap_frequency == 0:
-                print(f"System: Turn {self.turn} - Lap completed! (frequency: every {lap_frequency} turns)")
-                self.handle_lap_completion()
-            
             # Get active players
             active_players = [p for p in self.players if not p.is_eliminated]
-            
             # Check for game over due to eliminations
             game_over, winner = self.elimination_manager.check_game_over(self.players)
             if game_over:
@@ -107,29 +97,28 @@ class Game:
                 self.winner = winner
                 self.end_reason = 'elimination'
                 break
-            
             # Each player takes their turn
             for player in active_players:
                 self.take_turn(player)
                 if self.game_over:
                     break
-            
             # Check turn limit
             max_turns = len(self.players) * 15  # 15 turns per player
             if self.turn >= max_turns:
                 self.game_over = True
                 self.end_reason = 'time_limit'
                 self.winner = None
-        
         # End game analytics
         self.analytics.end_game(self.winner, self.end_reason)
         return self.winner
 
     def take_turn(self, player):
         """Handle a single player's turn."""
-        print(f"\n--- Turn {self.turn}, Player: {player.name} ---")
+        print(f"\n--- Game turn {self.turn}, Player: {player.name}, Player's turn: {player.turn_count} ---")
         print(f"State before turn: {player}")
         
+        player.turn_count += 1  # Increment player's turn count
+
         # Analytics: Track turn start
         self.analytics.track_turn_start(player, self.turn)
 
@@ -202,7 +191,6 @@ class Game:
     def handle_movement(self, player):
         """Handle player movement."""
         roll = random.randint(1, 6)
-        
         # Create movement event
         movement_event = InteractiveEvent(
             "movement",
@@ -211,13 +199,16 @@ class Game:
             f"{player.name} rolled {roll} and will move to position {(player.position + roll) % self.board.size}"
         )
         movement_event = self.interaction_manager.announce_event(movement_event)
-        
         if not movement_event.is_blocked:
             final_roll = movement_event.effects.get("movement", roll)
-            player.position = (player.position + final_roll) % self.board.size
+            old_position = player.position
+            new_position = (player.position + final_roll) % self.board.size
+            player.position = new_position
+            if old_position > new_position:
+                print(f"System: {player.name} completed a lap!")
+                self.handle_lap_completion(player)
         else:
             print(f"🚫 {player.name}'s movement was blocked!")
-        
         # Analytics: Track cell visit
         cell_type = self.board.get_cell_type(player.position)
         self.analytics.track_cell_visit(player, player.position, cell_type)
@@ -408,37 +399,32 @@ class Game:
             self.end_reason = 'win'
             self.analytics.end_game(player, self.end_reason)
 
-    def handle_lap_completion(self):
-        """Handle events that occur when players complete a lap."""
-        for player in self.players:
-            if not player.is_eliminated:
-                # Pay housing costs first
-                housing_cost = player.housing_cost
-                old_money = player.money
-                player.money -= housing_cost
-                
-                # Analytics: Track housing cost
-                self.analytics.track_resource_change(player, 'money', -housing_cost, 'housing_cost')
-                
-                # Then handle salary
-                if player.salary_type == 'dice':
-                    salary = random.randint(1, 6) + player.salary_base
-                else:
-                    salary = player.salary
-                
-                player.money += salary
-                
-                # Analytics: Track salary
-                self.analytics.track_resource_change(player, 'money', salary, 'salary')
-                
-                # Give document card
-                player.document_cards += 1
-                self.analytics.track_resource_change(player, 'document_cards', 1, 'round_income')
-                
-                print(f"End of round: {player.name} +{salary} salary -{housing_cost} rent = {player.money - old_money} net")
-                
-                # Check elimination after income/expenses
-                self.elimination_manager.check_elimination(player, self.turn)
+    def handle_lap_completion(self, player):
+        """Handle events that occur when a player completes a lap."""
+        if not player.is_eliminated:
+            # Pay housing costs first
+            housing_cost = player.housing_cost
+            old_money = player.money
+            player.money -= housing_cost
+            # Analytics: Track housing cost
+            self.analytics.track_resource_change(player, 'money', -housing_cost, 'housing_cost')
+            # Then handle salary
+            if player.salary_type == 'dice':
+                salary = random.randint(1, 6) + player.salary_base
+            else:
+                salary = player.salary
+            player.money += salary
+            # Analytics: Track salary
+            self.analytics.track_resource_change(player, 'money', salary, 'salary')
+            # Give document card
+            player.document_cards += 1
+            self.analytics.track_resource_change(player, 'document_cards', 1, 'round_income')
+            print(f"End of round: {player.name} +{salary} salary -{housing_cost} rent = {player.money - old_money} net")
+            # Update lap counter
+            player.lap_count += 1
+            print(f"Lap count for {player.name}: {player.lap_count}")
+            # Check elimination after income/expenses
+            self.elimination_manager.check_elimination(player, self.turn)
                 
     def calculate_win_progress(self, player) -> float:
         """Calculate how close a player is to winning (0.0 to 1.0)"""

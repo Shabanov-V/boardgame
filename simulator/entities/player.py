@@ -39,6 +39,10 @@ class Player:
         
         # Add starting personal items
         self.add_personal_items(5)
+        # Lap counter for tracking laps around the board
+        self.lap_count = 0
+
+        self.turn_count = 0  # Track number of turns taken by the player
 
         self.win_condition = win_condition
         self.goal_chosen = False

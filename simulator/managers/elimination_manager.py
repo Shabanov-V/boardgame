@@ -1,10 +1,15 @@
 class EliminationManager:
     """Manages player elimination conditions and processes."""
     
-    def __init__(self, game_data, players=None):
+    def __init__(self, game_data, players=None, silent_mode=False):
         self.elimination_threshold = game_data['game_constants']['game_constants'].get('elimination_threshold', -1)
         self.players = players
+        self.silent_mode = silent_mode
     
+    def log(self, message):
+        if not self.silent_mode:
+            print(message)
+
     def check_elimination(self, player, current_turn):
         """Check if a player should be eliminated."""
         # Check nerves
@@ -36,7 +41,7 @@ class EliminationManager:
                         other_player.money -= cards_to_sell * 2
                         emergency_money += cards_to_sell * 2
                         money_needed -= cards_to_sell * 2
-                        print(f"💳 {player.name} продал {cards_to_sell} карт документов {other_player.name} за {cards_to_sell * 2} денег")
+                        self.log(f"💳 {player.name} продал {cards_to_sell} карт документов {other_player.name} за {cards_to_sell * 2} денег")
                         
                         if player.money >= 0:
                             break
@@ -47,7 +52,7 @@ class EliminationManager:
             player.personal_items_hand = player.personal_items_hand[:-items_to_sell]  # Remove last items
             player.money += items_to_sell
             emergency_money += items_to_sell
-            print(f"🎒 {player.name} продал {items_to_sell} личных предметов за {items_to_sell} денег")
+            self.log(f"🎒 {player.name} продал {items_to_sell} личных предметов за {items_to_sell} денег")
         
         return emergency_money
     
@@ -56,7 +61,7 @@ class EliminationManager:
         player.is_eliminated = True
         if player.eliminated_on_turn is None:
             player.eliminated_on_turn = current_turn
-        print(f"💀 {player.name} выбыл из-за {reason} ({player.money} денег, {player.nerves} нервов)")
+        self.log(f"💀 {player.name} выбыл из-за {reason} ({player.money} денег, {player.nerves} нервов)")
     
     def check_game_over(self, players):
         """Check if game should end due to eliminations."""

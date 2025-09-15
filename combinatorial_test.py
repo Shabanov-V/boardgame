@@ -23,7 +23,7 @@ def load_game_data():
     }
     
     # Load action cards
-    with open('actionCartds/action_cards.json', 'r', encoding='utf-8') as f:
+    with open('actionCards/action_cards.json', 'r', encoding='utf-8') as f:
         action_cards = json.load(f)
         game_data['action_cards'] = {'additional_action_cards': action_cards['action_cards']}
     

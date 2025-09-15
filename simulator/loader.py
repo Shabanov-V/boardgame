@@ -10,7 +10,7 @@ def load_json_file(filepath):
 def load_game_data():
     """Loads all necessary game data files."""
     data = {}
-    data['action_cards'] = load_json_file('actionCards/additional_action_card.json')
+    data['action_cards'] = load_json_file('actionCards/action_cards.json')
     
     # Загружаем колоды предметов из разных файлов
     try:

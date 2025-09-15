@@ -1,4 +1,5 @@
 {
+  "quiet_mode": true,
   "game_parameters": {
     "number_of_players": 8,
     "board_size": 40,

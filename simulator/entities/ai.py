@@ -12,6 +12,10 @@ class AI:
         self.trust_levels = {}  # Track trust towards other players
         self.grudges = {}  # Track grudges against players who hurt us
 
+    def log(self, message):
+        if not self.config['quiet_mode']:
+            print(message)
+
     def decide_use_personal_item(self, turn_context):
         """Decide which personal item to use."""
         if not self.player.personal_items_hand:
@@ -23,7 +27,7 @@ class AI:
                 if (self._item_helps_nerves(item) and 
                     self.player.can_use_personal_item(item) and
                     self._can_use_item_now(item, turn_context)):
-                    print(f"AI ({self.player.name}): Критически низкие нервы, использую '{item['name']}'")
+                    self.log(f"AI ({self.player.name}): Критически низкие нервы, использую '{item['name']}'")
                     return item
         
         # Priority 2: Goal advancement
@@ -32,7 +36,7 @@ class AI:
                 if (self._item_helps_goal(item) and 
                     self.player.can_use_personal_item(item) and
                     self._can_use_item_now(item, turn_context)):
-                    print(f"AI ({self.player.name}): Предмет поможет цели, использую '{item['name']}'")
+                    self.log(f"AI ({self.player.name}): Предмет поможет цели, использую '{item['name']}'")
                     return item
         
         # Priority 3: Defensive items when low on resources
@@ -41,7 +45,7 @@ class AI:
                 if (self._is_defensive_item(item) and 
                     self.player.can_use_personal_item(item) and
                     self._can_use_item_now(item, turn_context)):
-                    print(f"AI ({self.player.name}): Низкие ресурсы, использую защитный предмет '{item['name']}'")
+                    self.log(f"AI ({self.player.name}): Низкие ресурсы, использую защитный предмет '{item['name']}'")
                     return item
         
         return None
@@ -61,7 +65,7 @@ class AI:
                             if (self._is_aggressive_item(item) and 
                                 self.player.can_use_personal_item(item) and
                                 self._should_target_enemy(item, target)):
-                                print(f"AI ({self.player.name}): МЕСТЬ! Использую '{item['name']}' против {target.name} (обида: {grudge_level})")
+                                self.log(f"AI ({self.player.name}): МЕСТЬ! Использую '{item['name']}' против {target.name} (обида: {grudge_level})")
                                 return ('aggressive_item', item, target)
         
         # Priority 2: Attack leader if falling behind
@@ -71,7 +75,7 @@ class AI:
                 if (self._is_aggressive_item(item) and 
                     self.player.can_use_personal_item(item) and
                     self._should_target_leader(item, leader)):
-                    print(f"AI ({self.player.name}): Атакую лидера {leader.name} предметом '{item['name']}'")
+                    self.log(f"AI ({self.player.name}): Атакую лидера {leader.name} предметом '{item['name']}'")
                     return ('aggressive_item', item, leader)
         
         # Priority 3: Preventive attack on close-to-win player
@@ -80,7 +84,7 @@ class AI:
                 for item in self.player.personal_items_hand:
                     if (self._is_aggressive_item(item) and 
                         self.player.can_use_personal_item(item)):
-                        print(f"AI ({self.player.name}): Превентивная атака! {player.name} близок к победе, использую '{item['name']}'")
+                        self.log(f"AI ({self.player.name}): Превентивная атака! {player.name} близок к победе, использую '{item['name']}'")
                         return ('aggressive_item', item, player)
         
         return None
@@ -99,7 +103,7 @@ class AI:
             for card in self.player.action_cards:
                 if card.get('effects', {}).get('nerves', 0) > 0 and self._can_play_now(card, turn_context):
                     cards_to_play.append(card)
-                    print(f"AI ({self.player.name}): Nerves are low ({self.player.nerves}), playing '{card['name']}'.")
+                    self.log(f"AI ({self.player.name}): Nerves are low ({self.player.nerves}), playing '{card['name']}'.")
                     if self.player.nerves < 2 and len(cards_to_play) < 2:
                         continue
                     else:
@@ -110,14 +114,14 @@ class AI:
             for card in self.player.action_cards:
                 if self._can_play_now(card, turn_context) and self._card_helps_goal(card):
                     cards_to_play.append(card)
-                    print(f"AI ({self.player.name}): Playing '{card['name']}' to advance win condition.")
+                    self.log(f"AI ({self.player.name}): Playing '{card['name']}' to advance win condition.")
                     break
         elif not self.player.win_condition and not cards_to_play:
             # Focus on documents without goal
             for card in self.player.action_cards:
                 if self._can_play_now(card, turn_context) and card.get('effects', {}).get('documents_cards', 0) > 0:
                     cards_to_play.append(card)
-                    print(f"AI ({self.player.name}): No goal - accumulating documents with '{card['name']}'.")
+                    self.log(f"AI ({self.player.name}): No goal - accumulating documents with '{card['name']}'.")
                     break
 
         # Priority 3: Utility cards
@@ -125,7 +129,7 @@ class AI:
             for card in self.player.action_cards:
                 if self._can_play_now(card, turn_context) and self._is_utility_card(card):
                     cards_to_play.append(card)
-                    print(f"AI ({self.player.name}): Playing utility card '{card['name']}'.")
+                    self.log(f"AI ({self.player.name}): Playing utility card '{card['name']}'.")
                     break
 
         return cards_to_play if cards_to_play else None
@@ -247,7 +251,13 @@ class AI:
         total_requirements = len(requirements)
         
         for req, target_value in requirements.items():
-            current_value = getattr(player, req, 0)
+            current_value = None
+            if (req == 'housing_type'):
+                housing_levels = {'room': 1, 'apartment': 2, 'mortgage': 3}
+                current_value = housing_levels.get(player.housing)
+                target_value = housing_levels.get(target_value)
+            else:
+                current_value = getattr(player, req)
             if isinstance(current_value, (int, float)):
                 progress_ratio += min(current_value / target_value, 1.0)
         
@@ -260,7 +270,7 @@ class AI:
         self.grudges[enemy_player_id] += severity
         
         enemy_name = enemy_player_id
-        print(f"💢 {self.player.name} запомнил обиду на {enemy_name} (уровень: {self.grudges[enemy_player_id]})")
+        self.log(f"💢 {self.player.name} запомнил обиду на {enemy_name} (уровень: {self.grudges[enemy_player_id]})")
     
     def reduce_grudge(self, player_id, amount=1):
         """Reduce grudge against a player."""
@@ -328,7 +338,7 @@ class AI:
             cost = best_card.get('cost', {})
             if self._willing_to_pay_cost(cost, event):
                 self._pay_interference_cost(cost)
-                print(f"💥 {self.player.name} plays interference: '{best_card['name']}'!")
+                self.log(f"💥 {self.player.name} plays interference: '{best_card['name']}'!")
                 return (best_card, True)
                 
         return None
@@ -345,10 +355,6 @@ class AI:
         trust = self.trust_levels.get(acting_player.name, 0.5)
         if trust < 0.3:
             return random.random() < 0.4  # 40% chance to interfere with distrusted players
-            
-        # Less likely to interfere if we're doing well
-        if self._am_i_doing_well():
-            return random.random() < 0.2  # 20% chance if we're doing well
             
         # Normal interference rate
         return random.random() < 0.3  # 30% base chance
@@ -442,7 +448,7 @@ class AI:
             cost = card.get('cost', {})
             if self._willing_to_pay_cost(cost, event):
                 self._pay_interference_cost(cost)
-                print(f"🛡️ {self.player.name} plays defense: '{card['name']}'!")
+                self.log(f"🛡️ {self.player.name} plays defense: '{card['name']}'!")
                 return (card, True)
                 
         return None
@@ -612,7 +618,7 @@ class AI:
                 
             deceptive_offer.actual_items[item_type] = actual_amount
             
-        print(f"🎭 {self.player.name} is being deceptive in trade offer!")
+        self.log(f"🎭 {self.player.name} is being deceptive in trade offer!")
         return deceptive_offer
     
     def evaluate_trade_offer(self, offer):
@@ -664,7 +670,7 @@ class AI:
         should_accept = value_to_us >= accept_threshold
         
         if should_accept:
-            print(f"🤝 {self.player.name} accepts trade offer (trust: {trust:.1f}, value: {value_to_us})")
+            self.log(f"🤝 {self.player.name} accepts trade offer (trust: {trust:.1f}, value: {value_to_us})")
         
         return should_accept
     
@@ -677,7 +683,7 @@ class AI:
         else:
             self.trust_levels[other_player.name] = max(0.0, current_trust - 0.4)
             
-        print(f"🎯 {self.player.name} trust in {other_player.name}: {self.trust_levels[other_player.name]:.1f}")
+        self.log(f"🎯 {self.player.name} trust in {other_player.name}: {self.trust_levels[other_player.name]:.1f}")
         
     def decide_on_green_space(self):
         """Decide whether to draw a green card, buy document level, or get a personal item."""
@@ -685,33 +691,33 @@ class AI:
         if self.player.can_buy_document_level():
             if not self.player.win_condition:
                 # No goal yet, always good to get document levels
-                print(f"AI ({self.player.name}): Buying document level to reach goal selection.")
+                self.log(f"AI ({self.player.name}): Buying document level to reach goal selection.")
                 return 'buy_document_level'
             elif 'document_level' in self.goal_requirements:
                 required_level = int(self.goal_requirements['document_level'])
                 if self.player.document_level < required_level:
-                    print(f"AI ({self.player.name}): Buying document level for goal.")
+                    self.log(f"AI ({self.player.name}): Buying document level for goal.")
                     return 'buy_document_level'
 
         # If personal items hand is full, must draw green
         if len(self.player.personal_items_hand) >= self.player.max_personal_items_hand:
-            print(f"AI ({self.player.name}): Personal items hand is full, must draw green card.")
+            self.log(f"AI ({self.player.name}): Personal items hand is full, must draw green card.")
             return 'draw_green'
 
         # If personal items hand is empty, prefer to get one
         if len(self.player.personal_items_hand) == 0:
-            print(f"AI ({self.player.name}): No personal items, getting one.")
+            self.log(f"AI ({self.player.name}): No personal items, getting one.")
             return 'draw_personal_item'
 
         # If goal is money-based and low on money, personal items might help
         if self.player.win_condition and 'money' in self.goal_requirements:
             if int(self.goal_requirements['money']) > self.player.money:
                 if len(self.player.personal_items_hand) < 3:
-                    print(f"AI ({self.player.name}): Goal is financial, getting personal item for help.")
+                    self.log(f"AI ({self.player.name}): Goal is financial, getting personal item for help.")
                     return 'draw_personal_item'
 
         # Default to drawing a green card to advance game state
-        print(f"AI ({self.player.name}): Decided to draw a green card to advance game state.")
+        self.log(f"AI ({self.player.name}): Decided to draw a green card to advance game state.")
         return 'draw_green'
         
     def decide_green_card_use(self, card):
@@ -725,13 +731,13 @@ class AI:
                     self.player.document_level < 5):
                     # Calculate how many levels we can get
                     potential_levels = self._calculate_potential_levels()
-                    print(f"AI ({self.player.name}): No goal - exchanging documents for {potential_levels} levels.")
+                    self.log(f"AI ({self.player.name}): No goal - exchanging documents for {potential_levels} levels.")
                     return 'exchange'
                 else:
-                    print(f"AI ({self.player.name}): No goal - playing event for documents.")
+                    self.log(f"AI ({self.player.name}): No goal - playing event for documents.")
                     return 'event'
             else:
-                print(f"AI ({self.player.name}): No goal - playing event '{card['name']}'.")
+                self.log(f"AI ({self.player.name}): No goal - playing event '{card['name']}'.")
                 return 'event'
         
         # If goal exists - standard logic
@@ -742,27 +748,27 @@ class AI:
             # Check if we can exchange documents (need 2 cards + 1 money)
             if self.player.document_cards >= 2 and self.player.money >= 1:
                 potential_levels = self._calculate_potential_levels()
-                print(f"AI ({self.player.name}): Goal requires documents. Exchanging for {potential_levels} levels.")
+                self.log(f"AI ({self.player.name}): Goal requires documents. Exchanging for {potential_levels} levels.")
                 return 'exchange'
             else:
-                print(f"AI ({self.player.name}): Goal requires documents, but not enough cards to exchange. Playing for event to get more.")
+                self.log(f"AI ({self.player.name}): Goal requires documents, but not enough cards to exchange. Playing for event to get more.")
                 return 'event'
 
         # Check if the card helps with any goal requirement via events/special effects
         if self._card_helps_goal(card):
-            print(f"AI ({self.player.name}): Card '{card['name']}' helps with goal. Playing as event.")
+            self.log(f"AI ({self.player.name}): Card '{card['name']}' helps with goal. Playing as event.")
             return 'event'
 
         # If the goal is financial, check if the event gives money
         if 'money' in self.goal_requirements:
             event_effects = card.get('effects', {})
             if event_effects.get('money', 0) > 0:
-                print(f"AI ({self.player.name}): Goal is financial. Playing card for its event to get money.")
+                self.log(f"AI ({self.player.name}): Goal is financial. Playing card for its event to get money.")
                 return 'event'
 
         # Default behavior: if not a document goal and no clear financial benefit, prefer exchange if possible, else event
         if card.get('category') == 'documents':
-             print(f"AI ({self.player.name}): No specific goal alignment. Defaulting to event for card '{card['name']}'.")
+             self.log(f"AI ({self.player.name}): No specific goal alignment. Defaulting to event for card '{card['name']}'.")
              return 'event'
 
         return 'event'

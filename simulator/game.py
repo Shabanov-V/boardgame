@@ -1,23 +1,23 @@
 """Main game class that orchestrates all game components."""
 
 import random
-from .entities.board import Board
-from .entities.deck import Deck
-from .entities.player import Player
-from .entities.ai import AI
+from simulator.entities.board import Board
+from simulator.entities.deck import Deck
+from simulator.entities.player import Player
+from simulator.entities.ai import AI
 
-from .managers.event_manager import InteractiveEvent
-from .managers.interaction_manager import InteractionManager
-from .managers.trade_manager import TradeManager
-from .managers.elimination_manager import EliminationManager
+from simulator.managers.event_manager import InteractiveEvent
+from simulator.managers.interaction_manager import InteractionManager
+from simulator.managers.trade_manager import TradeManager
+from simulator.managers.elimination_manager import EliminationManager
 
-from .mechanics.effects import EffectManager
-from .mechanics.challenges import ChallengeManager
+from simulator.mechanics.effects import EffectManager
+from simulator.mechanics.challenges import ChallengeManager
 
-from .utils.constants import CARD_TYPES
-from .utils.helpers import calculate_win_progress, is_global_event_card
+from simulator.utils.constants import CARD_TYPES
+from simulator.utils.helpers import calculate_win_progress, is_global_event_card
 
-from .analytics import GameAnalytics
+from simulator.analytics import GameAnalytics
 
 class Game:
     """Orchestrates a single game simulation."""
@@ -31,11 +31,11 @@ class Game:
         self.game_over = False
         self.winner = None
         self.end_reason = None
-        
+
         # Initialize managers
         self.interaction_manager = InteractionManager(self.players)
-        self.trade_manager = TradeManager(self.players)
-        self.elimination_manager = EliminationManager(game_data, self.players)
+        self.trade_manager = TradeManager(self.players, self.config['quiet_mode'])
+        self.elimination_manager = EliminationManager(game_data, self.players, self.config['quiet_mode'])
         self.effect_manager = EffectManager()
         self.challenge_manager = ChallengeManager()
         
@@ -46,7 +46,7 @@ class Game:
     def setup_decks(self):
         """Initialize all card decks."""
         self.decks = {
-            'action': Deck(self.game_data['action_cards']['additional_action_cards']),
+            'action': Deck(self.game_data['action_cards']['action_cards']),
             'green': Deck(self.game_data['green_cards']['green_cards']),
             'red': Deck(self.game_data['health_cards']['health_cards'] + self.game_data['housing_cards']['housing_cards']),
             'white': Deck(self.game_data['white_cards']['random_events']) if 'white_cards' in self.game_data else Deck([]),
@@ -58,6 +58,11 @@ class Game:
             if 'steal_effect_cards' in self.game_data['personal_items']:
                 all_items.extend(self.game_data['personal_items']['steal_effect_cards'])
             self.decks['item'] = Deck(all_items)
+
+    def log(self, message):
+        if not self.config['quiet_mode']:
+            print(message)
+
 
     def setup_players(self):
         """Initialize all players."""
@@ -85,7 +90,7 @@ class Game:
 
     def run(self):
         """Main game loop."""
-        print(f"Starting game with {len(self.players)} players")
+        self.log(f"Starting game with {len(self.players)} players")
         while not self.game_over:
             self.turn += 1
             # Get active players
@@ -114,8 +119,8 @@ class Game:
 
     def take_turn(self, player):
         """Handle a single player's turn."""
-        print(f"\n--- Game turn {self.turn}, Player: {player.name}, Player's turn: {player.turn_count} ---")
-        print(f"State before turn: {player}")
+        self.log(f"\n--- Game turn {self.turn}, Player: {player.name}, Player's turn: {player.turn_count} ---")
+        self.log(f"State before turn: {player}")
         
         player.turn_count += 1  # Increment player's turn count
 
@@ -144,9 +149,9 @@ class Game:
         
         # 7. Check personal items limit
         if player.force_discard_excess_personal_items():
-            print(f"📦 {player.name} now has {len(player.personal_items_hand)}/{player.max_personal_items_hand} personal items")
+            self.log(f"📦 {player.name} now has {len(player.personal_items_hand)}/{player.max_personal_items_hand} personal items")
         
-        print(f"State after turn: {player}")
+        self.log(f"State after turn: {player}")
         
         # Analytics: Track goal progress
         if player.win_condition:
@@ -205,10 +210,10 @@ class Game:
             new_position = (player.position + final_roll) % self.board.size
             player.position = new_position
             if old_position > new_position:
-                print(f"System: {player.name} completed a lap!")
+                self.log(f"System: {player.name} completed a lap!")
                 self.handle_lap_completion(player)
         else:
-            print(f"🚫 {player.name}'s movement was blocked!")
+            self.log(f"🚫 {player.name}'s movement was blocked!")
         # Analytics: Track cell visit
         cell_type = self.board.get_cell_type(player.position)
         self.analytics.track_cell_visit(player, player.position, cell_type)
@@ -220,7 +225,7 @@ class Game:
             
             if trade_proposal:
                 requested, offered, description = trade_proposal
-                print(f"\n💰 TRADE PROPOSAL: {description}")
+                self.log(f"\n💰 TRADE PROPOSAL: {description}")
                 
                 # Create offer through trade manager
                 offer = self.trade_manager.create_trade_offer(
@@ -231,7 +236,7 @@ class Game:
                 partners = self.trade_manager.find_potential_trading_partners(offer)
                 
                 if partners:
-                    print(f"   Potential partners: {[p.name for p in partners]}")
+                    self.log(f"   Potential partners: {[p.name for p in partners]}")
                     
                     # Ask each potential partner in random order
                     random.shuffle(partners)
@@ -239,7 +244,7 @@ class Game:
                     
                     for partner in partners:
                         if partner.ai.evaluate_trade_offer(offer):
-                            print(f"   {partner.name} accepts the trade!")
+                            self.log(f"   {partner.name} accepts the trade!")
                             
                             # Execute the trade
                             was_honest = self.trade_manager.execute_trade(offer, partner)
@@ -251,12 +256,12 @@ class Game:
                             trade_completed = True
                             break
                         else:
-                            print(f"   {partner.name} declines the trade.")
+                            self.log(f"   {partner.name} declines the trade.")
                     
                     if not trade_completed:
-                        print(f"   No one accepted the trade offer.")
+                        self.log(f"   No one accepted the trade offer.")
                 else:
-                    print(f"   No potential trading partners found.")
+                    self.log(f"   No potential trading partners found.")
 
     def handle_cell_effect(self, player):
         """Handle effects of the cell player landed on."""
@@ -277,7 +282,7 @@ class Game:
                     level_up_event = self.interaction_manager.announce_event(level_up_event)
                     
                     if level_up_event.is_blocked:
-                        print(f"🚫 {player.name}'s document level up was blocked!")
+                        self.log(f"🚫 {player.name}'s document level up was blocked!")
                         # Refund the money
                         cost = (player.document_level + 1) * 3
                         player.money += cost
@@ -302,14 +307,14 @@ class Game:
                             if not exchange_event.is_blocked:
                                 self.effect_manager.apply_effects(player, exchange_event.effects)
                             else:
-                                print(f"🚫 {player.name}'s document exchange was blocked!")
+                                self.log(f"🚫 {player.name}'s document exchange was blocked!")
                         else:
                             self.effect_manager.apply_effects(player, card.get('effects', {}))
                     else:
                         self.effect_manager.apply_effects(player, card.get('effects', {}))
             elif decision == 'draw_personal_item':
                 player.add_personal_items(1, self)
-                print(f"{player.name} получил одноразовую шмотку вместо зелёной карты.")
+                self.log(f"{player.name} получил одноразовую шмотку вместо зелёной карты.")
         
         elif cell_type in ['red', 'white']:
             card = self.decks[cell_type].draw()
@@ -328,11 +333,11 @@ class Game:
                     modified_card = card.copy()
                     modified_card['effects'] = challenge_event.effects
                     if 'challenge' in modified_card:
-                        self.challenge_manager.handle_challenge(player, modified_card['challenge'])
+                        self.challenge_manager.handle_challenge(self.log, player, modified_card['challenge'])
                     else:
                         self.effect_manager.apply_effects(player, modified_card['effects'])
                 else:
-                    print(f"🚫 {player.name}'s challenge was blocked!")
+                    self.log(f"🚫 {player.name}'s challenge was blocked!")
 
     def check_goal_selection(self, player):
         """Check if player needs to select a goal."""
@@ -346,7 +351,7 @@ class Game:
             # Update AI with new goal
             player.ai.goal_requirements = player.win_condition.get('requires', {})
             
-            print(f"🎯 {player.name} достиг 5-го уровня документов и выбрал цель: {win_key}!")
+            self.log(f"🎯 {player.name} достиг 5-го уровня документов и выбрал цель: {win_key}!")
 
     def check_win_condition(self, player):
         """Check if player has met their victory condition."""
@@ -387,9 +392,9 @@ class Game:
                         met_all_conditions = False
                         break
                 except (ValueError, TypeError) as e:
-                    print(f"❌ ERROR in check_win_condition: {e}")
-                    print(f"   key = {key}, player_value = {player_value} (type: {type(player_value)})")
-                    print(f"   required_value = {required_value} (type: {type(required_value)})")
+                    self.log(f"❌ ERROR in check_win_condition: {e}")
+                    self.log(f"   key = {key}, player_value = {player_value} (type: {type(player_value)})")
+                    self.log(f"   required_value = {required_value} (type: {type(required_value)})")
                     met_all_conditions = False
                     break
         
@@ -419,10 +424,10 @@ class Game:
             # Give document card
             player.document_cards += 1
             self.analytics.track_resource_change(player, 'document_cards', 1, 'round_income')
-            print(f"End of round: {player.name} +{salary} salary -{housing_cost} rent = {player.money - old_money} net")
+            self.log(f"End of round: {player.name} +{salary} salary -{housing_cost} rent = {player.money - old_money} net")
             # Update lap counter
             player.lap_count += 1
-            print(f"Lap count for {player.name}: {player.lap_count}")
+            self.log(f"Lap count for {player.name}: {player.lap_count}")
             # Check elimination after income/expenses
             self.elimination_manager.check_elimination(player, self.turn)
                 
@@ -459,9 +464,9 @@ class Game:
                         progress += 1.0 if player_value >= required_value else 0.0
                 except (ValueError, TypeError) as e:
                     # If conversion fails, assume no progress
-                    print(f"❌ CONVERSION ERROR in calculate_win_progress: {e}")
-                    print(f"   key={key}, player_value={player_value} (type: {type(player_value)})")
-                    print(f"   required_value={required_value} (type: {type(required_value)})")
+                    self.log(f"❌ CONVERSION ERROR in calculate_win_progress: {e}")
+                    self.log(f"   key={key}, player_value={player_value} (type: {type(player_value)})")
+                    self.log(f"   required_value={required_value} (type: {type(required_value)})")
                     progress += 0.0
         
         return progress / requirements if requirements > 0 else 0.0

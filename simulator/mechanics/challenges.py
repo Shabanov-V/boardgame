@@ -5,7 +5,7 @@ class ChallengeManager:
     """Manages dice roll challenges and their outcomes."""
     
     @staticmethod
-    def handle_challenge(player, challenge, event_manager=None):
+    def handle_challenge(logger, player, challenge, event_manager=None):
         """Execute a dice challenge for a player."""
         # Roll based on language level
         if player.language_level == 1:
@@ -21,7 +21,7 @@ class ChallengeManager:
             roll1 = random.randint(1, 6)
             roll2 = random.randint(1, 6)
             roll = max(roll1, roll2)
-        print(f"🎲 {player.name} rolls {roll} for {challenge.get('description', 'challenge')}")
+        logger(f"🎲 {player.name} rolls {roll} for {challenge.get('description', 'challenge')}")
 
         # Find the appropriate outcome based on roll
         outcome_key = ChallengeManager._determine_outcome(roll, challenge['outcomes'])
@@ -29,7 +29,7 @@ class ChallengeManager:
         
         # Apply the outcome effects
         if 'effects' in chosen_outcome:
-            print(f"Outcome: {chosen_outcome['description']}")
+            logger(f"Outcome: {chosen_outcome['description']}")
             EffectManager.apply_effects(player, chosen_outcome['effects'], event_manager)
             return True
         return False

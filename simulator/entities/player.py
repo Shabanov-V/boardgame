@@ -81,13 +81,17 @@ class Player:
                 f"Personal Items: {len(self.personal_items_hand)}/{self.max_personal_items_hand}, "
                 f"Goal: {goal_text})")
 
+    def log(self, message):
+        if not self.config['quiet_mode']:
+            print(message)
+
     def add_action_card(self, card):
         """Add an action card to player's hand."""
         if len(self.action_cards) < self.max_action_cards:
             self.action_cards.append(card)
-            print(f"{self.name} received action card: {card['name']}.")
+            self.log(f"{self.name} received action card: {card['name']}.")
         else:
-            print(f"{self.name}'s action card hand is full, cannot draw more.")
+            self.log(f"{self.name}'s action card hand is full, cannot draw more.")
     
     def add_personal_items(self, count, game=None):
         """Add personal items to player's hand."""
@@ -101,19 +105,19 @@ class Player:
                     item = game.decks['item'].draw()
                     if item:
                         self.personal_items_hand.append(item)
-                        print(f"{self.name} получил '{item['name']}'")
+                        self.log(f"{self.name} получил '{item['name']}'")
                     else:
                         self.personal_items_hand.append({"name": "Personal Item", "type": "utility"})
-                        print(f"{self.name} получил базовый предмет (колода пуста)")
+                        self.log(f"{self.name} получил базовый предмет (колода пуста)")
                 else:
                     self.personal_items_hand.append({"name": "Personal Item", "type": "utility"})
             
             if not game:
-                print(f"{self.name} получил {items_to_add} одноразовых предметов.")
+                self.log(f"{self.name} получил {items_to_add} одноразовых предметов.")
         
         if count > items_to_add:
             excess = count - items_to_add
-            print(f"{self.name} не смог взять {excess} предметов - рука полная!")
+            self.log(f"{self.name} не смог взять {excess} предметов - рука полная!")
     
     def check_personal_items_hand_limit(self):
         """Check and return number of cards to discard if over limit."""
@@ -128,7 +132,7 @@ class Player:
         actual_discard = min(count, len(self.personal_items_hand))
         for _ in range(actual_discard):
             discarded = self.personal_items_hand.pop()
-            print(f"{self.name} сбросил: {discarded.get('name', 'Personal Item')}")
+            self.log(f"{self.name} сбросил: {discarded.get('name', 'Personal Item')}")
         
         return actual_discard
     
@@ -136,7 +140,7 @@ class Player:
         """Force discard excess personal items."""
         excess = self.check_personal_items_hand_limit()
         if excess > 0:
-            print(f"⚠️  {self.name} должен сбросить {excess} одноразовых предметов (лимит: {self.max_personal_items_hand})")
+            self.log(f"⚠️  {self.name} должен сбросить {excess} одноразовых предметов (лимит: {self.max_personal_items_hand})")
             self.discard_personal_items(excess)
             return True
         return False
@@ -165,7 +169,7 @@ class Player:
         if item not in self.personal_items_hand:
             return False
         
-        print(f"📦 {self.name} использует '{item['name']}'")
+        self.log(f"📦 {self.name} использует '{item['name']}'")
         
         # Pay the cost
         cost = item.get('cost', {})
@@ -192,17 +196,17 @@ class Player:
         """Add a temporary bonus."""
         if bonus_type in self.temporary_bonuses:
             self.temporary_bonuses[bonus_type] += amount
-            print(f"System: {self.name} gained {amount} {bonus_type} bonus (total: {self.temporary_bonuses[bonus_type]})")
+            self.log(f"System: {self.name} gained {amount} {bonus_type} bonus (total: {self.temporary_bonuses[bonus_type]})")
     
     def add_immunity(self, immunity_type):
         """Add an immunity."""
         self.immunities.add(immunity_type)
-        print(f"System: {self.name} gained immunity to {immunity_type}")
+        self.log(f"System: {self.name} gained immunity to {immunity_type}")
     
     def add_special_ability(self, ability_type):
         """Add a special ability."""
         self.special_abilities.add(ability_type)
-        print(f"System: {self.name} gained special ability: {ability_type}")
+        self.log(f"System: {self.name} gained special ability: {ability_type}")
     
     def has_immunity(self, immunity_type):
         """Check if player has an immunity."""
@@ -220,7 +224,7 @@ class Player:
         """Clear all temporary effects at end of turn."""
         for bonus_type in self.temporary_bonuses:
             if self.temporary_bonuses[bonus_type] > 0:
-                print(f"System: {self.name} lost {self.temporary_bonuses[bonus_type]} {bonus_type} bonus")
+                self.log(f"System: {self.name} lost {self.temporary_bonuses[bonus_type]} {bonus_type} bonus")
                 self.temporary_bonuses[bonus_type] = 0
 
     @property
@@ -235,14 +239,14 @@ class Player:
         """Add a housing cost modifier."""
         modifier = {'amount': amount, 'description': description}
         self.housing_cost_modifiers.append(modifier)
-        print(f"🏠 {self.name}: {description} (+{amount} к стоимости жилья)")
+        self.log(f"🏠 {self.name}: {description} (+{amount} к стоимости жилья)")
 
     def remove_housing_cost_modifier(self, description):
         """Remove a housing cost modifier by description."""
         for modifier in self.housing_cost_modifiers[:]:
             if modifier['description'] == description:
                 self.housing_cost_modifiers.remove(modifier)
-                print(f"🏠 {self.name}: {description} больше не действует")
+                self.log(f"🏠 {self.name}: {description} больше не действует")
 
     def can_buy_document_level(self):
         """Check if player can buy a document level."""
@@ -257,6 +261,6 @@ class Player:
         if self.money >= cost:
             self.money -= cost
             self.document_level += 1
-            print(f"📄 {self.name} купил {target_level} уровень документов за {cost} монет")
+            self.log(f"📄 {self.name} купил {target_level} уровень документов за {cost} монет")
             return True
         return False

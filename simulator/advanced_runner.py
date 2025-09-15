@@ -9,9 +9,9 @@ import json
 import time
 import os
 from typing import Dict, List
-from .core import Game
-from .analytics import MultiGameAnalytics
-import random
+from simulator.game import Game
+from simulator.analytics import MultiGameAnalytics
+from simulator.loader import load_game_data
 
 
 class AdvancedGameRunner:
@@ -21,23 +21,18 @@ class AdvancedGameRunner:
         """Initialize the runner with configuration"""
         if config_path is None:
             # Load both game config and character config
-            game_config_path = os.path.join(os.path.dirname(__file__), 'game_config.json')
-            char_config_path = os.path.join(os.path.dirname(__file__), 'character_config.json')
-            
+            game_config_path = os.path.join(os.path.dirname(__file__), 'config.json')
+
             with open(game_config_path, 'r', encoding='utf-8') as f:
                 game_config = json.load(f)
-            with open(char_config_path, 'r', encoding='utf-8') as f:
-                char_config = json.load(f)
-            
             # Merge configs
-            self.config = game_config.copy()
-            self.config.update(char_config)
+            self.config = game_config
         else:
             with open(config_path, 'r', encoding='utf-8') as f:
                 self.config = json.load(f)
         
         # Load all game data
-        self.game_data = self._load_all_game_data()
+        self.game_data = load_game_data()
         
         # Initialize analytics
         self.multi_analytics = MultiGameAnalytics()
@@ -48,52 +43,6 @@ class AdvancedGameRunner:
             'summary': {},
             'detailed_analytics': {}
         }
-    
-    def _load_all_game_data(self) -> Dict:
-        """Load all game data files"""
-        base_path = os.path.dirname(os.path.dirname(__file__))
-        
-        game_data = {}
-        
-        # Load action cards
-        action_cards_path = os.path.join(base_path, 'actionCartds', 'action_cards.json')
-        with open(action_cards_path, 'r', encoding='utf-8') as f:
-            game_data['action_cards'] = json.load(f)
-        
-        # Load personal items
-        items_path = os.path.join(base_path, 'itemCards', 'personal_items.json')
-        with open(items_path, 'r', encoding='utf-8') as f:
-            game_data['personal_items'] = json.load(f)
-        
-        # Load health cards
-        health_path = os.path.join(base_path, 'redCards', 'health_cards.json')
-        with open(health_path, 'r', encoding='utf-8') as f:
-            game_data['health_cards'] = json.load(f)
-        
-        # Load housing cards
-        housing_path = os.path.join(base_path, 'redCards', 'housing_cards.json')
-        with open(housing_path, 'r', encoding='utf-8') as f:
-            game_data['housing_cards'] = json.load(f)
-        
-        # Load white cards (random events)
-        white_path = os.path.join(base_path, 'whiteCards', 'random_events.json')
-        with open(white_path, 'r', encoding='utf-8') as f:
-            game_data['white_cards'] = json.load(f)
-        
-        # Load green cards (documents/work)
-        green_path = os.path.join(base_path, 'greenCards', 'documents_work_cards.json')
-        with open(green_path, 'r', encoding='utf-8') as f:
-            game_data['green_cards'] = json.load(f)
-        
-        # Load game constants
-        constants_path = os.path.join(base_path, 'Common', 'game_constants.json')
-        with open(constants_path, 'r', encoding='utf-8') as f:
-            game_data['game_constants'] = json.load(f)
-        
-        # Load goals from config
-        game_data['goals'] = self.config['win_conditions']
-        
-        return game_data
     
     def run_simulation_batch(self, num_games: int, batch_size: int = 100, 
                            save_interval: int = 250) -> Dict:
@@ -117,7 +66,7 @@ class AdvancedGameRunner:
                 try:
                     # Run single game
                     game = Game(self.config, self.game_data)
-                    game.run_simulation(max_turns=200)  # Reasonable limit
+                    game.run()  # Reasonable limit
                     
                     # Collect analytics
                     self.multi_analytics.add_game(game.analytics)

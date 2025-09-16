@@ -1,10 +1,10 @@
 """Tests for game entities."""
 
 import unittest
-from ..simulator.entities.deck import Deck
-from ..simulator.entities.board import Board
-from ..simulator.entities.player import Player
-from ..simulator.entities.ai import AI
+from simulator.entities.deck import Deck
+from simulator.entities.board import Board
+from simulator.entities.player import Player
+from simulator.entities.ai import AI
 
 class TestDeck(unittest.TestCase):
     """Test cases for Deck class."""
@@ -96,7 +96,15 @@ class TestPlayer(unittest.TestCase):
             'salary': 5,
             'housing_cost': 1
         }
-        self.config = {'simulation_parameters': {'ai_nerve_threshold': 3}}
+        self.config = {
+            'quiet_mode': True,
+            'simulation_parameters': {
+                'ai_nerve_threshold': 3,
+                'max_action_cards': 5,
+                'max_personal_items_hand': 3
+            },
+            'costs': {'housing_rent': {'room': 1, 'apartment': 2, 'mortgage': 3}}
+        }
         self.game_constants = {
             'game_constants': {
                 'max_action_cards': 5,
@@ -151,7 +159,15 @@ class TestAI(unittest.TestCase):
             'salary': 5,
             'housing_cost': 1
         }
-        self.config = {'simulation_parameters': {'ai_nerve_threshold': 3}}
+        self.config = {
+            'quiet_mode': True,
+            'simulation_parameters': {
+                'ai_nerve_threshold': 3,
+                'max_action_cards': 5,
+                'max_personal_items_hand': 3
+            },
+            'costs': {'housing_rent': {'room': 1, 'apartment': 2, 'mortgage': 3}}
+        }
         self.game_constants = {
             'game_constants': {
                 'max_action_cards': 5,

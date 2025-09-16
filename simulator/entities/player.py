@@ -36,9 +36,6 @@ class Player:
         self.max_personal_items_hand = config['simulation_parameters']['max_personal_items_hand']
         self.document_cards = 1  # Number of collected document cards
         self.housing_search = False  # Whether player is actively searching for housing
-        
-        # Add starting personal items
-        self.add_personal_items(5)
         # Lap counter for tracking laps around the board
         self.lap_count = 0
 
@@ -97,7 +94,7 @@ class Player:
         """Add personal items to player's hand."""
         if count <= 0:
             return
-            
+
         items_to_add = min(count, self.max_personal_items_hand - len(self.personal_items_hand))
         if items_to_add > 0:
             for _ in range(items_to_add):
@@ -107,14 +104,17 @@ class Player:
                         self.personal_items_hand.append(item)
                         self.log(f"{self.name} получил '{item['name']}'")
                     else:
+                        # If deck is empty, add a generic item
                         self.personal_items_hand.append({"name": "Personal Item", "type": "utility"})
                         self.log(f"{self.name} получил базовый предмет (колода пуста)")
                 else:
+                    # If no game object, add a generic item
                     self.personal_items_hand.append({"name": "Personal Item", "type": "utility"})
             
+            # This log is for when no game object is available (e.g. testing)
             if not game:
                 self.log(f"{self.name} получил {items_to_add} одноразовых предметов.")
-        
+
         if count > items_to_add:
             excess = count - items_to_add
             self.log(f"{self.name} не смог взять {excess} предметов - рука полная!")

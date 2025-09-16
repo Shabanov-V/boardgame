@@ -32,14 +32,15 @@ class Game:
         self.winner = None
         self.end_reason = None
 
-        # Initialize managers
-        self.interaction_manager = InteractionManager(self.players)
-        self.trade_manager = TradeManager(self.players, self.config['quiet_mode'])
-        self.elimination_manager = EliminationManager(game_data, self.players, self.config['quiet_mode'])
-        
         # Initialize analytics
         self.analytics = GameAnalytics()
         self.analytics.start_game(self.players)
+
+        # Initialize managers
+        self.interaction_manager = InteractionManager(self.players, self.analytics)
+        self.trade_manager = TradeManager(self.players, self.config['quiet_mode'])
+        self.elimination_manager = EliminationManager(game_data, self.players, self.config['quiet_mode'])
+        
         self.effect_manager = EffectManager(self.analytics)
         self.challenge_manager = ChallengeManager(self.effect_manager, self.analytics)
 
@@ -69,11 +70,17 @@ class Game:
         self.players = []
         num_players = self.config['game_parameters']['number_of_players']
         
-        # Load character profiles from character_config.json
-        with open(self.config['character_profiles']) as f:
-            import json
-            character_config = json.load(f)
-            profiles = random.sample(character_config['character_profiles'], num_players)
+        # Load character profiles
+        character_profiles_config = self.config['character_profiles']
+        if isinstance(character_profiles_config, str):
+            # Load from a file path
+            with open(character_profiles_config) as f:
+                import json
+                character_config = json.load(f)
+                profiles = random.sample(character_config['character_profiles'], num_players)
+        else:
+            # Use the list of profiles directly
+            profiles = random.sample(character_profiles_config, num_players)
 
         for profile in profiles:
             # Players start without a goal - will choose at document level 5
@@ -168,32 +175,42 @@ class Game:
 
     def handle_pre_turn_actions(self, player):
         """Handle actions at the start of a turn."""
-        decision = player.ai.decide_play_action_card('start_of_turn')
-        if decision:
-            if isinstance(decision, tuple) and decision[0] == 'personal_item':
-                # Use personal item
-                _, item_to_use = decision
-                if player.use_personal_item(item_to_use):
-                    self.effect_manager.apply_effects(player, item_to_use.get('effects', {}))
-                    self.analytics.track_card_played(item_to_use, 'personal_items', player)
-            else:
-                # Handle action cards
-                cards_to_play = decision if isinstance(decision, list) else [decision]
-                for card_to_play in cards_to_play:
-                    # Create pre-turn action event
-                    event = InteractiveEvent(
-                        "pre_turn_action",
-                        player,
-                        card_to_play.get('effects', {}),
-                        f"{player.name} plays '{card_to_play['name']}' before turn"
-                    )
-                    event = self.interaction_manager.announce_event(event)
-                    
-                    if not event.is_blocked:
-                        self.effect_manager.apply_effects(player, event.effects)
-                        self.analytics.track_card_played(card_to_play, 'action_cards', player)
-                    player.action_cards.remove(card_to_play)
-                    self.decks['action'].discard(card_to_play)
+        other_players = [p for p in self.players if p != player and not p.is_eliminated]
+        decision = player.ai.decide_use_aggressive_item('start_of_turn', other_players)
+
+        if decision and decision[0] == 'aggressive_item':
+            _, item_to_use, target = decision
+            if player.use_personal_item(item_to_use, target):
+                # Apply effects to target
+                stolen_effects = item_to_use.get('target_effects', {})
+                self.effect_manager.apply_effects(target, stolen_effects)
+                # Apply effects to self (e.g. gain the stolen resources)
+                self.effect_manager.apply_effects(player, stolen_effects)
+
+                self.analytics.track_card_played(item_to_use, 'personal_items', player)
+                self.analytics.track_effect_theft(player, target, list(stolen_effects.keys())[0], item_to_use)
+        else:
+            decision = player.ai.decide_play_action_card('start_of_turn')
+            if decision:
+                if isinstance(decision, tuple) and decision[0] == 'personal_item':
+                    _, item_to_use = decision
+                    if player.use_personal_item(item_to_use):
+                        self.effect_manager.apply_effects(player, item_to_use.get('effects', {}))
+                        self.analytics.track_card_played(item_to_use, 'personal_items', player)
+                else:
+                    cards_to_play = decision if isinstance(decision, list) else [decision]
+                    for card_to_play in cards_to_play:
+                        event = InteractiveEvent(
+                            "pre_turn_action", player, card_to_play.get('effects', {}),
+                            f"{player.name} plays '{card_to_play['name']}' before turn"
+                        )
+                        event = self.interaction_manager.announce_event(event)
+
+                        if not event.is_blocked:
+                            self.effect_manager.apply_effects(player, event.effects)
+                            self.analytics.track_card_played(card_to_play, 'action_cards', player)
+                        player.action_cards.remove(card_to_play)
+                        self.decks['action'].discard(card_to_play)
 
     def handle_movement(self, player):
         """Handle player movement."""
@@ -342,7 +359,7 @@ class Game:
                     modified_card = card.copy()
                     modified_card['effects'] = challenge_event.effects
                     if 'challenge' in modified_card:
-                        self.challenge_manager.handle_challenge(self.log, player, modified_card['challenge'])
+                        self.challenge_manager.handle_challenge(self.log, player, modified_card)
                     else:
                         self.effect_manager.apply_effects(player, modified_card['effects'])
                 else:
@@ -431,8 +448,8 @@ class Game:
             # Analytics: Track salary
             self.analytics.track_resource_change(player, 'money', salary, 'salary')
             # Give document card
-            player.document_cards += 1
-            self.analytics.track_resource_change(player, 'document_cards', 1, 'round_income')
+            player.document_cards += 2
+            self.analytics.track_resource_change(player, 'document_cards', 2, 'round_income')
             self.log(f"End of round: {player.name} +{salary} salary -{housing_cost} rent = {player.money - old_money} net")
             # Update lap counter
             player.lap_count += 1

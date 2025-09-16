@@ -1,7 +1,7 @@
 """Tests for main Game class."""
 
 import unittest
-from ..simulator.game import Game
+from simulator.game import Game
 
 class TestGame(unittest.TestCase):
     """Test cases for Game class."""
@@ -40,8 +40,12 @@ class TestGame(unittest.TestCase):
                 }
             ],
             'simulation_parameters': {
-                'ai_nerve_threshold': 3
+                'ai_nerve_threshold': 3,
+                'max_action_cards': 5,
+                'max_personal_items_hand': 3
             },
+            'quiet_mode': True,
+            'costs': {'housing_rent': {'room': 1, 'apartment': 2, 'mortgage': 3}},
             'win_conditions': {
                 'test_goal': {
                     'description': 'Test Goal',
@@ -61,7 +65,7 @@ class TestGame(unittest.TestCase):
                 }
             },
             'action_cards': {
-                'additional_action_cards': []
+                'action_cards': []
             },
             'green_cards': {
                 'green_cards': []
@@ -145,7 +149,7 @@ class TestGame(unittest.TestCase):
         old_money = player.money
         old_docs = player.document_cards
         
-        self.game.handle_lap_completion()
+        self.game.handle_lap_completion(player)
         
         # Check salary and housing cost
         expected_money = old_money + player.salary - player.housing_cost

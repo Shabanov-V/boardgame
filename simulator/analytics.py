@@ -49,7 +49,7 @@ class GameAnalytics:
                 {'type': 'language', 'attempts': 0, 'success': 0, 'partial': 0, 'failure': 0},
                 {'type': 'documents', 'attempts': 0, 'success': 0, 'partial': 0, 'failure': 0}
             ],
-            'dice_challenges': {'total': 0, 'health': 0, 'housing': 0, 'successes': 0},
+            'dice_challenges': {'total': 0, 'health': 0, 'housing': 0, 'documents': 0, 'language': 0, 'successes': 0},
             'housing_upgrades': {'room_to_apartment': 0, 'apartment_to_mortgage': 0},
             'language_upgrades': {'basic_to_b1': 0, 'b1_to_c1': 0},
             'money_transactions': {'gains': [], 'losses': []},
@@ -101,7 +101,12 @@ class GameAnalytics:
     def end_game(self, winner: Optional[Any], end_reason: str):
         """Finalize game analytics"""
         self.game_end_time = time.time()
-        self.winner = winner.name if winner else None
+        if isinstance(winner, list):
+            self.winner = [w.name for w in winner] if winner else []
+        elif winner:
+            self.winner = winner.name
+        else:
+            self.winner = None
         self.end_reason = end_reason
         
         # Record final resources for all players
@@ -157,8 +162,10 @@ class GameAnalytics:
         self.mechanics_stats['document_exchanges']['attempts'] += 1
         if success:
             self.mechanics_stats['document_exchanges']['successes'] += 1
+            self.track_challenge(player, 'documents', 'success')
         else:
             self.mechanics_stats['document_exchanges']['failures'] += 1
+            self.track_challenge(player, 'documents', 'failure')
     
     def track_language_upgrade(self, current_lvl: int):
         """Track language challenge attempts"""
@@ -172,20 +179,23 @@ class GameAnalytics:
         self.mechanics_stats['language_challenges']['attempts'] += 1
         if success:
             self.mechanics_stats['language_challenges']['successes'] += 1
+            self.track_challenge(player, 'language', 'success')
         else:
             self.mechanics_stats['language_challenges']['failures'] += 1
+            self.track_challenge(player, 'language', 'failure')
 
-    def track_dice_challenge(self, player: Any, challenge_type: str, card: Dict, 
+    def track_dice_challenge(self, player: Any, challenge_type: str, card: Dict,
                            roll_result: int, outcome: str):
         """Track dice challenge results"""
         self.mechanics_stats['dice_challenges']['total'] += 1
         self.mechanics_stats['dice_challenges'][challenge_type] += 1
-        
+
         if outcome == 'success':
             self.mechanics_stats['dice_challenges']['successes'] += 1
-        
+
         self.players_data[player.name]['challenges_faced'][challenge_type] += 1
-        
+        self.track_challenge(player, challenge_type, outcome)
+
         # Add to current turn events
         if self.turn_events:
             self.turn_events[-1]['events'].append({
@@ -196,18 +206,19 @@ class GameAnalytics:
                 'outcome': outcome
             })
     
-    def track_interaction(self, interaction_type: str, acting_player: Any, 
+    def track_interaction(self, interaction_type: str, acting_player: Any,
                          target_player: Any, card_used: Dict, success: bool):
         """Track player interactions (interference, defense)"""
-        self.mechanics_stats['interactions'][interaction_type] += 1
-        
-        if success:
+        if interaction_type in self.mechanics_stats['interactions']:
+            self.mechanics_stats['interactions'][interaction_type] += 1
+
+        if success and interaction_type == 'defense':
             self.mechanics_stats['interactions']['blocks'] += 1
-        
+
         # Track card usage
         if card_used:
             self.track_card_played(card_used, 'action_cards', acting_player)
-        
+
         # Add to turn events
         if self.turn_events:
             self.turn_events[-1]['events'].append({
@@ -246,15 +257,18 @@ class GameAnalytics:
     def track_upgrade(self, player: Any, upgrade_type: str, from_level: Any, to_level: Any):
         """Track upgrades (housing, language)"""
         if upgrade_type == 'housing':
-            if from_level == 1 and to_level == 2:
-                self.mechanics_stats['housing_upgrades']['room_to_apartment'] += 1
-            elif from_level == 2 and to_level == 3:
-                self.mechanics_stats['housing_upgrades']['apartment_to_mortgage'] += 1
+            # Simplified for now, can be expanded
+            if to_level > from_level:
+                if from_level == 1:
+                    self.mechanics_stats['housing_upgrades']['room_to_apartment'] += 1
+                elif from_level == 2:
+                    self.mechanics_stats['housing_upgrades']['apartment_to_mortgage'] += 1
         elif upgrade_type == 'language':
-            if from_level == 1 and to_level == 2:
-                self.mechanics_stats['language_upgrades']['basic_to_b1'] += 1
-            elif from_level == 2 and to_level == 3:
-                self.mechanics_stats['language_upgrades']['b1_to_c1'] += 1
+            if to_level > from_level:
+                if from_level == 1:
+                    self.mechanics_stats['language_upgrades']['basic_to_b1'] += 1
+                elif from_level == 2:
+                    self.mechanics_stats['language_upgrades']['b1_to_c1'] += 1
     
     def track_goal_progress(self, player: Any, goal_requirements: Dict, current_progress: Dict):
         """Track player's progress toward their goal"""
@@ -408,7 +422,13 @@ class MultiGameAnalytics:
         # Aggregate key metrics
         self.aggregated_stats['durations'].append(report['game_metadata']['duration_seconds'])
         self.aggregated_stats['turns'].append(report['game_metadata']['total_turns'])
-        self.aggregated_stats['winners'].append(report['game_metadata']['winner'])
+
+        winner = report['game_metadata']['winner']
+        if isinstance(winner, list):
+            self.aggregated_stats['winners'].extend(winner)
+        else:
+            self.aggregated_stats['winners'].append(winner)
+
         self.aggregated_stats['end_reasons'].append(report['game_metadata']['end_reason'])
     
     def generate_summary_report(self) -> Dict:

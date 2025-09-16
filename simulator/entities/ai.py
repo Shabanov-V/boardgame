@@ -230,14 +230,20 @@ class AI:
         """Estimate player's progress towards victory."""
         if not player.win_condition:
             return player.money + player.nerves + player.document_level * 3
-        
+
         requirements = player.win_condition.get('requires', {})
         progress = 0
         
         for req, target_value in requirements.items():
             current_value = getattr(player, req, 0)
-            if isinstance(current_value, (int, float)):
-                progress += min(current_value / target_value, 1.0) * 10
+            if req == 'housing_type':
+                housing_levels = {'room': 1, 'apartment': 2, 'mortgage': 3}
+                player_level = housing_levels.get(getattr(player, 'housing', 'room'), 1)
+                required_level = housing_levels.get(target_value, 1)
+                progress += min(1.0, player_level / required_level) * 10
+            elif isinstance(current_value, (int, float)):
+                if target_value > 0:
+                    progress += min(current_value / target_value, 1.0) * 10
         
         return progress
     

@@ -41,7 +41,7 @@ class Game:
         self.analytics = GameAnalytics()
         self.analytics.start_game(self.players)
         self.effect_manager = EffectManager(self.analytics)
-        self.challenge_manager = ChallengeManager(self.effect_manager)
+        self.challenge_manager = ChallengeManager(self.effect_manager, self.analytics)
 
     def setup_decks(self):
         """Initialize all card decks."""

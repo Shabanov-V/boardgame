@@ -45,6 +45,10 @@ class GameAnalytics:
         self.mechanics_stats = {
             'document_exchanges': {'attempts': 0, 'successes': 0, 'failures': 0},
             'language_challenges': {'attempts': 0, 'successes': 0, 'failures': 0},
+            'challenges': [
+                {'type': 'language', 'attempts': 0, 'success': 0, 'partial': 0, 'failure': 0},
+                {'type': 'documents', 'attempts': 0, 'success': 0, 'partial': 0, 'failure': 0}
+            ],
             'dice_challenges': {'total': 0, 'health': 0, 'housing': 0, 'successes': 0},
             'housing_upgrades': {'room_to_apartment': 0, 'apartment_to_mortgage': 0},
             'language_upgrades': {'basic_to_b1': 0, 'b1_to_c1': 0},
@@ -105,6 +109,17 @@ class GameAnalytics:
             # This will be filled by the game engine
             pass
     
+    def track_challenge(self, player: Any, challenge_type: str, outcome: str):
+        """Track a player's challenge attempt"""
+        for challenge in self.mechanics_stats['challenges']:
+            if challenge['type'] == challenge_type:
+                challenge['attempts'] += 1
+                challenge[outcome] += 1
+                break
+        # Update player-specific data
+        if player.name in self.players_data:
+            self.players_data[player.name]['challenges_faced'][challenge_type] += 1
+
     def track_turn_start(self, player: Any, turn_number: int):
         """Track the start of a player's turn"""
         self.total_turns = turn_number
@@ -147,12 +162,18 @@ class GameAnalytics:
     
     def track_language_upgrade(self, current_lvl: int):
         """Track language challenge attempts"""
-        self.mechanics_stats['language_challenges']['attempts'] += 1
-        self.mechanics_stats['language_challenges']['successes'] += 1
         if current_lvl == 1:
             self.mechanics_stats['language_upgrades']['basic_to_b1'] += 1
         else:
             self.mechanics_stats['language_upgrades']['b1_to_c1'] += 1
+
+    def track_language_challenge(self, player: Any, success: bool):
+        """Track language challenge attempts"""
+        self.mechanics_stats['language_challenges']['attempts'] += 1
+        if success:
+            self.mechanics_stats['language_challenges']['successes'] += 1
+        else:
+            self.mechanics_stats['language_challenges']['failures'] += 1
 
     def track_dice_challenge(self, player: Any, challenge_type: str, card: Dict, 
                            roll_result: int, outcome: str):

@@ -1,11 +1,13 @@
 import random
 from simulator.mechanics.effects import EffectManager
+from simulator.analytics import GameAnalytics
 
 class ChallengeManager:
     """Manages dice roll challenges and their outcomes."""
     
-    def __init__(self, effect_manager: EffectManager):
+    def __init__(self, effect_manager: EffectManager, analytics: GameAnalytics):
         self.effect_manager = effect_manager
+        self.analytics = analytics
 
     def handle_challenge(self, logger, player, challenge, event_manager=None):
         """Execute a dice challenge for a player."""
@@ -28,7 +30,8 @@ class ChallengeManager:
         # Find the appropriate outcome based on roll
         outcome_key = ChallengeManager._determine_outcome(roll, challenge['outcomes'])
         chosen_outcome = challenge['outcomes'][outcome_key]
-        
+        self.analytics.track_challenge(player, challenge['skill_type'], outcome_key)
+       
         # Apply the outcome effects
         if 'effects' in chosen_outcome:
             logger(f"Outcome: {chosen_outcome['description']}")

@@ -379,6 +379,7 @@ class MultiGameAnalytics:
         self.games = []
         self.aggregated_stats = defaultdict(list)
         self.victory_types = {}  # Will be populated with first game's config
+        self.profile_victories = defaultdict(lambda: defaultdict(int))  # {profile_type: {victory_type: count}}
     
     def initialize_victory_types(self, config):
         """Initialize possible victory types from game config"""
@@ -396,6 +397,17 @@ class MultiGameAnalytics:
         self.aggregated_stats['winners'].append(report['game_metadata']['winner'])
         self.aggregated_stats['end_reasons'].append(report['game_metadata']['end_reason'])
         self.aggregated_stats['victory_types'].append(report['game_metadata']['victory_type'])
+        
+        # Track victories by profile type
+        winner_name = report['game_metadata']['winner']
+        victory_type = report['game_metadata']['victory_type']
+        if winner_name and victory_type:  # Only track actual victories, not eliminations/timeouts
+            # Get winner's profile from player data
+            for player_name, player_data in report['player_performance'].items():
+                if player_name == winner_name:
+                    profile_type = player_data['profile']
+                    self.profile_victories[profile_type][victory_type] += 1
+                    break
     
     def generate_summary_report(self) -> Dict:
         """Generate summary report across all games"""
@@ -508,6 +520,13 @@ class MultiGameAnalytics:
                 'victory_type_distribution': {
                     **{vt: 0 for vt in self.victory_types},  # Initialize all types with 0
                     **dict(Counter([vt for vt in self.aggregated_stats['victory_types'] if vt is not None]))  # Update with actual counts
+                },
+                'profile_victory_distribution': {
+                    profile: {
+                        **{vt: 0 for vt in self.victory_types},  # Initialize all victory types with 0
+                        **victories  # Update with actual victories
+                    }
+                    for profile, victories in self.profile_victories.items()
                 },
                 'most_successful_profile': win_distribution.most_common(1)[0] if win_distribution else None
             },

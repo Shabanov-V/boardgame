@@ -36,6 +36,7 @@ class AdvancedGameRunner:
         
         # Initialize analytics
         self.multi_analytics = MultiGameAnalytics()
+        self.multi_analytics.initialize_victory_types(self.config)
         
         # Results storage
         self.results = {

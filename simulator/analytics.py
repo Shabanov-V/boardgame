@@ -25,6 +25,7 @@ class GameAnalytics:
         self.total_turns = 0
         self.winner = None
         self.end_reason = None
+        self.victory_type = None
         
         # Player tracking
         self.players_data = {}
@@ -94,11 +95,12 @@ class GameAnalytics:
                 'goal_progress': []
             }
     
-    def end_game(self, winner: Optional[Any], end_reason: str):
+    def end_game(self, winner: Optional[Any], end_reason: str, victory_type: Optional[str] = None):
         """Finalize game analytics"""
         self.game_end_time = time.time()
         self.winner = winner.name if winner else None
         self.end_reason = end_reason
+        self.victory_type = victory_type
         
         # Record final resources for all players
         for player_name, data in self.players_data.items():
@@ -305,6 +307,7 @@ class GameAnalytics:
                 'total_turns': self.total_turns,
                 'winner': self.winner,
                 'end_reason': self.end_reason,
+                'victory_type': self.victory_type,
                 'players_count': len(self.players_data)
             },
             'card_usage_stats': {
@@ -375,7 +378,13 @@ class MultiGameAnalytics:
     def __init__(self):
         self.games = []
         self.aggregated_stats = defaultdict(list)
+        self.victory_types = {}  # Will be populated with first game's config
     
+    def initialize_victory_types(self, config):
+        """Initialize possible victory types from game config"""
+        if 'win_conditions' in config:
+            self.victory_types = {key: 0 for key in config['win_conditions'].keys()}
+
     def add_game(self, game_analytics: GameAnalytics):
         """Add a completed game's analytics"""
         report = game_analytics.generate_report()
@@ -386,6 +395,7 @@ class MultiGameAnalytics:
         self.aggregated_stats['turns'].append(report['game_metadata']['total_turns'])
         self.aggregated_stats['winners'].append(report['game_metadata']['winner'])
         self.aggregated_stats['end_reasons'].append(report['game_metadata']['end_reason'])
+        self.aggregated_stats['victory_types'].append(report['game_metadata']['victory_type'])
     
     def generate_summary_report(self) -> Dict:
         """Generate summary report across all games"""
@@ -495,6 +505,10 @@ class MultiGameAnalytics:
                 'total_winners': len(winners),
                 'unique_winners': len(win_distribution),
                 'win_distribution': dict(win_distribution),
+                'victory_type_distribution': {
+                    **{vt: 0 for vt in self.victory_types},  # Initialize all types with 0
+                    **dict(Counter([vt for vt in self.aggregated_stats['victory_types'] if vt is not None]))  # Update with actual counts
+                },
                 'most_successful_profile': win_distribution.most_common(1)[0] if win_distribution else None
             },
             'success_rates': {

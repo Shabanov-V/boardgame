@@ -1,6 +1,52 @@
 {
   "action_cards": [
     {
+      "id": "housing_upgrade_01",
+      "name": "Subvención de Vivienda",
+      "category": "housing",
+      "type": "instant",
+      "description": "Государственная субсидия на улучшение жилищных условий",
+      "effects": {
+        "housing_upgrade": true,
+        "money": -3
+      },
+      "conditions": {
+        "money_range": ">=3"
+      },
+      "when_to_play": "immediately",
+      "flavor_text": "¡Ayuda para mejorar tu vivienda!"
+    },
+    {
+      "id": "housing_upgrade_02",
+      "name": "Hipoteca Pre-Aprobada",
+      "category": "housing",
+      "type": "instant",
+      "description": "Банк одобрил ипотеку на выгодных условиях",
+      "effects": {
+        "housing_upgrade": true,
+        "money": -5
+      },
+      "conditions": {
+        "money_range": ">=5",
+        "housing_type": "apartment"
+      },
+      "when_to_play": "immediately",
+      "flavor_text": "¡Tu sueño de tener casa propia!"
+    },
+    {
+      "id": "housing_upgrade_03",
+      "name": "Программа Социального Жилья",
+      "category": "housing",
+      "type": "instant",
+      "description": "Муниципальная программа улучшения жилищных условий",
+      "effects": {
+        "housing_upgrade": true,
+        "nerves": -2
+      },
+      "when_to_play": "immediately",
+      "flavor_text": "Vivienda de protección oficial"
+    },
+    {
       "id": "balance_student_01",
       "name": "Молодежные льготы",
       "category": "balance", 

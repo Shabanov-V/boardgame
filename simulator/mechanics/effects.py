@@ -61,7 +61,7 @@ class EffectManager:
                 player.document_cards = max(0, player.document_cards + value)
             elif key == 'language_level_up' and value:
                 if player.language_level < 3:
-                    self.analytics.track_language_upgrade(player.language_level)
+                    self.analytics.track_upgrade(player, 'language', player.language_level, player.language_level + 1)
                     player.language_level += 1
             elif key == 'document_level':
                 player.document_level = max(0, player.document_level + value)

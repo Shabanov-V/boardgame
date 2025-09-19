@@ -114,7 +114,8 @@ class Game:
                 self.end_reason = 'time_limit'
                 self.winner = None
         # End game analytics
-        self.analytics.end_game(self.winner, self.end_reason)
+        victory_type = self.winner.win_condition['key'] if self.winner and self.end_reason == 'win' else None
+        self.analytics.end_game(self.winner, self.end_reason, victory_type)
         return self.winner
 
     def take_turn(self, player):
@@ -411,7 +412,7 @@ class Game:
             self.game_over = True
             self.winner = player
             self.end_reason = 'win'
-            self.analytics.end_game(player, self.end_reason)
+            self.analytics.end_game(player, self.end_reason, player.win_condition['key'])
 
     def handle_lap_completion(self, player):
         """Handle events that occur when a player completes a lap."""

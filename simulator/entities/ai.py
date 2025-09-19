@@ -307,8 +307,14 @@ class AI:
                 return True
             if req == 'language_level' and effects.get('language_level_up'):
                 return True
-            if req == 'housing_type' and special_effect == 'upgrade_housing':
-                return True
+            if req == 'housing_type':
+                # Check for housing upgrade in various locations
+                if special_effect == 'upgrade_housing' or effects.get('housing_upgrade'):
+                    return True
+                # Check individual modifiers if this card has them
+                individual_effects = card.get('individual_modifiers', {}).get(self.player.id, {}).get('additional_effects', {})
+                if individual_effects.get('housing_upgrade'):
+                    return True
         return False
 
     def decide_interference(self, event):

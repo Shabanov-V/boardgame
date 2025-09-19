@@ -7,8 +7,9 @@ class ChallengeManager:
     def __init__(self, effect_manager: EffectManager):
         self.effect_manager = effect_manager
 
-    def handle_challenge(self, logger, player, challenge, event_manager=None):
+    def handle_challenge(self, logger, player, card, event_manager=None):
         """Execute a dice challenge for a player."""
+        challenge = card.get('challenge')
         # Roll based on language level
         if player.language_level == 1:
             # Level 1: Roll 2 dice, take lowest
@@ -27,8 +28,8 @@ class ChallengeManager:
 
         # Find the appropriate outcome based on roll
         outcome_key = ChallengeManager._determine_outcome(roll, challenge['outcomes'])
-        chosen_outcome = challenge['outcomes'][outcome_key]
-        
+        chosen_outcome = challenge['outcomes'][outcome_key] 
+        self.effect_manager.analytics.track_dice_challenge(player, challenge['skill_type'], card, roll, outcome_key)
         # Apply the outcome effects
         if 'effects' in chosen_outcome:
             logger(f"Outcome: {chosen_outcome['description']}")

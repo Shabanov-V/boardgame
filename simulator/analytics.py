@@ -45,7 +45,7 @@ class GameAnalytics:
         self.mechanics_stats = {
             'document_exchanges': {'attempts': 0, 'successes': 0, 'failures': 0},
             'language_challenges': {'attempts': 0, 'successes': 0, 'failures': 0},
-            'dice_challenges': {'total': 0, 'health': 0, 'housing': 0, 'successes': 0},
+            'dice_challenges': {'total': 0, 'health': 0, 'housing': 0, 'language': 0, 'documents': 0, 'successes': 0},
             'housing_upgrades': {'room_to_apartment': 0, 'apartment_to_mortgage': 0},
             'language_upgrades': {'basic_to_b1': 0, 'b1_to_c1': 0},
             'money_transactions': {'gains': [], 'losses': []},
@@ -147,15 +147,12 @@ class GameAnalytics:
     
     def track_language_upgrade(self, current_lvl: int):
         """Track language challenge attempts"""
-        self.mechanics_stats['language_challenges']['attempts'] += 1
-        self.mechanics_stats['language_challenges']['successes'] += 1
         if current_lvl == 1:
             self.mechanics_stats['language_upgrades']['basic_to_b1'] += 1
         else:
             self.mechanics_stats['language_upgrades']['b1_to_c1'] += 1
 
-    def track_dice_challenge(self, player: Any, challenge_type: str, card: Dict, 
-                           roll_result: int, outcome: str):
+    def track_dice_challenge(self, player: Any, challenge_type: str, card: Dict, roll_result: int, outcome: str):
         """Track dice challenge results"""
         self.mechanics_stats['dice_challenges']['total'] += 1
         self.mechanics_stats['dice_challenges'][challenge_type] += 1

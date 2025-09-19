@@ -342,7 +342,7 @@ class Game:
                     modified_card = card.copy()
                     modified_card['effects'] = challenge_event.effects
                     if 'challenge' in modified_card:
-                        self.challenge_manager.handle_challenge(self.log, player, modified_card['challenge'])
+                        self.challenge_manager.handle_challenge(self.log, player, modified_card)
                     else:
                         self.effect_manager.apply_effects(player, modified_card['effects'])
                 else:

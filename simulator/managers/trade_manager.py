@@ -1,3 +1,6 @@
+from simulator.utils.logger import Logger
+
+
 class TradeOffer:
     """Represents a trade offer between players."""
     def __init__(self, offering_player, requested_effects, offered_items, description=""):
@@ -14,14 +17,11 @@ class TradeOffer:
 
 class TradeManager:
     """Handles trading interactions between players."""
-    def __init__(self, players, silent_mode=False):
+    def __init__(self, players, logger: Logger):
         self.players = players
         self.pending_offer = None
-        self.silent_mode = silent_mode
+        self.logger = logger
         
-    def log(self, message):
-        if not self.silent_mode:
-            print(message)
 
 
     def create_trade_offer(self, offering_player, requested_effects, offered_items, description=""):
@@ -71,15 +71,15 @@ class TradeManager:
         """Execute a completed trade between two players."""
         offering_player = offer.offering_player
         
-        self.log(f"\nTRADE EXECUTION: {offering_player.name} ↔ {accepting_player.name}")
-        self.log(f"Requested: {offer.requested_effects}")
-        self.log(f"Offered: {offer.offered_items}")
+        self.logger.log(f"\nTRADE EXECUTION: {offering_player.name} ↔ {accepting_player.name}")
+        self.logger.log(f"Requested: {offer.requested_effects}")
+        self.logger.log(f"Offered: {offer.offered_items}")
         
         # Check if offering player can actually deliver what they promised
         can_deliver = self._validate_offered_items(offering_player, offer.actual_items)
         
         if not can_deliver:
-            self.log(f"🎭 TRADE SCAM! {offering_player.name} couldn't deliver what they promised!")
+            self.logger.log(f"🎭 TRADE SCAM! {offering_player.name} couldn't deliver what they promised!")
             # Penalty for lying
             offering_player.nerves = max(1, offering_player.nerves - 2)
             accepting_player.nerves = max(1, accepting_player.nerves - 1)
@@ -97,9 +97,9 @@ class TradeManager:
         success &= self._apply_trade_effects(accepting_player, offer.actual_items, give=False)
         
         if success:
-            self.log(f"✅ Trade completed successfully!")
+            self.logger.log(f"✅ Trade completed successfully!")
         else:
-            self.log(f"❌ Trade failed to execute properly!")
+            self.logger.log(f"❌ Trade failed to execute properly!")
             
         return success
     
@@ -135,7 +135,7 @@ class TradeManager:
                     # Use the cards
                     for card in cards_to_use:
                         player.action_cards.remove(card)
-                        self.log(f"  {player.name} used action card: {card['name']}")
+                        self.logger.log(f"  {player.name} used action card: {card['name']}")
                 else:
                     player.nerves = min(10, player.nerves + amount)
                     

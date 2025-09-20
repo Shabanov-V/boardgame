@@ -16,6 +16,7 @@ from simulator.mechanics.challenges import ChallengeManager
 
 from simulator.utils.constants import CARD_TYPES
 from simulator.utils.helpers import calculate_win_progress, is_global_event_card
+from simulator.utils.logger import Logger
 
 from simulator.analytics import GameAnalytics
 
@@ -33,14 +34,15 @@ class Game:
         self.end_reason = None
 
         # Initialize managers
+        self.logger = Logger(silent_mode=self.config['quiet_mode'])
         self.interaction_manager = InteractionManager(self.players)
-        self.trade_manager = TradeManager(self.players, self.config['quiet_mode'])
-        self.elimination_manager = EliminationManager(game_data, self.players, self.config['quiet_mode'])
+        self.trade_manager = TradeManager(self.players, self.logger)
+        self.elimination_manager = EliminationManager(game_data, self.logger, self.players)
         
         # Initialize analytics
         self.analytics = GameAnalytics()
         self.analytics.start_game(self.players)
-        self.effect_manager = EffectManager(self.analytics)
+        self.effect_manager = EffectManager(self.analytics, self.logger)
         self.challenge_manager = ChallengeManager(self.effect_manager)
 
     def setup_decks(self):

@@ -72,6 +72,10 @@ class GameAnalytics:
             'resources_per_turn': [],
             'progress_per_turn': []
         }
+
+        # Warnings and anomalies
+        self.warnings = defaultdict(int)
+        
     
     def start_game(self, players: List[Any]):
         """Initialize analytics for a new game"""
@@ -323,7 +327,8 @@ class GameAnalytics:
                 'cell_visit_frequency': dict(self.cell_visits),
                 'turn_events_sample': self.turn_events[-10:] if len(self.turn_events) > 10 else self.turn_events
             },
-            'balance_insights': self._analyze_balance()
+            'balance_insights': self._analyze_balance(),
+            'warnings': dict(self.warnings) if self.warnings else {}
         }
     
     def _get_most_used_cards(self, top_n: int = 10) -> Dict:
@@ -370,6 +375,10 @@ class GameAnalytics:
         theft_stats['thefts_by_stealer'][stealing_player.profile] += 1
         theft_stats['thefts_by_target'][target_player.profile] += 1
         theft_stats['steal_cards_used'][steal_card['name']] += 1
+    
+    def record_warning(self, warning_message: str):
+        """Record a warning or anomaly detected during the game."""
+        self.warnings[warning_message] += 1
 
 
 class MultiGameAnalytics:
@@ -380,6 +389,7 @@ class MultiGameAnalytics:
         self.aggregated_stats = defaultdict(list)
         self.victory_types = {}  # Will be populated with first game's config
         self.profile_victories = defaultdict(lambda: defaultdict(int))  # {profile_type: {victory_type: count}}
+        self.warning_counts = defaultdict(int)  # Aggregate warning counts across all games
     
     def initialize_victory_types(self, config):
         """Initialize possible victory types from game config"""
@@ -390,6 +400,10 @@ class MultiGameAnalytics:
         """Add a completed game's analytics"""
         report = game_analytics.generate_report()
         self.games.append(report)
+        
+        # Aggregate warnings from this game
+        for warning, count in report.get('warnings', {}).items():
+            self.warning_counts[warning] += count
         
         # Aggregate key metrics
         self.aggregated_stats['durations'].append(report['game_metadata']['duration_seconds'])
@@ -533,5 +547,15 @@ class MultiGameAnalytics:
             'success_rates': {
                 'avg_document_success_rate': sum(doc_success_rates) / len(doc_success_rates) if doc_success_rates else 0,
                 'avg_challenge_success_rate': sum(challenge_success_rates) / len(challenge_success_rates) if challenge_success_rates else 0
+            },
+            'warnings': {
+                'total_warnings': sum(self.warning_counts.values()),
+                'unique_warnings': len(self.warning_counts),
+                'warning_distribution': dict(self.warning_counts),
+                'avg_warnings_per_game': sum(self.warning_counts.values()) / len(self.games) if self.games else 0,
+                'most_frequent_warnings': sorted(
+                    [(warning, count) for warning, count in self.warning_counts.items()],
+                    key=lambda x: (-x[1], x[0])  # Sort by count (descending) then by warning message
+                )[:5]  # Top 5 most frequent warnings
             }
         }

@@ -1,10 +1,12 @@
 from simulator.analytics import GameAnalytics
+from simulator.utils.logger import Logger
 
 class EffectManager:
     """Manages application of card effects to players."""
     
-    def __init__(self, analytics: GameAnalytics):
+    def __init__(self, analytics: GameAnalytics, logger: Logger):
         self.analytics = analytics
+        self.logger = logger
 
     def apply_effects(self, player, effects, event_manager=None):
         """Apply a dictionary of effects to a player."""
@@ -70,30 +72,31 @@ class EffectManager:
             elif key == 'housing_cost_modifier':
                 if isinstance(value, dict) and 'amount' in value and 'description' in value:
                     player.add_housing_cost_modifier(value['amount'], value['description'])
+            elif key == 'housing_upgrade':
+                self.apply_housing_change(player, is_upgrade=True)
+            else:
+                self.analytics.record_warning(f"Unknown effect key: {key}")
 
-    @staticmethod
-    def apply_bonus(player, bonus_type, value):
+    def apply_bonus(self, player, bonus_type, value):
         """Apply a temporary bonus to a player."""
         if bonus_type in player.temporary_bonuses:
             player.temporary_bonuses[bonus_type] += value
-            print(f"System: {player.name} gained {value} {bonus_type} bonus (total: {player.temporary_bonuses[bonus_type]})")
+            self.logger.log(f"System: {player.name} gained {value} {bonus_type} bonus (total: {player.temporary_bonuses[bonus_type]})")
 
-    @staticmethod
-    def apply_immunity(player, immunity_type):
+    def apply_immunity(self, player, immunity_type):
         """Add an immunity to a player."""
         player.immunities.add(immunity_type)
-        print(f"System: {player.name} gained immunity to {immunity_type}")
+        self.logger.log(f"System: {player.name} gained immunity to {immunity_type}")
 
-    @staticmethod
-    def apply_special_ability(player, ability_type):
+    def apply_special_ability(self, player, ability_type):
         """Add a special ability to a player."""
         player.special_abilities.add(ability_type)
-        print(f"System: {player.name} gained special ability: {ability_type}")
+        self.logger.log(f"System: {player.name} gained special ability: {ability_type}")
 
-    @staticmethod
-    def apply_housing_change(player, is_upgrade=True):
+    def apply_housing_change(self, player, is_upgrade=True):
         """Handle housing upgrades or downgrades."""
         old_housing = player.housing
+        old_housing_level = player.housing_level
         if is_upgrade:
             if player.housing == 'room':
                 player.housing = 'apartment'
@@ -101,7 +104,7 @@ class EffectManager:
             elif player.housing == 'apartment':
                 player.housing = 'mortgage'
                 player.housing_level = 3
-            print(f"System: {player.name} upgraded housing from {old_housing} to {player.housing}!")
+            self.logger.log(f"System: {player.name} upgraded housing from {old_housing} to {player.housing}!")
         else:
             if player.housing == 'mortgage':
                 player.housing = 'apartment'
@@ -109,7 +112,8 @@ class EffectManager:
             elif player.housing == 'apartment':
                 player.housing = 'room'
                 player.housing_level = 1
-            print(f"System: {player.name} downgraded housing from {old_housing} to {player.housing}.")
+            self.logger.log(f"System: {player.name} downgraded housing from {old_housing} to {player.housing}.")
+        self.analytics.track_upgrade(player, 'housing', old_housing_level, player.housing_level)
         
         # Update base housing cost based on new housing type
         housing_rent = player.config['costs']['housing_rent']

@@ -220,6 +220,17 @@ class Player:
         """Get current bonus value."""
         return self.temporary_bonuses.get(bonus_type, 0)
     
+    def use_bonus(self, bonus_type, amount):
+        """Use up a temporary bonus."""
+        if bonus_type in self.temporary_bonuses:
+            used_amount = min(self.temporary_bonuses[bonus_type], amount)
+            self.temporary_bonuses[bonus_type] -= used_amount
+            if used_amount > 0:
+                self.log(f"System: {self.name} used {used_amount} {bonus_type} bonus (remaining: {self.temporary_bonuses[bonus_type]})")
+            return used_amount
+        return 0
+
+
     def clear_temporary_effects(self):
         """Clear all temporary effects at end of turn."""
         for bonus_type in self.temporary_bonuses:

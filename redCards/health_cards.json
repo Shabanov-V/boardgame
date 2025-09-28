@@ -463,7 +463,6 @@
             "description": "Четко объяснили, скорая приехала быстро",
             "effects": {
               "nerves": 1,
-              "social_bonus": true,
               "personal_items": 2
             }
           },
@@ -539,8 +538,7 @@
             "condition": ">3",
             "description": "Врач выписал направление, запись через месяц",
             "effects": {
-              "nerves": 1,
-              "health_bonus": true
+              "nerves": 1
             }
           },
           "partial": {
@@ -685,7 +683,6 @@
       "type": "negative",
       "description": "Тяжелый развод отнимает силы и деньги",
       "effects": {
-        "nerves_divide": 2,
         "money_divide": 2,
         "documents_cards": 2
       },
@@ -698,7 +695,6 @@
       "type": "negative",
       "description": "Болезненное расставание бьет по всем фронтам",
       "effects": {
-        "nerves_divide": 2,
         "money_divide": 2,
         "documents_cards": 2
       },
@@ -711,7 +707,6 @@
       "type": "negative",
       "description": "Кризис в отношениях требует много сил",
       "effects": {
-        "nerves_divide": 2,
         "money_divide": 2,
         "documents_cards": 2
       },
@@ -724,7 +719,6 @@
       "type": "negative",
       "description": "Тяжелый процесс раздела имущества",
       "effects": {
-        "nerves_divide": 2,
         "money_divide": 2,
         "documents_cards": 2
       },
@@ -737,7 +731,6 @@
       "type": "negative",
       "description": "Суды по разводу отнимают все силы",
       "effects": {
-        "nerves_divide": 2,
         "money_divide": 2,
         "documents_cards": 2
       },
@@ -750,7 +743,6 @@
       "type": "negative",
       "description": "Тяжелый разрыв длительных отношений",
       "effects": {
-        "nerves_divide": 2,
         "money_divide": 2,
         "documents_cards": 2
       },
@@ -763,7 +755,6 @@
       "type": "negative",
       "description": "Особенно сложный развод с гражданином Испании",
       "effects": {
-        "nerves_divide": 2,
         "money_divide": 2,
         "documents_cards": 2
       },
@@ -776,7 +767,6 @@
       "type": "negative",
       "description": "Длительный и сложный процесс развода",
       "effects": {
-        "nerves_divide": 2,
         "money_divide": 2,
         "documents_cards": 2
       },

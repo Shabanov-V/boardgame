@@ -1073,7 +1073,6 @@
             "description": "Успешно помирили всех, стали местным героем",
             "effects": {
               "nerves": 3,
-              "social_bonus": true,
               "money": 1,
               "personal_items": 2
             }
@@ -1274,7 +1273,6 @@
             "description": "Соседи объединились, лифт починили",
             "effects": {
               "nerves": 3,
-              "social_bonus": true,
               "housing_bonus": true
             }
           },

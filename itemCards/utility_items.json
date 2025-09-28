@@ -178,8 +178,7 @@
         "money": 4
       },
       "effects": {
-        "nerves": 2,
-        "social_bonus": true
+        "nerves": 2
       },
       "when_to_play": "anytime",
       "flavor_text": "Jamón = cultura española"
@@ -196,7 +195,7 @@
       },
       "effects": {
         "language_upgrade_discount": true,
-        "permanent_language_bonus": true
+        "language_bonus": 1
       },
       "profile_modifiers": {
         "student": {"money": 0, "nerves": 1},
@@ -265,8 +264,7 @@
         "money": 1
       },
       "effects": {
-        "nerves": 2,
-        "social_bonus": true
+        "nerves": 2
       },
       "when_to_play": "anytime",
       "flavor_text": "¡Tradición pura! Sin cebolla = respeto"
@@ -396,7 +394,6 @@
       },
       "effects": {
         "nerves": 3,
-        "social_bonus": true,
         "money": 1
       },
       "when_to_play": "anytime",
@@ -444,8 +441,7 @@
         "money": 0
       },
       "effects": {
-        "language_dice_advantage": true,
-        "social_bonus": true
+        "language_dice_advantage": true
       },
       "when_to_play": "during_language_challenge",
       "flavor_text": "Intercambio = aprender + conocer"
@@ -460,8 +456,7 @@
         "money": 1
       },
       "effects": {
-        "documents_fast_track": true,
-        "social_bonus": true
+        "documents_fast_track": true
       },
       "when_to_play": "when_getting_documents",
       "flavor_text": "Número local = confianza"
@@ -492,8 +487,7 @@
         "money": 1
       },
       "effects": {
-        "nerves": 2,
-        "cultural_bonus": true
+        "nerves": 2
       },
       "when_to_play": "anytime",
       "flavor_text": "Valencia tradicional = refrescante"
@@ -541,7 +535,6 @@
       },
       "effects": {
         "nerves": 2,
-        "health_bonus": true,
         "money": 1
       },
       "when_to_play": "anytime",
@@ -573,7 +566,6 @@
         "money": 1
       },
       "effects": {
-        "social_bonus": true,
         "nerves": 2,
         "sports_bonus": true
       },
@@ -591,8 +583,7 @@
       },
       "effects": {
         "nerves": 2,
-        "language_bonus": 1,
-        "cultural_bonus": true
+        "language_bonus": 1
       },
       "when_to_play": "anytime",
       "flavor_text": "Música = alma española"
@@ -624,7 +615,6 @@
       },
       "effects": {
         "nerves": 3,
-        "social_bonus": true,
         "draw_card": 1
       },
       "when_to_play": "anytime",
@@ -672,8 +662,7 @@
         "money": 1
       },
       "effects": {
-        "nerves": 2,
-        "vacation_bonus": true
+        "nerves": 2
       },
       "when_to_play": "anytime",
       "flavor_text": "Playa española = relajación"
@@ -722,7 +711,7 @@
       },
       "effects": {
         "language_dice_advantage": true,
-        "emergency_language_bonus": true
+        "language_bonus": 1
       },
       "when_to_play": "during_language_challenge",
       "flavor_text": "Palabras = poder"
@@ -737,7 +726,6 @@
         "money": 1
       },
       "effects": {
-        "health_bonus": true,
         "eco_bonus": true,
         "money": 1
       },
@@ -805,9 +793,7 @@
         "money": 1
       },
       "effects": {
-        "nerves": 2,
-        "health_bonus": true,
-        "sleep_bonus": true
+        "nerves": 2
       },
       "when_to_play": "anytime",
       "flavor_text": "Buen sueño = mejor día"

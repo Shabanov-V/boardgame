@@ -74,6 +74,8 @@ class EffectManager:
                     player.add_housing_cost_modifier(value['amount'], value['description'])
             elif key == 'housing_upgrade':
                 self.apply_housing_change(player, is_upgrade=True)
+            elif key == 'language_bonus':
+                self.apply_bonus(player, 'language', value)
             else:
                 self.analytics.record_warning(f"Unknown effect key: {key}")
 

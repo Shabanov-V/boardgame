@@ -307,7 +307,7 @@ class AdvancedGameRunner:
         with open(filepath, 'w', encoding='utf-8') as f:
             json.dump(self.results, f, indent=2, ensure_ascii=False)
         
-        print(f"📊 Full report saved: {filename}")
+        print(f"📊 Full report saved: {filepath}")
         return filepath
 
 

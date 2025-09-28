@@ -10,13 +10,18 @@ class ChallengeManager:
     def handle_challenge(self, logger, player, card, event_manager=None):
         """Execute a dice challenge for a player."""
         challenge = card.get('challenge')
+        used_language_bonus = min(3 - player.language_level, player.get_bonus('language'))
+        current_language_level = player.language_level + used_language_bonus
+        if (used_language_bonus > 0):
+            self.effect_manager.analytics.record_bonus_usage(player, 'language', used_language_bonus)
+            player.use_bonus('language', used_language_bonus)
         # Roll based on language level
-        if player.language_level == 1:
+        if current_language_level == 1:
             # Level 1: Roll 2 dice, take lowest
             roll1 = random.randint(1, 6)
             roll2 = random.randint(1, 6)
             roll = min(roll1, roll2)
-        elif player.language_level == 2:
+        elif current_language_level == 2:
             # Level 2: Roll 1 die
             roll = random.randint(1, 6)
         else:

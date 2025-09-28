@@ -45,7 +45,6 @@ class GameAnalytics:
         # Mechanics tracking
         self.mechanics_stats = {
             'document_exchanges': {'attempts': 0, 'successes': 0, 'failures': 0},
-            'language_challenges': {'attempts': 0, 'successes': 0, 'failures': 0},
             'dice_challenges': {'total': 0, 'health': 0, 'housing': 0, 'language': 0, 'documents': 0, 'successes': 0},
             'housing_upgrades': {'room_to_apartment': 0, 'apartment_to_mortgage': 0},
             'language_upgrades': {'basic_to_b1': 0, 'b1_to_c1': 0},
@@ -58,7 +57,8 @@ class GameAnalytics:
                 'thefts_by_stealer': defaultdict(int),
                 'thefts_by_target': defaultdict(int),
                 'steal_cards_used': defaultdict(int)
-            }
+            },
+            'bonuses_used': defaultdict(int)
         }
         
         # Game flow tracking
@@ -379,6 +379,10 @@ class GameAnalytics:
     def record_warning(self, warning_message: str):
         """Record a warning or anomaly detected during the game."""
         self.warnings[warning_message] += 1
+    
+    def record_bonus_usage(self, player: Any, bonus_type: str, amount: int):
+        """Track usage of bonuses by players."""
+        self.mechanics_stats['bonuses_used'][bonus_type] += amount
 
 
 class MultiGameAnalytics:
@@ -557,5 +561,6 @@ class MultiGameAnalytics:
                     [(warning, count) for warning, count in self.warning_counts.items()],
                     key=lambda x: (-x[1], x[0])  # Sort by count (descending) then by warning message
                 )[:5]  # Top 5 most frequent warnings
-            }
+            },
+            'bonus_usage': dict(self.aggregated_stats['bonuses_used']) if 'bonuses_used' in self.aggregated_stats else 0
         }

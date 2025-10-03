@@ -80,6 +80,37 @@
         "flexible_schedule",
         "unstable_income"
       ]
+    },
+    {
+      "id": "waiter",
+      "name": "Официант",
+      "starting_money": 8,
+      "starting_nerves": 7,
+      "starting_language": 2,
+      "starting_housing": "room",
+      "salary": 4,
+      "description": "Работа в сфере услуг, постоянный контакт с людьми, чаевые"
+    },
+    {
+      "id": "pensioner",
+      "name": "Пенсионер",
+      "starting_money": 10,
+      "starting_nerves": 5,
+      "starting_language": 1,
+      "starting_housing": "apartment",
+      "salary": 3,
+      "description": "Много времени, мало денег, стресс от бюрократии"
+    },
+    {
+      "id": "entrepreneur",
+      "name": "Предприниматель",
+      "starting_money": 10,
+      "starting_nerves": 4,
+      "starting_language": 2,
+      "starting_housing": "apartment",
+      "salary_type": "dice",
+      "salary_base": 4,
+      "description": "Высокие риски, высокие доходы, постоянный стресс"
     }
   ]
 }

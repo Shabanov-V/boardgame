@@ -76,6 +76,8 @@ class EffectManager:
                 self.apply_housing_change(player, is_upgrade=True)
             elif key == 'language_bonus':
                 self.apply_bonus(player, 'language', value)
+            elif key == 'movement_bonus':
+                self.apply_bonus(player, 'movement', value)
             else:
                 self.analytics.record_warning(f"Unknown effect key: {key}")
 

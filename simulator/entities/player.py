@@ -1,3 +1,4 @@
+import random
 from .ai import AI
 
 class Player:
@@ -61,7 +62,7 @@ class Player:
             'utility': 0, 'vacation': 0, 'sports': 0
         }
         self.immunities = set()  # {'health_penalty', 'heat_penalty', etc.}
-        self.special_abilities = set()  # {'documents_fast_track', 'language_dice_advantage', etc.}
+        self.special_abilities = profile.get('special_effects', [])
 
     @property
     def document_level(self):

@@ -1,6 +1,7 @@
 """Main game class that orchestrates all game components."""
 
 import random
+import json
 from simulator.entities.board import Board
 from simulator.entities.deck import Deck
 from simulator.entities.player import Player
@@ -73,7 +74,6 @@ class Game:
         
         # Load character profiles from character_config.json
         with open(self.config['character_profiles']) as f:
-            import json
             character_config = json.load(f)
             profiles = random.sample(character_config['character_profiles'], num_players)
 
@@ -200,7 +200,7 @@ class Game:
 
     def handle_movement(self, player):
         """Handle player movement."""
-        roll = random.randint(1, 6)
+        roll = self.roll_for_movement(player)
         # Create movement event
         movement_event = InteractiveEvent(
             "movement",
@@ -482,3 +482,16 @@ class Game:
                     progress += 0.0
         
         return progress / requirements if requirements > 0 else 0.0
+    def roll_for_movement(self, player):
+        """Roll a die for movement, considering movement bonuses."""
+        roll = random.randint(1, 6) + player.special_abilities.count('movement_bonus')
+        bonus = player.get_bonus('movement')
+        if bonus > 0:
+            self.log(f"🎲 {player.name} бросает кубик для передвижения: {roll} + бонус {bonus}")
+            roll += bonus
+            player.use_bonus('movement', bonus)
+            self.analytics.record_bonus_usage(player, 'movement', bonus)
+        else:
+            self.log(f"🎲 {player.name} бросает кубик для передвижения: {roll}")
+        return roll
+

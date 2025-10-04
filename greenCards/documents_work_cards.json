@@ -441,8 +441,7 @@
       "description": "В офисе работает кондиционер",
       "effects": {
         "nerves": 1,
-        "money": 0,
-        "comfort_bonus": true
+        "money": 0
       },
       "flavor_text": "Climate control = productivity"
     },

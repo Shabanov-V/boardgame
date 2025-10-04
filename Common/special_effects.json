@@ -28,12 +28,10 @@
     "add_document_card": "Получить дополнительную карту документа",
     "block_health_penalty": "Блокировка штрафов при проблемах со здоровьем",
     "cancel_money_penalty": "Отмена денежных штрафов",
-    "legal_protection": "Защита от правовых проблем",
-    "work_bonus_next": "Бонус к работе на следующий ход",
+    "legal_protection": "Защита от правовых проблем"
     "language_dice_advantage": "Преимущество при языковых испытаниях",
     "immunity_next_housing": "Иммунитет к жилищным проблемам на следующий ход",
     "block_heat_penalty": "Защита от штрафов из-за жары",
-    "comfort_bonus": "Бонус комфорта",
     "language_upgrade_discount": "Скидка на повышение уровня языка",
     "health_insurance_bonus": "Бонус медицинской страховки",
     "stress_immunity": "Иммунитет к стрессовым событиям",
@@ -47,8 +45,7 @@
     "cultural_integration": "Культурная интеграция",
     "language_immersion": "Языковое погружение",
     "entertainment_bonus": "Развлекательный бонус",
-    "neighbor_relations": "Улучшение отношений с соседями",
-    "housing_bonus": "Бонус к жилищным вопросам",
+    "neighbor_relations": "Улучшение отношений с соседями"
     "language_level_up": "Повышение уровня языка",
     "confidence_bonus": "Бонус уверенности",
     "work_from_home": "Возможность работать из дома",

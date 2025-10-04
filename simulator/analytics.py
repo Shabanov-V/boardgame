@@ -462,7 +462,8 @@ class MultiGameAnalytics:
                 'average_duration': sum(self.aggregated_stats['durations']) / total_games,
                 'average_turns': sum(self.aggregated_stats['turns']) / total_games,
                 'win_distribution': Counter(self.aggregated_stats['winners']),
-                'end_reason_distribution': Counter(self.aggregated_stats['end_reasons'])
+                'end_reason_distribution': Counter(self.aggregated_stats['end_reasons']),
+                'warnings': self._get_warnings_summary(),
             },
             'card_usage_summary': {
                 'total_cards_played': sum(sum(cards.values()) for cards in all_card_usage.values()),
@@ -552,7 +553,11 @@ class MultiGameAnalytics:
                 'avg_document_success_rate': sum(doc_success_rates) / len(doc_success_rates) if doc_success_rates else 0,
                 'avg_challenge_success_rate': sum(challenge_success_rates) / len(challenge_success_rates) if challenge_success_rates else 0
             },
-            'warnings': {
+            'bonus_usage': dict(self.aggregated_stats['bonuses_used']) if 'bonuses_used' in self.aggregated_stats else 0
+        }
+    def _get_warnings_summary(self) -> Dict:
+        """Get a summary of all warnings recorded across games"""
+        return {
                 'total_warnings': sum(self.warning_counts.values()),
                 'unique_warnings': len(self.warning_counts),
                 'warning_distribution': dict(self.warning_counts),
@@ -561,6 +566,4 @@ class MultiGameAnalytics:
                     [(warning, count) for warning, count in self.warning_counts.items()],
                     key=lambda x: (-x[1], x[0])  # Sort by count (descending) then by warning message
                 )[:5]  # Top 5 most frequent warnings
-            },
-            'bonus_usage': dict(self.aggregated_stats['bonuses_used']) if 'bonuses_used' in self.aggregated_stats else 0
-        }
+            }

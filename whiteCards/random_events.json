@@ -420,10 +420,6 @@
         "nerves": -1,
         "money": 0
       },
-      "cultural_bonus": {
-        "character_id": "spanish_spouse",
-        "bonus_nerves": 2
-      },
       "flavor_text": "Semana Santa española"
     },
     {
@@ -2115,8 +2111,7 @@
       "description": "Викторина об испанской культуре",
       "effects": {
         "nerves": 2,
-        "money": -1,
-        "cultural_bonus": true
+        "money": -1
       },
       "flavor_text": "Quiz cultural"
     },
@@ -2152,8 +2147,7 @@
       "description": "Викторина о испанском кинематографе",
       "effects": {
         "nerves": 2,
-        "money": -1,
-        "cultural_bonus": true
+        "money": -1
       },
       "flavor_text": "Quiz de cine"
     },

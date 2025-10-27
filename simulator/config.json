@@ -71,5 +71,5 @@
     "max_action_cards": 10,
     "max_personal_items_hand": 5
   },
-  "character_profiles": "simulator/character_config.json"
+  "character_profiles": "profiles/character_profiles.json"
 }

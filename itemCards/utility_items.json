@@ -104,8 +104,7 @@
         "money": 1
       },
       "effects": {
-        "nerves": 2,
-        "work_bonus_next": true
+        "nerves": 2
       },
       "profile_modifiers": {
         "waiter": {"nerves": 3, "money": 1},
@@ -194,7 +193,6 @@
         "nerves": 2
       },
       "effects": {
-        "language_upgrade_discount": true,
         "language_bonus": 1
       },
       "profile_modifiers": {
@@ -279,8 +277,7 @@
         "money": 1
       },
       "effects": {
-        "nerves": 2,
-        "work_bonus_next": true
+        "nerves": 2
       },
       "when_to_play": "start_of_turn",
       "flavor_text": "Desayuno español = energía máxima"
@@ -295,8 +292,7 @@
         "money": 0
       },
       "effects": {
-        "draw_card": 1,
-        "housing_bonus": true
+        "draw_card": 1
       },
       "when_to_play": "anytime",
       "flavor_text": "Vecinos = red de información"
@@ -360,8 +356,7 @@
       },
       "effects": {
         "nerves": -1,
-        "money": 1,
-        "humor_bonus": true
+        "money": 1
       },
       "when_to_play": "anytime",
       "flavor_text": "Fashion español = comfort first"
@@ -376,8 +371,7 @@
         "money": 1
       },
       "effects": {
-        "nerves": 2,
-        "work_bonus_next": true
+        "nerves": 2
       },
       "when_to_play": "anytime",
       "flavor_text": "Bocata = almuerzo perfecto"
@@ -409,8 +403,7 @@
         "money": 0
       },
       "effects": {
-        "money": 1,
-        "eco_bonus": true
+        "money": 1
       },
       "when_to_play": "anytime",
       "flavor_text": "Bolsa reutilizable = planeta feliz"
@@ -471,8 +464,7 @@
         "money": 1
       },
       "effects": {
-        "nerves": 2,
-        "comfort_bonus": true
+        "nerves": 2
       },
       "when_to_play": "anytime",
       "flavor_text": "Casa = comodidad total"
@@ -518,7 +510,6 @@
         "money": 1
       },
       "effects": {
-        "language_upgrade_discount": true,
         "nerves": 2
       },
       "when_to_play": "anytime",
@@ -621,22 +612,6 @@
       "flavor_text": "Tradición familiar = tesoro"
     },
     {
-      "id": "item_54",
-      "name": "Chanclas de piscina",
-      "category": "lifestyle",
-      "type": "utility",
-      "description": "Резиновые шлёпанцы для общественных мест",
-      "cost": {
-        "money": 1
-      },
-      "effects": {
-        "hygiene_bonus": true,
-        "comfort_bonus": true
-      },
-      "when_to_play": "anytime",
-      "flavor_text": "Higiene pública = necesidad"
-    },
-    {
       "id": "item_55",
       "name": "Despertador analógico",
       "category": "lifestyle",
@@ -646,7 +621,6 @@
         "money": 1
       },
       "effects": {
-        "work_bonus_next": true,
         "reliability_bonus": true
       },
       "when_to_play": "before_important_day",
@@ -677,9 +651,7 @@
         "money": 1
       },
       "effects": {
-        "nerves": 2,
-        "work_bonus": true,
-        "energy_bonus": true
+        "nerves": 2
       },
       "when_to_play": "anytime",
       "flavor_text": "Café caliente = productividad"
@@ -694,8 +666,7 @@
         "money": 1
       },
       "effects": {
-        "nerves": 2,
-        "confidence_bonus": true
+        "nerves": 2
       },
       "when_to_play": "anytime",
       "flavor_text": "Cuidado personal = autoestima"
@@ -726,7 +697,6 @@
         "money": 1
       },
       "effects": {
-        "eco_bonus": true,
         "money": 1
       },
       "when_to_play": "anytime",
@@ -760,9 +730,7 @@
         "nerves": 2
       },
       "effects": {
-        "nerves": 3,
-        "air_quality_bonus": true,
-        "housing_bonus": true
+        "nerves": 3
       },
       "when_to_play": "anytime",
       "flavor_text": "Verde = vida mejor"

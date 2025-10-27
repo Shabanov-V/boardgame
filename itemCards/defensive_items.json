@@ -68,8 +68,7 @@
         "money": 1
       },
       "effects": {
-        "block_heat_penalty": true,
-        "comfort_bonus": true
+        "block_heat_penalty": true
       },
       "when_to_play": "when_heat_event",
       "flavor_text": "Salvación en verano"
@@ -185,8 +184,7 @@
         "nerves": 2
       },
       "effects": {
-        "block_roommate_penalty": true,
-        "housing_bonus": true
+        "block_roommate_penalty": true
       },
       "when_to_play": "when_housing_problem",
       "flavor_text": "Convivencia = reglas claras"
@@ -249,8 +247,7 @@
         "money": 1
       },
       "effects": {
-        "block_shortage_penalty": true,
-        "comfort_bonus": true
+        "block_shortage_penalty": true
       },
       "when_to_play": "when_shortage_event",
       "flavor_text": "Preparación = tranquilidad mental"
@@ -265,8 +262,7 @@
         "money": 1
       },
       "effects": {
-        "block_cold_penalty": true,
-        "comfort_bonus": true
+        "block_cold_penalty": true
       },
       "when_to_play": "when_cold_event",
       "flavor_text": "Pies calientes = cuerpo feliz"
@@ -297,8 +293,7 @@
         "money": 1
       },
       "effects": {
-        "block_illness_penalty": true,
-        "hygiene_bonus": true
+        "block_illness_penalty": true
       },
       "when_to_play": "when_illness_event",
       "flavor_text": "Higiene = primera defensa"

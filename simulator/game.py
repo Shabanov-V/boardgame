@@ -43,7 +43,7 @@ class Game:
         # Initialize analytics
         self.analytics = GameAnalytics()
         self.analytics.start_game(self.players)
-        self.effect_manager = EffectManager(self.analytics, self.logger)
+        self.effect_manager = EffectManager(self.analytics, self.logger, self)
         self.challenge_manager = ChallengeManager(self.effect_manager)
 
     def setup_decks(self):
@@ -494,4 +494,14 @@ class Game:
         else:
             self.log(f"🎲 {player.name} бросает кубик для передвижения: {roll}")
         return roll
+    
+    def draw_action_card(self, player):
+        """Draw an action card for the player."""
+        card = self.decks['action'].draw()
+        if card:
+            player.add_action_card(card)
+            self.analytics.track_card_draw(player, 'action_cards')
+            self.log(f"📥 {player.name} drew action card: {card['name']}")
+        else:
+            self.log(f"📭 No action cards left to draw for {player.name}.")
 

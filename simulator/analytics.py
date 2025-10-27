@@ -48,6 +48,7 @@ class GameAnalytics:
             'dice_challenges': {'total': 0, 'health': 0, 'housing': 0, 'language': 0, 'documents': 0, 'successes': 0},
             'housing_upgrades': {'room_to_apartment': 0, 'apartment_to_mortgage': 0},
             'language_upgrades': {'basic_to_b1': 0, 'b1_to_c1': 0},
+            'card_draws': {'total': 0, 'by_type': defaultdict(int)},
             'money_transactions': {'gains': [], 'losses': []},
             'nerve_changes': {'gains': [], 'losses': []},
             'interactions': {'interferences': 0, 'defenses': 0, 'blocks': 0},
@@ -111,6 +112,11 @@ class GameAnalytics:
             # This will be filled by the game engine
             pass
     
+    def track_card_draw(self, player: Any, card_type: str, count: int = 1):
+        """Track when a player draws cards"""
+        self.mechanics_stats['card_draws']['total'] += count
+        self.mechanics_stats['card_draws']['by_type'][card_type] += count
+
     def track_turn_start(self, player: Any, turn_number: int):
         """Track the start of a player's turn"""
         self.total_turns = turn_number
@@ -462,7 +468,8 @@ class MultiGameAnalytics:
                 'average_duration': sum(self.aggregated_stats['durations']) / total_games,
                 'average_turns': sum(self.aggregated_stats['turns']) / total_games,
                 'win_distribution': Counter(self.aggregated_stats['winners']),
-                'end_reason_distribution': Counter(self.aggregated_stats['end_reasons'])
+                'end_reason_distribution': Counter(self.aggregated_stats['end_reasons']),
+                'warnings': self._get_warnings_summary(),
             },
             'card_usage_summary': {
                 'total_cards_played': sum(sum(cards.values()) for cards in all_card_usage.values()),
@@ -552,7 +559,11 @@ class MultiGameAnalytics:
                 'avg_document_success_rate': sum(doc_success_rates) / len(doc_success_rates) if doc_success_rates else 0,
                 'avg_challenge_success_rate': sum(challenge_success_rates) / len(challenge_success_rates) if challenge_success_rates else 0
             },
-            'warnings': {
+            'bonus_usage': dict(self.aggregated_stats['bonuses_used']) if 'bonuses_used' in self.aggregated_stats else 0
+        }
+    def _get_warnings_summary(self) -> Dict:
+        """Get a summary of all warnings recorded across games"""
+        return {
                 'total_warnings': sum(self.warning_counts.values()),
                 'unique_warnings': len(self.warning_counts),
                 'warning_distribution': dict(self.warning_counts),
@@ -561,6 +572,4 @@ class MultiGameAnalytics:
                     [(warning, count) for warning, count in self.warning_counts.items()],
                     key=lambda x: (-x[1], x[0])  # Sort by count (descending) then by warning message
                 )[:5]  # Top 5 most frequent warnings
-            },
-            'bonus_usage': dict(self.aggregated_stats['bonuses_used']) if 'bonuses_used' in self.aggregated_stats else 0
-        }
+            }

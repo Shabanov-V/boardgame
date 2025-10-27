@@ -48,6 +48,7 @@ class GameAnalytics:
             'dice_challenges': {'total': 0, 'health': 0, 'housing': 0, 'language': 0, 'documents': 0, 'successes': 0},
             'housing_upgrades': {'room_to_apartment': 0, 'apartment_to_mortgage': 0},
             'language_upgrades': {'basic_to_b1': 0, 'b1_to_c1': 0},
+            'card_draws': {'total': 0, 'by_type': defaultdict(int)},
             'money_transactions': {'gains': [], 'losses': []},
             'nerve_changes': {'gains': [], 'losses': []},
             'interactions': {'interferences': 0, 'defenses': 0, 'blocks': 0},
@@ -111,6 +112,11 @@ class GameAnalytics:
             # This will be filled by the game engine
             pass
     
+    def track_card_draw(self, player: Any, card_type: str, count: int = 1):
+        """Track when a player draws cards"""
+        self.mechanics_stats['card_draws']['total'] += count
+        self.mechanics_stats['card_draws']['by_type'][card_type] += count
+
     def track_turn_start(self, player: Any, turn_number: int):
         """Track the start of a player's turn"""
         self.total_turns = turn_number

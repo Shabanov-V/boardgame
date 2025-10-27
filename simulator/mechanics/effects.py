@@ -4,9 +4,10 @@ from simulator.utils.logger import Logger
 class EffectManager:
     """Manages application of card effects to players."""
     
-    def __init__(self, analytics: GameAnalytics, logger: Logger):
+    def __init__(self, analytics: GameAnalytics, logger: Logger, game):
         self.analytics = analytics
         self.logger = logger
+        self.game = game
 
     def apply_effects(self, player, effects, event_manager=None):
         """Apply a dictionary of effects to a player."""
@@ -78,6 +79,8 @@ class EffectManager:
                 self.apply_bonus(player, 'language', value)
             elif key == 'movement_bonus':
                 self.apply_bonus(player, 'movement', value)
+            elif key == 'draw_card':
+                self.game.draw_action_card(player)
             else:
                 self.analytics.record_warning(f"Unknown effect key: {key}")
 

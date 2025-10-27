@@ -193,7 +193,6 @@
         "nerves": 2
       },
       "effects": {
-        "language_upgrade_discount": true,
         "language_bonus": 1
       },
       "profile_modifiers": {
@@ -357,8 +356,7 @@
       },
       "effects": {
         "nerves": -1,
-        "money": 1,
-        "humor_bonus": true
+        "money": 1
       },
       "when_to_play": "anytime",
       "flavor_text": "Fashion español = comfort first"
@@ -405,8 +403,7 @@
         "money": 0
       },
       "effects": {
-        "money": 1,
-        "eco_bonus": true
+        "money": 1
       },
       "when_to_play": "anytime",
       "flavor_text": "Bolsa reutilizable = planeta feliz"
@@ -513,7 +510,6 @@
         "money": 1
       },
       "effects": {
-        "language_upgrade_discount": true,
         "nerves": 2
       },
       "when_to_play": "anytime",
@@ -670,8 +666,7 @@
         "money": 1
       },
       "effects": {
-        "nerves": 2,
-        "confidence_bonus": true
+        "nerves": 2
       },
       "when_to_play": "anytime",
       "flavor_text": "Cuidado personal = autoestima"
@@ -702,7 +697,6 @@
         "money": 1
       },
       "effects": {
-        "eco_bonus": true,
         "money": 1
       },
       "when_to_play": "anytime",
